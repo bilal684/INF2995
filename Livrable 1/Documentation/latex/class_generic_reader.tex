@@ -1,0 +1,284 @@
+\hypertarget{class_generic_reader}{}\section{Generic\+Reader$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$ Class Template Reference}
+\label{class_generic_reader}\index{Generic\+Reader$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$@{Generic\+Reader$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$}}
+
+
+S\+A\+X-\/style J\+S\+ON parser. Use \hyperlink{md_Commun_Externe_RapidJSON_doc_sax.zh-cn_Reader}{Reader} for \hyperlink{struct_u_t_f8}{U\+T\+F8} encoding and default allocator.  
+
+
+
+
+{\ttfamily \#include $<$reader.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_generic_reader_1_1_clear_stack_on_exit}{Clear\+Stack\+On\+Exit}
+\item 
+class \hyperlink{class_generic_reader_1_1_number_stream}{Number\+Stream}
+\item 
+class \hyperlink{class_generic_reader_1_1_number_stream_3_01_input_stream_00_01false_01_4}{Number\+Stream$<$ Input\+Stream, false $>$}
+\item 
+class \hyperlink{class_generic_reader_1_1_number_stream_3_01_input_stream_00_01true_01_4}{Number\+Stream$<$ Input\+Stream, true $>$}
+\item 
+class \hyperlink{class_generic_reader_1_1_stack_stream}{Stack\+Stream}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Source\+Encoding\+::\+Ch \hyperlink{class_generic_reader_ab39a92bb26d50aee6469df604622218a}{Ch}\hypertarget{class_generic_reader_ab39a92bb26d50aee6469df604622218a}{}\label{class_generic_reader_ab39a92bb26d50aee6469df604622218a}
+
+\begin{DoxyCompactList}\small\item\em Source\+Encoding character type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_generic_reader_aab875a34b3092df9fb4e2b8eac6dbb96}{Generic\+Reader} (Stack\+Allocator $\ast$stack\+Allocator=0, size\+\_\+t stack\+Capacity=\hyperlink{class_generic_reader_ac507ea8672bf2b5d01b35583c0597f15}{k\+Default\+Stack\+Capacity})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\\hyperlink{struct_parse_result}{Parse\+Result} \hyperlink{class_generic_reader_a0c450620d14ff1824e58bb7bd9b42099}{Parse} (Input\+Stream \&is, Handler \&handler)
+\begin{DoxyCompactList}\small\item\em Parse J\+S\+ON text. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Input\+Stream , typename Handler $>$ }\\\hyperlink{struct_parse_result}{Parse\+Result} \hyperlink{class_generic_reader_a76d91e5fd8dfe48aea7dd6d8a51dd6dc}{Parse} (Input\+Stream \&is, Handler \&handler)
+\begin{DoxyCompactList}\small\item\em Parse J\+S\+ON text (with \hyperlink{reader_8h_ab7be7dabe6ffcba60fad441505583450a9104b0946d648e9467cb7a967401ec80}{k\+Parse\+Default\+Flags}) \end{DoxyCompactList}\item 
+bool \hyperlink{class_generic_reader_aa9d10652062557ebf26cf414bfeabf84}{Has\+Parse\+Error} () const \hypertarget{class_generic_reader_aa9d10652062557ebf26cf414bfeabf84}{}\label{class_generic_reader_aa9d10652062557ebf26cf414bfeabf84}
+
+\begin{DoxyCompactList}\small\item\em Whether a parse error has occured in the last parsing. \end{DoxyCompactList}\item 
+\hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga8d4b32dfc45840bca189ade2bbcb6ba7}{Parse\+Error\+Code} \hyperlink{class_generic_reader_ac45a26246877c4daa85021ae67caa017}{Get\+Parse\+Error\+Code} () const \hypertarget{class_generic_reader_ac45a26246877c4daa85021ae67caa017}{}\label{class_generic_reader_ac45a26246877c4daa85021ae67caa017}
+
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga8d4b32dfc45840bca189ade2bbcb6ba7}{Parse\+Error\+Code} of last parsing. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{class_generic_reader_a77399ac40cca1fb113a2d507f476b4e7}{Get\+Error\+Offset} () const \hypertarget{class_generic_reader_a77399ac40cca1fb113a2d507f476b4e7}{}\label{class_generic_reader_a77399ac40cca1fb113a2d507f476b4e7}
+
+\begin{DoxyCompactList}\small\item\em Get the position of last parsing error in input, 0 otherwise. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Set\+Parse\+Error} (\hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga8d4b32dfc45840bca189ade2bbcb6ba7}{Parse\+Error\+Code} code, size\+\_\+t offset)\hypertarget{class_generic_reader_ae50079444295bf109730c3b708a818a6}{}\label{class_generic_reader_ae50079444295bf109730c3b708a818a6}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Iterative\+Parsing\+State} \{ \\*
+{\bfseries Iterative\+Parsing\+Start\+State} = 0, 
+{\bfseries Iterative\+Parsing\+Finish\+State}, 
+{\bfseries Iterative\+Parsing\+Error\+State}, 
+{\bfseries Iterative\+Parsing\+Object\+Initial\+State}, 
+\\*
+{\bfseries Iterative\+Parsing\+Member\+Key\+State}, 
+{\bfseries Iterative\+Parsing\+Key\+Value\+Delimiter\+State}, 
+{\bfseries Iterative\+Parsing\+Member\+Value\+State}, 
+{\bfseries Iterative\+Parsing\+Member\+Delimiter\+State}, 
+\\*
+{\bfseries Iterative\+Parsing\+Object\+Finish\+State}, 
+{\bfseries Iterative\+Parsing\+Array\+Initial\+State}, 
+{\bfseries Iterative\+Parsing\+Element\+State}, 
+{\bfseries Iterative\+Parsing\+Element\+Delimiter\+State}, 
+\\*
+{\bfseries Iterative\+Parsing\+Array\+Finish\+State}, 
+{\bfseries Iterative\+Parsing\+Value\+State}, 
+{\bfseries c\+Iterative\+Parsing\+State\+Count}
+ \}\hypertarget{class_generic_reader_a269700a68b925db2f3ecc84b75f2277e}{}\label{class_generic_reader_a269700a68b925db2f3ecc84b75f2277e}
+
+\item 
+enum {\bfseries Token} \{ \\*
+{\bfseries Left\+Bracket\+Token} = 0, 
+{\bfseries Right\+Bracket\+Token}, 
+{\bfseries Left\+Curly\+Bracket\+Token}, 
+{\bfseries Right\+Curly\+Bracket\+Token}, 
+\\*
+{\bfseries Comma\+Token}, 
+{\bfseries Colon\+Token}, 
+{\bfseries String\+Token}, 
+{\bfseries False\+Token}, 
+\\*
+{\bfseries True\+Token}, 
+{\bfseries Null\+Token}, 
+{\bfseries Number\+Token}, 
+{\bfseries k\+Token\+Count}
+ \}\hypertarget{class_generic_reader_a78cbc3012843daeaa44cb3c2b779a8a8}{}\label{class_generic_reader_a78cbc3012843daeaa44cb3c2b779a8a8}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Generic\+Reader} (const \hyperlink{class_generic_reader}{Generic\+Reader} \&)\hypertarget{class_generic_reader_ac767384e34b7078fa9f97ba57c884328}{}\label{class_generic_reader_ac767384e34b7078fa9f97ba57c884328}
+
+\item 
+\hyperlink{class_generic_reader}{Generic\+Reader} \& {\bfseries operator=} (const \hyperlink{class_generic_reader}{Generic\+Reader} \&)\hypertarget{class_generic_reader_ab07a979626cfa121365bb09b61558c11}{}\label{class_generic_reader_ab07a979626cfa121365bb09b61558c11}
+
+\item 
+void {\bfseries Clear\+Stack} ()\hypertarget{class_generic_reader_a1c3db4c395db98714ffb257d559fb28e}{}\label{class_generic_reader_a1c3db4c395db98714ffb257d559fb28e}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+Object} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_af7943451d58ae465e9803d5a78beeb90}{}\label{class_generic_reader_af7943451d58ae465e9803d5a78beeb90}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+Array} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_a8f226bb3c17b232ce142594b7620c8a4}{}\label{class_generic_reader_a8f226bb3c17b232ce142594b7620c8a4}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+Null} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_ae624956124c98a85d23decd86a406a0b}{}\label{class_generic_reader_ae624956124c98a85d23decd86a406a0b}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+True} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_a762f074e0f99c71f0a82cff19bb763cd}{}\label{class_generic_reader_a762f074e0f99c71f0a82cff19bb763cd}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+False} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_af3af2d4e8efa1b8ef2f0bb281d8f0540}{}\label{class_generic_reader_af3af2d4e8efa1b8ef2f0bb281d8f0540}
+
+\item 
+{\footnotesize template$<$typename Input\+Stream $>$ }\\unsigned {\bfseries Parse\+Hex4} (Input\+Stream \&is)\hypertarget{class_generic_reader_a72ded3654cef16bba1b9574b5e3611c8}{}\label{class_generic_reader_a72ded3654cef16bba1b9574b5e3611c8}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+String} (Input\+Stream \&is, Handler \&handler, bool is\+Key=false)\hypertarget{class_generic_reader_ab4d4f63b23b55a72069e2e13eb010cff}{}\label{class_generic_reader_ab4d4f63b23b55a72069e2e13eb010cff}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename S\+Encoding , typename T\+Encoding , typename Input\+Stream , typename Output\+Stream $>$ }\\R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+F\+O\+R\+C\+E\+I\+N\+L\+I\+NE void {\bfseries Parse\+String\+To\+Stream} (Input\+Stream \&is, Output\+Stream \&os)\hypertarget{class_generic_reader_a8fa22aded7085b3fe5f9d59467318f8a}{}\label{class_generic_reader_a8fa22aded7085b3fe5f9d59467318f8a}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+Number} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_a2447207fde31185e2bb8fbf1250b72e0}{}\label{class_generic_reader_a2447207fde31185e2bb8fbf1250b72e0}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\void {\bfseries Parse\+Value} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_a8c0d07512c0fa447f45c9e5b00dd2d70}{}\label{class_generic_reader_a8c0d07512c0fa447f45c9e5b00dd2d70}
+
+\item 
+R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+F\+O\+R\+C\+E\+I\+N\+L\+I\+NE Token {\bfseries Tokenize} (\hyperlink{class_generic_reader_ab39a92bb26d50aee6469df604622218a}{Ch} c)\hypertarget{class_generic_reader_a9b3547ce0d99a8e53177c3d193e3d462}{}\label{class_generic_reader_a9b3547ce0d99a8e53177c3d193e3d462}
+
+\item 
+R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+F\+O\+R\+C\+E\+I\+N\+L\+I\+NE Iterative\+Parsing\+State {\bfseries Predict} (Iterative\+Parsing\+State state, Token token)\hypertarget{class_generic_reader_ae20c2989d379782f3bbf81561a67ebcd}{}\label{class_generic_reader_ae20c2989d379782f3bbf81561a67ebcd}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+F\+O\+R\+C\+E\+I\+N\+L\+I\+NE Iterative\+Parsing\+State {\bfseries Transit} (Iterative\+Parsing\+State src, Token token, Iterative\+Parsing\+State dst, Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_a09637865e7aea8e50fb8f9fc25dd65ad}{}\label{class_generic_reader_a09637865e7aea8e50fb8f9fc25dd65ad}
+
+\item 
+{\footnotesize template$<$typename Input\+Stream $>$ }\\void {\bfseries Handle\+Error} (Iterative\+Parsing\+State src, Input\+Stream \&is)\hypertarget{class_generic_reader_a46660019ff1ed42bc192d9b5f9119b0f}{}\label{class_generic_reader_a46660019ff1ed42bc192d9b5f9119b0f}
+
+\item 
+{\footnotesize template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ }\\\hyperlink{struct_parse_result}{Parse\+Result} {\bfseries Iterative\+Parse} (Input\+Stream \&is, Handler \&handler)\hypertarget{class_generic_reader_a55a2d3fd3d5261f26513ed303724bc3a}{}\label{class_generic_reader_a55a2d3fd3d5261f26513ed303724bc3a}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classinternal_1_1_stack}{internal\+::\+Stack}$<$ Stack\+Allocator $>$ \hyperlink{class_generic_reader_a7c04f4aa27561d358376920d06b78cdb}{stack\+\_\+}\hypertarget{class_generic_reader_a7c04f4aa27561d358376920d06b78cdb}{}\label{class_generic_reader_a7c04f4aa27561d358376920d06b78cdb}
+
+\begin{DoxyCompactList}\small\item\em A stack for storing decoded string temporarily during non-\/destructive parsing. \end{DoxyCompactList}\item 
+\hyperlink{struct_parse_result}{Parse\+Result} {\bfseries parse\+Result\+\_\+}\hypertarget{class_generic_reader_a156018c2805bfa730287314ee9d9257d}{}\label{class_generic_reader_a156018c2805bfa730287314ee9d9257d}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t \hyperlink{class_generic_reader_ac507ea8672bf2b5d01b35583c0597f15}{k\+Default\+Stack\+Capacity} = 256\hypertarget{class_generic_reader_ac507ea8672bf2b5d01b35583c0597f15}{}\label{class_generic_reader_ac507ea8672bf2b5d01b35583c0597f15}
+
+\begin{DoxyCompactList}\small\item\em Default stack capacity in bytes for storing a single decoded string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Source\+Encoding, typename Target\+Encoding, typename Stack\+Allocator = Crt\+Allocator$>$\\*
+class Generic\+Reader$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$}
+
+S\+A\+X-\/style J\+S\+ON parser. Use \hyperlink{md_Commun_Externe_RapidJSON_doc_sax.zh-cn_Reader}{Reader} for \hyperlink{struct_u_t_f8}{U\+T\+F8} encoding and default allocator. 
+
+\hyperlink{class_generic_reader}{Generic\+Reader} parses J\+S\+ON text from a stream, and send events synchronously to an object implementing Handler concept.
+
+It needs to allocate a stack for storing a single decoded string during non-\/destructive parsing.
+
+For in-\/situ parsing, the decoded string is directly written to the source text string, no temporary buffer is required.
+
+A \hyperlink{class_generic_reader}{Generic\+Reader} object can be reused for parsing multiple J\+S\+ON text.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Source\+Encoding} & Encoding of the input stream. \\
+\hline
+{\em Target\+Encoding} & Encoding of the parse output. \\
+\hline
+{\em Stack\+Allocator} & Allocator type for stack. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Generic\+Reader@{Generic\+Reader}!Generic\+Reader@{Generic\+Reader}}
+\index{Generic\+Reader@{Generic\+Reader}!Generic\+Reader@{Generic\+Reader}}
+\subsubsection[{\texorpdfstring{Generic\+Reader(\+Stack\+Allocator $\ast$stack\+Allocator=0, size\+\_\+t stack\+Capacity=k\+Default\+Stack\+Capacity)}{GenericReader(StackAllocator *stackAllocator=0, size_t stackCapacity=kDefaultStackCapacity)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Source\+Encoding, typename Target\+Encoding, typename Stack\+Allocator = Crt\+Allocator$>$ {\bf Generic\+Reader}$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$\+::{\bf Generic\+Reader} (
+\begin{DoxyParamCaption}
+\item[{Stack\+Allocator $\ast$}]{stack\+Allocator = {\ttfamily 0}, }
+\item[{size\+\_\+t}]{stack\+Capacity = {\ttfamily {\bf k\+Default\+Stack\+Capacity}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_generic_reader_aab875a34b3092df9fb4e2b8eac6dbb96}{}\label{class_generic_reader_aab875a34b3092df9fb4e2b8eac6dbb96}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack\+Allocator} & Optional allocator for allocating stack memory. (Only use for non-\/destructive parsing) \\
+\hline
+{\em stack\+Capacity} & stack capacity in bytes for storing a single decoded string. (Only use for non-\/destructive parsing) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Generic\+Reader@{Generic\+Reader}!Parse@{Parse}}
+\index{Parse@{Parse}!Generic\+Reader@{Generic\+Reader}}
+\subsubsection[{\texorpdfstring{Parse(\+Input\+Stream \&is, Handler \&handler)}{Parse(InputStream &is, Handler &handler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Source\+Encoding, typename Target\+Encoding, typename Stack\+Allocator = Crt\+Allocator$>$ template$<$unsigned parse\+Flags, typename Input\+Stream , typename Handler $>$ {\bf Parse\+Result} {\bf Generic\+Reader}$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$\+::Parse (
+\begin{DoxyParamCaption}
+\item[{Input\+Stream \&}]{is, }
+\item[{Handler \&}]{handler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_generic_reader_a0c450620d14ff1824e58bb7bd9b42099}{}\label{class_generic_reader_a0c450620d14ff1824e58bb7bd9b42099}
+
+
+Parse J\+S\+ON text. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em parse\+Flags} & Combination of \hyperlink{reader_8h_ab7be7dabe6ffcba60fad441505583450}{Parse\+Flag}. \\
+\hline
+{\em Input\+Stream} & Type of input stream, implementing Stream concept. \\
+\hline
+{\em Handler} & Type of handler, implementing Handler concept. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em is} & Input stream to be parsed. \\
+\hline
+{\em handler} & The handler to receive events. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the parsing is successful. 
+\end{DoxyReturn}
+\index{Generic\+Reader@{Generic\+Reader}!Parse@{Parse}}
+\index{Parse@{Parse}!Generic\+Reader@{Generic\+Reader}}
+\subsubsection[{\texorpdfstring{Parse(\+Input\+Stream \&is, Handler \&handler)}{Parse(InputStream &is, Handler &handler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Source\+Encoding, typename Target\+Encoding, typename Stack\+Allocator = Crt\+Allocator$>$ template$<$typename Input\+Stream , typename Handler $>$ {\bf Parse\+Result} {\bf Generic\+Reader}$<$ Source\+Encoding, Target\+Encoding, Stack\+Allocator $>$\+::Parse (
+\begin{DoxyParamCaption}
+\item[{Input\+Stream \&}]{is, }
+\item[{Handler \&}]{handler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_generic_reader_a76d91e5fd8dfe48aea7dd6d8a51dd6dc}{}\label{class_generic_reader_a76d91e5fd8dfe48aea7dd6d8a51dd6dc}
+
+
+Parse J\+S\+ON text (with \hyperlink{reader_8h_ab7be7dabe6ffcba60fad441505583450a9104b0946d648e9467cb7a967401ec80}{k\+Parse\+Default\+Flags}) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Input\+Stream} & Type of input stream, implementing Stream concept \\
+\hline
+{\em Handler} & Type of handler, implementing Handler concept. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em is} & Input stream to be parsed. \\
+\hline
+{\em handler} & The handler to receive events. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the parsing is successful. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+Rapid\+J\+S\+O\+N/include/rapidjson/\hyperlink{reader_8h}{reader.\+h}\end{DoxyCompactItemize}

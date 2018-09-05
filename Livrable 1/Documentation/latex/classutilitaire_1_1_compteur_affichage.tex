@@ -1,0 +1,208 @@
+\hypertarget{classutilitaire_1_1_compteur_affichage}{}\section{utilitaire\+:\+:Compteur\+Affichage Class Reference}
+\label{classutilitaire_1_1_compteur_affichage}\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+
+
+Classe qui gère le compte des affichages par secondes (\char`\"{}\+F\+P\+S\char`\"{}).  
+
+
+
+
+{\ttfamily \#include $<$Compteur\+Affichage.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classutilitaire_1_1_compteur_affichage_a1902a495b4898b3f7ab9056537db00cc}{obtenir\+Affichages\+Seconde} () const 
+\begin{DoxyCompactList}\small\item\em Obtient le dernier nombre calculé d\textquotesingle{}affichages par seconde. \end{DoxyCompactList}\item 
+void \hyperlink{classutilitaire_1_1_compteur_affichage_a49f6562d1a37e275ff8c8c0e9be41ab5}{signaler\+Affichage} ()
+\begin{DoxyCompactList}\small\item\em Indique qu\textquotesingle{}un affichage vient de se produire. \end{DoxyCompactList}\item 
+void \hyperlink{classutilitaire_1_1_compteur_affichage_a69b89a3d76cde700f1c08580bab010ca}{reinitialiser} ()
+\begin{DoxyCompactList}\small\item\em Réinitialise le compteur d\textquotesingle{}affichage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classutilitaire_1_1_compteur_affichage}{Compteur\+Affichage} $\ast$ \hyperlink{classutilitaire_1_1_compteur_affichage_a87a0785c0c73f0da0f6ffc4a86a609fe}{obtenir\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}instance unique de la classe. \end{DoxyCompactList}\item 
+static void \hyperlink{classutilitaire_1_1_compteur_affichage_ae37d88f73c83bfd3ff3c95496c9ef400}{liberer\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Libère l\textquotesingle{}instance unique de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classutilitaire_1_1_compteur_affichage_a8f64bfcab7453ed6a1e5a55e623ee9ed}{Compteur\+Affichage} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. \end{DoxyCompactList}\item 
+\hyperlink{classutilitaire_1_1_compteur_affichage_a56949056dabe2e8ebe6677c6581bfa48}{$\sim$\+Compteur\+Affichage} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\hyperlink{classutilitaire_1_1_compteur_affichage_acb2a09e6ec1f60fb776699aa898be1a9}{Compteur\+Affichage} (const \hyperlink{classutilitaire_1_1_compteur_affichage}{Compteur\+Affichage} \&)
+\item 
+\hyperlink{classutilitaire_1_1_compteur_affichage}{Compteur\+Affichage} \& \hyperlink{classutilitaire_1_1_compteur_affichage_a81f3514b1efd43b3b4fc36fa17c36946}{operator=} (const \hyperlink{classutilitaire_1_1_compteur_affichage}{Compteur\+Affichage} \&)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classutilitaire_1_1_compteur_affichage_a9f23a06843348997e8689c9507c09e6f}{nb\+Affichages\+Seconde\+\_\+}\hypertarget{classutilitaire_1_1_compteur_affichage_a9f23a06843348997e8689c9507c09e6f}{}\label{classutilitaire_1_1_compteur_affichage_a9f23a06843348997e8689c9507c09e6f}
+
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}affichages dans la dernière seconde. \end{DoxyCompactList}\item 
+unsigned long \hyperlink{classutilitaire_1_1_compteur_affichage_a5a08d51b12db8744eaaf54c0df5c3dd5}{derniere\+Lecture\+\_\+}\hypertarget{classutilitaire_1_1_compteur_affichage_a5a08d51b12db8744eaaf54c0df5c3dd5}{}\label{classutilitaire_1_1_compteur_affichage_a5a08d51b12db8744eaaf54c0df5c3dd5}
+
+\begin{DoxyCompactList}\small\item\em Dernière lecture du temps. \end{DoxyCompactList}\item 
+int \hyperlink{classutilitaire_1_1_compteur_affichage_a803e39c54bdad8da5ef1208e987dc38e}{compte\+\_\+}\hypertarget{classutilitaire_1_1_compteur_affichage_a803e39c54bdad8da5ef1208e987dc38e}{}\label{classutilitaire_1_1_compteur_affichage_a803e39c54bdad8da5ef1208e987dc38e}
+
+\begin{DoxyCompactList}\small\item\em Compte des affichages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classutilitaire_1_1_compteur_affichage}{Compteur\+Affichage} $\ast$ \hyperlink{classutilitaire_1_1_compteur_affichage_a5f8529862276fd1d16592d45f888a880}{instance\+\_\+} \{ 0 \}\hypertarget{classutilitaire_1_1_compteur_affichage_a5f8529862276fd1d16592d45f888a880}{}\label{classutilitaire_1_1_compteur_affichage_a5f8529862276fd1d16592d45f888a880}
+
+\begin{DoxyCompactList}\small\item\em Pointeur vers l\textquotesingle{}instance unique de la classe. \end{DoxyCompactList}\item 
+static const int \hyperlink{classutilitaire_1_1_compteur_affichage_a19333b97c69661339ad5ef6b4ec49d36}{T\+E\+M\+P\+S\+\_\+\+R\+A\+F\+R\+A\+I\+C\+H\+I\+S\+S\+E\+M\+E\+NT} \{ 1000 \}\hypertarget{classutilitaire_1_1_compteur_affichage_a19333b97c69661339ad5ef6b4ec49d36}{}\label{classutilitaire_1_1_compteur_affichage_a19333b97c69661339ad5ef6b4ec49d36}
+
+\begin{DoxyCompactList}\small\item\em Nombre de millisecondes entre les rafraichissements du nombre d\textquotesingle{}affichages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe qui gère le compte des affichages par secondes (\char`\"{}\+F\+P\+S\char`\"{}). 
+
+\begin{DoxyAuthor}{Author}
+Martin Bisson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2007-\/03-\/09 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!Compteur\+Affichage@{Compteur\+Affichage}}
+\index{Compteur\+Affichage@{Compteur\+Affichage}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{Compteur\+Affichage()}{CompteurAffichage()}}]{\setlength{\rightskip}{0pt plus 5cm}utilitaire\+::\+Compteur\+Affichage\+::\+Compteur\+Affichage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classutilitaire_1_1_compteur_affichage_a8f64bfcab7453ed6a1e5a55e623ee9ed}{}\label{classutilitaire_1_1_compteur_affichage_a8f64bfcab7453ed6a1e5a55e623ee9ed}
+
+
+Constructeur par défaut. 
+
+Ce constructeur par défaut ne fait qu\textquotesingle{}initialiser les membres de du compteur.
+
+\begin{DoxyReturn}{Returns}
+Aucune (constructeur). 
+\end{DoxyReturn}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!````~Compteur\+Affichage@{$\sim$\+Compteur\+Affichage}}
+\index{````~Compteur\+Affichage@{$\sim$\+Compteur\+Affichage}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{$\sim$\+Compteur\+Affichage()}{~CompteurAffichage()}}]{\setlength{\rightskip}{0pt plus 5cm}utilitaire\+::\+Compteur\+Affichage\+::$\sim$\+Compteur\+Affichage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classutilitaire_1_1_compteur_affichage_a56949056dabe2e8ebe6677c6581bfa48}{}\label{classutilitaire_1_1_compteur_affichage_a56949056dabe2e8ebe6677c6581bfa48}
+
+
+Destructeur. 
+
+Ce destructeur ne fait rien, mais est quand même déclaré afin de pouvoir être déclaré privé pour l\textquotesingle{}implantation du patron singleton.
+
+\begin{DoxyReturn}{Returns}
+Aucune (destructeur). 
+\end{DoxyReturn}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!Compteur\+Affichage@{Compteur\+Affichage}}
+\index{Compteur\+Affichage@{Compteur\+Affichage}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{Compteur\+Affichage(const Compteur\+Affichage \&)}{CompteurAffichage(const CompteurAffichage &)}}]{\setlength{\rightskip}{0pt plus 5cm}utilitaire\+::\+Compteur\+Affichage\+::\+Compteur\+Affichage (
+\begin{DoxyParamCaption}
+\item[{const {\bf Compteur\+Affichage} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classutilitaire_1_1_compteur_affichage_acb2a09e6ec1f60fb776699aa898be1a9}{}\label{classutilitaire_1_1_compteur_affichage_acb2a09e6ec1f60fb776699aa898be1a9}
+Constructeur copie. Déclaré mais non défini pour éviter qu\textquotesingle{}il soit généré par le compilateur. 
+
+\subsection{Member Function Documentation}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!liberer\+Instance@{liberer\+Instance}}
+\index{liberer\+Instance@{liberer\+Instance}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{liberer\+Instance()}{libererInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}void utilitaire\+::\+Compteur\+Affichage\+::liberer\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classutilitaire_1_1_compteur_affichage_ae37d88f73c83bfd3ff3c95496c9ef400}{}\label{classutilitaire_1_1_compteur_affichage_ae37d88f73c83bfd3ff3c95496c9ef400}
+
+
+Libère l\textquotesingle{}instance unique de la classe. 
+
+Cette fonction libère l\textquotesingle{}instance unique de cette classe.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!obtenir\+Affichages\+Seconde@{obtenir\+Affichages\+Seconde}}
+\index{obtenir\+Affichages\+Seconde@{obtenir\+Affichages\+Seconde}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{obtenir\+Affichages\+Seconde() const }{obtenirAffichagesSeconde() const }}]{\setlength{\rightskip}{0pt plus 5cm}int utilitaire\+::\+Compteur\+Affichage\+::obtenir\+Affichages\+Seconde (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classutilitaire_1_1_compteur_affichage_a1902a495b4898b3f7ab9056537db00cc}{}\label{classutilitaire_1_1_compteur_affichage_a1902a495b4898b3f7ab9056537db00cc}
+
+
+Obtient le dernier nombre calculé d\textquotesingle{}affichages par seconde. 
+
+Cette fonction retourne le dernier nombre d\textquotesingle{}affichages par seconde calculé par le compteur.
+
+\begin{DoxyReturn}{Returns}
+Le nombre d\textquotesingle{}affichages par seconce le plus récent. 
+\end{DoxyReturn}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!obtenir\+Instance@{obtenir\+Instance}}
+\index{obtenir\+Instance@{obtenir\+Instance}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{obtenir\+Instance()}{obtenirInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Compteur\+Affichage} $\ast$ utilitaire\+::\+Compteur\+Affichage\+::obtenir\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classutilitaire_1_1_compteur_affichage_a87a0785c0c73f0da0f6ffc4a86a609fe}{}\label{classutilitaire_1_1_compteur_affichage_a87a0785c0c73f0da0f6ffc4a86a609fe}
+
+
+Obtient l\textquotesingle{}instance unique de la classe. 
+
+Cette fonction retourne un pointeur vers l\textquotesingle{}instance unique de la classe. Si cette instance n\textquotesingle{}a pas été créée, elle la crée. Cette création n\textquotesingle{}est toutefois pas nécessairement \char`\"{}thread-\/safe\char`\"{}, car aucun verrou n\textquotesingle{}est pris entre le test pour savoir si l\textquotesingle{}instance existe et le moment de sa création.
+
+\begin{DoxyReturn}{Returns}
+Un pointeur vers l\textquotesingle{}instance unique de cette classe. 
+\end{DoxyReturn}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!operator=@{operator=}}
+\index{operator=@{operator=}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{operator=(const Compteur\+Affichage \&)}{operator=(const CompteurAffichage &)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Compteur\+Affichage}\& utilitaire\+::\+Compteur\+Affichage\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Compteur\+Affichage} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classutilitaire_1_1_compteur_affichage_a81f3514b1efd43b3b4fc36fa17c36946}{}\label{classutilitaire_1_1_compteur_affichage_a81f3514b1efd43b3b4fc36fa17c36946}
+Opérateur d\textquotesingle{}assignation. Déclaré mais non défini pour éviter qu\textquotesingle{}il soit généré par le compilateur. \index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!reinitialiser@{reinitialiser}}
+\index{reinitialiser@{reinitialiser}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{reinitialiser()}{reinitialiser()}}]{\setlength{\rightskip}{0pt plus 5cm}void utilitaire\+::\+Compteur\+Affichage\+::reinitialiser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classutilitaire_1_1_compteur_affichage_a69b89a3d76cde700f1c08580bab010ca}{}\label{classutilitaire_1_1_compteur_affichage_a69b89a3d76cde700f1c08580bab010ca}
+
+
+Réinitialise le compteur d\textquotesingle{}affichage. 
+
+Cette fonction réinitialise le compteur d\textquotesingle{}affichage à son état initiale.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}!signaler\+Affichage@{signaler\+Affichage}}
+\index{signaler\+Affichage@{signaler\+Affichage}!utilitaire\+::\+Compteur\+Affichage@{utilitaire\+::\+Compteur\+Affichage}}
+\subsubsection[{\texorpdfstring{signaler\+Affichage()}{signalerAffichage()}}]{\setlength{\rightskip}{0pt plus 5cm}void utilitaire\+::\+Compteur\+Affichage\+::signaler\+Affichage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classutilitaire_1_1_compteur_affichage_a49f6562d1a37e275ff8c8c0e9be41ab5}{}\label{classutilitaire_1_1_compteur_affichage_a49f6562d1a37e275ff8c8c0e9be41ab5}
+
+
+Indique qu\textquotesingle{}un affichage vient de se produire. 
+
+Cette fonction effectue le traitement nécessaire lorsqu\textquotesingle{}un affichage est signalée, c\textquotesingle{}est-\/à-\/dire qu\textquotesingle{}elle incrémente le compte et vérifie si la limite de temps pour la mise à jour est dépassée.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Utilitaire/\hyperlink{_compteur_affichage_8h}{Compteur\+Affichage.\+h}\item 
+Commun/\+Utilitaire/\hyperlink{_compteur_affichage_8cpp}{Compteur\+Affichage.\+cpp}\end{DoxyCompactItemize}

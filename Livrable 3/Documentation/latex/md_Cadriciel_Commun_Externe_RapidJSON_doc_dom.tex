@@ -1,0 +1,279 @@
+Document Object Model(\+D\+O\+M) is an in-\/memory representation of J\+S\+ON for query and manipulation. The basic usage of D\+OM is described in Tutorial. This section will describe some details and more advanced usages.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_Template}{}\section{Template}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_Template}
+In the tutorial, {\ttfamily Value} and {\ttfamily Document} was used. Similarly to {\ttfamily std\+::string}, these are actually {\ttfamily typedef} of template classes\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{namespace }\hyperlink{namespacerapidjson}{rapidjson} \{
+
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} Encoding, \textcolor{keyword}{typename} Allocator = MemoryPoolAllocator<> >
+\textcolor{keyword}{class }\hyperlink{class_generic_value}{GenericValue} \{
+    \textcolor{comment}{// ...}
+\};
+
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} Encoding, \textcolor{keyword}{typename} Allocator = MemoryPoolAllocator<> >
+\textcolor{keyword}{class }\hyperlink{class_generic_document}{GenericDocument} : \textcolor{keyword}{public} \hyperlink{class_generic_value}{GenericValue}<Encoding, Allocator> \{
+    \textcolor{comment}{// ...}
+\};
+
+\textcolor{keyword}{typedef} \hyperlink{class_generic_value}{GenericValue<UTF8<>} > \hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value};
+\textcolor{keyword}{typedef} GenericDocument<UTF8<> > \hyperlink{document_8h_ac6ea5b168e3fe8c7fa532450fc9391f7}{Document};
+
+\} \textcolor{comment}{// namespace rapidjson}
+\end{DoxyCode}
+
+
+User can customize these template parameters.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_Encoding}{}\subsection{Encoding}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_Encoding}
+The {\ttfamily Encoding} parameter specifies the encoding of J\+S\+ON String value in memory. Possible options are {\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}, {\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}}, {\ttfamily \hyperlink{struct_u_t_f32}{U\+T\+F32}}. Note that, these 3 types are also template class. {\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$} is {\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}$<$char$>$}, which means using char to store the characters. You may refer to Encoding for details.
+
+Suppose a Windows application would query localization strings stored in J\+S\+ON files. Unicode-\/enabled functions in Windows use U\+T\+F-\/16 (wide character) encoding. No matter what encoding was used in J\+S\+ON files, we can store the strings in U\+T\+F-\/16 in memory.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keyword}{typedef} \hyperlink{class_generic_document}{GenericDocument<UTF16<>} > WDocument;
+\textcolor{keyword}{typedef} \hyperlink{class_generic_value}{GenericValue<UTF16<>} > WValue;
+
+FILE* fp = fopen(\textcolor{stringliteral}{"localization.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// non-Windows use "r"}
+
+\textcolor{keywordtype}{char} readBuffer[256];
+\hyperlink{class_file_read_stream}{FileReadStream} bis(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_auto_u_t_f_input_stream}{AutoUTFInputStream<unsigned, FileReadStream>} eis(bis);  \textcolor{comment}{//
+       wraps bis into eis}
+
+WDocument d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}<0, \hyperlink{struct_auto_u_t_f}{AutoUTF<unsigned>} >(eis);
+
+\textcolor{keyword}{const} WValue locale(L\textcolor{stringliteral}{"ja"}); \textcolor{comment}{// Japanese}
+
+MessageBoxW(hWnd, d[locale].GetString(), L\textcolor{stringliteral}{"Test"}, MB\_OK);
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Allocator}{}\subsection{Allocator}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Allocator}
+The {\ttfamily Allocator} defines which allocator class is used when allocating/deallocating memory for {\ttfamily Document}/{\ttfamily Value}. {\ttfamily Document} owns, or references to an {\ttfamily Allocator} instance. On the other hand, {\ttfamily Value} does not do so, in order to reduce memory consumption.
+
+The default allocator used in {\ttfamily \hyperlink{class_generic_document}{Generic\+Document}} is {\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}}. This allocator actually allocate memory sequentially, and cannot deallocate one by one. This is very suitable when parsing a J\+S\+ON into a D\+OM tree.
+
+Another allocator is {\ttfamily \hyperlink{class_crt_allocator}{Crt\+Allocator}}, of which C\+RT is short for C Run\+Time library. This allocator simply calls the standard {\ttfamily malloc()}/{\ttfamily realloc()}/{\ttfamily free()}. When there is a lot of add and remove operations, this allocator may be preferred. But this allocator is far less efficient than {\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Parsing}{}\section{Parsing}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Parsing}
+{\ttfamily Document} provides several functions for parsing. In below, (1) is the fundamental function, while the others are helpers which call (1).
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{comment}{// (1) Fundamental}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} SourceEncoding, \textcolor{keyword}{typename} InputStream>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{GenericDocument::ParseStream}(InputStream& is);
+
+\textcolor{comment}{// (2) Using the same Encoding for stream}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} InputStream>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{GenericDocument::ParseStream}(InputStream& is);
+
+\textcolor{comment}{// (3) Using default parse flags}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} InputStream>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{GenericDocument::ParseStream}(InputStream& is);
+
+\textcolor{comment}{// (4) In situ parsing}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_a301f8f297a5a0da4b6be5459ad766f75}{GenericDocument::ParseInsitu}(Ch* str);
+
+\textcolor{comment}{// (5) In situ parsing, using default parse flags}
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_a301f8f297a5a0da4b6be5459ad766f75}{GenericDocument::ParseInsitu}(Ch* str);
+
+\textcolor{comment}{// (6) Normal parsing of a string}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} SourceEncoding>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{GenericDocument::Parse}(\textcolor{keyword}{const} Ch* str);
+
+\textcolor{comment}{// (7) Normal parsing of a string, using same Encoding of Document}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{GenericDocument::Parse}(\textcolor{keyword}{const} Ch* str);
+
+\textcolor{comment}{// (8) Normal parsing of a string, using default parse flags}
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{GenericDocument::Parse}(\textcolor{keyword}{const} Ch* str);
+\end{DoxyCode}
+
+
+The examples of tutorial uses (8) for normal parsing of string. The examples of stream uses the first three. {\itshape In situ} parsing will be described soon.
+
+The {\ttfamily parse\+Flags} are combination of the following bit-\/flags\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Parse flags }&{\bf Meaning  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Parse flags }&{\bf Meaning  }\\\cline{1-2}
+\endhead
+{\ttfamily k\+Parse\+No\+Flags} &No flag is set. \\\cline{1-2}
+{\ttfamily k\+Parse\+Default\+Flags} &Default parse flags. It is equal to macro {\ttfamily R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+P\+A\+R\+S\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+F\+L\+A\+GS}, which is defined as {\ttfamily k\+Parse\+No\+Flags}. \\\cline{1-2}
+{\ttfamily k\+Parse\+Insitu\+Flag} &In-\/situ(destructive) parsing. \\\cline{1-2}
+{\ttfamily k\+Parse\+Validate\+Encoding\+Flag} &Validate encoding of J\+S\+ON strings. \\\cline{1-2}
+{\ttfamily k\+Parse\+Iterative\+Flag} &Iterative(constant complexity in terms of function call stack size) parsing. \\\cline{1-2}
+{\ttfamily k\+Parse\+Stop\+When\+Done\+Flag} &After parsing a complete J\+S\+ON root from stream, stop further processing the rest of stream. When this flag is used, parser will not generate {\ttfamily k\+Parse\+Error\+Document\+Root\+Not\+Singular} error. Using this flag for parsing multiple J\+S\+O\+Ns in the same stream. \\\cline{1-2}
+{\ttfamily k\+Parse\+Full\+Precision\+Flag} &Parse number in full precision (slower). If this flag is not set, the normal precision (faster) is used. Normal precision has maximum 3 \href{http://en.wikipedia.org/wiki/Unit_in_the_last_place}{\tt U\+LP} error. \\\cline{1-2}
+\end{longtabu}
+By using a non-\/type template parameter, instead of a function parameter, C++ compiler can generate code which is optimized for specified combinations, improving speed, and reducing code size (if only using a single specialization). The downside is the flags needed to be determined in compile-\/time.
+
+The {\ttfamily Source\+Encoding} parameter defines what encoding is in the stream. This can be differed to the {\ttfamily Encoding} of the {\ttfamily Document}. See \href{#TranscodingAndValidation}{\tt Transcoding and Validation} section for details.
+
+And the {\ttfamily Input\+Stream} is type of input stream.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_ParseError}{}\subsection{Parse Error}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_ParseError}
+When the parse processing succeeded, the {\ttfamily Document} contains the parse results. When there is an error, the original D\+OM is {\itshape unchanged}. And the error state of parsing can be obtained by {\ttfamily bool Has\+Parse\+Error()}, {\ttfamily Parse\+Error\+Code Get\+Parse\+Error()} and {\ttfamily size\+\_\+t Get\+Parse\+Offset()}.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Parse Error Code }&{\bf Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Parse Error Code }&{\bf Description  }\\\cline{1-2}
+\endhead
+{\ttfamily k\+Parse\+Error\+None} &No error. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Document\+Empty} &The document is empty. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Document\+Root\+Not\+Singular} &The document root must not follow by other values. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Value\+Invalid} &Invalid value. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Object\+Miss\+Name} &Missing a name for object member. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Object\+Miss\+Colon} &Missing a colon after a name of object member. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Object\+Miss\+Comma\+Or\+Curly\+Bracket} &Missing a comma or {\ttfamily \}} after an object member. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Array\+Miss\+Comma\+Or\+Square\+Bracket} &Missing a comma or {\ttfamily \mbox{]}} after an array element. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Unicode\+Escape\+Invalid\+Hex} &Incorrect hex digit after {\ttfamily \textbackslash{}\textbackslash{}u} escape in string. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Unicode\+Surrogate\+Invalid} &The surrogate pair in string is invalid. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Escape\+Invalid} &Invalid escape character in string. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Miss\+Quotation\+Mark} &Missing a closing quotation mark in string. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Invalid\+Encoding} &Invalid encoding in string. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Number\+Too\+Big} &Number too big to be stored in {\ttfamily double}. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Number\+Miss\+Fraction} &Miss fraction part in number. \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Number\+Miss\+Exponent} &Miss exponent in number. \\\cline{1-2}
+\end{longtabu}
+The offset of error is defined as the character number from beginning of stream. Currently Rapid\+J\+S\+ON does not keep track of line number.
+
+To get an error message, Rapid\+J\+S\+ON provided a English messages in {\ttfamily \hyperlink{en_8h_source}{rapidjson/error/en.\+h}}. User can customize it for other locales, or use a custom localization system.
+
+Here shows an example of parse error handling.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+\textcolor{preprocessor}{#include "rapidjson/error/en.h"}
+
+\textcolor{comment}{// ...}
+\hyperlink{class_generic_document}{Document} d;
+\textcolor{keywordflow}{if} (d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json).\hyperlink{class_generic_document_afe0c87d9fc13a78597360e0646479419}{HasParseError}()) \{
+    fprintf(stderr, \textcolor{stringliteral}{"\(\backslash\)nError(offset %u): %s\(\backslash\)n"}, 
+        (\textcolor{keywordtype}{unsigned})d.\hyperlink{class_generic_document_a2db6ad11d157342f725470fb898b6712}{GetErrorOffset}(),
+        \hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga755b523205f46c980c80d12e230a3abd}{GetParseError\_En}(d.GetParseErrorCode()));
+    \textcolor{comment}{// ...}
+\}
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_InSituParsing}{}\subsection{In Situ Parsing}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_InSituParsing}
+From \href{http://en.wikipedia.org/wiki/In_situ}{\tt Wikipedia}\+:
+
+\begin{quote}
+{\itshape In situ} ... is a Latin phrase that translates literally to \char`\"{}on site\char`\"{} or \char`\"{}in position\char`\"{}. It means \char`\"{}locally\char`\"{}, \char`\"{}on site\char`\"{}, \char`\"{}on the premises\char`\"{} or \char`\"{}in place\char`\"{} to describe an event where it takes place, and is used in many different contexts. ... (In computer science) An algorithm is said to be an in situ algorithm, or in-\/place algorithm, if the extra amount of memory required to execute the algorithm is O(1), that is, does not exceed a constant no matter how large the input. For example, heapsort is an in situ sorting algorithm. \end{quote}
+
+
+In normal parsing process, a large overhead is to decode J\+S\+ON strings and copy them to other buffers. {\itshape In situ} parsing decodes those J\+S\+ON string at the place where it is stored. It is possible in J\+S\+ON because the length of decoded string is always shorter than or equal to the one in J\+S\+ON. In this context, decoding a J\+S\+ON string means to process the escapes, such as {\ttfamily \char`\"{}\textbackslash{}\textbackslash{}n\char`\"{}}, {\ttfamily \char`\"{}\textbackslash{}\textbackslash{}u1234\char`\"{}}, etc., and add a null terminator (`\textquotesingle{}\textbackslash{}0\textquotesingle{}`)at the end of string.
+
+The following diagrams compare normal and {\itshape in situ} parsing. The J\+S\+ON string values contain pointers to the decoded string.
+
+
+
+In normal parsing, the decoded string are copied to freshly allocated buffers. {\ttfamily \char`\"{}\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}n\char`\"{}} (2 characters) is decoded as {\ttfamily \char`\"{}\textbackslash{}\textbackslash{}n\char`\"{}} (1 character). {\ttfamily \char`\"{}\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}u0073\char`\"{}} (6 characters) is decoded as {\ttfamily \char`\"{}s\char`\"{}} (1 character).
+
+
+
+{\itshape In situ} parsing just modified the original J\+S\+ON. Updated characters are highlighted in the diagram. If the J\+S\+ON string does not contain escape character, such as {\ttfamily \char`\"{}msg\char`\"{}}, the parsing process merely replace the closing double quotation mark with a null character.
+
+Since {\itshape in situ} parsing modify the input, the parsing A\+PI needs {\ttfamily char$\ast$} instead of {\ttfamily const char$\ast$}.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Read whole file into a buffer}
+FILE* fp = fopen(\textcolor{stringliteral}{"test.json"}, \textcolor{stringliteral}{"r"});
+fseek(fp, 0, SEEK\_END);
+\textcolor{keywordtype}{size\_t} filesize = (size\_t)ftell(fp);
+fseek(fp, 0, SEEK\_SET);
+\textcolor{keywordtype}{char}* buffer = (\textcolor{keywordtype}{char}*)malloc(filesize + 1);
+\textcolor{keywordtype}{size\_t} readLength = fread(buffer, 1, filesize, fp);
+buffer[readLength] = \textcolor{charliteral}{'\(\backslash\)0'};
+fclose(fp);
+
+\textcolor{comment}{// In situ parsing the buffer into d, buffer will also be modified}
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_a301f8f297a5a0da4b6be5459ad766f75}{ParseInsitu}(buffer);
+
+\textcolor{comment}{// Query/manipulate the DOM here...}
+
+free(buffer);
+\textcolor{comment}{// Note: At this point, d may have dangling pointers pointed to the deallocated buffer.}
+\end{DoxyCode}
+
+
+The J\+S\+ON strings are marked as const-\/string. But they may not be really \char`\"{}constant\char`\"{}. The life cycle of it depends on the J\+S\+ON buffer.
+
+In situ parsing minimizes allocation overheads and memory copying. Generally this improves cache coherence, which is an important factor of performance in modern computer.
+
+There are some limitations of {\itshape in situ} parsing\+:
+
+
+\begin{DoxyEnumerate}
+\item The whole J\+S\+ON is in memory.
+\item The source encoding in stream and target encoding in document must be the same.
+\item The buffer need to be retained until the document is no longer used.
+\item If the D\+OM need to be used for long period after parsing, and there are few J\+S\+ON strings in the D\+OM, retaining the buffer may be a memory waste.
+\end{DoxyEnumerate}
+
+{\itshape In situ} parsing is mostly suitable for short-\/term J\+S\+ON that only need to be processed once, and then be released from memory. In practice, these situation is very common, for example, deserializing J\+S\+ON to C++ objects, processing web requests represented in J\+S\+ON, etc.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_TranscodingAndValidation}{}\subsection{Transcoding and Validation}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom.zh-cn_TranscodingAndValidation}
+Rapid\+J\+S\+ON supports conversion between Unicode formats (officially termed U\+CS Transformation Format) internally. During D\+OM parsing, the source encoding of the stream can be different from the encoding of the D\+OM. For example, the source stream contains a U\+T\+F-\/8 J\+S\+ON, while the D\+OM is using U\+T\+F-\/16 encoding. There is an example code in Encoded\+Input\+Stream.
+
+When writing a J\+S\+ON from D\+OM to output stream, transcoding can also be used. An example is in Encoded\+Output\+Stream.
+
+During transcoding, the source string is decoded to into Unicode code points, and then the code points are encoded in the target format. During decoding, it will validate the byte sequence in the source string. If it is not a valid sequence, the parser will be stopped with {\ttfamily k\+Parse\+Error\+String\+Invalid\+Encoding} error.
+
+When the source encoding of stream is the same as encoding of D\+OM, by default, the parser will {\itshape not} validate the sequence. User may use {\ttfamily k\+Parse\+Validate\+Encoding\+Flag} to force validation.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Techniques}{}\section{Techniques}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Techniques}
+Some techniques about using D\+OM A\+PI is discussed here.
+
+\subsection*{D\+OM as S\+AX Event Publisher}
+
+In Rapid\+J\+S\+ON, stringifying a D\+OM with {\ttfamily \hyperlink{class_writer}{Writer}} may be look a little bit weired.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// ...}
+\hyperlink{class_writer}{Writer<StringBuffer>} writer(buffer);
+d.Accept(writer);
+\end{DoxyCode}
+
+
+Actually, {\ttfamily Value\+::\+Accept()} is responsible for publishing S\+AX events about the value to the handler. With this design, {\ttfamily Value} and {\ttfamily \hyperlink{class_writer}{Writer}} are decoupled. {\ttfamily Value} can generate S\+AX events, and {\ttfamily \hyperlink{class_writer}{Writer}} can handle those events.
+
+User may create custom handlers for transforming the D\+OM into other formats. For example, a handler which converts the D\+OM into X\+ML.
+
+For more about S\+AX events and handler, please refer to S\+AX.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom_UserBuffer}{}\subsection{User Buffer}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_dom_UserBuffer}
+Some applications may try to avoid memory allocations whenever possible.
+
+{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}} can support this by letting user to provide a buffer. The buffer can be on the program stack, or a \char`\"{}scratch buffer\char`\"{} which is statically allocated (a static/global array) for storing temporary data.
+
+{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}} will use the user buffer to satisfy allocations. When the user buffer is used up, it will allocate a chunk of memory from the base allocator (by default the {\ttfamily \hyperlink{class_crt_allocator}{Crt\+Allocator}}).
+
+Here is an example of using stack memory. The first allocator is for storing values, while the second allocator is for storing temporary data during parsing.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{typedef} GenericDocument<UTF8<>, MemoryPoolAllocator<>, MemoryPoolAllocator<>> DocumentType;
+\textcolor{keywordtype}{char} valueBuffer[4096];
+\textcolor{keywordtype}{char} parseBuffer[1024];
+MemoryPoolAllocator<> valueAllocator(valueBuffer, \textcolor{keyword}{sizeof}(valueBuffer));
+MemoryPoolAllocator<> parseAllocator(parseBuffer, \textcolor{keyword}{sizeof}(parseBuffer));
+DocumentType d(&valueAllocator, \textcolor{keyword}{sizeof}(parseBuffer), &parseAllocator);
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\end{DoxyCode}
+
+
+If the total size of allocation is less than 4096+1024 bytes during parsing, this code does not invoke any heap allocation (via {\ttfamily new} or {\ttfamily malloc()}) at all.
+
+User can query the current memory consumption in bytes via {\ttfamily \hyperlink{class_memory_pool_allocator_a2ccb6c068b8b35dbc3680dc5563af2f4}{Memory\+Pool\+Allocator\+::\+Size()}}. And then user can determine a suitable size of user buffer. 

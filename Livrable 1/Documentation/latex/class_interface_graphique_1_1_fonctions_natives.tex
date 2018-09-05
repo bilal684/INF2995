@@ -1,0 +1,125 @@
+\hypertarget{class_interface_graphique_1_1_fonctions_natives}{}\section{Interface\+Graphique.\+Fonctions\+Natives Class Reference}
+\label{class_interface_graphique_1_1_fonctions_natives}\index{Interface\+Graphique.\+Fonctions\+Natives@{Interface\+Graphique.\+Fonctions\+Natives}}
+
+
+Classe contenant des fonction externe implementer au niveau du noyau de l\textquotesingle{}application.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_interface_graphique_1_1_fonctions_natives_1_1_message}{Message}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries initialiser\+Open\+GL} (Int\+Ptr handle)
+\item 
+static void {\bfseries liberer\+Open\+GL} ()
+\item 
+static void {\bfseries dessiner\+Open\+GL} ()
+\item 
+static void {\bfseries animer} (double temps)
+\item 
+static void {\bfseries deplacer\+Haut} ()
+\item 
+static void {\bfseries deplacer\+Bas} ()
+\item 
+static void {\bfseries deplacer\+Droite} ()
+\item 
+static void {\bfseries deplacer\+Gauche} ()
+\item 
+static void {\bfseries zoom\+In} ()
+\item 
+static void {\bfseries zoom\+Out} ()
+\item 
+static void {\bfseries deplacer\+Fenetre\+Virtuelle\+Souris} (int x, int y)
+\item 
+static void {\bfseries sauver\+Position\+Souris} (int x, int y)
+\item 
+static void {\bfseries redimensionner\+Fenetre} (int largeur, int hauteur)
+\item 
+static void {\bfseries enregistrer\+Zone\+De\+Simulation} (string nom\+Fichier)
+\item 
+static void {\bfseries charger\+Zone\+De\+Simulation} (string nom\+Fichier)
+\item 
+static void {\bfseries zoom\+In\+Rectangle} (int x\+Min, int x\+Max, int y\+Min, int y\+Max)
+\item 
+static void {\bfseries zoom\+Out\+Rectangle} (int x\+Min, int x\+Max, int y\+Min, int y\+Max)
+\item 
+static void {\bfseries select\+Rect\+Elastique} (int X\+\_\+debut, int Y\+\_\+debut, int X\+\_\+fin, int Y\+\_\+fin, bool est\+Enfonce)
+\item 
+static void {\bfseries supprimer\+Selection} ()
+\item 
+static bool {\bfseries assigner\+Position\+Pour\+Objet\+Selectionne} (double x, double y, double z)
+\item 
+static void {\bfseries assigner\+Rotation\+Pour\+Objet\+Selectionne} (double rotation)
+\item 
+static bool {\bfseries changer\+Scale\+Pour\+Objet\+Selectionne} (double scale)
+\item 
+static void {\bfseries scale\+Selection} (double facteur\+Scale)
+\item 
+static void {\bfseries Pivoter\+Objet\+Selectionne} (double deltaY)
+\item 
+static void {\bfseries Pivoter\+Objets\+Multiples} (double rotation)
+\item 
+static bool {\bfseries tourner\+Objet\+Selectionne} (double angle)
+\item 
+static void {\bfseries annuler\+Rotation\+Selection} ()
+\item 
+static int {\bfseries obtenir\+Nombre\+Noeuds\+Selectionnes} ()
+\item 
+static bool {\bfseries verifier\+Position\+Cursor} (int x, int y)
+\item 
+static void {\bfseries tracer\+Rectangle\+Elastique} (int x, int y)
+\item 
+static void {\bfseries terminer\+Rectangle\+Elastique} (int x, int y)
+\item 
+static void {\bfseries supprimer\+Dernier\+Noeud} ()
+\item 
+static void {\bfseries supprimer\+Derniere\+Ligne} ()
+\item 
+static void {\bfseries ajouter\+Noeud\+Simple} (string nom, int x, int y)
+\item 
+static void {\bfseries ajouter\+Noeud\+Avec\+Scale} (string nom, int x1, int y1, int x2, int y2, bool est\+Concret)
+\item 
+static void {\bfseries re\+Initialiser\+Scene} ()
+\item 
+static void {\bfseries selection\+Objet} (int mouseX, int mouseY, bool selection\+Unique)
+\item 
+static void {\bfseries deplacer\+Selection} (int x\+Debut, int y\+Debut, int x\+Fin, int y\+Fin)
+\item 
+static void {\bfseries dupliquer\+Objets\+Selectionnes} (int x, int y, bool est\+Fantome)
+\item 
+static void {\bfseries supprimer\+Noeuds\+Dupliques} ()
+\item 
+static bool {\bfseries objets\+Sur\+La\+Table} ()
+\item 
+static void {\bfseries initialiser\+En\+Traitement} ()
+\item 
+static void {\bfseries initialiser\+Scale\+En\+Traitement} ()
+\item 
+static void {\bfseries retourner\+Au\+Scale\+Initiale} ()
+\item 
+static bool {\bfseries Peek\+Message} (out \hyperlink{struct_interface_graphique_1_1_fonctions_natives_1_1_message}{Message} message, Int\+Ptr h\+Wnd, uint filter\+Min, uint filter\+Max, uint flags)
+\item 
+static bool {\bfseries executer\+Tests} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe contenant des fonction externe implementer au niveau du noyau de l\textquotesingle{}application. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+Interface\+Graphique/\hyperlink{_edition_8cs}{Edition.\+cs}\item 
+Sources/\+Interface\+Graphique/\hyperlink{_etat_edition_8cs}{Etat\+Edition.\+cs}\item 
+Sources/\+Interface\+Graphique/\hyperlink{_program_8cs}{Program.\+cs}\end{DoxyCompactItemize}

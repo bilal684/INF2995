@@ -1,0 +1,42 @@
+\hypertarget{structai_file_i_o}{}\section{ai\+File\+IO Struct Reference}
+\label{structai_file_i_o}\index{ai\+File\+IO@{ai\+File\+IO}}
+
+
+C-\/\+A\+PI\+: File system callbacks.  
+
+
+
+
+{\ttfamily \#include $<$cfileio.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ai\+File\+Open\+Proc \hyperlink{structai_file_i_o_a819d9c7823039294125068d06949a6df}{Open\+Proc}
+\item 
+ai\+File\+Close\+Proc \hyperlink{structai_file_i_o_a7ec702672712b5a02dc49cb17f980a14}{Close\+Proc}
+\item 
+ai\+User\+Data \hyperlink{structai_file_i_o_a9c62b7f3d70fbb2f41e33ad0b9933139}{User\+Data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C-\/\+A\+PI\+: File system callbacks. 
+
+Provided are functions to open and close files. Supply a custom structure to the import function. If you don\textquotesingle{}t, a default implementation is used. Use custom file systems to enable reading from other sources, such as Z\+I\+Ps or memory locations. 
+
+\subsection{Member Data Documentation}
+\index{ai\+File\+IO@{ai\+File\+IO}!Close\+Proc@{Close\+Proc}}
+\index{Close\+Proc@{Close\+Proc}!ai\+File\+IO@{ai\+File\+IO}}
+\subsubsection[{\texorpdfstring{Close\+Proc}{CloseProc}}]{\setlength{\rightskip}{0pt plus 5cm}ai\+File\+Close\+Proc ai\+File\+I\+O\+::\+Close\+Proc}\hypertarget{structai_file_i_o_a7ec702672712b5a02dc49cb17f980a14}{}\label{structai_file_i_o_a7ec702672712b5a02dc49cb17f980a14}
+Function used to close an existing file \index{ai\+File\+IO@{ai\+File\+IO}!Open\+Proc@{Open\+Proc}}
+\index{Open\+Proc@{Open\+Proc}!ai\+File\+IO@{ai\+File\+IO}}
+\subsubsection[{\texorpdfstring{Open\+Proc}{OpenProc}}]{\setlength{\rightskip}{0pt plus 5cm}ai\+File\+Open\+Proc ai\+File\+I\+O\+::\+Open\+Proc}\hypertarget{structai_file_i_o_a819d9c7823039294125068d06949a6df}{}\label{structai_file_i_o_a819d9c7823039294125068d06949a6df}
+Function used to open a new file \index{ai\+File\+IO@{ai\+File\+IO}!User\+Data@{User\+Data}}
+\index{User\+Data@{User\+Data}!ai\+File\+IO@{ai\+File\+IO}}
+\subsubsection[{\texorpdfstring{User\+Data}{UserData}}]{\setlength{\rightskip}{0pt plus 5cm}ai\+User\+Data ai\+File\+I\+O\+::\+User\+Data}\hypertarget{structai_file_i_o_a9c62b7f3d70fbb2f41e33ad0b9933139}{}\label{structai_file_i_o_a9c62b7f3d70fbb2f41e33ad0b9933139}
+User-\/defined, opaque data 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/assimp/include/cfileio.\+h\end{DoxyCompactItemize}

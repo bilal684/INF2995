@@ -1,0 +1,552 @@
+\hypertarget{classvue_1_1_vue_ortho}{}\section{vue\+:\+:Vue\+Ortho Class Reference}
+\label{classvue_1_1_vue_ortho}\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+
+
+Classe concrète de vue orthogonale.  
+
+
+
+
+{\ttfamily \#include $<$Vue\+Orbite.\+h$>$}
+
+Inheritance diagram for vue\+:\+:Vue\+Ortho\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvue_1_1_vue_ortho}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvue_1_1_vue_ortho_a6bfb00557ce06ac18b021650a15ded67}{Vue\+Ortho} (\hyperlink{classvue_1_1_camera}{Camera} const \&camera, \hyperlink{classvue_1_1_projection_ortho}{Projection\+Ortho} const \&projection)
+\item 
+virtual const \hyperlink{classvue_1_1_projection_ortho}{Projection\+Ortho} \& \hyperlink{classvue_1_1_vue_ortho_a732dee29813a40b6404eb7ed06287a8e}{obtenir\+Projection} () const 
+\begin{DoxyCompactList}\small\item\em Obtention de la projection. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a188cf5eb7c0a24536d1ab73b18f93f63}{appliquer\+Projection} () const 
+\begin{DoxyCompactList}\small\item\em Application de la projection. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_aff568cb715637b0407076279fac672ff}{appliquer\+Camera} () const 
+\begin{DoxyCompactList}\small\item\em Application de la caméra. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_ad2e8ccf82efadbc00c2900eb5e549d6f}{redimensionner\+Fenetre} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&coin\+Min, const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&coin\+Max)
+\begin{DoxyCompactList}\small\item\em Modification de la clotûre. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a9d43decb227db8bf71905227904b6953}{zoomer\+In} ()
+\begin{DoxyCompactList}\small\item\em Zoom in, c\textquotesingle{}est-\/à-\/dire un agrandissement. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a16855ff46992fd6ff9e306058f90924a}{zoomer\+Out} ()
+\begin{DoxyCompactList}\small\item\em Zoom out, c\textquotesingle{}est-\/à-\/dire un rapetissement. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_ac763bf8ed3dac54c035c4ee9432d99df}{zoomer\+In\+Elastique} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&point\+Min, const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&point\+Max)
+\begin{DoxyCompactList}\small\item\em Zoom in élastique. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a45c75590a7bf5b97f33ea7016494f441}{zoomer\+Out\+Elastique} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&point\+Min, const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&point\+Max)
+\begin{DoxyCompactList}\small\item\em Zoom out élastique. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_ad66a290e3d521fcc54ca2ef8a3dacf00}{deplacer\+XY} (double deplacementX, double deplacementY)
+\begin{DoxyCompactList}\small\item\em Déplacement dans le plan XY par rapport à la vue. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a82253cbbf6e6d0c93e2e06f4a5459cba}{deplacer\+XY} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&deplacement)
+\begin{DoxyCompactList}\small\item\em Déplacement dans le plan XY par rapport à la vue. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a3a7d25b3aa2d785e03986ace12df8b99}{deplacerZ} (double deplacement)
+\begin{DoxyCompactList}\small\item\em Déplacement selon l\textquotesingle{}axe des Z par rapport à la vue. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a67350641f774df28fdd656ec1932117f}{deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut} ()
+\begin{DoxyCompactList}\small\item\em Deplacement de la fenetre virtuelle avec la touche Haut. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a1fea04c095a63be75c36f687561595eb}{deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas} ()
+\begin{DoxyCompactList}\small\item\em Deplacement de la fenetre virtuelle avec la touche Bas. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a20f32ddc3b4808d3134e52670586141a}{deplacer\+Fenetre\+Virtuelle\+Clavier\+Gauche} ()\hypertarget{classvue_1_1_vue_ortho_a20f32ddc3b4808d3134e52670586141a}{}\label{classvue_1_1_vue_ortho_a20f32ddc3b4808d3134e52670586141a}
+
+\begin{DoxyCompactList}\small\item\em Deplacement de la fenetre virtuelle avec la touche Gauche. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_ae137a461416b59cc669039e688711df0}{deplacer\+Fenetre\+Virtuelle\+Clavier\+Droite} ()\hypertarget{classvue_1_1_vue_ortho_ae137a461416b59cc669039e688711df0}{}\label{classvue_1_1_vue_ortho_ae137a461416b59cc669039e688711df0}
+
+\begin{DoxyCompactList}\small\item\em Deplacement de la fenetre virtuelle avec la touche Droite. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a56ab22b2a2c1b2712cdb5589cf7e0b99}{deplacer\+Souris} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} variation\+Souris, int x, int y)
+\begin{DoxyCompactList}\small\item\em Deplacement de la vue avec la souris. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a27fc207b65998727a27ebafecee03cb9}{rotater\+XY} (double rotationX, double rotationY)
+\begin{DoxyCompactList}\small\item\em Rotation selon les axes des X et des Y par rapport à la vue. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a8ef1abd0798dfe9bb566663d85fee03a}{rotater\+XY} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&rotation)
+\begin{DoxyCompactList}\small\item\em Rotation selon les axes des X et des Y par rapport à la vue. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_vue_ortho_a5a2f0f915186c12207c70d0d2463099d}{rotaterZ} (double rotation)
+\begin{DoxyCompactList}\small\item\em Rotation selon l\textquotesingle{}axe des Z par rapport à la vue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe concrète de vue orthogonale. 
+
+Cette classe implante le comportement attendu d\textquotesingle{}une vue orthogonale.
+
+\begin{DoxyAuthor}{Author}
+Martin Bisson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2006-\/12-\/16 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!Vue\+Ortho@{Vue\+Ortho}}
+\index{Vue\+Ortho@{Vue\+Ortho}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{Vue\+Ortho(\+Camera const \&camera, Projection\+Ortho const \&projection)}{VueOrtho(Camera const &camera, ProjectionOrtho const &projection)}}]{\setlength{\rightskip}{0pt plus 5cm}vue\+::\+Vue\+Ortho\+::\+Vue\+Ortho (
+\begin{DoxyParamCaption}
+\item[{{\bf Camera} const \&}]{camera, }
+\item[{{\bf Projection\+Ortho} const \&}]{projection}
+\end{DoxyParamCaption}
+)}\hypertarget{classvue_1_1_vue_ortho_a6bfb00557ce06ac18b021650a15ded67}{}\label{classvue_1_1_vue_ortho_a6bfb00557ce06ac18b021650a15ded67}
+Constructeur d\textquotesingle{}une vue orthogonale. Ne fait que créer les objets \hyperlink{classvue_1_1_projection}{Projection} et \hyperlink{classvue_1_1_camera}{Camera} correspondant.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em camera} & \+: Caméra à utiliser au départ pour cette vue. \\
+\hline
+\mbox{\tt in}  & {\em x\+Min\+Cloture} & \+: coordonnée minimale en {\itshape x} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em x\+Max\+Cloture} & \+: coordonnée maximale en {\itshape x} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em y\+Min\+Cloture} & \+: coordonnée minimale en {\itshape y} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em y\+Max\+Cloture} & \+: coordonnée maximale en {\itshape y} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em z\+Avant} & \+: distance du plan avant (en {\itshape z}). \\
+\hline
+\mbox{\tt in}  & {\em z\+Arriere} & \+: distance du plan arrière (en {\itshape z}). \\
+\hline
+\mbox{\tt in}  & {\em zoom\+In\+Max} & \+: facteur de zoom in maximal. \\
+\hline
+\mbox{\tt in}  & {\em zoom\+Out\+Max} & \+: facteur de zoom out maximal. \\
+\hline
+\mbox{\tt in}  & {\em increment\+Zoom} & \+: distance du plan arrière (en {\itshape z}). \\
+\hline
+\mbox{\tt in}  & {\em x\+Min\+Fenetre} & \+: coordonnée minimale en {\itshape x} de la fenêtre virtuelle. \\
+\hline
+\mbox{\tt in}  & {\em x\+Max\+Fenetre} & \+: coordonnée maximale en {\itshape x} de la fenêtre virtuelle. \\
+\hline
+\mbox{\tt in}  & {\em y\+Min\+Fenetre} & \+: coordonnée minimale en {\itshape y} de la fenêtre virtuelle. \\
+\hline
+\mbox{\tt in}  & {\em y\+Max\+Fenetre} & \+: coordonnée maximale en {\itshape y} de la fenêtre virtuelle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune (constructeur). 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!appliquer\+Camera@{appliquer\+Camera}}
+\index{appliquer\+Camera@{appliquer\+Camera}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{appliquer\+Camera() const }{appliquerCamera() const }}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::appliquer\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_aff568cb715637b0407076279fac672ff}{}\label{classvue_1_1_vue_ortho_aff568cb715637b0407076279fac672ff}
+
+
+Application de la caméra. 
+
+Applique la matrice correspondant à cette vue selon la position de la caméra (eventuellement un glu\+Look\+At()).
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_aa898022079d9e93a690ae4c05a1fd6f3}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!appliquer\+Projection@{appliquer\+Projection}}
+\index{appliquer\+Projection@{appliquer\+Projection}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{appliquer\+Projection() const }{appliquerProjection() const }}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::appliquer\+Projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a188cf5eb7c0a24536d1ab73b18f93f63}{}\label{classvue_1_1_vue_ortho_a188cf5eb7c0a24536d1ab73b18f93f63}
+
+
+Application de la projection. 
+
+Applique la matrice de projection correspondant à cette vue.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a6cf3a21f4f9c1ff2c24d7075468c92f5}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas@{deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas}}
+\index{deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas@{deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas()}{deplacerFenetreVirtuelleClavierBas()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::deplacer\+Fenetre\+Virtuelle\+Clavier\+Bas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a1fea04c095a63be75c36f687561595eb}{}\label{classvue_1_1_vue_ortho_a1fea04c095a63be75c36f687561595eb}
+
+
+Deplacement de la fenetre virtuelle avec la touche Bas. 
+
+Permet le deplacement de la fenetre virtuelle a l\textquotesingle{}aide de la touche bas du clavier.
+
+\begin{DoxyReturn}{Returns}
+Aucune.
+\end{DoxyReturn}
+Permet le deplacement de la fenetre virtuelle a l\textquotesingle{}aide de la touche droite du clavier.
+
+\begin{DoxyReturn}{Returns}
+Aucune.
+\end{DoxyReturn}
+Permet le deplacement de la fenetre virtuelle a l\textquotesingle{}aide de la touche gauche du clavier.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a5bdcbb56a8f671d7bfd77f518360c99b}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut@{deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut}}
+\index{deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut@{deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut()}{deplacerFenetreVirtuelleClavierHaut()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::deplacer\+Fenetre\+Virtuelle\+Clavier\+Haut (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a67350641f774df28fdd656ec1932117f}{}\label{classvue_1_1_vue_ortho_a67350641f774df28fdd656ec1932117f}
+
+
+Deplacement de la fenetre virtuelle avec la touche Haut. 
+
+Permet le deplacement de la fenetre virtuelle a l\textquotesingle{}aide de la touche haut du clavier.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_ab28228d140ca866062844045807d2f40}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!deplacer\+Souris@{deplacer\+Souris}}
+\index{deplacer\+Souris@{deplacer\+Souris}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{deplacer\+Souris(glm\+::dvec3 variation\+Souris, int x, int y)}{deplacerSouris(glm::dvec3 variationSouris, int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::deplacer\+Souris (
+\begin{DoxyParamCaption}
+\item[{{\bf glm\+::dvec3}}]{variation\+Souris, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a56ab22b2a2c1b2712cdb5589cf7e0b99}{}\label{classvue_1_1_vue_ortho_a56ab22b2a2c1b2712cdb5589cf7e0b99}
+
+
+Deplacement de la vue avec la souris. 
+
+Permet le déplacement de la fenetre virtuelle à l\textquotesingle{}aide de la souris
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a0c89ff5b34a4757d3d4e2aa126851550}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!deplacer\+XY@{deplacer\+XY}}
+\index{deplacer\+XY@{deplacer\+XY}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{deplacer\+X\+Y(double deplacement\+X, double deplacement\+Y)}{deplacerXY(double deplacementX, double deplacementY)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::deplacer\+XY (
+\begin{DoxyParamCaption}
+\item[{double}]{deplacementX, }
+\item[{double}]{deplacementY}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_ad66a290e3d521fcc54ca2ef8a3dacf00}{}\label{classvue_1_1_vue_ortho_ad66a290e3d521fcc54ca2ef8a3dacf00}
+
+
+Déplacement dans le plan XY par rapport à la vue. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deplacementX} & \+: Déplacement en pourcentage de la largeur. \\
+\hline
+\mbox{\tt in}  & {\em deplacementY} & \+: Déplacement en pourcentage de la hauteur.\\
+\hline
+\end{DoxyParams}
+Ne fait rien
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a8e4dec26a65250ec721b044333bf62ce}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!deplacer\+XY@{deplacer\+XY}}
+\index{deplacer\+XY@{deplacer\+XY}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{deplacer\+X\+Y(const glm\+::ivec2 \&deplacement)}{deplacerXY(const glm::ivec2 &deplacement)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::deplacer\+XY (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{deplacement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a82253cbbf6e6d0c93e2e06f4a5459cba}{}\label{classvue_1_1_vue_ortho_a82253cbbf6e6d0c93e2e06f4a5459cba}
+
+
+Déplacement dans le plan XY par rapport à la vue. 
+
+Ne fait rien
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deplacement} & \+: Déplacement en coordonnées de clôture (pixels).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a4019b90a0a76ca3eb3633dda3bcb397a}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!deplacerZ@{deplacerZ}}
+\index{deplacerZ@{deplacerZ}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{deplacer\+Z(double deplacement)}{deplacerZ(double deplacement)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::deplacerZ (
+\begin{DoxyParamCaption}
+\item[{double}]{deplacement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a3a7d25b3aa2d785e03986ace12df8b99}{}\label{classvue_1_1_vue_ortho_a3a7d25b3aa2d785e03986ace12df8b99}
+
+
+Déplacement selon l\textquotesingle{}axe des Z par rapport à la vue. 
+
+Ne fait rien, car se déplacer dans l\textquotesingle{}axe de la profondeur n\textquotesingle{}a pas vraiment de signification avec une vue orthogonale.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deplacement} & \+: Déplacement selon l\textquotesingle{}axe Z.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_aa54f93fe75f0df62893e7f92f1466a33}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!obtenir\+Projection@{obtenir\+Projection}}
+\index{obtenir\+Projection@{obtenir\+Projection}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{obtenir\+Projection() const }{obtenirProjection() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Projection\+Ortho} \& vue\+::\+Vue\+Ortho\+::obtenir\+Projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a732dee29813a40b6404eb7ed06287a8e}{}\label{classvue_1_1_vue_ortho_a732dee29813a40b6404eb7ed06287a8e}
+
+
+Obtention de la projection. 
+
+\begin{DoxyReturn}{Returns}
+La projection orbitale
+\end{DoxyReturn}
+Retourne la projection orthogonale associée à cette vue.
+
+\begin{DoxyReturn}{Returns}
+La projection orthogonale associée à cette vue. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!redimensionner\+Fenetre@{redimensionner\+Fenetre}}
+\index{redimensionner\+Fenetre@{redimensionner\+Fenetre}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{redimensionner\+Fenetre(const glm\+::ivec2 \&coin\+Min, const glm\+::ivec2 \&coin\+Max)}{redimensionnerFenetre(const glm::ivec2 &coinMin, const glm::ivec2 &coinMax)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::redimensionner\+Fenetre (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{coin\+Min, }
+\item[{const {\bf glm\+::ivec2} \&}]{coin\+Max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_ad2e8ccf82efadbc00c2900eb5e549d6f}{}\label{classvue_1_1_vue_ortho_ad2e8ccf82efadbc00c2900eb5e549d6f}
+
+
+Modification de la clotûre. 
+
+Permet d\textquotesingle{}ajuster les coordonnées de la fenêtre virtuelle en fonction d\textquotesingle{}un redimensionnement de la fenêtre.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coin\+Min} & \+: Coin contenant les coordonnées minimales de la nouvelle clôture. \\
+\hline
+\mbox{\tt in}  & {\em coin\+Max} & \+: Coin contenant les coordonnées maximales de la nouvelle clôture.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_aee55f95ee78ff1588baf1cb1768b6bfe}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!rotater\+XY@{rotater\+XY}}
+\index{rotater\+XY@{rotater\+XY}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{rotater\+X\+Y(double rotation\+X, double rotation\+Y)}{rotaterXY(double rotationX, double rotationY)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::rotater\+XY (
+\begin{DoxyParamCaption}
+\item[{double}]{rotationX, }
+\item[{double}]{rotationY}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a27fc207b65998727a27ebafecee03cb9}{}\label{classvue_1_1_vue_ortho_a27fc207b65998727a27ebafecee03cb9}
+
+
+Rotation selon les axes des X et des Y par rapport à la vue. 
+
+Permet de faire une rotation de la caméra autour du point vers lequel elle regarde en modifiant l\textquotesingle{}angle de rotation et l\textquotesingle{}angle d\textquotesingle{}élévation.
+
+Une rotation de 100\% correspondant à 360 degrés en X (angle de rotation) ou 180 degrés en Y (angle d\textquotesingle{}élévation).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rotationX} & \+: Rotation en pourcentage de la largeur. \\
+\hline
+\mbox{\tt in}  & {\em rotationY} & \+: Rotation en pourcentage de la hauteur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a07067586589d8a391a18c3e1a4e9482e}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!rotater\+XY@{rotater\+XY}}
+\index{rotater\+XY@{rotater\+XY}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{rotater\+X\+Y(const glm\+::ivec2 \&rotation)}{rotaterXY(const glm::ivec2 &rotation)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::rotater\+XY (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a8ef1abd0798dfe9bb566663d85fee03a}{}\label{classvue_1_1_vue_ortho_a8ef1abd0798dfe9bb566663d85fee03a}
+
+
+Rotation selon les axes des X et des Y par rapport à la vue. 
+
+Permet de faire une rotation de la caméra autour du point vers lequel elle regarde en modifiant l\textquotesingle{}angle de rotation et l\textquotesingle{}angle d\textquotesingle{}élévation.
+
+Un déplacement de la taille de la fenêtre correspond à 100\%.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rotation} & \+: Rotation en coordonnées de clotûre (pixels).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a39c80e5438dfe09f70baded5b1442b9a}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!rotaterZ@{rotaterZ}}
+\index{rotaterZ@{rotaterZ}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{rotater\+Z(double rotation)}{rotaterZ(double rotation)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::rotaterZ (
+\begin{DoxyParamCaption}
+\item[{double}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a5a2f0f915186c12207c70d0d2463099d}{}\label{classvue_1_1_vue_ortho_a5a2f0f915186c12207c70d0d2463099d}
+
+
+Rotation selon l\textquotesingle{}axe des Z par rapport à la vue. 
+
+Ne fait rien, car tourner autour de l\textquotesingle{}axe de la profondeur correspondrait à un rouli et n\textquotesingle{}est pas souhaitable pour cette vue.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rotation} & \+: Rotation selon l\textquotesingle{}axe Z.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a0b06a4b099a3bb953a672d84295556d9}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!zoomer\+In@{zoomer\+In}}
+\index{zoomer\+In@{zoomer\+In}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{zoomer\+In()}{zoomerIn()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::zoomer\+In (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a9d43decb227db8bf71905227904b6953}{}\label{classvue_1_1_vue_ortho_a9d43decb227db8bf71905227904b6953}
+
+
+Zoom in, c\textquotesingle{}est-\/à-\/dire un agrandissement. 
+
+Permet de faire un zoom in selon l\textquotesingle{}incrément de zoom.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_af2fbeaeb97b40dc71d755d4f5e185ab2}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!zoomer\+In\+Elastique@{zoomer\+In\+Elastique}}
+\index{zoomer\+In\+Elastique@{zoomer\+In\+Elastique}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{zoomer\+In\+Elastique(const glm\+::ivec2 \&point\+Min, const glm\+::ivec2 \&point\+Max)}{zoomerInElastique(const glm::ivec2 &pointMin, const glm::ivec2 &pointMax)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::zoomer\+In\+Elastique (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{coin1, }
+\item[{const {\bf glm\+::ivec2} \&}]{coin2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_ac763bf8ed3dac54c035c4ee9432d99df}{}\label{classvue_1_1_vue_ortho_ac763bf8ed3dac54c035c4ee9432d99df}
+
+
+Zoom in élastique. 
+
+Permet de faire un zoom in élastique.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coin1} & \+: Coin contenant les coordonnées du premier coin du rectangle. \\
+\hline
+\mbox{\tt in}  & {\em coin2} & \+: Coin contenant les coordonnées du second coin du rectangle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a2bdc88740ef37d62935516d5484e3409}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!zoomer\+Out@{zoomer\+Out}}
+\index{zoomer\+Out@{zoomer\+Out}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{zoomer\+Out()}{zoomerOut()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::zoomer\+Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a16855ff46992fd6ff9e306058f90924a}{}\label{classvue_1_1_vue_ortho_a16855ff46992fd6ff9e306058f90924a}
+
+
+Zoom out, c\textquotesingle{}est-\/à-\/dire un rapetissement. 
+
+Permet de faire un zoom out selon l\textquotesingle{}incrément de zoom.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a90d184491ccfb6a93839a2e9bd48bac1}{vue\+::\+Vue}.
+
+\index{vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}!zoomer\+Out\+Elastique@{zoomer\+Out\+Elastique}}
+\index{zoomer\+Out\+Elastique@{zoomer\+Out\+Elastique}!vue\+::\+Vue\+Ortho@{vue\+::\+Vue\+Ortho}}
+\subsubsection[{\texorpdfstring{zoomer\+Out\+Elastique(const glm\+::ivec2 \&point\+Min, const glm\+::ivec2 \&point\+Max)}{zoomerOutElastique(const glm::ivec2 &pointMin, const glm::ivec2 &pointMax)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Vue\+Ortho\+::zoomer\+Out\+Elastique (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{coin1, }
+\item[{const {\bf glm\+::ivec2} \&}]{coin2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_vue_ortho_a45c75590a7bf5b97f33ea7016494f441}{}\label{classvue_1_1_vue_ortho_a45c75590a7bf5b97f33ea7016494f441}
+
+
+Zoom out élastique. 
+
+Permet de faire un zoom out élastique.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coin1} & \+: Coin contenant les coordonnées du premier coin du rectangle. \\
+\hline
+\mbox{\tt in}  & {\em coin2} & \+: Coin contenant les coordonnées du second coin du rectangle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_vue_a8bd18e407e3e702dd392ff7ec05ab399}{vue\+::\+Vue}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Commun/\+Utilitaire/\+Vue/\hyperlink{_vue_ortho_8h}{Vue\+Ortho.\+h}\item 
+Cadriciel/\+Commun/\+Utilitaire/\+Vue/\hyperlink{_vue_orbite_8cpp}{Vue\+Orbite.\+cpp}\item 
+Cadriciel/\+Commun/\+Utilitaire/\+Vue/\hyperlink{_vue_ortho_8cpp}{Vue\+Ortho.\+cpp}\end{DoxyCompactItemize}

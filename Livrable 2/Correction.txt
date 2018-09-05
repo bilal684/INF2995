@@ -1,0 +1,14 @@
+Bonjour, 
+
+Nous désirons que notre livrable soit évalué au local L-4810 sur un ordinateur Apple executant une machine virtuelle windows.
+
+En effet, les tests s'exécutent correctement sur les ordinateurs de ce local, mais des erreurs reliées à
+la mémoire se produisent sur les autres ordinateurs. Cela est dû à l'instance de la classe facadeModel lors des tests qui nécessite un contexte openGL soit le handle d'une fenêtre. Pour ne pas avoir à modifier le code 
+déjà fournis, nous préférons ratacher un contexte nullptr qui ne semble pas causer de problèmes sur les machines Apple. 
+
+
+le rapport des test unitaires se situe dans le fichier documentation. 
+
+merci !
+
+ 

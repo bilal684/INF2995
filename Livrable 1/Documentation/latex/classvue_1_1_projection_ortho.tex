@@ -1,0 +1,349 @@
+\hypertarget{classvue_1_1_projection_ortho}{}\section{vue\+:\+:Projection\+Ortho Class Reference}
+\label{classvue_1_1_projection_ortho}\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+
+
+Classe implantant une projection orthogonale.  
+
+
+
+
+{\ttfamily \#include $<$Projection\+Ortho.\+h$>$}
+
+Inheritance diagram for vue\+:\+:Projection\+Ortho\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvue_1_1_projection_ortho}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvue_1_1_projection_ortho_a06b243688202d77b06d88eea8f97bc1d}{Projection\+Ortho} (int x\+Min\+Cloture, int x\+Max\+Cloture, int y\+Min\+Cloture, int y\+Max\+Cloture, double z\+Avant, double z\+Arriere, double zoom\+In\+Max, double zoom\+Out\+Max, double increment\+Zoom, double x\+Min\+Fenetre, double x\+Max\+Fenetre, double y\+Min\+Fenetre, double y\+Max\+Fenetre)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_projection_ortho_a4c0a5d669d4fd937ce3ac1a3fe63dc7b}{zoomer\+In} ()
+\begin{DoxyCompactList}\small\item\em Zoom in, c\textquotesingle{}est-\/à-\/dire un agrandissement. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_projection_ortho_a5dd1f08ff6161ccce6b2dfa8dc5dfe40}{zoomer\+Out} ()
+\begin{DoxyCompactList}\small\item\em Zoom out, c\textquotesingle{}est-\/à-\/dire un rapetissement. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_projection_ortho_a6fd137b30eb514fcdb6ad02049a10eff}{redimensionner\+Fenetre} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&coin\+Min, const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&coin\+Max)
+\begin{DoxyCompactList}\small\item\em Modification de la clôture. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classvue_1_1_projection_ortho_aa2b76e034f890dba75852db6fd0b254c}{appliquer} () const 
+\begin{DoxyCompactList}\small\item\em Application de la projection. \end{DoxyCompactList}\item 
+void \hyperlink{classvue_1_1_projection_ortho_abee291dec6b73eb4bc09caaa77267596}{zoomer\+Out} (const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point\+Min\+Virtuelle, const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point\+Max\+Virtuelle)\hypertarget{classvue_1_1_projection_ortho_abee291dec6b73eb4bc09caaa77267596}{}\label{classvue_1_1_projection_ortho_abee291dec6b73eb4bc09caaa77267596}
+
+\begin{DoxyCompactList}\small\item\em Zoom out élastique, sur un rectangle. \end{DoxyCompactList}\item 
+void \hyperlink{classvue_1_1_projection_ortho_af266a9fb0b7a9163da0fe06a6df555e2}{zoomer\+In} (const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point\+Min\+Virtuelle, const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point\+Max\+Virtuelle)\hypertarget{classvue_1_1_projection_ortho_af266a9fb0b7a9163da0fe06a6df555e2}{}\label{classvue_1_1_projection_ortho_af266a9fb0b7a9163da0fe06a6df555e2}
+
+\begin{DoxyCompactList}\small\item\em Zoom in élatique, sur un rectangle. \end{DoxyCompactList}\item 
+void \hyperlink{classvue_1_1_projection_ortho_ab0b91a56bb059b3cb53c53c196fa9ad8}{translater} (double deplacementX, double deplacementY)
+\begin{DoxyCompactList}\small\item\em Translater la fenêtre virtuelle d\textquotesingle{}un pourcentage en {\itshape X} ou en {\itshape Y}. \end{DoxyCompactList}\item 
+void \hyperlink{classvue_1_1_projection_ortho_af54b17d42826b1ebb396edf22ff66811}{translater} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&deplacement)
+\begin{DoxyCompactList}\small\item\em Translater la fenêtre virtuelle d\textquotesingle{}un vecteur. \end{DoxyCompactList}\item 
+void \hyperlink{classvue_1_1_projection_ortho_a8f50a13c2cd734d7a2b58c9bb1e5b89d}{centrer\+Sur\+Point} (const \hyperlink{group__core__types_ga9e6ce9cfc7919976b318197e18d8a065}{glm\+::ivec2} \&point\+Centre)
+\begin{DoxyCompactList}\small\item\em Centrer la fenêtre virtuelle sur un point. \end{DoxyCompactList}\item 
+void \hyperlink{classvue_1_1_projection_ortho_a6e2fe7110bcaa89dd4b10ba59aa3e72b}{obtenir\+Coordonnees\+Fenetre\+Virtuelle} (double \&x\+Min, double \&x\+Max, double \&y\+Min, double \&y\+Max) const 
+\begin{DoxyCompactList}\small\item\em Obtenir les coordonnées de la fenêtre virtuelle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classvue_1_1_projection_ortho_a543cec935680959b18f989eb01509a45}{ajuster\+Rapport\+Aspect} ()
+\begin{DoxyCompactList}\small\item\em Ajuste la fenêtre virtuelle pour respecter le rapport d\textquotesingle{}aspect. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classvue_1_1_projection_ortho_a08acd99b879f7461781e7b7770d8fc26}{x\+Min\+Fenetre\+\_\+}\hypertarget{classvue_1_1_projection_ortho_a08acd99b879f7461781e7b7770d8fc26}{}\label{classvue_1_1_projection_ortho_a08acd99b879f7461781e7b7770d8fc26}
+
+\begin{DoxyCompactList}\small\item\em Borne inférieure en X de la fenêtre virtuelle. \end{DoxyCompactList}\item 
+double \hyperlink{classvue_1_1_projection_ortho_ac20a78ce33ec6f5c0439f317b545ef40}{x\+Max\+Fenetre\+\_\+}\hypertarget{classvue_1_1_projection_ortho_ac20a78ce33ec6f5c0439f317b545ef40}{}\label{classvue_1_1_projection_ortho_ac20a78ce33ec6f5c0439f317b545ef40}
+
+\begin{DoxyCompactList}\small\item\em Borne supérieure en X de la fenêtre virtuelle. \end{DoxyCompactList}\item 
+double \hyperlink{classvue_1_1_projection_ortho_acb03b2e39cdad78754778e7379cdc25a}{y\+Min\+Fenetre\+\_\+}\hypertarget{classvue_1_1_projection_ortho_acb03b2e39cdad78754778e7379cdc25a}{}\label{classvue_1_1_projection_ortho_acb03b2e39cdad78754778e7379cdc25a}
+
+\begin{DoxyCompactList}\small\item\em Borne inférieure en Y de la fenêtre virtuelle. \end{DoxyCompactList}\item 
+double \hyperlink{classvue_1_1_projection_ortho_a5d64b5d3c0a9b71cf61ac218d27cf0e8}{y\+Max\+Fenetre\+\_\+}\hypertarget{classvue_1_1_projection_ortho_a5d64b5d3c0a9b71cf61ac218d27cf0e8}{}\label{classvue_1_1_projection_ortho_a5d64b5d3c0a9b71cf61ac218d27cf0e8}
+
+\begin{DoxyCompactList}\small\item\em Borne supérieure en Y de la fenêtre virtuelle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe implantant une projection orthogonale. 
+
+Cette classe implante l\textquotesingle{}interface de projection définie par la classe de base \hyperlink{classvue_1_1_projection}{Projection} et ajoute certaines fonctionnalitées spécifiques à la projection orthogonale, comme le zoom autour d\textquotesingle{}un point en particulier et le zoom élastique.
+
+\begin{DoxyAuthor}{Author}
+Martin Bisson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2006-\/12-\/15 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!Projection\+Ortho@{Projection\+Ortho}}
+\index{Projection\+Ortho@{Projection\+Ortho}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{Projection\+Ortho(int x\+Min\+Cloture, int x\+Max\+Cloture, int y\+Min\+Cloture, int y\+Max\+Cloture, double z\+Avant, double z\+Arriere, double zoom\+In\+Max, double zoom\+Out\+Max, double increment\+Zoom, double x\+Min\+Fenetre, double x\+Max\+Fenetre, double y\+Min\+Fenetre, double y\+Max\+Fenetre)}{ProjectionOrtho(int xMinCloture, int xMaxCloture, int yMinCloture, int yMaxCloture, double zAvant, double zArriere, double zoomInMax, double zoomOutMax, double incrementZoom, double xMinFenetre, double xMaxFenetre, double yMinFenetre, double yMaxFenetre)}}]{\setlength{\rightskip}{0pt plus 5cm}vue\+::\+Projection\+Ortho\+::\+Projection\+Ortho (
+\begin{DoxyParamCaption}
+\item[{int}]{x\+Min\+Cloture, }
+\item[{int}]{x\+Max\+Cloture, }
+\item[{int}]{y\+Min\+Cloture, }
+\item[{int}]{y\+Max\+Cloture, }
+\item[{double}]{z\+Avant, }
+\item[{double}]{z\+Arriere, }
+\item[{double}]{zoom\+In\+Max, }
+\item[{double}]{zoom\+Out\+Max, }
+\item[{double}]{increment\+Zoom, }
+\item[{double}]{x\+Min\+Fenetre, }
+\item[{double}]{x\+Max\+Fenetre, }
+\item[{double}]{y\+Min\+Fenetre, }
+\item[{double}]{y\+Max\+Fenetre}
+\end{DoxyParamCaption}
+)}\hypertarget{classvue_1_1_projection_ortho_a06b243688202d77b06d88eea8f97bc1d}{}\label{classvue_1_1_projection_ortho_a06b243688202d77b06d88eea8f97bc1d}
+
+
+Constructeur. 
+
+Constructeur d\textquotesingle{}une projection orthogonale. Ne fait qu\textquotesingle{}assigner les variables membres et ajuste ensuite le rapport d\textquotesingle{}aspect.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x\+Min\+Cloture} & \+: coordonnée minimale en {\itshape x} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em x\+Max\+Cloture} & \+: coordonnée maximale en {\itshape x} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em y\+Min\+Cloture} & \+: coordonnée minimale en {\itshape y} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em y\+Max\+Cloture} & \+: coordonnée maximale en {\itshape y} de la clôture. \\
+\hline
+\mbox{\tt in}  & {\em z\+Avant} & \+: distance du plan avant (en {\itshape z}). \\
+\hline
+\mbox{\tt in}  & {\em z\+Arriere} & \+: distance du plan arrière (en {\itshape z}). \\
+\hline
+\mbox{\tt in}  & {\em zoom\+In\+Max} & \+: facteur de zoom in maximal. \\
+\hline
+\mbox{\tt in}  & {\em zoom\+Out\+Max} & \+: facteur de zoom out maximal. \\
+\hline
+\mbox{\tt in}  & {\em increment\+Zoom} & \+: distance du plan arrière (en {\itshape z}). \\
+\hline
+\mbox{\tt in}  & {\em x\+Min\+Fenetre} & \+: coordonnée minimale en {\itshape x} de la fenêtre virtuelle. \\
+\hline
+\mbox{\tt in}  & {\em x\+Max\+Fenetre} & \+: coordonnée maximale en {\itshape x} de la fenêtre virtuelle. \\
+\hline
+\mbox{\tt in}  & {\em y\+Min\+Fenetre} & \+: coordonnée minimale en {\itshape y} de la fenêtre virtuelle. \\
+\hline
+\mbox{\tt in}  & {\em y\+Max\+Fenetre} & \+: coordonnée maximale en {\itshape y} de la fenêtre virtuelle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune (constructeur). 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!ajuster\+Rapport\+Aspect@{ajuster\+Rapport\+Aspect}}
+\index{ajuster\+Rapport\+Aspect@{ajuster\+Rapport\+Aspect}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{ajuster\+Rapport\+Aspect()}{ajusterRapportAspect()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::ajuster\+Rapport\+Aspect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classvue_1_1_projection_ortho_a543cec935680959b18f989eb01509a45}{}\label{classvue_1_1_projection_ortho_a543cec935680959b18f989eb01509a45}
+
+
+Ajuste la fenêtre virtuelle pour respecter le rapport d\textquotesingle{}aspect. 
+
+Permet d\textquotesingle{}ajuster les coordonnées de la fenêtre virtuelle en fonction de la clôture de façon à ce que le rapport d\textquotesingle{}aspect soit respecté.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!appliquer@{appliquer}}
+\index{appliquer@{appliquer}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{appliquer() const }{appliquer() const }}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::appliquer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_projection_ortho_aa2b76e034f890dba75852db6fd0b254c}{}\label{classvue_1_1_projection_ortho_aa2b76e034f890dba75852db6fd0b254c}
+
+
+Application de la projection. 
+
+Cette fonction permet d\textquotesingle{}appliquer la fenêtre virtuelle en appelant les fonctions d\textquotesingle{}Open\+GL selon le type de projection et les propriétés de la fenêtre.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_projection_ad25f7ba8515073ef700eac3c737e273a}{vue\+::\+Projection}.
+
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!centrer\+Sur\+Point@{centrer\+Sur\+Point}}
+\index{centrer\+Sur\+Point@{centrer\+Sur\+Point}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{centrer\+Sur\+Point(const glm\+::ivec2 \&point\+Centre)}{centrerSurPoint(const glm::ivec2 &pointCentre)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::centrer\+Sur\+Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{point\+Centre}
+\end{DoxyParamCaption}
+)}\hypertarget{classvue_1_1_projection_ortho_a8f50a13c2cd734d7a2b58c9bb1e5b89d}{}\label{classvue_1_1_projection_ortho_a8f50a13c2cd734d7a2b58c9bb1e5b89d}
+
+
+Centrer la fenêtre virtuelle sur un point. 
+
+Permet de centrer la fenêtre virtuelle sur un point de l\textquotesingle{}écran. Le point de l\textquotesingle{}écran est convertit en coordonnées virtuelles et il devient le centre de la fenêtre virtuelle.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em point\+Centre} & \+: Le point sur lequel on doit centrer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!obtenir\+Coordonnees\+Fenetre\+Virtuelle@{obtenir\+Coordonnees\+Fenetre\+Virtuelle}}
+\index{obtenir\+Coordonnees\+Fenetre\+Virtuelle@{obtenir\+Coordonnees\+Fenetre\+Virtuelle}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{obtenir\+Coordonnees\+Fenetre\+Virtuelle(double \&x\+Min, double \&x\+Max, double \&y\+Min, double \&y\+Max) const }{obtenirCoordonneesFenetreVirtuelle(double &xMin, double &xMax, double &yMin, double &yMax) const }}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::obtenir\+Coordonnees\+Fenetre\+Virtuelle (
+\begin{DoxyParamCaption}
+\item[{double \&}]{x\+Min, }
+\item[{double \&}]{x\+Max, }
+\item[{double \&}]{y\+Min, }
+\item[{double \&}]{y\+Max}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classvue_1_1_projection_ortho_a6e2fe7110bcaa89dd4b10ba59aa3e72b}{}\label{classvue_1_1_projection_ortho_a6e2fe7110bcaa89dd4b10ba59aa3e72b}
+
+
+Obtenir les coordonnées de la fenêtre virtuelle. 
+
+Cette fonction retourne les coordonnées de la fenêtre virtuelle associée à cette projection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em x\+Min} & \+: La variable qui contiendra l\textquotesingle{}abcsisse minimale. \\
+\hline
+\mbox{\tt out}  & {\em x\+Max} & \+: La variable qui contiendra l\textquotesingle{}abcsisse maximale. \\
+\hline
+\mbox{\tt out}  & {\em y\+Min} & \+: La variable qui contiendra l\textquotesingle{}ordonnée minimale. \\
+\hline
+\mbox{\tt out}  & {\em y\+Max} & \+: La variable qui contiendra l\textquotesingle{}ordonnée maximale.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Les coordonnées de la fenêtre virtuelle. 
+\end{DoxyReturn}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!redimensionner\+Fenetre@{redimensionner\+Fenetre}}
+\index{redimensionner\+Fenetre@{redimensionner\+Fenetre}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{redimensionner\+Fenetre(const glm\+::ivec2 \&coin\+Min, const glm\+::ivec2 \&coin\+Max)}{redimensionnerFenetre(const glm::ivec2 &coinMin, const glm::ivec2 &coinMax)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::redimensionner\+Fenetre (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{coin\+Min, }
+\item[{const {\bf glm\+::ivec2} \&}]{coin\+Max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_projection_ortho_a6fd137b30eb514fcdb6ad02049a10eff}{}\label{classvue_1_1_projection_ortho_a6fd137b30eb514fcdb6ad02049a10eff}
+
+
+Modification de la clôture. 
+
+Permet d\textquotesingle{}ajuster les coordonnées de la fenêtre virtuelle en fonction d\textquotesingle{}un redimensionnement de la fenêtre.
+
+L\textquotesingle{}agrandissement de la fenêtre virtuelle est proportionnel à l\textquotesingle{}agrandissement de la clotûre afin que les objets gardent la même grandeur apparente lorsque la fenêtre est redimensionnée.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em coin\+Min} & \+: Coin contenant les coordonnées minimales de la nouvelle clôture \\
+\hline
+\mbox{\tt in}  & {\em coin\+Max} & \+: Coin contenant les coordonnées maximales de la nouvelle clôture\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_projection_a27a880285b985a370000944044f07a21}{vue\+::\+Projection}.
+
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!translater@{translater}}
+\index{translater@{translater}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{translater(double deplacement\+X, double deplacement\+Y)}{translater(double deplacementX, double deplacementY)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::translater (
+\begin{DoxyParamCaption}
+\item[{double}]{deplacementX, }
+\item[{double}]{deplacementY}
+\end{DoxyParamCaption}
+)}\hypertarget{classvue_1_1_projection_ortho_ab0b91a56bb059b3cb53c53c196fa9ad8}{}\label{classvue_1_1_projection_ortho_ab0b91a56bb059b3cb53c53c196fa9ad8}
+
+
+Translater la fenêtre virtuelle d\textquotesingle{}un pourcentage en {\itshape X} ou en {\itshape Y}. 
+
+Permet de déplacer la fenêtre virtuelle en {\itshape x} et en {\itshape y}. Les déplacement doivent être exprimés en proportion de la fenêtre virtuelle.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deplacementX} & \+: le déplacement en {\itshape x}. \\
+\hline
+\mbox{\tt in}  & {\em deplacementY} & \+: le déplacement en {\itshape y}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!translater@{translater}}
+\index{translater@{translater}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{translater(const glm\+::ivec2 \&deplacement)}{translater(const glm::ivec2 &deplacement)}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::translater (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::ivec2} \&}]{deplacement}
+\end{DoxyParamCaption}
+)}\hypertarget{classvue_1_1_projection_ortho_af54b17d42826b1ebb396edf22ff66811}{}\label{classvue_1_1_projection_ortho_af54b17d42826b1ebb396edf22ff66811}
+
+
+Translater la fenêtre virtuelle d\textquotesingle{}un vecteur. 
+
+Permet de translater la fenêtre virtuelle en fonction d\textquotesingle{}un déplacement en coordonnées de clôture.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em deplacement} & \+: Le déplacement en coordonnées de clôture.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!zoomer\+In@{zoomer\+In}}
+\index{zoomer\+In@{zoomer\+In}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{zoomer\+In()}{zoomerIn()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::zoomer\+In (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_projection_ortho_a4c0a5d669d4fd937ce3ac1a3fe63dc7b}{}\label{classvue_1_1_projection_ortho_a4c0a5d669d4fd937ce3ac1a3fe63dc7b}
+
+
+Zoom in, c\textquotesingle{}est-\/à-\/dire un agrandissement. 
+
+Permet de faire un zoom in selon l\textquotesingle{}incrément de zoom.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_projection_ac3cd77fd93595b6844bd1b3b66867f55}{vue\+::\+Projection}.
+
+\index{vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}!zoomer\+Out@{zoomer\+Out}}
+\index{zoomer\+Out@{zoomer\+Out}!vue\+::\+Projection\+Ortho@{vue\+::\+Projection\+Ortho}}
+\subsubsection[{\texorpdfstring{zoomer\+Out()}{zoomerOut()}}]{\setlength{\rightskip}{0pt plus 5cm}void vue\+::\+Projection\+Ortho\+::zoomer\+Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classvue_1_1_projection_ortho_a5dd1f08ff6161ccce6b2dfa8dc5dfe40}{}\label{classvue_1_1_projection_ortho_a5dd1f08ff6161ccce6b2dfa8dc5dfe40}
+
+
+Zoom out, c\textquotesingle{}est-\/à-\/dire un rapetissement. 
+
+Permet de faire un zoom out selon l\textquotesingle{}incrément de zoom.
+
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classvue_1_1_projection_a2f411375817ca560d31a66f2da5e51eb}{vue\+::\+Projection}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Utilitaire/\+Vue/\hyperlink{_projection_ortho_8h}{Projection\+Ortho.\+h}\item 
+Commun/\+Utilitaire/\+Vue/\hyperlink{_projection_ortho_8cpp}{Projection\+Ortho.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,152 @@
+\hypertarget{classb2_joint}{}\section{b2\+Joint Class Reference}
+\label{classb2_joint}\index{b2\+Joint@{b2\+Joint}}
+
+
+{\ttfamily \#include $<$b2\+Joint.\+h$>$}
+
+Inheritance diagram for b2\+Joint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{classb2_joint}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Joint\+Type \hyperlink{classb2_joint_a37a2ca3f0d41c6903d2cc73757f02be2}{Get\+Type} () const \hypertarget{classb2_joint_a37a2ca3f0d41c6903d2cc73757f02be2}{}\label{classb2_joint_a37a2ca3f0d41c6903d2cc73757f02be2}
+
+\begin{DoxyCompactList}\small\item\em Get the type of the concrete joint. \end{DoxyCompactList}\item 
+\hyperlink{classb2_body}{b2\+Body} $\ast$ \hyperlink{classb2_joint_a2ed5eca3dbdce48665c14452b280613f}{Get\+BodyA} ()\hypertarget{classb2_joint_a2ed5eca3dbdce48665c14452b280613f}{}\label{classb2_joint_a2ed5eca3dbdce48665c14452b280613f}
+
+\begin{DoxyCompactList}\small\item\em Get the first body attached to this joint. \end{DoxyCompactList}\item 
+\hyperlink{classb2_body}{b2\+Body} $\ast$ \hyperlink{classb2_joint_a700b3d4c87f34f456151b9598e4641a0}{Get\+BodyB} ()\hypertarget{classb2_joint_a700b3d4c87f34f456151b9598e4641a0}{}\label{classb2_joint_a700b3d4c87f34f456151b9598e4641a0}
+
+\begin{DoxyCompactList}\small\item\em Get the second body attached to this joint. \end{DoxyCompactList}\item 
+virtual \hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{classb2_joint_a0e5b9b2c521cc797f691708285de79af}{Get\+AnchorA} () const  =0\hypertarget{classb2_joint_a0e5b9b2c521cc797f691708285de79af}{}\label{classb2_joint_a0e5b9b2c521cc797f691708285de79af}
+
+\begin{DoxyCompactList}\small\item\em Get the anchor point on bodyA in world coordinates. \end{DoxyCompactList}\item 
+virtual \hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{classb2_joint_af959abb4dc85cfba440ef94715b18959}{Get\+AnchorB} () const  =0\hypertarget{classb2_joint_af959abb4dc85cfba440ef94715b18959}{}\label{classb2_joint_af959abb4dc85cfba440ef94715b18959}
+
+\begin{DoxyCompactList}\small\item\em Get the anchor point on bodyB in world coordinates. \end{DoxyCompactList}\item 
+virtual \hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{classb2_joint_a7ab58d67a56ff173957286558b08118a}{Get\+Reaction\+Force} (float32 inv\+\_\+dt) const  =0\hypertarget{classb2_joint_a7ab58d67a56ff173957286558b08118a}{}\label{classb2_joint_a7ab58d67a56ff173957286558b08118a}
+
+\begin{DoxyCompactList}\small\item\em Get the reaction force on bodyB at the joint anchor in Newtons. \end{DoxyCompactList}\item 
+virtual float32 \hyperlink{classb2_joint_a0b1e4fcdea490c49a9ac1133e5244566}{Get\+Reaction\+Torque} (float32 inv\+\_\+dt) const  =0\hypertarget{classb2_joint_a0b1e4fcdea490c49a9ac1133e5244566}{}\label{classb2_joint_a0b1e4fcdea490c49a9ac1133e5244566}
+
+\begin{DoxyCompactList}\small\item\em Get the reaction torque on bodyB in N$\ast$m. \end{DoxyCompactList}\item 
+\hyperlink{classb2_joint}{b2\+Joint} $\ast$ \hyperlink{classb2_joint_a1a0e2137b631010750c728cb4e276e5d}{Get\+Next} ()\hypertarget{classb2_joint_a1a0e2137b631010750c728cb4e276e5d}{}\label{classb2_joint_a1a0e2137b631010750c728cb4e276e5d}
+
+\begin{DoxyCompactList}\small\item\em Get the next joint the world joint list. \end{DoxyCompactList}\item 
+const \hyperlink{classb2_joint}{b2\+Joint} $\ast$ {\bfseries Get\+Next} () const \hypertarget{classb2_joint_a1ac83edb39806085608c9d549dd98550}{}\label{classb2_joint_a1ac83edb39806085608c9d549dd98550}
+
+\item 
+void $\ast$ \hyperlink{classb2_joint_a505ab02c234f1cc20aa3375f3ab7b587}{Get\+User\+Data} () const \hypertarget{classb2_joint_a505ab02c234f1cc20aa3375f3ab7b587}{}\label{classb2_joint_a505ab02c234f1cc20aa3375f3ab7b587}
+
+\begin{DoxyCompactList}\small\item\em Get the user data pointer. \end{DoxyCompactList}\item 
+void \hyperlink{classb2_joint_a492f2d02496437572aaec6013ebdc1c8}{Set\+User\+Data} (void $\ast$data)\hypertarget{classb2_joint_a492f2d02496437572aaec6013ebdc1c8}{}\label{classb2_joint_a492f2d02496437572aaec6013ebdc1c8}
+
+\begin{DoxyCompactList}\small\item\em Set the user data pointer. \end{DoxyCompactList}\item 
+bool \hyperlink{classb2_joint_a825d3a6abb32014f31fd622f2bfc0363}{Is\+Active} () const \hypertarget{classb2_joint_a825d3a6abb32014f31fd622f2bfc0363}{}\label{classb2_joint_a825d3a6abb32014f31fd622f2bfc0363}
+
+\begin{DoxyCompactList}\small\item\em Short-\/cut function to determine if either body is inactive. \end{DoxyCompactList}\item 
+bool \hyperlink{classb2_joint_a09c6bdfa5842522ba381bac8dd559f4d}{Get\+Collide\+Connected} () const 
+\item 
+virtual void \hyperlink{classb2_joint_abd35e7316017ad9a40d5dbf9b5ba3f36}{Dump} ()\hypertarget{classb2_joint_abd35e7316017ad9a40d5dbf9b5ba3f36}{}\label{classb2_joint_abd35e7316017ad9a40d5dbf9b5ba3f36}
+
+\begin{DoxyCompactList}\small\item\em Dump this joint to the log file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classb2_joint_a7804f649e993dc0fd9ae47fde5601f90}{Shift\+Origin} (const \hyperlink{structb2_vec2}{b2\+Vec2} \&new\+Origin)\hypertarget{classb2_joint_a7804f649e993dc0fd9ae47fde5601f90}{}\label{classb2_joint_a7804f649e993dc0fd9ae47fde5601f90}
+
+\begin{DoxyCompactList}\small\item\em Shift the origin for any points stored in world coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries b2\+Joint} (const \hyperlink{structb2_joint_def}{b2\+Joint\+Def} $\ast$def)\hypertarget{classb2_joint_a8d6cce91546335fe95325d5e29c06a19}{}\label{classb2_joint_a8d6cce91546335fe95325d5e29c06a19}
+
+\item 
+virtual void {\bfseries Init\+Velocity\+Constraints} (const \hyperlink{structb2_solver_data}{b2\+Solver\+Data} \&data)=0\hypertarget{classb2_joint_a599c013de5514e02684b958b31dd76a4}{}\label{classb2_joint_a599c013de5514e02684b958b31dd76a4}
+
+\item 
+virtual void {\bfseries Solve\+Velocity\+Constraints} (const \hyperlink{structb2_solver_data}{b2\+Solver\+Data} \&data)=0\hypertarget{classb2_joint_ad302c8d02efcfe934158de0dc429348d}{}\label{classb2_joint_ad302c8d02efcfe934158de0dc429348d}
+
+\item 
+virtual bool {\bfseries Solve\+Position\+Constraints} (const \hyperlink{structb2_solver_data}{b2\+Solver\+Data} \&data)=0\hypertarget{classb2_joint_af767ac9aa494bd15cdf83dfe3e487d9c}{}\label{classb2_joint_af767ac9aa494bd15cdf83dfe3e487d9c}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classb2_joint}{b2\+Joint} $\ast$ {\bfseries Create} (const \hyperlink{structb2_joint_def}{b2\+Joint\+Def} $\ast$def, \hyperlink{classb2_block_allocator}{b2\+Block\+Allocator} $\ast$allocator)\hypertarget{classb2_joint_afb5e48309bffa83a01d3f8a703269602}{}\label{classb2_joint_afb5e48309bffa83a01d3f8a703269602}
+
+\item 
+static void {\bfseries Destroy} (\hyperlink{classb2_joint}{b2\+Joint} $\ast$joint, \hyperlink{classb2_block_allocator}{b2\+Block\+Allocator} $\ast$allocator)\hypertarget{classb2_joint_adfb955de2abe370a973a7158557e26be}{}\label{classb2_joint_adfb955de2abe370a973a7158557e26be}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Joint\+Type {\bfseries m\+\_\+type}\hypertarget{classb2_joint_a3fd3f2532d108d81df81427815210a59}{}\label{classb2_joint_a3fd3f2532d108d81df81427815210a59}
+
+\item 
+\hyperlink{classb2_joint}{b2\+Joint} $\ast$ {\bfseries m\+\_\+prev}\hypertarget{classb2_joint_a940166e7b5d87cec1ad0603e0388854a}{}\label{classb2_joint_a940166e7b5d87cec1ad0603e0388854a}
+
+\item 
+\hyperlink{classb2_joint}{b2\+Joint} $\ast$ {\bfseries m\+\_\+next}\hypertarget{classb2_joint_aad16778ba9c51cebb767ff7df6ed80b5}{}\label{classb2_joint_aad16778ba9c51cebb767ff7df6ed80b5}
+
+\item 
+\hyperlink{structb2_joint_edge}{b2\+Joint\+Edge} {\bfseries m\+\_\+edgeA}\hypertarget{classb2_joint_a406ea423db1fe6484408d73df647f7b2}{}\label{classb2_joint_a406ea423db1fe6484408d73df647f7b2}
+
+\item 
+\hyperlink{structb2_joint_edge}{b2\+Joint\+Edge} {\bfseries m\+\_\+edgeB}\hypertarget{classb2_joint_a1041219dcd353ea815ebd78f904af547}{}\label{classb2_joint_a1041219dcd353ea815ebd78f904af547}
+
+\item 
+\hyperlink{classb2_body}{b2\+Body} $\ast$ {\bfseries m\+\_\+bodyA}\hypertarget{classb2_joint_abaebb784a51abb7d66de302ba07a4467}{}\label{classb2_joint_abaebb784a51abb7d66de302ba07a4467}
+
+\item 
+\hyperlink{classb2_body}{b2\+Body} $\ast$ {\bfseries m\+\_\+bodyB}\hypertarget{classb2_joint_a1fd77fcbcb8a8a3729c7dc5b790d7200}{}\label{classb2_joint_a1fd77fcbcb8a8a3729c7dc5b790d7200}
+
+\item 
+int32 {\bfseries m\+\_\+index}\hypertarget{classb2_joint_ae207295484bc040b6b52d96d63f1369f}{}\label{classb2_joint_ae207295484bc040b6b52d96d63f1369f}
+
+\item 
+bool {\bfseries m\+\_\+island\+Flag}\hypertarget{classb2_joint_a777e45428d9a74d626f4afa1b45e1975}{}\label{classb2_joint_a777e45428d9a74d626f4afa1b45e1975}
+
+\item 
+bool {\bfseries m\+\_\+collide\+Connected}\hypertarget{classb2_joint_ac1a93c14c8dd666bb487db6c98daad33}{}\label{classb2_joint_ac1a93c14c8dd666bb487db6c98daad33}
+
+\item 
+void $\ast$ {\bfseries m\+\_\+user\+Data}\hypertarget{classb2_joint_ae8a31b6d5d6e76ccf7c975b2b3ae7366}{}\label{classb2_joint_ae8a31b6d5d6e76ccf7c975b2b3ae7366}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries b2\+World}\hypertarget{classb2_joint_a4bd536c5a7c0587913765bbc2693ceea}{}\label{classb2_joint_a4bd536c5a7c0587913765bbc2693ceea}
+
+\item 
+class {\bfseries b2\+Body}\hypertarget{classb2_joint_a010ab52de250e5fe30a45d642f46405b}{}\label{classb2_joint_a010ab52de250e5fe30a45d642f46405b}
+
+\item 
+class {\bfseries b2\+Island}\hypertarget{classb2_joint_afc682950b8c4f251804fc1938663098b}{}\label{classb2_joint_afc682950b8c4f251804fc1938663098b}
+
+\item 
+class {\bfseries b2\+Gear\+Joint}\hypertarget{classb2_joint_a13c275221e30bb485e17e4e04553cb71}{}\label{classb2_joint_a13c275221e30bb485e17e4e04553cb71}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The base joint class. Joints are used to constraint two bodies together in various fashions. Some joints also feature limits and motors. 
+
+\subsection{Member Function Documentation}
+\index{b2\+Joint@{b2\+Joint}!Get\+Collide\+Connected@{Get\+Collide\+Connected}}
+\index{Get\+Collide\+Connected@{Get\+Collide\+Connected}!b2\+Joint@{b2\+Joint}}
+\subsubsection[{\texorpdfstring{Get\+Collide\+Connected() const }{GetCollideConnected() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool b2\+Joint\+::\+Get\+Collide\+Connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classb2_joint_a09c6bdfa5842522ba381bac8dd559f4d}{}\label{classb2_joint_a09c6bdfa5842522ba381bac8dd559f4d}
+Get collide connected. Note\+: modifying the collide connect flag won\textquotesingle{}t work correctly because the flag is only checked when fixture A\+A\+B\+Bs begin to overlap. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Commun/\+Externe/\+Box2\+D/include/\+Box2\+D/\+Dynamics/\+Joints/b2\+Joint.\+h\end{DoxyCompactItemize}

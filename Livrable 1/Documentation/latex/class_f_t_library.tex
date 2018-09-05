@@ -1,0 +1,141 @@
+\hypertarget{class_f_t_library}{}\section{F\+T\+Library Class Reference}
+\label{class_f_t_library}\index{F\+T\+Library@{F\+T\+Library}}
+
+
+{\ttfamily \#include $<$F\+T\+Library.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{struct_f_t___library_rec__}{F\+T\+\_\+\+Library} $\ast$const \hyperlink{class_f_t_library_afef4db019eae5a4307201b7abc6a88c7}{Get\+Library} () const 
+\item 
+F\+T\+\_\+\+Error \hyperlink{class_f_t_library_ad01e538ba8e308dddda5c4ec808ee404}{Error} () const 
+\item 
+\hyperlink{class_f_t_library_a8d1ee3dc3c4916b5b428e934dc46e9d7}{$\sim$\+F\+T\+Library} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{class_f_t_library}{F\+T\+Library} \& \hyperlink{class_f_t_library_aa172665a8db8888851895bcb15aa8103}{Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_f_t_library_acb32a6fc7e298d60e1d071899efab379}{F\+T\+Library} ()
+\item 
+{\bfseries F\+T\+Library} (const \hyperlink{struct_f_t___library_rec__}{F\+T\+\_\+\+Library} \&)\hypertarget{class_f_t_library_ae0eea39a5a34ae8a4ed083c0a6564a5f}{}\label{class_f_t_library_ae0eea39a5a34ae8a4ed083c0a6564a5f}
+
+\item 
+\hyperlink{class_f_t_library}{F\+T\+Library} \& {\bfseries operator=} (const \hyperlink{struct_f_t___library_rec__}{F\+T\+\_\+\+Library} \&)\hypertarget{class_f_t_library_a5e372958c8036ad1d2078fdba729de93}{}\label{class_f_t_library_a5e372958c8036ad1d2078fdba729de93}
+
+\item 
+bool \hyperlink{class_f_t_library_a0303d47ece19bb6c5e3192885d53b8ed}{Initialise} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_f_t___library_rec__}{F\+T\+\_\+\+Library} $\ast$ \hyperlink{class_f_t_library_af2439a94d44f3d3f0a0f124bb909e551}{library}
+\item 
+F\+T\+\_\+\+Error \hyperlink{class_f_t_library_abbf5dd67d4c1fd72e9292c1247f91b1e}{err}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_f_t_library}{F\+T\+Library} class is the global accessor for the Freetype library.
+
+This class encapsulates the Freetype Library. This is a singleton class and ensures that only one F\+T\+\_\+\+Library is in existence at any one time. All constructors are private therefore clients cannot create or instantiate this class themselves and must access it\textquotesingle{}s methods via the static {\ttfamily \hyperlink{class_f_t_library_aa172665a8db8888851895bcb15aa8103}{F\+T\+Library\+::\+Instance()}} function.
+
+Just because this class returns a valid {\ttfamily \hyperlink{class_f_t_library}{F\+T\+Library}} object doesn\textquotesingle{}t mean that the Freetype Library has been successfully initialised. Clients should check for errors. You can initialse the library A\+ND check for errors using the following code... {\ttfamily err = \hyperlink{class_f_t_library_aa172665a8db8888851895bcb15aa8103}{F\+T\+Library\+::\+Instance()}.\hyperlink{class_f_t_library_ad01e538ba8e308dddda5c4ec808ee404}{Error()};}
+
+\begin{DoxySeeAlso}{See also}
+\char`\"{}\+Freetype 2 Documentation\char`\"{} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{F\+T\+Library@{F\+T\+Library}!````~F\+T\+Library@{$\sim$\+F\+T\+Library}}
+\index{````~F\+T\+Library@{$\sim$\+F\+T\+Library}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{$\sim$\+F\+T\+Library()}{~FTLibrary()}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Library\+::$\sim$\+F\+T\+Library (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_library_a8d1ee3dc3c4916b5b428e934dc46e9d7}{}\label{class_f_t_library_a8d1ee3dc3c4916b5b428e934dc46e9d7}
+Destructor
+
+Disposes of the Freetype library \index{F\+T\+Library@{F\+T\+Library}!F\+T\+Library@{F\+T\+Library}}
+\index{F\+T\+Library@{F\+T\+Library}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{F\+T\+Library()}{FTLibrary()}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Library\+::\+F\+T\+Library (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_library_acb32a6fc7e298d60e1d071899efab379}{}\label{class_f_t_library_acb32a6fc7e298d60e1d071899efab379}
+Default constructors.
+
+Made private to stop clients creating there own \hyperlink{class_f_t_library}{F\+T\+Library} objects. 
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Library@{F\+T\+Library}!Error@{Error}}
+\index{Error@{Error}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{Error() const }{Error() const }}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+\_\+\+Error F\+T\+Library\+::\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_library_ad01e538ba8e308dddda5c4ec808ee404}{}\label{class_f_t_library_ad01e538ba8e308dddda5c4ec808ee404}
+Queries the library for errors.
+
+\begin{DoxyReturn}{Returns}
+The current error code. 
+\end{DoxyReturn}
+\index{F\+T\+Library@{F\+T\+Library}!Get\+Library@{Get\+Library}}
+\index{Get\+Library@{Get\+Library}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{Get\+Library() const }{GetLibrary() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf F\+T\+\_\+\+Library}$\ast$ const F\+T\+Library\+::\+Get\+Library (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_library_afef4db019eae5a4307201b7abc6a88c7}{}\label{class_f_t_library_afef4db019eae5a4307201b7abc6a88c7}
+Gets a pointer to the native Freetype library.
+
+\begin{DoxyReturn}{Returns}
+A handle to a Free\+Type library instance. 
+\end{DoxyReturn}
+\index{F\+T\+Library@{F\+T\+Library}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{Initialise()}{Initialise()}}]{\setlength{\rightskip}{0pt plus 5cm}bool F\+T\+Library\+::\+Initialise (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_library_a0303d47ece19bb6c5e3192885d53b8ed}{}\label{class_f_t_library_a0303d47ece19bb6c5e3192885d53b8ed}
+Initialises the Freetype library
+
+Even though this function indicates success via the return value, clients can\textquotesingle{}t see this so must check the error codes. This function is only ever called by the default c\+\_\+stor
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the Freetype library was successfully initialised, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\index{F\+T\+Library@{F\+T\+Library}!Instance@{Instance}}
+\index{Instance@{Instance}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{Instance()}{Instance()}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf F\+T\+Library} \& F\+T\+Library\+::\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_f_t_library_aa172665a8db8888851895bcb15aa8103}{}\label{class_f_t_library_aa172665a8db8888851895bcb15aa8103}
+Global acces point to the single \hyperlink{class_f_t_library}{F\+T\+Library} object.
+
+\begin{DoxyReturn}{Returns}
+The global {\ttfamily \hyperlink{class_f_t_library}{F\+T\+Library}} object. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Library@{F\+T\+Library}!err@{err}}
+\index{err@{err}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{err}{err}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+\_\+\+Error F\+T\+Library\+::err\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_library_abbf5dd67d4c1fd72e9292c1247f91b1e}{}\label{class_f_t_library_abbf5dd67d4c1fd72e9292c1247f91b1e}
+Current error code. Zero means no error. \index{F\+T\+Library@{F\+T\+Library}!library@{library}}
+\index{library@{library}!F\+T\+Library@{F\+T\+Library}}
+\subsubsection[{\texorpdfstring{library}{library}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+T\+\_\+\+Library}$\ast$ F\+T\+Library\+::library\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_library_af2439a94d44f3d3f0a0f124bb909e551}{}\label{class_f_t_library_af2439a94d44f3d3f0a0f124bb909e551}
+Freetype library handle. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Library.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Library.\+cpp\end{DoxyCompactItemize}

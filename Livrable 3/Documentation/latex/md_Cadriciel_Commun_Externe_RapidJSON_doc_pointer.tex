@@ -1,0 +1,240 @@
+\subsection*{Status\+: experimental, shall be included in v1.\+1}
+
+J\+S\+ON Pointer is a standardized (\href{https://tools.ietf.org/html/rfc6901}{\tt R\+F\+C6901}) way to select a value inside a J\+S\+ON Document (D\+OM). This can be analogous to X\+Path for X\+ML document. However, J\+S\+ON Pointer is much simpler, and a single J\+S\+ON Pointer only pointed to a single value.
+
+Using Rapid\+J\+S\+ON\textquotesingle{}s implementation of J\+S\+ON Pointer can simplify some manipulations of the D\+OM.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_JsonPointer}{}\section{J\+S\+O\+N Pointer}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_JsonPointer}
+A J\+S\+ON Pointer is a list of zero-\/to-\/many tokens, each prefixed by {\ttfamily /}. Each token can be a string or a number. For example, given a J\+S\+ON\+: 
+\begin{DoxyCode}
+1 \{
+2     "foo" : ["bar", "baz"],
+3     "pi" : 3.1416
+4 \}
+\end{DoxyCode}
+
+
+The following J\+S\+ON Pointers resolve this J\+S\+ON as\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily \char`\"{}/foo\char`\"{}} → {\ttfamily \mbox{[} \char`\"{}bar\char`\"{}, \char`\"{}baz\char`\"{} \mbox{]}}
+\item {\ttfamily \char`\"{}/foo/0\char`\"{}} → {\ttfamily \char`\"{}bar\char`\"{}}
+\item {\ttfamily \char`\"{}/foo/1\char`\"{}} → {\ttfamily \char`\"{}baz\char`\"{}}
+\item {\ttfamily \char`\"{}/pi\char`\"{}} → {\ttfamily 3.\+1416}
+\end{DoxyEnumerate}
+
+Note that, an empty J\+S\+ON Pointer {\ttfamily \char`\"{}\char`\"{}} (zero token) resolves to the whole J\+S\+ON.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_BasicUsage}{}\section{Basic Usage}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_BasicUsage}
+The following example code is self-\/explanatory.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/pointer.h"}
+
+\textcolor{comment}{// ...}
+\hyperlink{class_generic_document}{Document} d;
+
+\textcolor{comment}{// Create DOM by Set()}
+\hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/project"}).\hyperlink{class_generic_pointer_adf0aa776e072b41d301e2a834ac2c2b5}{Set}(d, \textcolor{stringliteral}{"RapidJSON"});
+\hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/stars"}).\hyperlink{class_generic_pointer_adf0aa776e072b41d301e2a834ac2c2b5}{Set}(d, 10);
+
+\textcolor{comment}{// \{ "project" : "RapidJSON", "stars" : 10 \}}
+
+\textcolor{comment}{// Access DOM by Get(). It return nullptr if the value does not exist.}
+\textcolor{keywordflow}{if} (\hyperlink{class_generic_value}{Value}* stars = \hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/stars"}).Get(d))
+    stars->SetInt(stars->GetInt() + 1);
+
+\textcolor{comment}{// \{ "project" : "RapidJSON", "stars" : 11 \}}
+
+\textcolor{comment}{// Set() and Create() automatically generate parents if not exist.}
+\hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/a/b/0"}).Create(d);
+
+\textcolor{comment}{// \{ "project" : "RapidJSON", "stars" : 11, "a" : \{ "b" : [ null ] \} \}}
+
+\textcolor{comment}{// GetWithDefault() returns reference. And it deep clones the default value.}
+\hyperlink{class_generic_value}{Value}& hello = \hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/hello"}).GetWithDefault(d, \textcolor{stringliteral}{"world"});
+
+\textcolor{comment}{// \{ "project" : "RapidJSON", "stars" : 11, "a" : \{ "b" : [ null ] \}, "hello" : "world" \}}
+
+\textcolor{comment}{// Swap() is similar to Set()}
+\hyperlink{class_generic_value}{Value} x(\textcolor{stringliteral}{"C++"});
+\hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/hello"}).\hyperlink{class_generic_pointer_a25a063290bcf607694430d6b05ac9157}{Swap}(d, x);
+
+\textcolor{comment}{// \{ "project" : "RapidJSON", "stars" : 11, "a" : \{ "b" : [ null ] \}, "hello" : "C++" \}}
+\textcolor{comment}{// x becomes "world"}
+
+\textcolor{comment}{// Erase a member or element, return true if the value exists}
+\textcolor{keywordtype}{bool} success = \hyperlink{class_generic_pointer}{Pointer}(\textcolor{stringliteral}{"/a"}).\hyperlink{class_generic_pointer_aa8fd4b1259fc500188f4162571b280ec}{Erase}(d);
+assert(success);
+
+\textcolor{comment}{// \{ "project" : "RapidJSON", "stars" : 10 \}}
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_HelperFunctions}{}\section{Helper Functions}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_HelperFunctions}
+Since object-\/oriented calling convention may be non-\/intuitive, Rapid\+J\+S\+ON also provides helper functions, which just wrap the member functions with free-\/functions.
+
+The following example does exactly the same as the above one.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+
+SetValueByPointer(d, \textcolor{stringliteral}{"/project"}, \textcolor{stringliteral}{"RapidJSON"});
+SetValueByPointer(d, \textcolor{stringliteral}{"/stars"}, 10);
+
+\textcolor{keywordflow}{if} (\hyperlink{class_generic_value}{Value}* stars = GetValueByPointer(d, \textcolor{stringliteral}{"/stars"}))
+    stars->SetInt(stars->GetInt() + 1);
+
+CreateValueByPointer(d, \textcolor{stringliteral}{"/a/b/0"});
+
+\hyperlink{class_generic_value}{Value}& hello = GetValueByPointerWithDefault(d, \textcolor{stringliteral}{"/hello"}, \textcolor{stringliteral}{"world"});
+
+\hyperlink{class_generic_value}{Value} x(\textcolor{stringliteral}{"C++"});
+SwapValueByPointer(d, \textcolor{stringliteral}{"/hello"}, x);
+
+\textcolor{keywordtype}{bool} success = EraseValueByPointer(d, \textcolor{stringliteral}{"/a"});
+assert(success);
+\end{DoxyCode}
+
+
+The conventions are shown here for comparison\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily Pointer(source).$<$Method$>$(root, ...)}
+\item {\ttfamily $<$Method$>$Value\+By\+Pointer(root, Pointer(source), ...)}
+\item {\ttfamily $<$Method$>$Value\+By\+Pointer(root, source, ...)}
+\end{DoxyEnumerate}\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_ResolvingPointer}{}\section{Resolving Pointer}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_ResolvingPointer}
+{\ttfamily Pointer\+::\+Get()} or {\ttfamily Get\+Value\+By\+Pointer()} function does not modify the D\+OM. If the tokens cannot match a value in the D\+OM, it returns {\ttfamily nullptr}. User can use this to check whether a value exists.
+
+Note that, numerical tokens can represent an array index or member name. The resolving process will match the values according to the types of value.
+
+
+\begin{DoxyCode}
+1 \{
+2     "0" : 123,
+3     "1" : [456]
+4 \}
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily \char`\"{}/0\char`\"{}} → {\ttfamily 123}
+\item {\ttfamily \char`\"{}/1/0\char`\"{}} → {\ttfamily 456}
+\end{DoxyEnumerate}
+
+The token {\ttfamily \char`\"{}0\char`\"{}} is treated as member name in the first pointer. It is treated as an array index in the second pointer.
+
+The other functions, including {\ttfamily Create()}, {\ttfamily Get\+With\+Default()}, {\ttfamily Set()} and {\ttfamily Swap()}, will change the D\+OM. These functions will always succeed. They will create the parent values if they do not exist. If the parent values do not match the tokens, they will also be forced to change their type. Changing the type also mean fully removal of that D\+OM subtree.
+
+Parsing the above J\+S\+ON into {\ttfamily d},
+
+
+\begin{DoxyCode}
+SetValueByPointer(d, \textcolor{stringliteral}{"1/a"}, 789); \textcolor{comment}{// \{ "0" : 123, "1" : \{ "a" : 789 \} \}}
+\end{DoxyCode}
+
+
+\subsection*{Resolving Minus Sign Token}
+
+Besides, \href{https://tools.ietf.org/html/rfc6901}{\tt R\+F\+C6901} defines a special token {\ttfamily -\/} (single minus sign), which represents the pass-\/the-\/end element of an array. {\ttfamily Get()} only treats this token as a member name \textquotesingle{}\char`\"{}-\/\char`\"{}\textquotesingle{}. Yet the other functions can resolve this for array, equivalent to calling {\ttfamily Value\+::\+Push\+Back()} to the array.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(\textcolor{stringliteral}{"\{\(\backslash\)"foo\(\backslash\)":[123]\}"});
+SetValueByPointer(d, \textcolor{stringliteral}{"/foo/-"}, 456); \textcolor{comment}{// \{ "foo" : [123, 456] \}}
+SetValueByPointer(d, \textcolor{stringliteral}{"/-"}, 789);    \textcolor{comment}{// \{ "foo" : [123, 456], "-" : 789 \}}
+\end{DoxyCode}
+
+
+\subsection*{Resolving Document and Value}
+
+When using {\ttfamily p.\+Get(root)} or {\ttfamily Get\+Value\+By\+Pointer(root, p)}, {\ttfamily root} is a (const) {\ttfamily Value\&}. That means, it can be a subtree of the D\+OM.
+
+The other functions have two groups of signature. One group uses {\ttfamily Document\& document} as parameter, another one uses {\ttfamily Value\& root}. The first group uses {\ttfamily document.\+Get\+Allocator()} for creating values. And the second group needs user to supply an allocator, like the functions in D\+OM.
+
+All examples above do not require an allocator parameter, because the parameter is a {\ttfamily Document\&}. But if you want to resolve a pointer to a subtree. You need to supply it as in the following example\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }Person \{
+\textcolor{keyword}{public}:
+    Person() \{
+        document\_ = \textcolor{keyword}{new} \hyperlink{document_8h_ac6ea5b168e3fe8c7fa532450fc9391f7}{Document}();
+        \textcolor{comment}{// CreateValueByPointer() here no need allocator}
+        SetLocation(CreateValueByPointer(*document\_, \textcolor{stringliteral}{"/residence"}), ...);
+        SetLocation(CreateValueByPointer(*document\_, \textcolor{stringliteral}{"/office"}), ...);
+    \};
+
+\textcolor{keyword}{private}:
+    \textcolor{keywordtype}{void} SetLocation(\hyperlink{class_generic_value}{Value}& location, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* country, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* addresses[2]) \{
+        Value::Allocator& a = document\_->GetAllocator();
+        \textcolor{comment}{// SetValueByPointer() here need allocator}
+        SetValueByPointer(location, \textcolor{stringliteral}{"/country"}, country, a);
+        SetValueByPointer(location, \textcolor{stringliteral}{"/address/0"}, address[0], a);
+        SetValueByPointer(location, \textcolor{stringliteral}{"/address/1"}, address[1], a);
+    \}
+
+    \textcolor{comment}{// ...}
+
+    \hyperlink{class_generic_document}{Document}* document\_;
+\};
+\end{DoxyCode}
+
+
+{\ttfamily Erase()} or {\ttfamily Erase\+Value\+By\+Pointer()} does not need allocator. And they return {\ttfamily true} if the value is erased successfully.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_ErrorHandling}{}\section{Error Handling}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_ErrorHandling}
+A {\ttfamily Pointer} parses a source string in its constructor. If there is parsing error, {\ttfamily Pointer\+::\+Is\+Valid()} returns false. And you can use {\ttfamily Pointer\+::\+Get\+Parse\+Error\+Code()} and {\ttfamily Get\+Parse\+Error\+Offset()} to retrieve the error information.
+
+Note that, all resolving functions assumes valid pointer. Resolving with an invalid pointer causes assertion failure.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_URIFragment}{}\section{U\+R\+I Fragment Representation}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_URIFragment}
+In addition to the string representation of J\+S\+ON pointer that we are using till now, \href{https://tools.ietf.org/html/rfc6901}{\tt R\+F\+C6901} also defines the U\+RI fragment representation of J\+S\+ON pointer. U\+RI fragment is specified in \href{https://tools.ietf.org/html/rfc3986}{\tt R\+F\+C3986} \char`\"{}\+Uniform Resource Identifier (\+U\+R\+I)\+: Generic Syntax\char`\"{}.
+
+The main differences are that a the U\+RI fragment always has a {\ttfamily \#} (pound sign) in the beginning, and some characters are encoded by percent-\/encoding in U\+T\+F-\/8 sequence. For example, the following table shows different C/\+C++ string literals of different representations.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*3{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf String Representation }&{\bf U\+RI Fragment Representation }&{\bf Pointer Tokens (U\+T\+F-\/8)  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf String Representation }&{\bf U\+RI Fragment Representation }&{\bf Pointer Tokens (U\+T\+F-\/8)  }\\\cline{1-3}
+\endhead
+{\ttfamily \char`\"{}/foo/0\char`\"{}} &{\ttfamily \char`\"{}\#/foo/0\char`\"{}} &{\ttfamily \{\char`\"{}foo\char`\"{}, 0\}} \\\cline{1-3}
+{\ttfamily \char`\"{}/a$\sim$1b\char`\"{}} &{\ttfamily \char`\"{}\#/a$\sim$1b\char`\"{}} &{\ttfamily \{\char`\"{}a/b\char`\"{}\}} \\\cline{1-3}
+{\ttfamily \char`\"{}/m$\sim$0n\char`\"{}} &{\ttfamily \char`\"{}\#/m$\sim$0n\char`\"{}} &{\ttfamily \{\char`\"{}m$\sim$n\char`\"{}\}} \\\cline{1-3}
+{\ttfamily \char`\"{}/ \char`\"{}} &{\ttfamily \char`\"{}\#/\%20\char`\"{}} &{\ttfamily \{\char`\"{} \char`\"{}\}} \\\cline{1-3}
+{\ttfamily \char`\"{}/\textbackslash{}\textbackslash{}0\char`\"{}} &{\ttfamily \char`\"{}\#/\%00\char`\"{}} &{\ttfamily \{\char`\"{}\textbackslash{}\textbackslash{}0\char`\"{}\}} \\\cline{1-3}
+{\ttfamily \char`\"{}/€\char`\"{}} &{\ttfamily \char`\"{}\#/\%\+E2\%82\%\+A\+C\char`\"{}} &{\ttfamily \{\char`\"{}€\char`\"{}\}} \\\cline{1-3}
+\end{longtabu}
+Rapid\+J\+S\+ON fully support U\+RI fragment representation. It automatically detects the pound sign during parsing.
+
+\section*{Stringify}
+
+You may also stringify a {\ttfamily Pointer} to a string or other output streams. This can be done by\+:
+
+
+\begin{DoxyCode}
+1 Pointer p(...);
+2 StringBuffer sb;
+3 p.Stringify(sb);
+4 std::cout << sb.GetString() << std::endl;
+\end{DoxyCode}
+
+
+It can also stringify to U\+RI fragment reprsentation by {\ttfamily Stringify\+Uri\+Fragment()}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_UserSuppliedTokens}{}\section{User-\/\+Supplied Tokens}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_pointer_UserSuppliedTokens}
+If a pointer will be resolved multiple times, it should be construct once, and then apply it to different D\+O\+Ms or in different times. This reduce time and memory allocation for constructing {\ttfamily Pointer} multiple times.
+
+We can go one step further, to completely eliminate the parsing process and dynamic memory allocation, we can establish the token array directly\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define NAME(s) \{ s, sizeof(s) / sizeof(s[0]) - 1, kPointerInvalidIndex \}}
+\textcolor{preprocessor}{#define INDEX(i) \{ #i, sizeof(#i) - 1, i \}}
+
+\textcolor{keyword}{static} \textcolor{keyword}{const} \hyperlink{struct_generic_pointer_1_1_token}{Pointer::Token} kTokens[] = \{ NAME(\textcolor{stringliteral}{"foo"}), INDEX(123) \};
+\textcolor{keyword}{static} \textcolor{keyword}{const} \hyperlink{class_generic_pointer}{Pointer} p(kTokens, \textcolor{keyword}{sizeof}(kTokens) / \textcolor{keyword}{sizeof}(kTokens[0]));
+\textcolor{comment}{// Equivalent to static const Pointer p("/foo/123");}
+\end{DoxyCode}
+
+
+This may be useful for memory constrained systems. 

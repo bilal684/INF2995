@@ -1,0 +1,82 @@
+\hypertarget{class_visiteur_abstrait}{}\section{Visiteur\+Abstrait Class Reference}
+\label{class_visiteur_abstrait}\index{Visiteur\+Abstrait@{Visiteur\+Abstrait}}
+
+
+Classe de base du patron visiteur qui permet de rajouter des des fonctionnalités aux noeuds présents dans l\textquotesingle{}arbre de rendu sans avoir à modifier la hiérarchie elle-\/même. Donc on parcourt modifie les éléments présents dans la l\textquotesingle{}arbre de rendu sans avoir à modifier leurs classes de base. Il convient d\textquotesingle{}implémenter différents visiteurs concrêts qui surchargeront la méthode \hyperlink{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}{visiter()} autant de fois qu\textquotesingle{}il y a d\textquotesingle{}objets à manipuler.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Abstrait.\+h$>$}
+
+Inheritance diagram for Visiteur\+Abstrait\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_visiteur_abstrait}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em surcharge de la méthode virtuelle pure \hyperlink{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}{visiter()} autant de fois qu\textquotesingle{}il y aura de noeuds spécifiques à visiter \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_visiteur_abstrait_a22e433abc557cd1fea254f726e1a2c22}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)\hypertarget{class_visiteur_abstrait_a22e433abc557cd1fea254f726e1a2c22}{}\label{class_visiteur_abstrait_a22e433abc557cd1fea254f726e1a2c22}
+
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_visiteur_abstrait_a030e8c7d6bd89e5a84566d1fbbcf1871}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)\hypertarget{class_visiteur_abstrait_a030e8c7d6bd89e5a84566d1fbbcf1871}{}\label{class_visiteur_abstrait_a030e8c7d6bd89e5a84566d1fbbcf1871}
+
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_visiteur_abstrait_ac7ca6ba6ab3645c812c0a156411c7337}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)\hypertarget{class_visiteur_abstrait_ac7ca6ba6ab3645c812c0a156411c7337}{}\label{class_visiteur_abstrait_ac7ca6ba6ab3645c812c0a156411c7337}
+
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_visiteur_abstrait_ab641b76cbd8f5928e0d6087649dfd5a4}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)\hypertarget{class_visiteur_abstrait_ab641b76cbd8f5928e0d6087649dfd5a4}{}\label{class_visiteur_abstrait_ab641b76cbd8f5928e0d6087649dfd5a4}
+
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_visiteur_abstrait_aaa3ddc643543b1b1f391fdfcf69196bc}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)\hypertarget{class_visiteur_abstrait_aaa3ddc643543b1b1f391fdfcf69196bc}{}\label{class_visiteur_abstrait_aaa3ddc643543b1b1f391fdfcf69196bc}
+
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{class_visiteur_abstrait_a0b3be1a6be361f449f7d50afeac36fac}{obtenir\+Type} () const \hypertarget{class_visiteur_abstrait_a0b3be1a6be361f449f7d50afeac36fac}{}\label{class_visiteur_abstrait_a0b3be1a6be361f449f7d50afeac36fac}
+
+\begin{DoxyCompactList}\small\item\em Obtient le type du noeud. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_visiteur_abstrait_a89cf9b9e3c1f2fe93d04d8640a2662c4}{type\+\_\+}\hypertarget{class_visiteur_abstrait_a89cf9b9e3c1f2fe93d04d8640a2662c4}{}\label{class_visiteur_abstrait_a89cf9b9e3c1f2fe93d04d8640a2662c4}
+
+\begin{DoxyCompactList}\small\item\em Type de visiteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe de base du patron visiteur qui permet de rajouter des des fonctionnalités aux noeuds présents dans l\textquotesingle{}arbre de rendu sans avoir à modifier la hiérarchie elle-\/même. Donc on parcourt modifie les éléments présents dans la l\textquotesingle{}arbre de rendu sans avoir à modifier leurs classes de base. Il convient d\textquotesingle{}implémenter différents visiteurs concrêts qui surchargeront la méthode \hyperlink{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}{visiter()} autant de fois qu\textquotesingle{}il y a d\textquotesingle{}objets à manipuler. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\index{Visiteur\+Abstrait@{Visiteur\+Abstrait}!visiter@{visiter}}
+\index{visiter@{visiter}!Visiteur\+Abstrait@{Visiteur\+Abstrait}}
+\subsubsection[{\texorpdfstring{visiter(\+Noeud\+Poteau \&noeud)}{visiter(NoeudPoteau &noeud)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Visiteur\+Abstrait\+::visiter (
+\begin{DoxyParamCaption}
+\item[{{\bf Noeud\+Poteau} \&}]{noeud}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}{}\label{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}
+
+
+surcharge de la méthode virtuelle pure \hyperlink{class_visiteur_abstrait_ae56afd97a82cadb834ba8b79c643cf15}{visiter()} autant de fois qu\textquotesingle{}il y aura de noeuds spécifiques à visiter 
+
+Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau} 
+
+Reimplemented in \hyperlink{group__inf2990_ga6be84ad047317e787a519b30bbbfbe34}{visiteur\+Rotation\+Un\+Objet}, \hyperlink{group__inf2990_ga92921e2f5caf55cbb24890bf832d9749}{visiteur\+Select\+Elastique}, \hyperlink{group__inf2990_ga29fcf0f9e7481c6f54d6aff8e3f2b2a6}{Visiteur\+Verifier\+Collision}, \hyperlink{group__inf2990_gaa6848f1f75f4aa0b627cb9ead9ea75ab}{Visiteur\+Determiner\+Centre\+Selection}, \hyperlink{group__inf2990_ga105099063c904bce6f4b01d4fe8fc198}{Visiteur\+Dupliquer\+Selection}, \hyperlink{group__inf2990_gadffd4a5d492386c1fde2e0dd27759b87}{Visiteur\+Rotate\+Selection}, \hyperlink{group__inf2990_ga82fa18ecd9303b8bd1937b7141cba556}{Visiteur\+Select\+Objet}, \hyperlink{group__inf2990_gae9e0bf8b06fd301c3bcbf63ac22c86c4}{Visiteur\+Verifier\+Deplacement\+Duplication}, \hyperlink{group__inf2990_ga22f55119ea140e46d41130b9d6dc2af2}{Visiteur\+Vers\+X\+ML}, \hyperlink{group__inf2990_gae463efa27bc5f244668d09602b886880}{Visiteur\+Deplacer\+Selection}, \hyperlink{group__inf2990_gaafbba886f77c122f03368a52112fc10f}{Visiteur\+Scale\+Selection}, \hyperlink{group__inf2990_ga862edaeb5b4049c8487a05b06c3afc6d}{Visiteur\+Detection\+Noeud}, \hyperlink{group__inf2990_ga3beac08bcc69b1279f61739c2073415a}{Visiteur\+Initialisation\+Position}, \hyperlink{group__inf2990_ga35e17f89d29dc9dc9078ad8e714303c9}{Visiteur\+Initialisation\+Scale}, and \hyperlink{group__inf2990_ga1d691194c75a307a934db13a991b19df}{Visiteur\+Annuler\+Rotation\+Selection}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_abstrait_8h}{Visiteur\+Abstrait.\+h}\end{DoxyCompactItemize}

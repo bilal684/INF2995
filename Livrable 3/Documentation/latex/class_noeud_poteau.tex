@@ -1,0 +1,67 @@
+\hypertarget{class_noeud_poteau}{}\section{Noeud\+Poteau Class Reference}
+\label{class_noeud_poteau}\index{Noeud\+Poteau@{Noeud\+Poteau}}
+
+
+Classe qui représente un noeud poteau.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Poteau.\+h$>$}
+
+Inheritance diagram for Noeud\+Poteau\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_noeud_poteau}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga6c9d4922b38056bd9f6dfc4404c76932}{Noeud\+Poteau} (const std\+::string \&type\+Noeud)
+\begin{DoxyCompactList}\small\item\em Constructeur du noeud poteau. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga19737d5053bd375435d9f3c55482a695}{$\sim$\+Noeud\+Poteau} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga99d102de9614ae92ffb07df000850708}{afficher\+Concret} (const bool \&attribuer\+Couleur) const 
+\begin{DoxyCompactList}\small\item\em Affiche le noeud poteau. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga165b52c529852480d8d8663441bd7337}{animer} (float temps)
+\begin{DoxyCompactList}\small\item\em Effectue l\textquotesingle{}animation du noeud poteau. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga7b28ff37ea5f58733652ab2f2ec55669}{accepter\+Visiteur} (\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$visiteur)
+\begin{DoxyCompactList}\small\item\em appliquer l\textquotesingle{}algorithme du visiteur sur le noeud courant \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_gac4ec09ea7435dfe3cecb7e1f89b81a4f}{click\+Touche\+Noeud} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic sur un noeud poteau. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga151402243f7ffa4c27f1e15a1b757828}{verifier\+Selection} (G\+Lubyte couleur\+Objet\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em permet de verifier si un mur a ete selectionn \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga011615049e2d912a9d316ba133ed180b}{changer\+Scale} (double scale)
+\begin{DoxyCompactList}\small\item\em Methode permettant le redimensionnement d\textquotesingle{}un noeud poteau. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_gad6451a1d66dc3fd73c5ece06cbd1d634}{est\+Dans\+La\+Table\+Apres\+Deplacement} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} deplacement)
+\begin{DoxyCompactList}\small\item\em verifier si la noeud est dans la table apres le deplacement \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga89cc4f6621218fbedc486242f4fba7fe}{est\+Dans\+La\+Table\+Apres\+Scale} (double scale)
+\begin{DoxyCompactList}\small\item\em verifier si le noeud est dans la table apres le scale \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga272dd62886fe4446b2fae13cbafd4b1a}{est\+Dans\+La\+Table} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si un objet poteau est toujours sur la table. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga44f86fcc41204023af0963fe0450717c}{dans\+La\+Table\+Si\+Selectionne} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si un objet poteau est dan la table si selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga518f641faf7f85c57b13fc2ad55b8777}{retourner\+Au\+Scale\+Initiale} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de reinitialiser le dimensionnement d\textquotesingle{}un objet poteau. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga953dfe0e0ff4782ed0a3008584db7e2a}{effacer\+Fantome} ()
+\begin{DoxyCompactList}\small\item\em Efface les enfants fantomes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui représente un noeud poteau. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_poteau_8h}{Noeud\+Poteau.\+h}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_poteau_8cpp}{Noeud\+Poteau.\+cpp}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_segment_8cpp}{Noeud\+Segment.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,115 @@
+\hypertarget{class_f_t_extrude_font_impl}{}\section{F\+T\+Extrude\+Font\+Impl Class Reference}
+\label{class_f_t_extrude_font_impl}\index{F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}}
+Inheritance diagram for F\+T\+Extrude\+Font\+Impl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_t_extrude_font_impl}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries F\+T\+Extrude\+Font\+Impl} (F\+T\+Font $\ast$ft\+Font, const char $\ast$font\+File\+Path)\hypertarget{class_f_t_extrude_font_impl_a43da54bf40a55db304395d8dec46897f}{}\label{class_f_t_extrude_font_impl_a43da54bf40a55db304395d8dec46897f}
+
+\item 
+{\bfseries F\+T\+Extrude\+Font\+Impl} (F\+T\+Font $\ast$ft\+Font, const unsigned char $\ast$p\+Buffer\+Bytes, size\+\_\+t buffer\+Size\+In\+Bytes)\hypertarget{class_f_t_extrude_font_impl_aa433e0addf2dba2ae9232d6522ccdb5f}{}\label{class_f_t_extrude_font_impl_aa433e0addf2dba2ae9232d6522ccdb5f}
+
+\item 
+virtual void \hyperlink{class_f_t_extrude_font_impl_a852e6d263a34982d56d19dfdf43722f0}{Depth} (float d)
+\item 
+virtual void \hyperlink{class_f_t_extrude_font_impl_a559ce64b4d0e881455b050d3be57cac0}{Outset} (float o)
+\item 
+virtual void \hyperlink{class_f_t_extrude_font_impl_a24e6ada58e9086284e99611454c7b335}{Outset} (float f, float b)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_f_t_extrude_font_impl_a89d73f2c624a1624770ab65a2adc37bc}{depth}
+\item 
+float \hyperlink{class_f_t_extrude_font_impl_a074ec35960eb5401384155803e9e7e5e}{front}
+\item 
+float {\bfseries back}\hypertarget{class_f_t_extrude_font_impl_ab1cbdc0312982b84403a7d859e683f2e}{}\label{class_f_t_extrude_font_impl_ab1cbdc0312982b84403a7d859e683f2e}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries F\+T\+Extrude\+Font}\hypertarget{class_f_t_extrude_font_impl_a06be1600e211ee41aa1b1ed9c7d25639}{}\label{class_f_t_extrude_font_impl_a06be1600e211ee41aa1b1ed9c7d25639}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}!Depth@{Depth}}
+\index{Depth@{Depth}!F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Depth(float d)}{Depth(float d)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void F\+T\+Extrude\+Font\+Impl\+::\+Depth (
+\begin{DoxyParamCaption}
+\item[{float}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_f_t_extrude_font_impl_a852e6d263a34982d56d19dfdf43722f0}{}\label{class_f_t_extrude_font_impl_a852e6d263a34982d56d19dfdf43722f0}
+Set the extrusion distance for the font.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The extrusion distance. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_f_t_font_impl}{F\+T\+Font\+Impl}.
+
+\index{F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}!Outset@{Outset}}
+\index{Outset@{Outset}!F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Outset(float o)}{Outset(float o)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void F\+T\+Extrude\+Font\+Impl\+::\+Outset (
+\begin{DoxyParamCaption}
+\item[{float}]{o}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_f_t_extrude_font_impl_a559ce64b4d0e881455b050d3be57cac0}{}\label{class_f_t_extrude_font_impl_a559ce64b4d0e881455b050d3be57cac0}
+Set the outset distance for the font. Only implemented by F\+T\+Outline\+Font, F\+T\+Polygon\+Font and F\+T\+Extrude\+Font
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The outset distance. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_f_t_font_impl}{F\+T\+Font\+Impl}.
+
+\index{F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}!Outset@{Outset}}
+\index{Outset@{Outset}!F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Outset(float f, float b)}{Outset(float f, float b)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void F\+T\+Extrude\+Font\+Impl\+::\+Outset (
+\begin{DoxyParamCaption}
+\item[{float}]{f, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_f_t_extrude_font_impl_a24e6ada58e9086284e99611454c7b335}{}\label{class_f_t_extrude_font_impl_a24e6ada58e9086284e99611454c7b335}
+Set the outset distance for the font. Only implemented by F\+T\+Extrude\+Font
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The front outset distance. \\
+\hline
+{\em b} & The back outset distance. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_f_t_font_impl}{F\+T\+Font\+Impl}.
+
+
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}!depth@{depth}}
+\index{depth@{depth}!F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{depth}{depth}}]{\setlength{\rightskip}{0pt plus 5cm}float F\+T\+Extrude\+Font\+Impl\+::depth\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_extrude_font_impl_a89d73f2c624a1624770ab65a2adc37bc}{}\label{class_f_t_extrude_font_impl_a89d73f2c624a1624770ab65a2adc37bc}
+The extrusion distance for the font. \index{F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}!front@{front}}
+\index{front@{front}!F\+T\+Extrude\+Font\+Impl@{F\+T\+Extrude\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{front}{front}}]{\setlength{\rightskip}{0pt plus 5cm}float F\+T\+Extrude\+Font\+Impl\+::front\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_extrude_font_impl_a074ec35960eb5401384155803e9e7e5e}{}\label{class_f_t_extrude_font_impl_a074ec35960eb5401384155803e9e7e5e}
+The outset distance (front and back) for the font. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Font/F\+T\+Extrude\+Font\+Impl.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Font/F\+T\+Extrude\+Font.\+cpp\end{DoxyCompactItemize}

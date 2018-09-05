@@ -1,0 +1,52 @@
+\hypertarget{class_noeud_fleche}{}\section{Noeud\+Fleche Class Reference}
+\label{class_noeud_fleche}\index{Noeud\+Fleche@{Noeud\+Fleche}}
+
+
+Classe qui représente le noeud flèche.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Fleche.\+h$>$}
+
+Inheritance diagram for Noeud\+Fleche\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_noeud_fleche}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga1934cb6df6cb01f03ac828811f3f2d51}{Noeud\+Fleche} (const std\+::string \&type\+Noeud)
+\begin{DoxyCompactList}\small\item\em Constructeur du noeud flèche. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga42ade0ca9d53dd9310d458d4986fcccd}{$\sim$\+Noeud\+Fleche} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga3166b1b5bfbf00d47c1c405dec6d7773}{afficher\+Concret} () const 
+\begin{DoxyCompactList}\small\item\em Affiche la flèche. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_gaddcae8c6c9b22ba75252b4a88e485f8b}{click\+Touche\+Noeud} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)
+\begin{DoxyCompactList}\small\item\em Detecte un clic de souris sur le noeud. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga49bbb70cd4ddf87b6d8bceb4f89a1279}{accepter\+Visiteur} (\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$visiteur)
+\begin{DoxyCompactList}\small\item\em appliquer l\textquotesingle{}algorithme du visiteur sur le noeud courant \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga4dd310ad0374136d37108c8dd4af07c5}{est\+Dans\+La\+Table} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si l\textquotesingle{}objet fleche est toujours sur la table. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga88788b25671087b7a028c2aa7a411b58}{tourner} (double angle)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}effectuer une rotation a l\textquotesingle{}objet fleche. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui représente le noeud flèche. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 -\/ Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_fleche_8h}{Noeud\+Fleche.\+h}\item 
+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_fleche_8cpp}{Noeud\+Fleche.\+cpp}\end{DoxyCompactItemize}

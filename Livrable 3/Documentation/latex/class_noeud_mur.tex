@@ -1,0 +1,78 @@
+\hypertarget{class_noeud_mur}{}\section{Noeud\+Mur Class Reference}
+\label{class_noeud_mur}\index{Noeud\+Mur@{Noeud\+Mur}}
+
+
+Classe qui représente le noeud mur.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Mur.\+h$>$}
+
+Inheritance diagram for Noeud\+Mur\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_noeud_mur}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_gaeab2deec90548c0bdca5eb86beb629cf}{Noeud\+Mur} (const std\+::string \&type\+Noeud)
+\begin{DoxyCompactList}\small\item\em Constructeur du noeud mur. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga169060e04a6423e7f025d475afd7d9ea}{$\sim$\+Noeud\+Mur} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaed6180b5dc312fb655f6bab87a21641f}{afficher\+Concret} (const bool \&attribuer\+Couleur) const 
+\begin{DoxyCompactList}\small\item\em Affiche le cube. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga91ea1a5930052142e26a359fd5bf9828}{accepter\+Visiteur} (\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$visiteur)
+\begin{DoxyCompactList}\small\item\em appliquer l\textquotesingle{}algorithme du visiteur sur le noeud courant \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga40e03c98fec28e830e6807a7ddd8129a}{click\+Touche\+Noeud} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic sur le noeud. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga0f22f300c998572f966c527f02a5007e}{verifier\+Selection} (G\+Lubyte couleur\+Objet\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{group__inf2990_ga4f2205d1cbd3b28528dc67e698f4ee1d}{changer\+Scale} (double scale)
+\begin{DoxyCompactList}\small\item\em Methode permettant le redimensionnement du noeud. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga1d978ae7ab2f016263049a8dbc903587}{mettre\+Ajour\+Position} ()
+\item 
+bool \hyperlink{group__inf2990_gae1448f18f9f1c4f6209c8b77ff9fc0d7}{est\+Dans\+La\+Table\+Apres\+Deplacement} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} deplacement)
+\begin{DoxyCompactList}\small\item\em verifier si le noeud est dans la table \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_gac7dce8f1e457f6e9bad0950c40248dd2}{est\+Dans\+La\+Table\+Apres\+Scale} (double scale)
+\begin{DoxyCompactList}\small\item\em verifier si le noeud est dans la table apres le scale \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga010717668b1973fd3c85387d881e131c}{tourner} (double angle)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}effectuer une rotation a un objet de type mur. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga6717206a5518890e2b0ddf7be9063979}{est\+Dans\+La\+Table} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si l\textquotesingle{}objet de type mur est sur la table. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga8bdc37e86175454f6c29d2b6788593d0}{dans\+La\+Table\+Si\+Selectionne} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si l\textquotesingle{}objet de type mur est selectionne et sur la table. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga4510950cd7977c78261fa000dfaafb17}{initialiser\+En\+Traitement} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}initialiser des donnees d\textquotesingle{}un objet mur en traitement. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_mur_afa9cd6401afd5045caebb0023c21a545}{get\+Point\+Depart\+Initial\+En\+Traitement} ()\hypertarget{class_noeud_mur_afa9cd6401afd5045caebb0023c21a545}{}\label{class_noeud_mur_afa9cd6401afd5045caebb0023c21a545}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir le point de depart initiale d\textquotesingle{}un objet de type mur en traitement. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_mur_abeaa92549a79b586c3f69f79ff810923}{get\+Point\+Fin\+Initial\+En\+Traitement} ()\hypertarget{class_noeud_mur_abeaa92549a79b586c3f69f79ff810923}{}\label{class_noeud_mur_abeaa92549a79b586c3f69f79ff810923}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir le point terminal initiale d\textquotesingle{}un objet de type mur en traitement. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa3427adfc5ee6a4b16e0cff143ce64c3}{augmenter\+Rotation\+Relative} (double rotation)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}augmenter la l\textquotesingle{}angle de rotation d\textquotesingle{}un objet de type mur par rapport a son parent. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga537363fe191ce8997623b8bdf5b2c54d}{retourner\+Au\+Scale\+Initiale} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de retourner au dimensionnement initiale d\textquotesingle{}un objet mur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gae0ad31d759f5d0f177da4aff6ee7d1ac}{effacer\+Fantome} ()
+\begin{DoxyCompactList}\small\item\em Efface les enfants fantomes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui représente le noeud mur. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_mur_8h}{Noeud\+Mur.\+h}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_mur_8cpp}{Noeud\+Mur.\+cpp}\end{DoxyCompactItemize}

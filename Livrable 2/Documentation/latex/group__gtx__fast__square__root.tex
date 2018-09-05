@@ -1,0 +1,79 @@
+\hypertarget{group__gtx__fast__square__root}{}\section{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}
+\label{group__gtx__fast__square__root}\index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+
+
+Fast but less accurate implementations of square root based functions.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename gen\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type \hyperlink{group__gtx__fast__square__root_gab07ddede2731f3438d687a652c843673}{glm\+::fast\+Sqrt} (gen\+Type const \&x)
+\item 
+{\footnotesize template$<$typename gen\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type \hyperlink{group__gtx__fast__square__root_ga65237d716748c6262f316ec1eaf7f073}{glm\+::fast\+Inverse\+Sqrt} (gen\+Type const \&x)
+\item 
+{\footnotesize template$<$typename T , precision P, template$<$ typename, precision $>$ class vec\+Type$>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL vec\+Type$<$ T, P $>$ \hyperlink{group__gtx__fast__square__root_ga903878071f92e51e551791e584a171a1}{glm\+::fast\+Inverse\+Sqrt} (vec\+Type$<$ T, P $>$ const \&x)
+\item 
+{\footnotesize template$<$typename gen\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type\+::value\+\_\+type \hyperlink{group__gtx__fast__square__root_ga70aa3c80d8bb22e021c6c3ebdcf8e3ee}{glm\+::fast\+Length} (gen\+Type const \&x)
+\item 
+{\footnotesize template$<$typename gen\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type\+::value\+\_\+type \hyperlink{group__gtx__fast__square__root_ga69778792fcadc29f586efa3ec2118cdc}{glm\+::fast\+Distance} (gen\+Type const \&x, gen\+Type const \&y)
+\item 
+{\footnotesize template$<$typename gen\+Type $>$ }\\G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type \hyperlink{group__gtx__fast__square__root_ga3b02c1d6e0c754144e2f1e110bf9f16c}{glm\+::fast\+Normalize} (gen\+Type const \&x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fast but less accurate implementations of square root based functions. 
+
+
+\begin{DoxyItemize}
+\item Sqrt optimisation based on Newton\textquotesingle{}s method, www.\+gamedev.\+net/community/forums/topic.asp?topic id=139956
+\end{DoxyItemize}
+
+$<$\hyperlink{fast__square__root_8hpp}{glm/gtx/fast\+\_\+square\+\_\+root.\+hpp}$>$ need to be included to use these functionalities. 
+
+\subsection{Function Documentation}
+\index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}!fast\+Distance@{fast\+Distance}}
+\index{fast\+Distance@{fast\+Distance}!G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+\subsubsection[{\texorpdfstring{fast\+Distance(gen\+Type const \&x, gen\+Type const \&y)}{fastDistance(genType const &x, genType const &y)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type\+::value\+\_\+type glm\+::fast\+Distance (
+\begin{DoxyParamCaption}
+\item[{gen\+Type const \&}]{x, }
+\item[{gen\+Type const \&}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gtx__fast__square__root_ga69778792fcadc29f586efa3ec2118cdc}{}\label{group__gtx__fast__square__root_ga69778792fcadc29f586efa3ec2118cdc}
+Faster than the common distance function but less accurate. From G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root extension. \index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}!fast\+Inverse\+Sqrt@{fast\+Inverse\+Sqrt}}
+\index{fast\+Inverse\+Sqrt@{fast\+Inverse\+Sqrt}!G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+\subsubsection[{\texorpdfstring{fast\+Inverse\+Sqrt(gen\+Type const \&x)}{fastInverseSqrt(genType const &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type glm\+::fast\+Inverse\+Sqrt (
+\begin{DoxyParamCaption}
+\item[{gen\+Type const \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gtx__fast__square__root_ga65237d716748c6262f316ec1eaf7f073}{}\label{group__gtx__fast__square__root_ga65237d716748c6262f316ec1eaf7f073}
+Faster than the common inversesqrt function but less accurate. From G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root extension. \index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}!fast\+Inverse\+Sqrt@{fast\+Inverse\+Sqrt}}
+\index{fast\+Inverse\+Sqrt@{fast\+Inverse\+Sqrt}!G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+\subsubsection[{\texorpdfstring{fast\+Inverse\+Sqrt(vec\+Type$<$ T, P $>$ const \&x)}{fastInverseSqrt(vecType< T, P > const &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , precision P, template$<$ typename, precision $>$ class vec\+Type$>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL vec\+Type$<$T, P$>$ glm\+::fast\+Inverse\+Sqrt (
+\begin{DoxyParamCaption}
+\item[{vec\+Type$<$ T, P $>$ const \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gtx__fast__square__root_ga903878071f92e51e551791e584a171a1}{}\label{group__gtx__fast__square__root_ga903878071f92e51e551791e584a171a1}
+Faster than the common inversesqrt function but less accurate. From G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root extension. \index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}!fast\+Length@{fast\+Length}}
+\index{fast\+Length@{fast\+Length}!G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+\subsubsection[{\texorpdfstring{fast\+Length(gen\+Type const \&x)}{fastLength(genType const &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type\+::value\+\_\+type glm\+::fast\+Length (
+\begin{DoxyParamCaption}
+\item[{gen\+Type const \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gtx__fast__square__root_ga70aa3c80d8bb22e021c6c3ebdcf8e3ee}{}\label{group__gtx__fast__square__root_ga70aa3c80d8bb22e021c6c3ebdcf8e3ee}
+Faster than the common length function but less accurate. From G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root extension. \index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}!fast\+Normalize@{fast\+Normalize}}
+\index{fast\+Normalize@{fast\+Normalize}!G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+\subsubsection[{\texorpdfstring{fast\+Normalize(gen\+Type const \&x)}{fastNormalize(genType const &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type glm\+::fast\+Normalize (
+\begin{DoxyParamCaption}
+\item[{gen\+Type const \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gtx__fast__square__root_ga3b02c1d6e0c754144e2f1e110bf9f16c}{}\label{group__gtx__fast__square__root_ga3b02c1d6e0c754144e2f1e110bf9f16c}
+Faster than the common normalize function but less accurate. From G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root extension. \index{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}!fast\+Sqrt@{fast\+Sqrt}}
+\index{fast\+Sqrt@{fast\+Sqrt}!G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root@{G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root}}
+\subsubsection[{\texorpdfstring{fast\+Sqrt(gen\+Type const \&x)}{fastSqrt(genType const &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename gen\+Type $>$ G\+L\+M\+\_\+\+F\+U\+N\+C\+\_\+\+D\+E\+CL gen\+Type glm\+::fast\+Sqrt (
+\begin{DoxyParamCaption}
+\item[{gen\+Type const \&}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gtx__fast__square__root_gab07ddede2731f3438d687a652c843673}{}\label{group__gtx__fast__square__root_gab07ddede2731f3438d687a652c843673}
+Faster than the common sqrt function but less accurate. From G\+L\+M\+\_\+\+G\+T\+X\+\_\+fast\+\_\+square\+\_\+root extension. 

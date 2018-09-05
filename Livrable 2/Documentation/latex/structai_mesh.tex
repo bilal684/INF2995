@@ -1,0 +1,142 @@
+\hypertarget{structai_mesh}{}\section{ai\+Mesh Struct Reference}
+\label{structai_mesh}\index{ai\+Mesh@{ai\+Mesh}}
+
+
+A mesh represents a geometry or model with a single material.  
+
+
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{structai_mesh_a99d66ac0a444068c1b252b30265cbf53}{m\+Primitive\+Types}
+\item 
+unsigned int \hyperlink{structai_mesh_ab34b7b5941e6636f1c08f615cbb072ef}{m\+Num\+Vertices}
+\item 
+unsigned int \hyperlink{structai_mesh_aeed22ee6963b79548f3877b3c905518e}{m\+Num\+Faces}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector3_d}{ai\+Vector3D} $\ast$ \hyperlink{structai_mesh_afd4588abb3e1c72821ae0234a3850662}{m\+Vertices}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector3_d}{ai\+Vector3D} $\ast$ \hyperlink{structai_mesh_aec81b496b4d93838cef038933dabe9b9}{m\+Normals}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector3_d}{ai\+Vector3D} $\ast$ \hyperlink{structai_mesh_af367ff78bd69f3e83d7edc8ad67dc5df}{m\+Tangents}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector3_d}{ai\+Vector3D} $\ast$ \hyperlink{structai_mesh_ab2a81bfe1731f01271ebab274a8f01c4}{m\+Bitangents}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_color4_d}{ai\+Color4D} $\ast$ \hyperlink{structai_mesh_ad9215f67bd0c2277b10775a8adb66b96}{m\+Colors} \mbox{[}A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+O\+L\+O\+R\+\_\+\+S\+E\+TS\mbox{]}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector3_d}{ai\+Vector3D} $\ast$ \hyperlink{structai_mesh_a4a50b11d00ef50f419c75cab0f6bddd6}{m\+Texture\+Coords} \mbox{[}A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+E\+X\+T\+U\+R\+E\+C\+O\+O\+R\+DS\mbox{]}
+\item 
+unsigned int \hyperlink{structai_mesh_a635c631a6e66d32989d6b25b2a892d86}{m\+Num\+U\+V\+Components} \mbox{[}A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+E\+X\+T\+U\+R\+E\+C\+O\+O\+R\+DS\mbox{]}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_face}{ai\+Face} $\ast$ \hyperlink{structai_mesh_a5a65fbc7fdea7f8d36f39047425ece07}{m\+Faces}
+\item 
+unsigned int \hyperlink{structai_mesh_a0f9d5425b6300e32a842a94f943fd79e}{m\+Num\+Bones}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_bone}{ai\+Bone} $\ast$$\ast$ \hyperlink{structai_mesh_a0c0582a7f45b340b6a33552c53232539}{m\+Bones}
+\item 
+unsigned int \hyperlink{structai_mesh_aa2807c7ba172115203ed16047ad65f9e}{m\+Material\+Index}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_string}{ai\+String} \hyperlink{structai_mesh_a8dd9433e0c5b008e3e5aee6c801d3b74}{m\+Name}
+\item 
+unsigned int \hyperlink{structai_mesh_a1692a300222b32348ae51779df4a697e}{m\+Num\+Anim\+Meshes}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_anim_mesh}{ai\+Anim\+Mesh} $\ast$$\ast$ \hyperlink{structai_mesh_a5078f7db7e99ed05db89dfa412f0e990}{m\+Anim\+Meshes}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A mesh represents a geometry or model with a single material. 
+
+It usually consists of a number of vertices and a series of primitives/faces referencing the vertices. In addition there might be a series of bones, each of them addressing a number of vertices with a certain weight. Vertex data is presented in channels with each channel containing a single per-\/vertex information such as a set of texture coords or a normal vector. If a data pointer is non-\/null, the corresponding data stream is present. From C++-\/programs you can also use the comfort functions Has$\ast$() to test for the presence of various data streams.
+
+A Mesh uses only a single material which is referenced by a material ID. \begin{DoxyNote}{Note}
+The m\+Positions member is usually not optional. However, vertex positions {\itshape could} be missing if the \#\+A\+I\+\_\+\+S\+C\+E\+N\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+I\+N\+C\+O\+M\+P\+L\+E\+TE flag is set in 
+\begin{DoxyCode}
+aiScene::mFlags
+\end{DoxyCode}
+ 
+\end{DoxyNote}
+
+
+\subsection{Member Data Documentation}
+\index{ai\+Mesh@{ai\+Mesh}!m\+Anim\+Meshes@{m\+Anim\+Meshes}}
+\index{m\+Anim\+Meshes@{m\+Anim\+Meshes}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Anim\+Meshes}{mAnimMeshes}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Anim\+Mesh}$\ast$$\ast$ ai\+Mesh\+::m\+Anim\+Meshes}\hypertarget{structai_mesh_a5078f7db7e99ed05db89dfa412f0e990}{}\label{structai_mesh_a5078f7db7e99ed05db89dfa412f0e990}
+N\+OT C\+U\+R\+R\+E\+N\+T\+LY IN U\+SE. Attachment meshes for this mesh, for vertex-\/based animation. Attachment meshes carry replacement data for some of the mesh\textquotesingle{}es vertex components (usually positions, normals). \index{ai\+Mesh@{ai\+Mesh}!m\+Bitangents@{m\+Bitangents}}
+\index{m\+Bitangents@{m\+Bitangents}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Bitangents}{mBitangents}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector3D}$\ast$ ai\+Mesh\+::m\+Bitangents}\hypertarget{structai_mesh_ab2a81bfe1731f01271ebab274a8f01c4}{}\label{structai_mesh_ab2a81bfe1731f01271ebab274a8f01c4}
+Vertex bitangents. The bitangent of a vertex points in the direction of the positive Y texture axis. The array contains normalized vectors, N\+U\+LL if not present. The array is m\+Num\+Vertices in size. \begin{DoxyNote}{Note}
+If the mesh contains tangents, it automatically also contains bitangents. 
+\end{DoxyNote}
+\index{ai\+Mesh@{ai\+Mesh}!m\+Bones@{m\+Bones}}
+\index{m\+Bones@{m\+Bones}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Bones}{mBones}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Bone}$\ast$$\ast$ ai\+Mesh\+::m\+Bones}\hypertarget{structai_mesh_a0c0582a7f45b340b6a33552c53232539}{}\label{structai_mesh_a0c0582a7f45b340b6a33552c53232539}
+The bones of this mesh. A bone consists of a name by which it can be found in the frame hierarchy and a set of vertex weights. \index{ai\+Mesh@{ai\+Mesh}!m\+Colors@{m\+Colors}}
+\index{m\+Colors@{m\+Colors}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Colors}{mColors}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Color4D}$\ast$ ai\+Mesh\+::m\+Colors\mbox{[}A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+O\+L\+O\+R\+\_\+\+S\+E\+TS\mbox{]}}\hypertarget{structai_mesh_ad9215f67bd0c2277b10775a8adb66b96}{}\label{structai_mesh_ad9215f67bd0c2277b10775a8adb66b96}
+Vertex color sets. A mesh may contain 0 to \#\+A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+O\+L\+O\+R\+\_\+\+S\+E\+TS vertex colors per vertex. N\+U\+LL if not present. Each array is m\+Num\+Vertices in size if present. \index{ai\+Mesh@{ai\+Mesh}!m\+Faces@{m\+Faces}}
+\index{m\+Faces@{m\+Faces}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Faces}{mFaces}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Face}$\ast$ ai\+Mesh\+::m\+Faces}\hypertarget{structai_mesh_a5a65fbc7fdea7f8d36f39047425ece07}{}\label{structai_mesh_a5a65fbc7fdea7f8d36f39047425ece07}
+The faces the mesh is constructed from. Each face refers to a number of vertices by their indices. This array is always present in a mesh, its size is given in m\+Num\+Faces. If the \#\+A\+I\+\_\+\+S\+C\+E\+N\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+N\+O\+N\+\_\+\+V\+E\+R\+B\+O\+S\+E\+\_\+\+F\+O\+R\+M\+AT is N\+OT set each face references an unique set of vertices. \index{ai\+Mesh@{ai\+Mesh}!m\+Material\+Index@{m\+Material\+Index}}
+\index{m\+Material\+Index@{m\+Material\+Index}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Material\+Index}{mMaterialIndex}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Material\+Index}\hypertarget{structai_mesh_aa2807c7ba172115203ed16047ad65f9e}{}\label{structai_mesh_aa2807c7ba172115203ed16047ad65f9e}
+The material used by this mesh. A mesh does use only a single material. If an imported model uses multiple materials, the import splits up the mesh. Use this value as index into the scene\textquotesingle{}s material list. \index{ai\+Mesh@{ai\+Mesh}!m\+Name@{m\+Name}}
+\index{m\+Name@{m\+Name}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Name}{mName}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+String} ai\+Mesh\+::m\+Name}\hypertarget{structai_mesh_a8dd9433e0c5b008e3e5aee6c801d3b74}{}\label{structai_mesh_a8dd9433e0c5b008e3e5aee6c801d3b74}
+Name of the mesh. Meshes can be named, but this is not a requirement and leaving this field empty is totally fine. There are mainly three uses for mesh names\+:
+\begin{DoxyItemize}
+\item some formats name nodes and meshes independently.
+\item importers tend to split meshes up to meet the one-\/material-\/per-\/mesh requirement. Assigning the same (dummy) name to each of the result meshes aids the caller at recovering the original mesh partitioning.
+\item Vertex animations refer to meshes by their names. 
+\end{DoxyItemize}\index{ai\+Mesh@{ai\+Mesh}!m\+Normals@{m\+Normals}}
+\index{m\+Normals@{m\+Normals}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Normals}{mNormals}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector3D}$\ast$ ai\+Mesh\+::m\+Normals}\hypertarget{structai_mesh_aec81b496b4d93838cef038933dabe9b9}{}\label{structai_mesh_aec81b496b4d93838cef038933dabe9b9}
+Vertex normals. The array contains normalized vectors, N\+U\+LL if not present. The array is m\+Num\+Vertices in size. Normals are undefined for point and line primitives. A mesh consisting of points and lines only may not have normal vectors. Meshes with mixed primitive types (i.\+e. lines and triangles) may have normals, but the normals for vertices that are only referenced by point or line primitives are undefined and set to Q\+NaN (W\+A\+RN\+: q\+NaN compares to inequal to {\itshape everything}, even to q\+NaN itself. Using code like this to check whether a field is qnan is\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define IS\_QNAN(f) (f != f)}
+\end{DoxyCode}
+ still dangerous because even 1.\+f == 1.\+f could evaluate to false! ( remember the subtleties of I\+E\+E\+E754 artithmetics). Use stuff like {\ttfamily fpclassify} instead. \begin{DoxyNote}{Note}
+Normal vectors computed by \hyperlink{namespace_assimp}{Assimp} are always unit-\/length. However, this needn\textquotesingle{}t apply for normals that have been taken directly from the model file. 
+\end{DoxyNote}
+\index{ai\+Mesh@{ai\+Mesh}!m\+Num\+Anim\+Meshes@{m\+Num\+Anim\+Meshes}}
+\index{m\+Num\+Anim\+Meshes@{m\+Num\+Anim\+Meshes}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Num\+Anim\+Meshes}{mNumAnimMeshes}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Num\+Anim\+Meshes}\hypertarget{structai_mesh_a1692a300222b32348ae51779df4a697e}{}\label{structai_mesh_a1692a300222b32348ae51779df4a697e}
+N\+OT C\+U\+R\+R\+E\+N\+T\+LY IN U\+SE. The number of attachment meshes \index{ai\+Mesh@{ai\+Mesh}!m\+Num\+Bones@{m\+Num\+Bones}}
+\index{m\+Num\+Bones@{m\+Num\+Bones}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Num\+Bones}{mNumBones}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Num\+Bones}\hypertarget{structai_mesh_a0f9d5425b6300e32a842a94f943fd79e}{}\label{structai_mesh_a0f9d5425b6300e32a842a94f943fd79e}
+The number of bones this mesh contains. Can be 0, in which case the m\+Bones array is N\+U\+LL. \index{ai\+Mesh@{ai\+Mesh}!m\+Num\+Faces@{m\+Num\+Faces}}
+\index{m\+Num\+Faces@{m\+Num\+Faces}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Num\+Faces}{mNumFaces}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Num\+Faces}\hypertarget{structai_mesh_aeed22ee6963b79548f3877b3c905518e}{}\label{structai_mesh_aeed22ee6963b79548f3877b3c905518e}
+The number of primitives (triangles, polygons, lines) in this mesh. This is also the size of the m\+Faces array. The maximum value for this member is \#\+A\+I\+\_\+\+M\+A\+X\+\_\+\+F\+A\+C\+ES. \index{ai\+Mesh@{ai\+Mesh}!m\+Num\+U\+V\+Components@{m\+Num\+U\+V\+Components}}
+\index{m\+Num\+U\+V\+Components@{m\+Num\+U\+V\+Components}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Num\+U\+V\+Components}{mNumUVComponents}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Num\+U\+V\+Components\mbox{[}A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+E\+X\+T\+U\+R\+E\+C\+O\+O\+R\+DS\mbox{]}}\hypertarget{structai_mesh_a635c631a6e66d32989d6b25b2a892d86}{}\label{structai_mesh_a635c631a6e66d32989d6b25b2a892d86}
+Specifies the number of components for a given UV channel. Up to three channels are supported (U\+VW, for accessing volume or cube maps). If the value is 2 for a given channel n, the component p.\+z of m\+Texture\+Coords\mbox{[}n\mbox{]}\mbox{[}p\mbox{]} is set to 0.\+0f. If the value is 1 for a given channel, p.\+y is set to 0.\+0f, too. \begin{DoxyNote}{Note}
+4D coords are not supported 
+\end{DoxyNote}
+\index{ai\+Mesh@{ai\+Mesh}!m\+Num\+Vertices@{m\+Num\+Vertices}}
+\index{m\+Num\+Vertices@{m\+Num\+Vertices}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Num\+Vertices}{mNumVertices}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Num\+Vertices}\hypertarget{structai_mesh_ab34b7b5941e6636f1c08f615cbb072ef}{}\label{structai_mesh_ab34b7b5941e6636f1c08f615cbb072ef}
+The number of vertices in this mesh. This is also the size of all of the per-\/vertex data arrays. The maximum value for this member is \#\+A\+I\+\_\+\+M\+A\+X\+\_\+\+V\+E\+R\+T\+I\+C\+ES. \index{ai\+Mesh@{ai\+Mesh}!m\+Primitive\+Types@{m\+Primitive\+Types}}
+\index{m\+Primitive\+Types@{m\+Primitive\+Types}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Primitive\+Types}{mPrimitiveTypes}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ai\+Mesh\+::m\+Primitive\+Types}\hypertarget{structai_mesh_a99d66ac0a444068c1b252b30265cbf53}{}\label{structai_mesh_a99d66ac0a444068c1b252b30265cbf53}
+Bitwise combination of the members of the \#ai\+Primitive\+Type enum. This specifies which types of primitives are present in the mesh. The \char`\"{}\+Sort\+By\+Primitive\+Type\char`\"{}-\/\+Step can be used to make sure the output meshes consist of one primitive type each. \index{ai\+Mesh@{ai\+Mesh}!m\+Tangents@{m\+Tangents}}
+\index{m\+Tangents@{m\+Tangents}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Tangents}{mTangents}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector3D}$\ast$ ai\+Mesh\+::m\+Tangents}\hypertarget{structai_mesh_af367ff78bd69f3e83d7edc8ad67dc5df}{}\label{structai_mesh_af367ff78bd69f3e83d7edc8ad67dc5df}
+Vertex tangents. The tangent of a vertex points in the direction of the positive X texture axis. The array contains normalized vectors, N\+U\+LL if not present. The array is m\+Num\+Vertices in size. A mesh consisting of points and lines only may not have normal vectors. Meshes with mixed primitive types (i.\+e. lines and triangles) may have normals, but the normals for vertices that are only referenced by point or line primitives are undefined and set to q\+NaN. See the \hyperlink{structai_mesh_aec81b496b4d93838cef038933dabe9b9}{m\+Normals} member for a detailled discussion of q\+Na\+Ns. \begin{DoxyNote}{Note}
+If the mesh contains tangents, it automatically also contains bitangents. 
+\end{DoxyNote}
+\index{ai\+Mesh@{ai\+Mesh}!m\+Texture\+Coords@{m\+Texture\+Coords}}
+\index{m\+Texture\+Coords@{m\+Texture\+Coords}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Texture\+Coords}{mTextureCoords}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector3D}$\ast$ ai\+Mesh\+::m\+Texture\+Coords\mbox{[}A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+E\+X\+T\+U\+R\+E\+C\+O\+O\+R\+DS\mbox{]}}\hypertarget{structai_mesh_a4a50b11d00ef50f419c75cab0f6bddd6}{}\label{structai_mesh_a4a50b11d00ef50f419c75cab0f6bddd6}
+Vertex texture coords, also known as UV channels. A mesh may contain 0 to A\+I\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+E\+X\+T\+U\+R\+E\+C\+O\+O\+R\+DS per vertex. N\+U\+LL if not present. The array is m\+Num\+Vertices in size. \index{ai\+Mesh@{ai\+Mesh}!m\+Vertices@{m\+Vertices}}
+\index{m\+Vertices@{m\+Vertices}!ai\+Mesh@{ai\+Mesh}}
+\subsubsection[{\texorpdfstring{m\+Vertices}{mVertices}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector3D}$\ast$ ai\+Mesh\+::m\+Vertices}\hypertarget{structai_mesh_afd4588abb3e1c72821ae0234a3850662}{}\label{structai_mesh_afd4588abb3e1c72821ae0234a3850662}
+Vertex positions. This array is always present in a mesh. The array is m\+Num\+Vertices in size. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Commun/\+Externe/assimp/include/mesh.\+h\end{DoxyCompactItemize}

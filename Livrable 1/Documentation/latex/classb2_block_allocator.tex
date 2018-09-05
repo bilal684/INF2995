@@ -1,0 +1,53 @@
+\hypertarget{classb2_block_allocator}{}\section{b2\+Block\+Allocator Class Reference}
+\label{classb2_block_allocator}\index{b2\+Block\+Allocator@{b2\+Block\+Allocator}}
+
+
+{\ttfamily \#include $<$b2\+Block\+Allocator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{classb2_block_allocator_a60b4b07a234adfe19cd1279805ed6519}{Allocate} (int32 size)\hypertarget{classb2_block_allocator_a60b4b07a234adfe19cd1279805ed6519}{}\label{classb2_block_allocator_a60b4b07a234adfe19cd1279805ed6519}
+
+\begin{DoxyCompactList}\small\item\em Allocate memory. This will use b2\+Alloc if the size is larger than b2\+\_\+max\+Block\+Size. \end{DoxyCompactList}\item 
+void \hyperlink{classb2_block_allocator_a945fdf86e260318b930a53dcc887ca8b}{Free} (void $\ast$p, int32 size)\hypertarget{classb2_block_allocator_a945fdf86e260318b930a53dcc887ca8b}{}\label{classb2_block_allocator_a945fdf86e260318b930a53dcc887ca8b}
+
+\begin{DoxyCompactList}\small\item\em Free memory. This will use b2\+Free if the size is larger than b2\+\_\+max\+Block\+Size. \end{DoxyCompactList}\item 
+void {\bfseries Clear} ()\hypertarget{classb2_block_allocator_a3d3bac86217eba9d1eb6dff2acee0d77}{}\label{classb2_block_allocator_a3d3bac86217eba9d1eb6dff2acee0d77}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+b2\+Chunk $\ast$ {\bfseries m\+\_\+chunks}\hypertarget{classb2_block_allocator_a340443648b0c00b3e901fd5460759a0c}{}\label{classb2_block_allocator_a340443648b0c00b3e901fd5460759a0c}
+
+\item 
+int32 {\bfseries m\+\_\+chunk\+Count}\hypertarget{classb2_block_allocator_a6f23a8eb32475bf1766ddd94a8c00b99}{}\label{classb2_block_allocator_a6f23a8eb32475bf1766ddd94a8c00b99}
+
+\item 
+int32 {\bfseries m\+\_\+chunk\+Space}\hypertarget{classb2_block_allocator_ad4861c267d5d9392b10a2a0e44ec93e8}{}\label{classb2_block_allocator_ad4861c267d5d9392b10a2a0e44ec93e8}
+
+\item 
+b2\+Block $\ast$ {\bfseries m\+\_\+free\+Lists} \mbox{[}b2\+\_\+block\+Sizes\mbox{]}\hypertarget{classb2_block_allocator_af61bf3e75cc51ddbfbc5d10681b62df1}{}\label{classb2_block_allocator_af61bf3e75cc51ddbfbc5d10681b62df1}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int32 {\bfseries s\+\_\+block\+Sizes} \mbox{[}b2\+\_\+block\+Sizes\mbox{]}\hypertarget{classb2_block_allocator_ae0f98e3e0d0dd2ddf64d3e8c789579b0}{}\label{classb2_block_allocator_ae0f98e3e0d0dd2ddf64d3e8c789579b0}
+
+\item 
+static uint8 {\bfseries s\+\_\+block\+Size\+Lookup} \mbox{[}b2\+\_\+max\+Block\+Size+1\mbox{]}\hypertarget{classb2_block_allocator_aaa13e9e67ad9b03b224509c42d9fae38}{}\label{classb2_block_allocator_aaa13e9e67ad9b03b224509c42d9fae38}
+
+\item 
+static bool {\bfseries s\+\_\+block\+Size\+Lookup\+Initialized}\hypertarget{classb2_block_allocator_a8133162b02c5bb0d8a9abbcadd899524}{}\label{classb2_block_allocator_a8133162b02c5bb0d8a9abbcadd899524}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a small object allocator used for allocating small objects that persist for more than one time step. See\+: \href{http://www.codeproject.com/useritems/Small_Block_Allocator.asp}{\tt http\+://www.\+codeproject.\+com/useritems/\+Small\+\_\+\+Block\+\_\+\+Allocator.\+asp} 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+Box2\+D/include/\+Box2\+D/\+Common/b2\+Block\+Allocator.\+h\end{DoxyCompactItemize}

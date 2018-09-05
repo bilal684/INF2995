@@ -1,0 +1,216 @@
+\subsection*{一般问题}
+
+
+\begin{DoxyEnumerate}
+\item Rapid\+J\+S\+O\+N是什么？
+
+Rapid\+J\+S\+O\+N是一个\+C++库，用于解析及生成\+J\+S\+O\+N。读者可参考它的所有特点。
+\item 为什么称作\+Rapid\+J\+S\+O\+N？
+
+它的灵感来自于\href{http://rapidxml.sourceforge.net/}{\tt Rapid\+X\+ML}，\+Rapid\+X\+M\+L是一个高速的\+X\+ML D\+O\+M解析器。
+\item Rapid\+J\+S\+O\+N与\+Rapid\+X\+M\+L相似么？
+
+Rapid\+J\+S\+O\+N借镜了\+Rapid\+X\+M\+L的一些设计, 包括原位（$\ast$in situ$\ast$）解析、只有头文件的库。但两者的\+A\+P\+I是完全不同的。此外\+Rapid\+J\+S\+O\+N也提供许多\+Rapid\+X\+M\+L没有的特点。
+\item Rapid\+J\+S\+O\+N是免费的么？
+
+是的，它在\+M\+I\+T特許條款下免费。它可用于商业软件。详情请参看\href{https://github.com/miloyip/rapidjson/blob/master/license.txt}{\tt license.\+txt}。
+\item Rapid\+J\+S\+O\+N很小么？它有何依赖？
+
+是的。在\+Windows上，一个解析\+J\+S\+O\+N并打印出统计的可执行文件少于30\+K\+B。
+
+Rapid\+J\+S\+O\+N仅依赖于\+C++标准库。
+\item 怎样安装\+Rapid\+J\+S\+O\+N？
+
+见安装一节。
+\item Rapid\+J\+S\+O\+N能否运行于我的平台？
+
+社区已在多个操作系统／编译器／\+C\+P\+U架构的组合上测试\+Rapid\+J\+S\+O\+N。但我们无法确保它能运行于你特定的平台上。只需要生成及执行单元测试便能获取答案。
+\item Rapid\+J\+S\+O\+N支持\+C++03么？\+C++11呢？
+
+Rapid\+J\+S\+O\+N开始时在\+C++03上实现。后来加入了可选的\+C++11特性支持（如转移构造函数、{\ttfamily noexcept}）。\+Rapid\+J\+S\+O\+N应该兼容所有遵从\+C++03或\+C++11的编译器。
+\item Rapid\+J\+S\+O\+N是否真的用于实际应用？
+
+是的。它被配置于前台及后台的真实应用中。一个社区成员说\+Rapid\+J\+S\+O\+N在他们的系统中每日解析5千万个\+J\+S\+O\+N。
+\item Rapid\+J\+S\+O\+N是如何被测试的？
+
+Rapid\+J\+S\+O\+N包含一组单元测试去执行自动测试。\href{https://travis-ci.org/miloyip/rapidjson/}{\tt Travis}（供\+Linux平台）及\href{https://ci.appveyor.com/project/miloyip/rapidjson/}{\tt App\+Veyor}（供\+Windows平台）会对所有修改进行编译及执行单元测试。在\+Linux下还会使用\+Valgrind去检测内存泄漏。
+\item Rapid\+J\+S\+O\+N是否有完整的文档？
+
+Rapid\+J\+S\+O\+N提供了使用手册及\+A\+P\+I说明文档。
+\item 有没有其他替代品？
+
+有许多替代品。例如nativejson-\/benchmark\mbox{]}(\href{https://github.com/miloyip/nativejson-benchmark}{\tt https\+://github.\+com/miloyip/nativejson-\/benchmark})列出了一些开源的\+C/\+C++ J\+S\+O\+N库。\href{http://www.json.org/}{\tt json.\+org}也有一个列表。
+\end{DoxyEnumerate}
+
+\subsection*{J\+S\+ON}
+
+
+\begin{DoxyEnumerate}
+\item 什么是\+J\+S\+O\+N？
+
+J\+S\+ON (Java\+Script Object Notation)是一个轻量的数据交换格式。它使用人类可读的文本格式。更多关于\+J\+S\+O\+N的细节可考\href{http://www.ietf.org/rfc/rfc7159.txt}{\tt R\+F\+C7159}及\href{http://www.ecma-international.org/publications/standards/Ecma-404.htm}{\tt E\+C\+M\+A-\/404}。
+\item J\+S\+O\+N有什么应用场合？
+
+J\+S\+O\+N常用于网页应用程序，以传送结构化数据。它也可作为文件格式用于数据持久化。
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Rapid\+J\+S\+O\+N是否符合\+J\+S\+O\+N标准？
+
+是。\+Rapid\+J\+S\+O\+N完全符合\href{http://www.ietf.org/rfc/rfc7159.txt}{\tt R\+F\+C7159}及\href{http://www.ecma-international.org/publications/standards/Ecma-404.htm}{\tt E\+C\+M\+A-\/404}。它能处理一些特殊情况，例如支持\+J\+S\+O\+N字符串中含有空字符及代理对（surrogate pair）。
+\item Rapid\+J\+S\+O\+N是否支持宽松的语法？
+
+现时不支持。\+Rapid\+J\+S\+O\+N只支持严格的标准格式。宽松语法现时在这\href{https://github.com/miloyip/rapidjson/issues/36}{\tt issue}中进行讨论。
+\end{DoxyEnumerate}
+
+\subsection*{D\+O\+M与\+S\+AX}
+
+
+\begin{DoxyEnumerate}
+\item 什么是\+D\+O\+M风格\+A\+P\+I？
+
+Document Object Model（\+D\+O\+M）是一个储存于内存的\+J\+S\+O\+N表示方式，用于查询及修改\+J\+S\+O\+N。
+\item 什么是\+S\+A\+X风格\+A\+PI?
+
+S\+A\+X是一个事件驱动的\+A\+P\+I，用于解析及生成\+J\+S\+O\+N。
+\item 我应用\+D\+O\+M还是\+S\+A\+X？
+
+D\+O\+M易于查询及修改。\+S\+A\+X则是非常快及省内存的，但通常较难使用。
+\item 什么是原位（$\ast$in situ$\ast$）解析？
+
+原位解析会把\+J\+S\+O\+N字符串直接解码至输入的\+J\+S\+O\+N中。这是一个优化，可减少内存消耗及提升性能，但输入的\+J\+S\+O\+N会被更改。进一步细节请参考原位解析 。
+\item 什么时候会产生解析错误？
+
+当输入的\+J\+S\+O\+N包含非法语法，或不能表示一个值（如\+Number太大），或解析器的处理器中断解析过程，解析器都会产生一个错误。详情请参考解析错误。
+\item 有什么错误信息？
+
+错误信息存储在{\ttfamily \hyperlink{struct_parse_result}{Parse\+Result}}，它包含错误代号及偏移值（从\+J\+S\+O\+N开始至错误处的字符数目）。可以把错误代号翻译为人类可读的错误讯息。
+\item 为可不只使用{\ttfamily double}去表示\+J\+S\+ON number？
+
+一些应用需要使用64位无号／有号整数。这些整数不能无损地转换成{\ttfamily double}。因此解析器会检测一个\+J\+S\+ON number是否能转换至各种整数类型及{\ttfamily double}。
+\end{DoxyEnumerate}
+
+\subsection*{Document/\+Value (D\+OM)}
+
+
+\begin{DoxyEnumerate}
+\item 什么是转移语意？为什么？
+
+{\ttfamily Value}不用复制语意，而使用了转移语意。这是指，当把来源值赋值于目标值时，来源值的所有权会转移至目标值。
+
+由于转移快于复制，此设计决定强迫使用者注意到复制的消耗。
+\item 怎样去复制一个值？
+
+有两个\+A\+P\+I可用：含allocator的构造函数，以及{\ttfamily Copy\+From()}。可参考深复制\+Value里的用例。
+\item 为什么我需要提供字符串的长度？
+
+由于\+C字符串是空字符结尾的，需要使用{\ttfamily strlen()}去计算其长度，这是线性复杂度的操作。若使用者已知字符串的长度，对很多操作来说会造成不必要的消耗。
+
+此外，\+Rapid\+J\+S\+O\+N可处理含有{\ttfamily \textbackslash{}u0000}（空字符）的字符串。若一个字符串含有空字符，{\ttfamily strlen()}便不能返回真正的字符串长度。在这种情况下使用者必须明确地提供字符串长度。
+\item 为什么在许多\+D\+O\+M操作\+A\+P\+I中要提供分配器作为参数？
+
+由于这些\+A\+P\+I是{\ttfamily Value}的成员函数，我们不希望为每个{\ttfamily Value}储存一个分配器指针。
+\item 它会转换各种数值类型么？
+
+当使用{\ttfamily Get\+Int()}、{\ttfamily Get\+Uint()}等\+A\+P\+I时，可能会发生转换。对于整数至整数转换，仅当保证转换安全才会转换（否则会断言失败）。然而，当把一个64位有号／无号整数转换至double时，它会转换，但有可能会损失精度。含有小数的数字、或大于64位的整数，都只能使用{\ttfamily Get\+Double()}获取其值。
+\end{DoxyEnumerate}
+
+\subsection*{Reader/\+Writer (S\+AX)}
+
+
+\begin{DoxyEnumerate}
+\item 为什么不仅仅用{\ttfamily printf}输出一个\+J\+S\+O\+N？为什么需要{\ttfamily \hyperlink{class_writer}{Writer}}？
+
+最重要的是，{\ttfamily \hyperlink{class_writer}{Writer}}能确保输出的\+J\+S\+O\+N是格式正确的。错误地调用\+S\+A\+X事件（如{\ttfamily Start\+Object()}错配{\ttfamily End\+Array()}）会造成断言失败。此外，{\ttfamily \hyperlink{class_writer}{Writer}}会把字符串进行转义（如{\ttfamily \textbackslash{}n}）。最后，{\ttfamily printf()}的数值输出可能并不是一个合法的\+J\+S\+ON number，特别是某些locale会有数字分隔符。而且{\ttfamily \hyperlink{class_writer}{Writer}}的数值字符串转换是使用非常快的算法来实现的，胜过{\ttfamily printf()}及{\ttfamily iostream}。
+\item 我能否暂停解析过程，并在稍后继续？
+
+基于性能考虑，目前版本并不直接支持此功能。然而，若执行环境支持多线程，使用者可以在另一线程解析\+J\+S\+O\+N，并通过阻塞输入流去暂停。
+\end{DoxyEnumerate}
+
+\subsection*{Unicode}
+
+
+\begin{DoxyEnumerate}
+\item 它是否支持\+U\+T\+F-\/8、\+U\+T\+F-\/16及其他格式？
+
+是。它完全支持\+U\+T\+F-\/8、\+U\+T\+F-\/16（大端／小端）、\+U\+T\+F-\/32（大端／小端）及\+A\+S\+C\+I\+I。
+\item 它能否检测编码的合法性？
+
+能。只需把{\ttfamily k\+Parse\+Validate\+Encoding\+Flag}参考传给{\ttfamily Parse()}。若发现在输入流中有非法的编码，它就会产生{\ttfamily k\+Parse\+Error\+String\+Invalid\+Encoding}错误。
+\item 什么是代理对（surrogate pair)？\+Rapid\+J\+S\+O\+N是否支持？
+
+J\+S\+O\+N使用\+U\+T\+F-\/16编码去转义\+Unicode字符，例如{\ttfamily \textbackslash{}u5927}表示中文字“大”。要处理基本多文种平面（basic multilingual plane，\+B\+M\+P）以外的字符时，\+U\+T\+F-\/16会把那些字符编码成两个16位值，这称为\+U\+T\+F-\/16代理对。例如，绘文字字符\+U+1\+F602在\+J\+S\+O\+N中可被编码成{\ttfamily \textbackslash{}u\+D83D\textbackslash{}u\+D\+E02}。
+
+Rapid\+J\+S\+O\+N完全支持解析及生成\+U\+T\+F-\/16代理对。
+\item 它能否处理\+J\+S\+O\+N字符串中的{\ttfamily \textbackslash{}u0000}（空字符）？
+
+能。\+Rapid\+J\+S\+O\+N完全支持\+J\+S\+O\+N字符串中的空字符。然而，使用者需要注意到这件事，并使用{\ttfamily Get\+String\+Length()}及相关\+A\+P\+I去取得字符串真正长度。
+\item 能否对所有非\+A\+S\+C\+I\+I字符输出成{\ttfamily \textbackslash{}uxxxx}形式？
+
+可以。只要在{\ttfamily \hyperlink{class_writer}{Writer}}中使用{\ttfamily \hyperlink{struct_a_s_c_i_i}{A\+S\+C\+II}$<$$>$}作为输出编码参数，就可以强逼转义那些字符。
+\end{DoxyEnumerate}
+
+\subsection*{流}
+
+
+\begin{DoxyEnumerate}
+\item 我有一个很大的\+J\+S\+O\+N文件。我应否把它整个载入内存中？
+
+使用者可使用{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}去逐块读入文件。但若使用于原位解析，必须载入整个文件。
+\item 我能否解析一个从网络上串流进来的\+J\+S\+O\+N？
+
+可以。使用者可根据{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}的实现，去实现一个自定义的流。
+\item 我不知道一些\+J\+S\+O\+N将会使用哪种编码。怎样处理它们？
+
+你可以使用{\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}}，它能自动检测输入流的编码。然而，它会带来一些性能开销。
+\item 什么是\+B\+O\+M？\+Rapid\+J\+S\+O\+N怎样处理它？
+
+\href{http://en.wikipedia.org/wiki/Byte_order_mark}{\tt 字节顺序标记（byte order mark, B\+O\+M）}有时会出现于文件／流的开始，以表示其\+U\+T\+F编码类型。
+
+Rapid\+J\+S\+O\+N的{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}可检测／跳过\+B\+O\+M。{\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}可选择是否写入\+B\+O\+M。可参考编码流中的例子。
+\item 为什么会涉及大端／小端？
+
+流的大端／小端是\+U\+T\+F-\/16及\+U\+T\+F-\/32流要处理的问题，而\+U\+T\+F-\/8不需要处理。
+\end{DoxyEnumerate}
+
+\subsection*{性能}
+
+
+\begin{DoxyEnumerate}
+\item Rapid\+J\+S\+O\+N是否真的快？
+
+是。它可能是最快的开源\+J\+S\+O\+N库。有一个\href{https://github.com/miloyip/nativejson-benchmark}{\tt 评测}评估\+C/\+C++ J\+S\+O\+N库的性能。
+\item 为什么它会快？
+
+Rapid\+J\+S\+O\+N的许多设计是针对时间／空间性能来设计的，这些决定可能会影响\+A\+P\+I的易用性。此外，它也使用了许多底层优化（内部函数／intrinsic、\+S\+I\+M\+D）及特别的算法（自定义的double至字符串转换、字符串至double的转换）。
+\item 什是是\+S\+I\+M\+D？它如何用于\+Rapid\+J\+S\+O\+N？
+
+\href{http://en.wikipedia.org/wiki/SIMD}{\tt S\+I\+MD}指令可以在现代\+C\+P\+U中执行并行运算。\+Rapid\+J\+S\+O\+N支持了\+Intel的\+S\+S\+E2/\+S\+S\+E4.2去加速跳过空白字符。在解析含缩进的\+J\+S\+O\+N时，这能提升性能。只要定义名为{\ttfamily R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+S\+S\+E2}或{\ttfamily R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+S\+S\+E42}的宏，就能启动这个功能。然而，若在不支持这些指令集的机器上执行这些可执行文件，会导致崩溃。
+\item 它会消耗许多内存么？
+
+Rapid\+J\+S\+O\+N的设计目标是减低内存占用。
+
+在\+S\+AX A\+P\+I中，{\ttfamily Reader}消耗的内存与\+J\+S\+O\+N树深度加上最长\+J\+S\+O\+N字符成正比。
+
+在\+D\+OM A\+P\+I中，每个{\ttfamily Value}在32/64位架构下分别消耗16/24字节。\+Rapid\+J\+S\+O\+N也使用一个特殊的内存分配器去减少分配的额外开销。
+\item 高性能的意义何在？
+
+有些应用程序需要处理非常大的\+J\+S\+O\+N文件。而有些后台应用程序需要处理大量的\+J\+S\+O\+N。达到高性能同时改善延时及吞吐量。更广义来说，这也可以节省能源。
+\end{DoxyEnumerate}
+
+\subsection*{八挂}
+
+
+\begin{DoxyEnumerate}
+\item 谁是\+Rapid\+J\+S\+O\+N的开发者？
+
+叶劲峰（\+Milo Yip，\href{https://github.com/miloyip}{\tt miloyip}）是\+Rapid\+J\+S\+O\+N的原作者。全世界许多贡献者一直在改善\+Rapid\+J\+S\+O\+N。\+Philipp A. Hartmann（\href{https://github.com/pah}{\tt pah}）实现了许多改进，也设置了自动化测试，而且还参与许多社区讨论。丁欧南（\+Don Ding，\href{https://github.com/thebusytypist}{\tt thebusytypist}）实现了迭代式解析器。\+Andrii Senkovych（\href{https://github.com/jollyroger}{\tt jollyroger}）完成了向\+C\+Make的迁移。\+Kosta（\href{https://github.com/Kosta-Github}{\tt Kosta-\/\+Github}）提供了一个非常灵巧的短字符串优化。也需要感谢其他献者及社区成员。
+\item 为何你要开发\+Rapid\+J\+S\+O\+N？
+
+在2011年开始这项目是，它仅一个兴趣项目。\+Milo Yip是一个游戏程序员，他在那时候认识到\+J\+S\+O\+N并希望在未来的项目中使用。由于\+J\+S\+O\+N好像很简单，他希望写一个仅有头文件并且快速的程序库。
+\item 为什么开发中段有一段长期空档？
+
+主要是个人因素，例如加入新家庭成员。另外，\+Milo Yip也花了许多业馀时间去翻译\+Jason Gregory的《\+Game Engine Architecture》至中文版《游戏引擎架构》。
+\item 为什么这个项目从\+Google Code搬到\+Git\+Hub？
+
+这是大势所趋，而且\+Git\+Hub更为强大及方便。 
+\end{DoxyEnumerate}

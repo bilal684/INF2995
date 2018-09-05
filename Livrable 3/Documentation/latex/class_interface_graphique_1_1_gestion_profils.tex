@@ -1,0 +1,124 @@
+\hypertarget{class_interface_graphique_1_1_gestion_profils}{}\section{Interface\+Graphique.\+Gestion\+Profils Class Reference}
+\label{class_interface_graphique_1_1_gestion_profils}\index{Interface\+Graphique.\+Gestion\+Profils@{Interface\+Graphique.\+Gestion\+Profils}}
+
+
+Classe responsable du chargement le gestion et l\textquotesingle{}enregistrement sur un fichier xml des profils du robot.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Element\+X\+ML}
+\begin{DoxyCompactList}\small\item\em Classe contenant les constantes utilisé dans l\textquotesingle{}enregistrement du fichier de profils X\+ML. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \{ \\*
+{\bfseries D\+E\+F\+A\+UT} = 0, 
+{\bfseries B\+A\+L\+A\+Y\+A\+GE}, 
+{\bfseries D\+E\+V\+I\+A\+T\+I\+O\+N\+\_\+\+D\+R\+O\+I\+TE}, 
+{\bfseries D\+E\+V\+I\+A\+T\+I\+O\+N\+\_\+\+G\+A\+U\+C\+HE}, 
+\\*
+{\bfseries E\+V\+I\+T\+E\+R\+\_\+\+D\+R\+O\+I\+TE}, 
+{\bfseries E\+V\+I\+T\+E\+R\+\_\+\+G\+A\+U\+C\+HE}, 
+{\bfseries S\+U\+I\+V\+I\+\_\+\+L\+I\+G\+NE}
+ \}\hypertarget{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{}\label{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}
+\begin{DoxyCompactList}\small\item\em enumeration des etats de comportement du robot \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga6be269ce83780615ca6cf0ebc3f4ac06}{Gestion\+Profils} (string nom\+Fichier)
+\item 
+void \hyperlink{group__inf2990_ga4d59c5b92806875d47381e9925d00f05}{charger\+Profil} (string nom\+Profil)
+\item 
+string \hyperlink{group__inf2990_ga90d8e981c3ff30ff39d4c5b2be5ddc3c}{creer\+Noeud\+Profil} ()
+\item 
+void \hyperlink{group__inf2990_gaf5f3faa7fb4e1886891400cad5b80205}{enregistrer\+Profil} ()
+\item 
+void \hyperlink{group__inf2990_gaf97ef191f41b6b30f0a1ad0ce043225a}{supprimer\+Profil\+Courant} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string\mbox{[}$\,$\mbox{]} \hyperlink{group__inf2990_ga1003b8f44d2b194f6a42df6a54f22370}{etats}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ string $>$ \hyperlink{group__inf2990_ga181fac363962fd70d565088d2ee15fd9}{profils}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+string \hyperlink{group__inf2990_ga92d2d89114aa7b770561d97495c319ca}{profil\+Actif}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gad8de968247a4b06e987ef56cedf78e89}{suivant\+Suivi\+Ligne}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gadeea5b4f0186dba472a2405631b96ff1}{suivant\+Balayage}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gadcbdc8176605739490b7853956c9b3e0}{suivant\+Deviation\+Droite}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga13b387e07b698d32ec971f8037e54c84}{angle\+Deviation\+Droite}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gafaa652ff5ebe0c971c621c7ad10b5c53}{suivant\+Deviation\+Gauche}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_gad4d9eb298861b0a5e000c46ae459382d}{angle\+Deviation\+Gauche}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gacfa7c9973e2dd3751bd3ea69dd4ce7a2}{suivant\+Eviter\+Droite}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_gaa0e5389e4cc351f2e7e3396dee743c99}{angle\+Pivotement\+Droite}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \hyperlink{group__inf2990_ga7dfec55a332c75910ba13fa6dda943e2}{duree\+Recul\+Droite}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gaa6ddaba5a130435ed5c68a8279784c69}{suivant\+Eviter\+Gauche}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga5a77961284de1d291629c5bf0bc1b0b3}{angle\+Pivotement\+Gauche}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \hyperlink{group__inf2990_ga0cf12057d78fb89bd3b10892fec7ec3a}{duree\+Recul\+Gauche}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gaa24c88ba3ff659805e58df57c8208591}{suivant\+Danger\+CapteurG}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_ga39cd87b79ec9afb397bcb78cbd88aa27}{suivant\+Securitaire\+CapteurG}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga7ccdc8fc8395a915c28cf7bcbb0b21db}{longueur\+Danger\+CapteurG}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga4a8ec805917461611cbdbf0c335c6d72}{longueur\+Securitaire\+CapteurG}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gab3c0547222b8ea6155f20fb83b89c6cf}{suivant\+Danger\+CapteurM}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_gab292a1934fdf2cf1b8830499c851b7b8}{suivant\+Securitaire\+Milieu}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga0dc61e0bd26d94571ac7508cd28abceb}{longueur\+Danger\+CapteurM}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_gab362f3ff5e5ac86deea1fd0065658c75}{longueur\+Securitaire\+CapteurM}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_ga4b4dcdfecb1dde6cf8681d86a853b33b}{suivant\+Danger\+CapteurD}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{group__inf2990_gad63ae859c24061076ed6dbe35f4671b5}{E\+T\+A\+TS} \hyperlink{group__inf2990_ga6afecd65d01a5947126357e7fd96c038}{suivant\+Securitaire\+CapteurD}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga10a65d5b87b46d58fb7cc5053df3cb43}{longueur\+Danger\+CapteurD}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+float \hyperlink{group__inf2990_ga5e7613080b37ed6815b16e0757a522b7}{longueur\+Securitaire\+CapteurD}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \hyperlink{group__inf2990_gae67f02930220db32cfebe3c1907b80aa}{capteur\+Gauche\+Actif}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \hyperlink{group__inf2990_gaa628956886cdfc6215358f6a9434282a}{capteur\+Droit\+Actif}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \hyperlink{group__inf2990_ga60e763410dd2944389b069d53960dfb8}{capteur\+Milieu\+Actif}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+bool \hyperlink{group__inf2990_gabd4134f2950622459e7c716f0c268205}{suiveur\+Ligne\+Actif}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe responsable du chargement le gestion et l\textquotesingle{}enregistrement sur un fichier xml des profils du robot. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/03-\/21 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+Interface\+Graphique/\hyperlink{_gestion_profils_8cs}{Gestion\+Profils.\+cs}\end{DoxyCompactItemize}

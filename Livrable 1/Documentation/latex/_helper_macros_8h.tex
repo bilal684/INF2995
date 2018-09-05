@@ -1,0 +1,264 @@
+\hypertarget{_helper_macros_8h}{}\section{Commun/\+Externe/cppunit/include/cppunit/extensions/\+Helper\+Macros.h File Reference}
+\label{_helper_macros_8h}\index{Commun/\+Externe/cppunit/include/cppunit/extensions/\+Helper\+Macros.\+h@{Commun/\+Externe/cppunit/include/cppunit/extensions/\+Helper\+Macros.\+h}}
+{\ttfamily \#include $<$cppunit/\+Test\+Caller.\+h$>$}\\*
+{\ttfamily \#include $<$cppunit/\+Test\+Suite.\+h$>$}\\*
+{\ttfamily \#include $<$cppunit/extensions/\+Auto\+Register\+Suite.\+h$>$}\\*
+{\ttfamily \#include $<$cppunit/extensions/\+Exception\+Test\+Case\+Decorator.\+h$>$}\\*
+{\ttfamily \#include $<$cppunit/extensions/\+Test\+Fixture\+Factory.\+h$>$}\\*
+{\ttfamily \#include $<$cppunit/extensions/\+Test\+Namer.\+h$>$}\\*
+{\ttfamily \#include $<$cppunit/extensions/\+Test\+Suite\+Builder\+Context.\+h$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___writing_test_fixture_gaef6ae7648fa961600921b6c004f39933}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+TE}(A\+Test\+Fixture\+Type)                                                        
+\begin{DoxyCompactList}\small\item\em Begin test suite. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_gae19f30ade82172cf6c3ff297367a10c2}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+B\+\_\+\+S\+U\+I\+TE}(A\+Test\+Fixture\+Type,  A\+Super\+Class)
+\begin{DoxyCompactList}\small\item\em Begin test suite (includes parent suite) \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_ga3b353d6e84f681ae85cced96dce0a4ae}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+E\+ND}()                                                                                          
+\begin{DoxyCompactList}\small\item\em End declaration of the test suite. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_gac77c32dbef97af8cd6eec186bf2bbdbf}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+E\+N\+D\+\_\+\+A\+B\+S\+T\+R\+A\+CT}()                                                                        
+\begin{DoxyCompactList}\small\item\em End declaration of an abstract test suite. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_gaace55a4a3a4f3e0cd219d38e98d4f48f}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+A\+D\+D\+\_\+\+T\+E\+ST}(test)~context.\+add\+Test( test )
+\begin{DoxyCompactList}\small\item\em Add a test to the suite (for custom test macro). \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_ga6ba5fe7b8f52e401268b984008838754}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+ST}(test\+Method)                                            
+\begin{DoxyCompactList}\small\item\em Add a method to the suite. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_ga0d51339f412270aee9a2d6c015d80ef2}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}(test\+Method,  Exception\+Type)                
+\begin{DoxyCompactList}\small\item\em Add a test which fail if the specified exception is not caught. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_ga5bdaf0444216a8f93ead13d5ae964d7e}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+F\+A\+IL}(test\+Method)~\hyperlink{group___writing_test_fixture_ga0d51339f412270aee9a2d6c015d80ef2}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}( test\+Method, C\+P\+P\+U\+N\+I\+T\+\_\+\+N\+S\+::\+Exception )
+\begin{DoxyCompactList}\small\item\em Adds a test case which is excepted to fail. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_ga516fec19cd7a7acb6fbf194bd98c4c09}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+A\+D\+D\+\_\+\+C\+U\+S\+T\+O\+M\+\_\+\+T\+E\+S\+TS}(test\+Adder\+Method)~test\+Adder\+Method( context )
+\begin{DoxyCompactList}\small\item\em Adds some custom test cases. \end{DoxyCompactList}\item 
+\#define \hyperlink{group___writing_test_fixture_gac5ac4d8544ac2648a28bf7e4dcb27b9d}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+P\+R\+O\+P\+E\+R\+TY}(A\+Property\+Key,  A\+Property\+Value)
+\begin{DoxyCompactList}\small\item\em Adds a property to the test suite builder context. \end{DoxyCompactList}\item 
+\#define \hyperlink{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}(A\+Test\+Fixture\+Type)        
+\item 
+\#define \hyperlink{_helper_macros_8h_a028a5855a40ad3836e2a26aa48cd4c91}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}(A\+Test\+Fixture\+Type,  suite\+Name)
+\item 
+\#define \hyperlink{_helper_macros_8h_a0ca9e37aca06e802300f2572b974e2bb}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD}(which,  to)                                                                      
+\item 
+\#define \hyperlink{_helper_macros_8h_a1dde8c3db38012da58e1e456b7e4e346}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT}(which)                                              
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Macros intended to ease the definition of test suites.
+
+The macros \hyperlink{group___writing_test_fixture_gaef6ae7648fa961600921b6c004f39933}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E()}, \hyperlink{group___writing_test_fixture_ga6ba5fe7b8f52e401268b984008838754}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T()}, and \hyperlink{group___writing_test_fixture_ga3b353d6e84f681ae85cced96dce0a4ae}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+E\+N\+D()} are designed to facilitate easy creation of a test suite. For example,
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <\hyperlink{_helper_macros_8h}{cppunit/extensions/HelperMacros.h}>}
+\textcolor{keyword}{class }MyTest : \textcolor{keyword}{public} CppUnit::TestFixture \{
+  \hyperlink{group___writing_test_fixture_gaef6ae7648fa961600921b6c004f39933}{CPPUNIT\_TEST\_SUITE}( MyTest );
+  \hyperlink{group___writing_test_fixture_ga6ba5fe7b8f52e401268b984008838754}{CPPUNIT\_TEST}( testEquality );
+  \hyperlink{group___writing_test_fixture_ga6ba5fe7b8f52e401268b984008838754}{CPPUNIT\_TEST}( testSetName );
+  \hyperlink{group___writing_test_fixture_ga3b353d6e84f681ae85cced96dce0a4ae}{CPPUNIT\_TEST\_SUITE\_END}();
+\textcolor{keyword}{public}:
+  \textcolor{keywordtype}{void} testEquality();
+  \textcolor{keywordtype}{void} testSetName();
+\};
+\end{DoxyCode}
+
+
+The effect of these macros is to define two methods in the class My\+Test. The first method is an auxiliary function named register\+Tests that you will not need to call directly. The second function 
+\begin{DoxyCode}
+\textcolor{keyword}{static} CppUnit::TestSuite *suite()
+\end{DoxyCode}
+ returns a pointer to the suite of tests defined by the \hyperlink{group___writing_test_fixture_ga6ba5fe7b8f52e401268b984008838754}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T()} macros.
+
+Rather than invoking suite() directly, the macro \hyperlink{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+O\+N()} is used to create a static variable that automatically registers its test suite in a global registry. The registry yields a \hyperlink{class_test}{Test} instance containing all the registered suites. 
+\begin{DoxyCode}
+\hyperlink{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{CPPUNIT\_TEST\_SUITE\_REGISTRATION}( MyTest );
+CppUnit::Test* tp =
+  CppUnit::TestFactoryRegistry::getRegistry().makeTest();
+\end{DoxyCode}
+
+
+The test suite macros can even be used with templated test classes. For example\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType>
+\textcolor{keyword}{class }StringTest : \textcolor{keyword}{public} CppUnit::TestFixture \{
+  \hyperlink{group___writing_test_fixture_gaef6ae7648fa961600921b6c004f39933}{CPPUNIT\_TEST\_SUITE}( StringTest );
+  \hyperlink{group___writing_test_fixture_ga6ba5fe7b8f52e401268b984008838754}{CPPUNIT\_TEST}( testAppend );
+  \hyperlink{group___writing_test_fixture_ga3b353d6e84f681ae85cced96dce0a4ae}{CPPUNIT\_TEST\_SUITE\_END}();
+\textcolor{keyword}{public}:  
+  ...
+\};
+\end{DoxyCode}
+
+
+You need to add in an implementation file\+:
+
+
+\begin{DoxyCode}
+\hyperlink{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{CPPUNIT\_TEST\_SUITE\_REGISTRATION}( StringTest<char> );
+\hyperlink{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{CPPUNIT\_TEST\_SUITE\_REGISTRATION}( StringTest<wchar\_t> );
+\end{DoxyCode}
+ 
+
+\subsection{Macro Definition Documentation}
+\index{Helper\+Macros.\+h@{Helper\+Macros.\+h}!C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD@{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD}}
+\index{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD@{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD}!Helper\+Macros.\+h@{Helper\+Macros.\+h}}
+\subsubsection[{\texorpdfstring{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD}{CPPUNIT_REGISTRY_ADD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD(
+\begin{DoxyParamCaption}
+\item[{}]{which, }
+\item[{}]{to}
+\end{DoxyParamCaption}
+)}\hypertarget{_helper_macros_8h_a0ca9e37aca06e802300f2572b974e2bb}{}\label{_helper_macros_8h_a0ca9e37aca06e802300f2572b974e2bb}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} CPPUNIT\_NS::AutoRegisterRegistry                                     \(\backslash\)
+             CPPUNIT\_MAKE\_UNIQUE\_NAME( autoRegisterRegistry\_\_ )( which, to )
+\end{DoxyCode}
+Adds that the specified registry suite to another registry suite.
+
+Use this macros to automatically create test registry suite hierarchy. For example, if you want to create the following hierarchy\+:
+\begin{DoxyItemize}
+\item Math
+\begin{DoxyItemize}
+\item Integer\+Math
+\item Float\+Math
+\begin{DoxyItemize}
+\item Fast\+Float
+\item Standard\+Float
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+You can do this automatically with\+: 
+\begin{DoxyCode}
+1 CPPUNIT\_REGISTRY\_ADD( "FastFloat", "FloatMath" );
+2 CPPUNIT\_REGISTRY\_ADD( "IntegerMath", "Math" );
+3 CPPUNIT\_REGISTRY\_ADD( "FloatMath", "Math" );
+4 CPPUNIT\_REGISTRY\_ADD( "StandardFloat", "FloatMath" );
+\end{DoxyCode}
+
+
+There is no specific order of declaration. Think of it as declaring links.
+
+You register the test in each suite using C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON.
+
+
+\begin{DoxyParams}{Parameters}
+{\em which} & Name of the registry suite to add to the registry suite named {\itshape to}. \\
+\hline
+{\em to} & Name of the registry suite {\itshape which} is added to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_helper_macros_8h_a1dde8c3db38012da58e1e456b7e4e346}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT}, \hyperlink{_helper_macros_8h_a028a5855a40ad3836e2a26aa48cd4c91}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}. 
+\end{DoxySeeAlso}
+\index{Helper\+Macros.\+h@{Helper\+Macros.\+h}!C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT@{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT}}
+\index{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT@{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT}!Helper\+Macros.\+h@{Helper\+Macros.\+h}}
+\subsubsection[{\texorpdfstring{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT}{CPPUNIT_REGISTRY_ADD_TO_DEFAULT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT(
+\begin{DoxyParamCaption}
+\item[{}]{which}
+\end{DoxyParamCaption}
+)}\hypertarget{_helper_macros_8h_a1dde8c3db38012da58e1e456b7e4e346}{}\label{_helper_macros_8h_a1dde8c3db38012da58e1e456b7e4e346}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} CPPUNIT\_NS::AutoRegisterRegistry                                \(\backslash\)
+             CPPUNIT\_MAKE\_UNIQUE\_NAME( autoRegisterRegistry\_\_ )( which )
+\end{DoxyCode}
+Adds that the specified registry suite to the default registry suite.
+
+This macro is just like C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD except the specified registry suite is added to the default suite (root suite).
+
+
+\begin{DoxyParams}{Parameters}
+{\em which} & Name of the registry suite to add to the default registry suite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_helper_macros_8h_a0ca9e37aca06e802300f2572b974e2bb}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD}. 
+\end{DoxySeeAlso}
+\index{Helper\+Macros.\+h@{Helper\+Macros.\+h}!C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON@{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}}
+\index{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON@{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}!Helper\+Macros.\+h@{Helper\+Macros.\+h}}
+\subsubsection[{\texorpdfstring{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}{CPPUNIT_TEST_SUITE_NAMED_REGISTRATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON(
+\begin{DoxyParamCaption}
+\item[{}]{A\+Test\+Fixture\+Type, }
+\item[{}]{suite\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{_helper_macros_8h_a028a5855a40ad3836e2a26aa48cd4c91}{}\label{_helper_macros_8h_a028a5855a40ad3836e2a26aa48cd4c91}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} CPPUNIT\_NS::AutoRegisterSuite< ATestFixtureType >                   \(\backslash\)
+             CPPUNIT\_MAKE\_UNIQUE\_NAME(autoRegisterRegistry\_\_ )(suiteName)
+\end{DoxyCode}
+Adds the specified fixture suite to the specified registry suite.
+
+This macro declares a static variable whose construction causes a test suite factory to be inserted in the global registry suite of the specified name. The registry is available by calling the static function Cpp\+Unit\+::\+Test\+Factory\+Registry\+::get\+Registry().
+
+For the suite name, use a string returned by a static function rather than a hardcoded string. That way, you can know what are the name of named registry and you don\textquotesingle{}t risk mistyping the registry name.
+
+
+\begin{DoxyCode}
+1 // MySuites.h
+2 namespace MySuites \{
+3   std::string math() \{ 
+4     return "Math";
+5   \}
+6 \}
+7 
+8 // ComplexNumberTest.cpp
+9 #include "MySuites.h"
+10 
+11 CPPUNIT\_TEST\_SUITE\_NAMED\_REGISTRATION( ComplexNumberTest, MySuites::math() );
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em A\+Test\+Fixture\+Type} & Type of the test case class. \\
+\hline
+{\em suite\+Name} & Name of the global registry suite the test suite is registered into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This macro should be used only once per line of code (the line number is used to name a hidden static variable). 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON} 
+
+\hyperlink{_helper_macros_8h_a1dde8c3db38012da58e1e456b7e4e346}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT} 
+
+\hyperlink{_helper_macros_8h_a0ca9e37aca06e802300f2572b974e2bb}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD} 
+
+\hyperlink{group___writing_test_fixture_gaef6ae7648fa961600921b6c004f39933}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+TE}, Cpp\+Unit\+::\+Auto\+Register\+Suite, Cpp\+Unit\+::\+Test\+Factory\+Registry.. 
+\end{DoxySeeAlso}
+\index{Helper\+Macros.\+h@{Helper\+Macros.\+h}!C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON@{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}}
+\index{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON@{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}!Helper\+Macros.\+h@{Helper\+Macros.\+h}}
+\subsubsection[{\texorpdfstring{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON}{CPPUNIT_TEST_SUITE_REGISTRATION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON(
+\begin{DoxyParamCaption}
+\item[{}]{A\+Test\+Fixture\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}{}\label{_helper_macros_8h_a70f00cc9f589d24019ee9efee4de2d74}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} CPPUNIT\_NS::AutoRegisterSuite< ATestFixtureType >       \(\backslash\)
+             CPPUNIT\_MAKE\_UNIQUE\_NAME(autoRegisterRegistry\_\_ )
+\end{DoxyCode}
+Adds the specified fixture suite to the unnamed registry.
+
+This macro declares a static variable whose construction causes a test suite factory to be inserted in a global registry of such factories. The registry is available by calling the static function Cpp\+Unit\+::\+Test\+Factory\+Registry\+::get\+Registry().
+
+
+\begin{DoxyParams}{Parameters}
+{\em A\+Test\+Fixture\+Type} & Type of the test case class. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+This macro should be used only once per line of code (the line number is used to name a hidden static variable). 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{_helper_macros_8h_a028a5855a40ad3836e2a26aa48cd4c91}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+T\+E\+\_\+\+N\+A\+M\+E\+D\+\_\+\+R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON} 
+
+\hyperlink{_helper_macros_8h_a1dde8c3db38012da58e1e456b7e4e346}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+D\+D\+\_\+\+T\+O\+\_\+\+D\+E\+F\+A\+U\+LT} 
+
+\hyperlink{_helper_macros_8h_a0ca9e37aca06e802300f2572b974e2bb}{C\+P\+P\+U\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+R\+Y\+\_\+\+A\+DD} 
+
+\hyperlink{group___writing_test_fixture_gaef6ae7648fa961600921b6c004f39933}{C\+P\+P\+U\+N\+I\+T\+\_\+\+T\+E\+S\+T\+\_\+\+S\+U\+I\+TE}, Cpp\+Unit\+::\+Auto\+Register\+Suite, Cpp\+Unit\+::\+Test\+Factory\+Registry. 
+\end{DoxySeeAlso}

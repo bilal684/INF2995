@@ -1,0 +1,75 @@
+﻿Build started 11/04/2016 12:41:21 PM.
+     1>Project "C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\DLL\Noyau.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IVisiteur /I../../Commun/Externe/Box2D/include /I../../Commun/Externe/assimp/include /I../../Commun/Externe/cppunit/include /I../../Commun/Externe/FMOD/include /I../../Commun/Externe/FreeImage/include /I../../Commun/Externe/FreeType/include /I../../Commun/Externe/FTGL/include /I../../Commun/Externe/GLEW/include /I../../Commun/Externe/glm/include /I../../Commun/Externe/RapidJSON/include /I../../Commun/Externe/tinyxml2/include /I../../Commun/Utilitaire /I../../Commun/Utilitaire/OpenGL /I../../Commun/Utilitaire/Modele /I../../Commun/Utilitaire/Vue /IApplication /IArbre /IArbre/Noeuds /IArbre/Usines /IConfiguration /IInterface /ITests /Zi /nologo /W3 /WX- /O2 /GL /D WIN32 /D GLEW_BUILD /D NDEBUG /D _WINDOWS /D _USRDLL /D INF2990_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt Application\FacadeModele.cpp
+         FacadeModele.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"../../Exe/Noyau.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:../../Commun/Externe/Box2D/lib /LIBPATH:../../Commun/Externe/assimp/lib /LIBPATH:../../Commun/Externe/cppunit/lib /LIBPATH:../../Commun/Externe/FMOD/lib /LIBPATH:../../Commun/Externe/FreeImage/lib /LIBPATH:../../Commun/Externe/FreeType/lib /LIBPATH:../../Commun/Externe/FTGL/lib /LIBPATH:../../Commun/Externe/GLEW/lib /LIBPATH:../../Commun/Externe/tinyxml2/lib opengl32.lib glu32.lib freetype246_R_x64.lib glew32s.lib tinyxml_R_x64.lib assimp.lib cppunit_R_x64.lib ftgl.lib fmodex64_vc.lib FreeImage.lib Box2D_R_x64.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\Exe\Noyau.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"..\..\Exe\Noyau.lib" /MACHINE:X64 /NODEFAULTLIB:LIBCMT /DLL x64\Release\FacadeModele.obj
+         x64\Release\NoeudAraignee.obj
+         x64\Release\NoeudConeCube.obj
+         x64\Release\NoeudFleche.obj
+         x64\Release\NoeudLigne.obj
+         x64\Release\NoeudMur.obj
+         x64\Release\NoeudPoteau.obj
+         x64\Release\NoeudRobot.obj
+         x64\Release\NoeudRoueDroite.obj
+         x64\Release\NoeudRoueGauche.obj
+         x64\Release\NoeudSegment.obj
+         x64\Release\NoeudTable.obj
+         x64\Release\Avancer.obj
+         x64\Release\Balayage180Degres.obj
+         x64\Release\balayage180etape2.obj
+         x64\Release\balayage180etapeFinale.obj
+         x64\Release\Defaut.obj
+         x64\Release\DeviationVersDroite.obj
+         x64\Release\DeviationVersGauche.obj
+         x64\Release\Freeze.obj
+         x64\Release\SL_DeviationVersDroite.obj
+         x64\Release\SL_DeviationVersGauche.obj
+         x64\Release\EvitementParDroite.obj
+         x64\Release\EvitementParGauche.obj
+         x64\Release\SuiviDeLigne.obj
+         x64\Release\ConfigScene.obj
+         x64\Release\ArbreRendu.obj
+         x64\Release\ArbreRenduINF2990.obj
+         x64\Release\NoeudAbstrait.obj
+         x64\Release\NoeudComposite.obj
+         x64\Release\Debug.obj
+         x64\Release\Profil.obj
+         x64\Release\FacadeInterfaceNative.obj
+         x64\Release\NoeudRobotTest.obj
+         x64\Release\AideCollisionTest.obj
+         x64\Release\BancTests.obj
+         x64\Release\ConfigSceneTest.obj
+         x64\Release\FacadeModeleTest.obj
+         x64\Release\NoeudAbstraitTest.obj
+         x64\Release\NoeudCompositeTest.obj
+         x64\Release\NoeudPoteauTest.obj
+         x64\Release\ProjectionOrthoTest.obj
+         x64\Release\UtilitaireTest.obj
+         x64\Release\VisiteurAnnulerRotationSelection.obj
+         x64\Release\VisiteurDeplacerSelection.obj
+         x64\Release\VisiteurDetectionNoeud.obj
+         x64\Release\VisiteurDeterminerCentreSelection.obj
+         x64\Release\VisiteurInitialisationPosition.obj
+         x64\Release\VisiteurInitialisationScale.obj
+         x64\Release\VisiteurRotateSelection.obj
+         x64\Release\visiteurRotationUnObjet.obj
+         x64\Release\VisiteurScaleSelection.obj
+         x64\Release\visiteurSelectElastique.obj
+         x64\Release\visiteurSelectObjet.obj
+         x64\Release\VisiteurDupliquerSelection.obj
+         x64\Release\VisiteurVerifierCollision.obj
+         x64\Release\VisiteurVerifierDeplacementDuplication.obj
+         x64\Release\VisiteurVersXML.obj
+         "C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Commun\Utilitaire\x64\Release\Utilitaire.lib"
+            Creating library ..\..\Exe\Noyau.lib and object ..\..\Exe\Noyau.exp
+         Generating code
+         Finished generating code
+     1>tinyxml_R_x64.lib(tinyxml2.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'tinyxml_R_x64.lib(tinyxml2.obj)' or at 'C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Exe\vc120.pdb'; linking object as if no debug info
+         Noyau.vcxproj -> C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\DLL\..\..\Exe\Noyau.dll
+     1>Done Building Project "C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\DLL\Noyau.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:30.76

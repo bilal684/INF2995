@@ -1,0 +1,570 @@
+This tutorial introduces the basics of the Document Object Model(\+D\+O\+M) A\+PI.
+
+As shown in \hyperlink{index}{Usage at a glance}, a J\+S\+ON can be parsed into D\+OM, and then the D\+OM can be queried and modified easily, and finally be converted back to J\+S\+ON.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ValueDocument}{}\section{Value \& Document}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ValueDocument}
+Each J\+S\+ON value is stored in a type called {\ttfamily Value}. A {\ttfamily Document}, representing the D\+OM, contains the root {\ttfamily Value} of the D\+OM tree. All public types and functions of Rapid\+J\+S\+ON are defined in the {\ttfamily rapidjson} namespace.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryValue}{}\section{Query Value}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryValue}
+In this section, we will use excerpt of {\ttfamily example/tutorial/tutorial.\+cpp}.
+
+Assumes we have a J\+S\+ON stored in a C string ({\ttfamily const char$\ast$ json})\+: 
+\begin{DoxyCode}
+\{
+    \textcolor{stringliteral}{"hello"}: \textcolor{stringliteral}{"world"},
+    \textcolor{stringliteral}{"t"}: true ,
+    \textcolor{stringliteral}{"f"}: \textcolor{keyword}{false},
+    \textcolor{stringliteral}{"n"}: null,
+    \textcolor{stringliteral}{"i"}: 123,
+    \textcolor{stringliteral}{"pi"}: 3.1416,
+    \textcolor{stringliteral}{"a"}: [1, 2, 3, 4]
+\}
+\end{DoxyCode}
+
+
+Parse it into a {\ttfamily Document}\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{comment}{// ...}
+\hyperlink{class_generic_document}{Document} document;
+document.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\end{DoxyCode}
+
+
+The J\+S\+ON is now parsed into {\ttfamily document} as a {\itshape D\+OM tree}\+:
+
+
+
+Since the update to R\+FC 7159, the root of a conforming J\+S\+ON document can be any J\+S\+ON value. In earlier R\+FC 4627, only objects or arrays were allowed as root values. In this case, the root is an object. 
+\begin{DoxyCode}
+assert(document.IsObject());
+\end{DoxyCode}
+
+
+Let\textquotesingle{}s query whether a {\ttfamily \char`\"{}hello\char`\"{}} member exists in the root object. Since a {\ttfamily Value} can contain different types of value, we may need to verify its type and use suitable A\+PI to obtain the value. In this example, {\ttfamily \char`\"{}hello\char`\"{}} member associates with a J\+S\+ON string. 
+\begin{DoxyCode}
+assert(document.HasMember(\textcolor{stringliteral}{"hello"}));
+assert(document[\textcolor{stringliteral}{"hello"}].IsString());
+printf(\textcolor{stringliteral}{"hello = %s\(\backslash\)n"}, document[\textcolor{stringliteral}{"hello"}].GetString());
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 world
+\end{DoxyCode}
+
+
+J\+S\+ON true/false values are represented as {\ttfamily bool}. 
+\begin{DoxyCode}
+assert(document[\textcolor{stringliteral}{"t"}].IsBool());
+printf(\textcolor{stringliteral}{"t = %s\(\backslash\)n"}, document[\textcolor{stringliteral}{"t"}].GetBool() ? \textcolor{stringliteral}{"true"} : \textcolor{stringliteral}{"false"});
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 true
+\end{DoxyCode}
+
+
+J\+S\+ON null can be queryed by {\ttfamily Is\+Null()}. 
+\begin{DoxyCode}
+printf(\textcolor{stringliteral}{"n = %s\(\backslash\)n"}, document[\textcolor{stringliteral}{"n"}].IsNull() ? \textcolor{stringliteral}{"null"} : \textcolor{stringliteral}{"?"});
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 null
+\end{DoxyCode}
+
+
+J\+S\+ON number type represents all numeric values. However, C++ needs more specific type for manipulation.
+
+
+\begin{DoxyCode}
+assert(document[\textcolor{stringliteral}{"i"}].IsNumber());
+
+\textcolor{comment}{// In this case, IsUint()/IsInt64()/IsUInt64() also return true.}
+assert(document[\textcolor{stringliteral}{"i"}].IsInt());          
+printf(\textcolor{stringliteral}{"i = %d\(\backslash\)n"}, document[\textcolor{stringliteral}{"i"}].GetInt());
+\textcolor{comment}{// Alternative (int)document["i"]}
+
+assert(document[\textcolor{stringliteral}{"pi"}].IsNumber());
+assert(document[\textcolor{stringliteral}{"pi"}].IsDouble());
+printf(\textcolor{stringliteral}{"pi = %g\(\backslash\)n"}, document[\textcolor{stringliteral}{"pi"}].GetDouble());
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 i = 123
+2 pi = 3.1416
+\end{DoxyCode}
+
+
+J\+S\+ON array contains a number of elements. 
+\begin{DoxyCode}
+\textcolor{comment}{// Using a reference for consecutive access is handy and faster.}
+\textcolor{keyword}{const} \hyperlink{class_generic_value}{Value}& a = document[\textcolor{stringliteral}{"a"}];
+assert(a.IsArray());
+\textcolor{keywordflow}{for} (\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} i = 0; i < a.Size(); i++) \textcolor{comment}{// Uses SizeType instead of size\_t}
+        printf(\textcolor{stringliteral}{"a[%d] = %d\(\backslash\)n"}, i, a[i].GetInt());
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 a[0] = 1
+2 a[1] = 2
+3 a[2] = 3
+4 a[3] = 4
+\end{DoxyCode}
+
+
+Note that, Rapid\+J\+S\+ON does not automatically convert values between J\+S\+ON types. If a value is a string, it is invalid to call {\ttfamily Get\+Int()}, for example. In debug mode it will fail an assertion. In release mode, the behavior is undefined.
+
+In the following, details about querying individual types are discussed.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryArray}{}\subsection{Query Array}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryArray}
+By default, {\ttfamily Size\+Type} is typedef of {\ttfamily unsigned}. In most systems, array is limited to store up to 2$^\wedge$32-\/1 elements.
+
+You may access the elements in array by integer literal, for example, {\ttfamily a\mbox{[}0\mbox{]}}, {\ttfamily a\mbox{[}1\mbox{]}}, {\ttfamily a\mbox{[}2\mbox{]}}.
+
+Array is similar to {\ttfamily std\+::vector}, instead of using indices, you may also use iterator to access all the elements. 
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (\hyperlink{class_generic_value}{Value::ConstValueIterator} itr = a.Begin(); itr != a.End(); ++itr)
+    printf(\textcolor{stringliteral}{"%d "}, itr->GetInt());
+\end{DoxyCode}
+
+
+And other familiar query functions\+:
+\begin{DoxyItemize}
+\item {\ttfamily Size\+Type Capacity() const}
+\item {\ttfamily bool Empty() const}
+\end{DoxyItemize}\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryObject}{}\subsection{Query Object}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryObject}
+Similar to array, we can access all object members by iterator\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* kTypeNames[] = 
+    \{ \textcolor{stringliteral}{"Null"}, \textcolor{stringliteral}{"False"}, \textcolor{stringliteral}{"True"}, \textcolor{stringliteral}{"Object"}, \textcolor{stringliteral}{"Array"}, \textcolor{stringliteral}{"String"}, \textcolor{stringliteral}{"Number"} \};
+
+\textcolor{keywordflow}{for} (\hyperlink{class_generic_member_iterator}{Value::ConstMemberIterator} itr = document.MemberBegin();
+    itr != document.MemberEnd(); ++itr)
+\{
+    printf(\textcolor{stringliteral}{"Type of member %s is %s\(\backslash\)n"},
+        itr->name.GetString(), kTypeNames[itr->value.GetType()]);
+\}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 Type of member hello is String
+2 Type of member t is True
+3 Type of member f is False
+4 Type of member n is Null
+5 Type of member i is Number
+6 Type of member pi is Number
+7 Type of member a is Array
+\end{DoxyCode}
+
+
+Note that, when {\ttfamily operator\mbox{[}$\,$\mbox{]}(const char$\ast$)} cannot find the member, it will fail an assertion.
+
+If we are unsure whether a member exists, we need to call {\ttfamily Has\+Member()} before calling {\ttfamily operator\mbox{[}$\,$\mbox{]}(const char$\ast$)}. However, this incurs two lookup. A better way is to call {\ttfamily Find\+Member()}, which can check the existence of member and obtain its value at once\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_member_iterator}{Value::ConstMemberIterator} itr = document.FindMember(\textcolor{stringliteral}{"hello"});
+\textcolor{keywordflow}{if} (itr != document.MemberEnd())
+    printf(\textcolor{stringliteral}{"%s %s\(\backslash\)n"}, itr->value.GetString());
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryNumber}{}\subsection{Querying Number}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryNumber}
+J\+S\+ON provide a single numerical type called Number. Number can be integer or real numbers. R\+FC 4627 says the range of Number is specified by parser.
+
+As C++ provides several integer and floating point number types, the D\+OM tries to handle these with widest possible range and good performance.
+
+When a Number is parsed, it is stored in the D\+OM as either one of the following type\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Type }&{\bf Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Type }&{\bf Description  }\\\cline{1-2}
+\endhead
+{\ttfamily unsigned} &32-\/bit unsigned integer \\\cline{1-2}
+{\ttfamily int} &32-\/bit signed integer \\\cline{1-2}
+{\ttfamily uint64\+\_\+t} &64-\/bit unsigned integer \\\cline{1-2}
+{\ttfamily int64\+\_\+t} &64-\/bit signed integer \\\cline{1-2}
+{\ttfamily double} &64-\/bit double precision floating point \\\cline{1-2}
+\end{longtabu}
+When querying a number, you can check whether the number can be obtained as target type\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Checking }&{\bf Obtaining  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Checking }&{\bf Obtaining  }\\\cline{1-2}
+\endhead
+{\ttfamily bool Is\+Number()} &N/A \\\cline{1-2}
+{\ttfamily bool Is\+Uint()} &{\ttfamily unsigned Get\+Uint()} \\\cline{1-2}
+{\ttfamily bool Is\+Int()} &{\ttfamily int Get\+Int()} \\\cline{1-2}
+{\ttfamily bool Is\+Uint64()} &{\ttfamily uint64\+\_\+t Get\+Uint64()} \\\cline{1-2}
+{\ttfamily bool Is\+Int64()} &{\ttfamily int64\+\_\+t Get\+Int64()} \\\cline{1-2}
+{\ttfamily bool Is\+Double()} &{\ttfamily double Get\+Double()} \\\cline{1-2}
+\end{longtabu}
+Note that, an integer value may be obtained in various ways without conversion. For example, A value {\ttfamily x} containing 123 will make {\ttfamily x.\+Is\+Int() == x.\+Is\+Uint() == x.\+Is\+Int64() == x.\+Is\+Uint64() == true}. But a value {\ttfamily y} containing -\/3000000000 will only makes {\ttfamily x.\+Is\+Int64() == true}.
+
+When obtaining the numeric values, {\ttfamily Get\+Double()} will convert internal integer representation to a {\ttfamily double}. Note that, {\ttfamily int} and {\ttfamily unsigned} can be safely convert to {\ttfamily double}, but {\ttfamily int64\+\_\+t} and {\ttfamily uint64\+\_\+t} may lose precision (since mantissa of {\ttfamily double} is only 52-\/bits).\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryString}{}\subsection{Query String}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_QueryString}
+In addition to {\ttfamily Get\+String()}, the {\ttfamily Value} class also contains {\ttfamily Get\+String\+Length()}. Here explains why.
+
+According to R\+FC 4627, J\+S\+ON strings can contain Unicode character {\ttfamily U+0000}, which must be escaped as {\ttfamily \char`\"{}\textbackslash{}\textbackslash{}u0000\char`\"{}}. The problem is that, C/\+C++ often uses null-\/terminated string, which treats `{\ttfamily \textbackslash{}0\textquotesingle{}} as the terminator symbol.
+
+To conform R\+FC 4627, Rapid\+J\+S\+ON supports string containing {\ttfamily U+0000}. If you need to handle this, you can use {\ttfamily Get\+String\+Length()} A\+PI to obtain the correct length of string.
+
+For example, after parsing a the following J\+S\+ON to {\ttfamily Document d}\+:
+
+
+\begin{DoxyCode}
+\{ \textcolor{stringliteral}{"s"} :  \textcolor{stringliteral}{"a\(\backslash\)u0000b"} \}
+\end{DoxyCode}
+ The correct length of the value {\ttfamily \char`\"{}a\textbackslash{}\textbackslash{}u0000b\char`\"{}} is 3. But {\ttfamily strlen()} returns 1.
+
+{\ttfamily Get\+String\+Length()} can also improve performance, as user may often need to call {\ttfamily strlen()} for allocating buffer.
+
+Besides, {\ttfamily std\+::string} also support a constructor\+:
+
+
+\begin{DoxyCode}
+string(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* s, \textcolor{keywordtype}{size\_t} count);
+\end{DoxyCode}
+
+
+which accepts the length of string as parameter. This constructor supports storing null character within the string, and should also provide better performance.
+
+\subsection*{Comparing values}
+
+You can use {\ttfamily ==} and {\ttfamily !=} to compare values. Two values are equal if and only if they are have same type and contents. You can also compare values with primitive types. Here is an example.
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (document[\textcolor{stringliteral}{"hello"}] == document[\textcolor{stringliteral}{"n"}]) \textcolor{comment}{/*...*/};    \textcolor{comment}{// Compare values}
+\textcolor{keywordflow}{if} (document[\textcolor{stringliteral}{"hello"}] == \textcolor{stringliteral}{"world"}) \textcolor{comment}{/*...*/};          \textcolor{comment}{// Compare value with literal string}
+\textcolor{keywordflow}{if} (document[\textcolor{stringliteral}{"i"}] != 123) \textcolor{comment}{/*...*/};                  \textcolor{comment}{// Compare with integers}
+\textcolor{keywordflow}{if} (document[\textcolor{stringliteral}{"pi"}] != 3.14) \textcolor{comment}{/*...*/};                \textcolor{comment}{// Compare with double.}
+\end{DoxyCode}
+
+
+Array/object compares their elements/members in order. They are equal if and only if their whole subtrees are equal.
+
+Note that, currently if an object contains duplicated named member, comparing equality with any object is always {\ttfamily false}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_CreateModifyValues}{}\section{Create/\+Modify Values}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_CreateModifyValues}
+There are several ways to create values. After a D\+OM tree is created and/or modified, it can be saved as J\+S\+ON again using {\ttfamily \hyperlink{class_writer}{Writer}}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ChangeValueType}{}\subsection{Change Value Type}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ChangeValueType}
+When creating a Value or Document by default constructor, its type is Null. To change its type, call {\ttfamily Set\+X\+X\+X()} or assignment operator, for example\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d; \textcolor{comment}{// Null}
+d.SetObject();
+
+\hyperlink{class_generic_value}{Value} v;    \textcolor{comment}{// Null}
+v.SetInt(10);
+v = 10;     \textcolor{comment}{// Shortcut, same as above}
+\end{DoxyCode}
+
+
+\subsubsection*{Overloaded Constructors}
+
+There are also overloaded constructors for several types\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} b(\textcolor{keyword}{true});    \textcolor{comment}{// calls Value(bool)}
+\hyperlink{class_generic_value}{Value} i(-123);    \textcolor{comment}{// calls Value(int)}
+\hyperlink{class_generic_value}{Value} u(123u);    \textcolor{comment}{// calls Value(unsigned)}
+\hyperlink{class_generic_value}{Value} d(1.5);     \textcolor{comment}{// calls Value(double)}
+\end{DoxyCode}
+
+
+To create empty object or array, you may use {\ttfamily Set\+Object()}/{\ttfamily Set\+Array()} after default constructor, or using the {\ttfamily Value(\+Type)} in one shot\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} o(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7a146f46700e905e8df96a6a90b5c7640f}{kObjectType});
+\hyperlink{class_generic_value}{Value} a(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7af41527d6925efa3c5c3dadb23dfef7c8}{kArrayType});
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_MoveSemantics}{}\subsection{Move Semantics}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_MoveSemantics}
+A very special decision during design of Rapid\+J\+S\+ON is that, assignment of value does not copy the source value to destination value. Instead, the value from source is moved to the destination. For example,
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} a(123);
+\hyperlink{class_generic_value}{Value} b(456);
+b = a;         \textcolor{comment}{// a becomes a Null value, b becomes number 123.}
+\end{DoxyCode}
+
+
+
+
+Why? What is the advantage of this semantics?
+
+The simple answer is performance. For fixed size J\+S\+ON types (Number, True, False, Null), copying them is fast and easy. However, For variable size J\+S\+ON types (String, Array, Object), copying them will incur a lot of overheads. And these overheads are often unnoticed. Especially when we need to create temporary object, copy it to another variable, and then destruct it.
+
+For example, if normal {\itshape copy} semantics was used\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+\hyperlink{class_generic_value}{Value} o(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7a146f46700e905e8df96a6a90b5c7640f}{kObjectType});
+\{
+    \hyperlink{class_generic_value}{Value} contacts(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7af41527d6925efa3c5c3dadb23dfef7c8}{kArrayType});
+    \textcolor{comment}{// adding elements to contacts array.}
+    \textcolor{comment}{// ...}
+    o.AddMember(\textcolor{stringliteral}{"contacts"}, contacts, d.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());  \textcolor{comment}{// deep clone contacts (may be with
+       lots of allocations)}
+    \textcolor{comment}{// destruct contacts.}
+\}
+\end{DoxyCode}
+
+
+
+
+The object {\ttfamily o} needs to allocate a buffer of same size as contacts, makes a deep clone of it, and then finally contacts is destructed. This will incur a lot of unnecessary allocations/deallocations and memory copying.
+
+There are solutions to prevent actual copying these data, such as reference counting and garbage collection(\+G\+C).
+
+To make Rapid\+J\+S\+ON simple and fast, we chose to use {\itshape move} semantics for assignment. It is similar to {\ttfamily std\+::auto\+\_\+ptr} which transfer ownership during assignment. Move is much faster and simpler, it just destructs the original value, {\ttfamily memcpy()} the source to destination, and finally sets the source as Null type.
+
+So, with move semantics, the above example becomes\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+\hyperlink{class_generic_value}{Value} o(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7a146f46700e905e8df96a6a90b5c7640f}{kObjectType});
+\{
+    \hyperlink{class_generic_value}{Value} contacts(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7af41527d6925efa3c5c3dadb23dfef7c8}{kArrayType});
+    \textcolor{comment}{// adding elements to contacts array.}
+    o.AddMember(\textcolor{stringliteral}{"contacts"}, contacts, d.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());  \textcolor{comment}{// just memcpy() of contacts itself
+       to the value of new member (16 bytes)}
+    \textcolor{comment}{// contacts became Null here. Its destruction is trivial.}
+\}
+\end{DoxyCode}
+
+
+
+
+This is called move assignment operator in C++11. As Rapid\+J\+S\+ON supports C++03, it adopts move semantics using assignment operator, and all other modifying function like {\ttfamily Add\+Member()}, {\ttfamily Push\+Back()}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_TemporaryValues}{}\subsubsection{Move semantics and temporary values}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_TemporaryValues}
+Sometimes, it is convenient to construct a Value in place, before passing it to one of the \char`\"{}moving\char`\"{} functions, like {\ttfamily Push\+Back()} or {\ttfamily Add\+Member()}. As temporary objects can\textquotesingle{}t be converted to proper Value references, the convenience function {\ttfamily Move()} is available\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} a(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7af41527d6925efa3c5c3dadb23dfef7c8}{kArrayType});
+\hyperlink{class_generic_document_a35155b912da66ced38d22e2551364c57}{Document::AllocatorType}& allocator = document.
+      \hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}();
+\textcolor{comment}{// a.PushBack(Value(42), allocator);       // will not compile}
+a.PushBack(\hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value}().SetInt(42), allocator); \textcolor{comment}{// fluent API}
+a.PushBack(\hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value}(42).Move(), allocator);   \textcolor{comment}{// same as above}
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_CreateString}{}\subsection{Create String}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_CreateString}
+Rapid\+J\+S\+ON provide two strategies for storing string.
+
+
+\begin{DoxyEnumerate}
+\item copy-\/string\+: allocates a buffer, and then copy the source data into it.
+\item const-\/string\+: simply store a pointer of string.
+\end{DoxyEnumerate}
+
+Copy-\/string is always safe because it owns a copy of the data. Const-\/string can be used for storing string literal, and in-\/situ parsing which we will mentioned in Document section.
+
+To make memory allocation customizable, Rapid\+J\+S\+ON requires user to pass an instance of allocator, whenever an operation may require allocation. This design is needed to prevent storing a allocator (or Document) pointer per Value.
+
+Therefore, when we assign a copy-\/string, we call this overloaded {\ttfamily Set\+String()} with allocator\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} document;
+\hyperlink{class_generic_value}{Value} author;
+\textcolor{keywordtype}{char} buffer[10];
+\textcolor{keywordtype}{int} len = sprintf(buffer, \textcolor{stringliteral}{"%s %s"}, \textcolor{stringliteral}{"Milo"}, \textcolor{stringliteral}{"Yip"}); \textcolor{comment}{// dynamically created string.}
+author.SetString(buffer, len, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+memset(buffer, 0, \textcolor{keyword}{sizeof}(buffer));
+\textcolor{comment}{// author.GetString() still contains "Milo Yip" after buffer is destroyed}
+\end{DoxyCode}
+
+
+In this example, we get the allocator from a {\ttfamily Document} instance. This is a common idiom when using Rapid\+J\+S\+ON. But you may use other instances of allocator.
+
+Besides, the above {\ttfamily Set\+String()} requires length. This can handle null characters within a string. There is another {\ttfamily Set\+String()} overloaded function without the length parameter. And it assumes the input is null-\/terminated and calls a {\ttfamily strlen()}-\/like function to obtain the length.
+
+Finally, for string literal or string with safe life-\/cycle can use const-\/string version of {\ttfamily Set\+String()}, which lacks allocator parameter. For string literals (or constant character arrays), simply passing the literal as parameter is safe and efficient\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} s;
+s.SetString(\textcolor{stringliteral}{"rapidjson"});    \textcolor{comment}{// can contain null character, length derived at compile time}
+s = \textcolor{stringliteral}{"rapidjson"};             \textcolor{comment}{// shortcut, same as above}
+\end{DoxyCode}
+
+
+For character pointer, the Rapid\+J\+S\+ON requires to mark it as safe before using it without copying. This can be achieved by using the {\ttfamily String\+Ref} function\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} * cstr = getenv(\textcolor{stringliteral}{"USER"});
+\textcolor{keywordtype}{size\_t} cstr\_len = ...;                 \textcolor{comment}{// in case length is available}
+\hyperlink{class_generic_value}{Value} s;
+\textcolor{comment}{// s.SetString(cstr);                  // will not compile}
+s.SetString(\hyperlink{struct_generic_string_ref_aa6b9fd9f6aa49405a574c362ba9af6b5}{StringRef}(cstr));          \textcolor{comment}{// ok, assume safe lifetime, null-terminated}
+s = \hyperlink{struct_generic_string_ref_aa6b9fd9f6aa49405a574c362ba9af6b5}{StringRef}(cstr);                   \textcolor{comment}{// shortcut, same as above}
+s.SetString(\hyperlink{struct_generic_string_ref_aa6b9fd9f6aa49405a574c362ba9af6b5}{StringRef}(cstr,cstr\_len)); \textcolor{comment}{// faster, can contain null character}
+s = \hyperlink{struct_generic_string_ref_aa6b9fd9f6aa49405a574c362ba9af6b5}{StringRef}(cstr,cstr\_len);          \textcolor{comment}{// shortcut, same as above}
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ModifyArray}{}\subsection{Modify Array}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ModifyArray}
+Value with array type provides similar A\+P\+Is as {\ttfamily std\+::vector}.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Clear()}
+\item {\ttfamily Reserve(\+Size\+Type, Allocator\&)}
+\item {\ttfamily Value\& Push\+Back(\+Value\&, Allocator\&)}
+\item {\ttfamily template $<$typename T$>$ \hyperlink{class_generic_value}{Generic\+Value}\& Push\+Back(\+T, Allocator\&)}
+\item {\ttfamily Value\& Pop\+Back()}
+\item {\ttfamily Value\+Iterator Erase(\+Const\+Value\+Iterator pos)}
+\item {\ttfamily Value\+Iterator Erase(\+Const\+Value\+Iterator first, Const\+Value\+Iterator last)}
+\end{DoxyItemize}
+
+Note that, {\ttfamily Reserve(...)} and {\ttfamily Push\+Back(...)} may allocate memory for the array elements, therefore require an allocator.
+
+Here is an example of {\ttfamily Push\+Back()}\+:
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} a(\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7af41527d6925efa3c5c3dadb23dfef7c8}{kArrayType});
+\hyperlink{class_generic_document_a35155b912da66ced38d22e2551364c57}{Document::AllocatorType}& allocator = document.
+      \hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}();
+
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 5; i <= 10; i++)
+    a.PushBack(i, allocator);   \textcolor{comment}{// allocator is needed for potential realloc().}
+
+\textcolor{comment}{// Fluent interface}
+a.PushBack(\textcolor{stringliteral}{"Lua"}, allocator).PushBack(\textcolor{stringliteral}{"Mio"}, allocator);
+\end{DoxyCode}
+
+
+Differs from S\+TL, {\ttfamily Push\+Back()}/{\ttfamily Pop\+Back()} returns the array reference itself. This is called {\itshape fluent interface}.
+
+If you want to add a non-\/constant string or a string without sufficient lifetime (see \href{#CreateString}{\tt Create String}) to the array, you need to create a string Value by using the copy-\/string A\+PI. To avoid the need for an intermediate variable, you can use a \href{#TemporaryValues}{\tt temporary value} in place\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// in-place Value parameter}
+contact.PushBack(\hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value}(\textcolor{stringliteral}{"copy"}, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}()).Move(), \textcolor{comment}{// copy string}
+                 document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+
+\textcolor{comment}{// explicit parameters}
+\hyperlink{class_generic_value}{Value} val(\textcolor{stringliteral}{"key"}, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}()); \textcolor{comment}{// copy string}
+contact.PushBack(val, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ModifyObject}{}\subsection{Modify Object}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_ModifyObject}
+Object is a collection of key-\/value pairs (members). Each key must be a string value. To modify an object, either add or remove members. T\+He following A\+P\+Is are for adding members\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Value\& Add\+Member(\+Value\&, Value\&, Allocator\& allocator)}
+\item {\ttfamily Value\& Add\+Member(\+String\+Ref\+Type, Value\&, Allocator\&)}
+\item {\ttfamily template $<$typename T$>$ Value\& Add\+Member(\+String\+Ref\+Type, T value, Allocator\&)}
+\end{DoxyItemize}
+
+Here is an example.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} contact(kObject);
+contact.AddMember(\textcolor{stringliteral}{"name"}, \textcolor{stringliteral}{"Milo"}, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+contact.AddMember(\textcolor{stringliteral}{"married"}, \textcolor{keyword}{true}, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+\end{DoxyCode}
+
+
+The name parameter with {\ttfamily String\+Ref\+Type} is similar to the interface of {\ttfamily Set\+String} function for string values. These overloads are used to avoid the need for copying the {\ttfamily name} string, as constant key names are very common in J\+S\+ON objects.
+
+If you need to create a name from a non-\/constant string or a string without sufficient lifetime (see \href{#CreateString}{\tt Create String}), you need to create a string Value by using the copy-\/string A\+PI. To avoid the need for an intermediate variable, you can use a \href{#TemporaryValues}{\tt temporary value} in place\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// in-place Value parameter}
+contact.AddMember(\hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value}(\textcolor{stringliteral}{"copy"}, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}()).Move(), \textcolor{comment}{// copy string}
+                  \hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value}().Move(),                                \textcolor{comment}{// null value}
+                  document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+
+\textcolor{comment}{// explicit parameters}
+\hyperlink{class_generic_value}{Value} key(\textcolor{stringliteral}{"key"}, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}()); \textcolor{comment}{// copy string name}
+\hyperlink{class_generic_value}{Value} val(42);                             \textcolor{comment}{// some value}
+contact.AddMember(key, val, document.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}());
+\end{DoxyCode}
+
+
+For removing members, there are several choices\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily bool Remove\+Member(const Ch$\ast$ name)}\+: Remove a member by search its name (linear time complexity).
+\item {\ttfamily bool Remove\+Member(const Value\& name)}\+: same as above but {\ttfamily name} is a Value.
+\item {\ttfamily Member\+Iterator Remove\+Member(\+Member\+Iterator)}\+: Remove a member by iterator ({\itshape constant} time complexity).
+\item {\ttfamily Member\+Iterator Erase\+Member(\+Member\+Iterator)}\+: similar to the above but it preserves order of members (linear time complexity).
+\item {\ttfamily Member\+Iterator Erase\+Member(\+Member\+Iterator first, Member\+Iterator last)}\+: remove a range of members, preserves order (linear time complexity).
+\end{DoxyItemize}
+
+{\ttfamily Member\+Iterator Remove\+Member(\+Member\+Iterator)} uses a \char`\"{}move-\/last\char`\"{} trick to achieve constant time complexity. Basically the member at iterator is destructed, and then the last element is moved to that position. So the order of the remaining members are changed.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_DeepCopyValue}{}\subsection{Deep Copy Value}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_DeepCopyValue}
+If we really need to copy a D\+OM tree, we can use two A\+P\+Is for deep copy\+: constructor with allocator, and {\ttfamily Copy\+From()}.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+\hyperlink{class_generic_document_a35155b912da66ced38d22e2551364c57}{Document::AllocatorType}& a = d.\hyperlink{class_generic_document_aa4609d6b19f86aec1a6b96edf2c27686}{GetAllocator}();
+\hyperlink{class_generic_value}{Value} v1(\textcolor{stringliteral}{"foo"});
+\textcolor{comment}{// Value v2(v1); // not allowed}
+
+\hyperlink{class_generic_value}{Value} v2(v1, a);                      \textcolor{comment}{// make a copy}
+assert(v1.IsString());                \textcolor{comment}{// v1 untouched}
+d.SetArray().PushBack(v1, a).PushBack(v2, a);
+assert(v1.IsNull() && v2.IsNull());   \textcolor{comment}{// both moved to d}
+
+v2.CopyFrom(d, a);                    \textcolor{comment}{// copy whole document to v2}
+assert(d.IsArray() && d.Size() == 2); \textcolor{comment}{// d untouched}
+v1.SetObject().AddMember(\textcolor{stringliteral}{"array"}, v2, a);
+d.PushBack(v1, a);
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_SwapValues}{}\subsection{Swap Values}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_SwapValues}
+{\ttfamily Swap()} is also provided.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_value}{Value} a(123);
+\hyperlink{class_generic_value}{Value} b(\textcolor{stringliteral}{"Hello"});
+a.Swap(b);
+assert(a.IsString());
+assert(b.IsInt());
+\end{DoxyCode}
+
+
+Swapping two D\+OM trees is fast (constant time), despite the complexity of the trees.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_WhatsNext}{}\section{What\textquotesingle{}s next}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_tutorial.zh-cn_WhatsNext}
+This tutorial shows the basics of D\+OM tree query and manipulation. There are several important concepts in Rapid\+J\+S\+ON\+:
+
+
+\begin{DoxyEnumerate}
+\item Streams are channels for reading/writing J\+S\+ON, which can be a in-\/memory string, or file stream, etc. User can also create their streams.
+\item Encoding defines which character encoding is used in streams and memory. Rapid\+J\+S\+ON also provide Unicode conversion/validation internally.
+\item D\+OM\textquotesingle{}s basics are already covered in this tutorial. Uncover more advanced features such as {\itshape in situ} parsing, other parsing options and advanced usages.
+\item S\+AX is the foundation of parsing/generating facility in Rapid\+J\+S\+ON. Learn how to use {\ttfamily Reader}/{\ttfamily \hyperlink{class_writer}{Writer}} to implement even faster applications. Also try {\ttfamily \hyperlink{class_pretty_writer}{Pretty\+Writer}} to format the J\+S\+ON.
+\item Performance shows some in-\/house and third-\/party benchmarks.
+\item Internals describes some internal designs and techniques of Rapid\+J\+S\+ON.
+\end{DoxyEnumerate}
+
+You may also refer to the F\+AQ, A\+PI documentation, examples and unit tests. 

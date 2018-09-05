@@ -1,0 +1,64 @@
+\hypertarget{classopengl_1_1_v_b_o}{}\section{opengl\+:\+:V\+BO Class Reference}
+\label{classopengl_1_1_v_b_o}\index{opengl\+::\+V\+BO@{opengl\+::\+V\+BO}}
+
+
+Classe permettant le dessin d\textquotesingle{}un modèle 3D par \hyperlink{classopengl_1_1_v_b_o}{V\+BO}.  
+
+
+
+
+{\ttfamily \#include $<$Open\+G\+L\+\_\+\+V\+B\+O.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__modele_ga6fa9de06cf295f987e2022162f1c0d41}{V\+BO} (\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const $\ast$modele)
+\begin{DoxyCompactList}\small\item\em Constructeur à partir d\textquotesingle{}un modèle 3D. \end{DoxyCompactList}\item 
+virtual \hyperlink{group__modele_gafcea85cfc425d9c4720a32a53b720783}{$\sim$\+V\+BO} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__modele_gacecd4cf0a91c2b8b34c193f7801d42ea}{charger} ()
+\begin{DoxyCompactList}\small\item\em Permet de charger les données/commandes sur la carte graphique. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__opengl_ga94f8a89ef5eab6cd5c344116553c1539}{dessiner} (bool est\+Selectionne) const 
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}effectuer le dessin du modèle 3D. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__modele_ga6fd3c8634c2da6d9460aa5d118ac47cd}{liberer} ()
+\begin{DoxyCompactList}\small\item\em Permet de relâcher les données/commandes sur la crate graphique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{group__opengl_ga638a74f6b24e7203d92e34c8ff1637a5}{enregistrer\+Tampon} (T const \&data)
+\begin{DoxyCompactList}\small\item\em Méthode \char`\"{}helper\char`\"{} pour passer les données du mesh vers la carte graphique. \end{DoxyCompactList}\item 
+void \hyperlink{group__modele_ga46814c023f347617e67a12240055d11c}{appliquer\+Materiau} (\hyperlink{structmodele_1_1_materiau}{modele\+::\+Materiau} const \&materiau) const 
+\begin{DoxyCompactList}\small\item\em Assigne le matériau/texture courante d\textquotesingle{}un mesh. \end{DoxyCompactList}\item 
+void \hyperlink{group__modele_ga5a97f70afe714c8c18c83c3220d2edec}{creer\+V\+BO} (\hyperlink{classmodele_1_1_noeud}{modele\+::\+Noeud} const \&noeud)
+\begin{DoxyCompactList}\small\item\em Création récursive des \hyperlink{classopengl_1_1_v_b_o}{V\+BO}. \end{DoxyCompactList}\item 
+void \hyperlink{group__opengl_gad2837a087d81cd98efe2e6b66f17095c}{dessiner} (\hyperlink{classmodele_1_1_noeud}{modele\+::\+Noeud} const \&noeud, unsigned int \&buffer\+Index, bool est\+Selectionne) const 
+\begin{DoxyCompactList}\small\item\em Dessin récursif. \end{DoxyCompactList}\item 
+bool \hyperlink{group__opengl_ga0b85837c3902f9dd9562616debae290d}{identifiant\+Est\+Valide} () const 
+\begin{DoxyCompactList}\small\item\em Permet de vérifier si l\textquotesingle{}identifiant est valide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const $\ast$ \hyperlink{group__opengl_gabf3d791a572f7cb45133a110de4046df}{modele\+\_\+} \{ nullptr \}
+\begin{DoxyCompactList}\small\item\em Modèle à dessiner. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ \hyperlink{group__opengl_gad7402d0b9951f4e77d552eb6a99b7557}{handles\+\_\+}
+\begin{DoxyCompactList}\small\item\em Les identifiants Open\+GL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe permettant le dessin d\textquotesingle{}un modèle 3D par \hyperlink{classopengl_1_1_v_b_o}{V\+BO}. 
+
+\begin{DoxyNote}{Note}
+Précondition \+: prends pour acquis que le pointeur vers le modèle 3D reste valide durant toute la durée de vie du storage. Le modèle est considéré \char`\"{}constant\char`\"{}, c\textquotesingle{}est-\/à-\/dire que ses meshes ne sont pas modifiés et qu\textquotesingle{}il n\textquotesingle{}est pas relâché lors de l\textquotesingle{}appel au dessin. Une modification à la géométrie du modèle nécessite de libérer le \hyperlink{classopengl_1_1_v_b_o}{V\+BO} et le recréer.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Martin Paradis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2015-\/08-\/28 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Utilitaire/\+Open\+G\+L/Open\+G\+L\+\_\+\+V\+B\+O.\+h\item 
+Commun/\+Utilitaire/\+Open\+G\+L/Open\+G\+L\+\_\+\+V\+B\+O.\+cpp\end{DoxyCompactItemize}

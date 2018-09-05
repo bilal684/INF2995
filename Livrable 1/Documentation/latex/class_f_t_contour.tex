@@ -1,0 +1,325 @@
+\hypertarget{class_f_t_contour}{}\section{F\+T\+Contour Class Reference}
+\label{class_f_t_contour}\index{F\+T\+Contour@{F\+T\+Contour}}
+
+
+{\ttfamily \#include $<$F\+T\+Contour.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_f_t_contour_a1a682c070617bf9023ea38c65b32ade3}{F\+T\+Contour} (\hyperlink{struct_f_t___vector__}{F\+T\+\_\+\+Vector} $\ast$contour, char $\ast$point\+Tags, unsigned int number\+Of\+Points)
+\item 
+\hyperlink{class_f_t_contour_a89ac638fc2bbe641d730af84bf13b242}{$\sim$\+F\+T\+Contour} ()
+\item 
+const F\+T\+Point \& \hyperlink{class_f_t_contour_a055f10124231687d7647d56ee6b680ef}{Point} (size\+\_\+t index) const 
+\item 
+const F\+T\+Point \& \hyperlink{class_f_t_contour_a5b720df9b54e3564d762a6fe8eee3143}{Outset} (size\+\_\+t index) const 
+\item 
+const F\+T\+Point \& \hyperlink{class_f_t_contour_a89f7120855b97ae91c63d13cd22f3e04}{Front\+Point} (size\+\_\+t index) const 
+\item 
+const F\+T\+Point \& \hyperlink{class_f_t_contour_add4587cac25790725e704fdd7e9fa9fe}{Back\+Point} (size\+\_\+t index) const 
+\item 
+size\+\_\+t \hyperlink{class_f_t_contour_ab31ce24e66d9534b5e0b052b0b6f408b}{Point\+Count} () const 
+\item 
+void \hyperlink{class_f_t_contour_a7129afbf6bde74d5c9c46ad47bf6e049}{Set\+Parity} (int parity)
+\item 
+void {\bfseries build\+Front\+Outset} (float outset)\hypertarget{class_f_t_contour_ab91b659e8de1dc915679d0152adfa38a}{}\label{class_f_t_contour_ab91b659e8de1dc915679d0152adfa38a}
+
+\item 
+void {\bfseries build\+Back\+Outset} (float outset)\hypertarget{class_f_t_contour_aff16d21542506b738c7f883b7c40b738}{}\label{class_f_t_contour_aff16d21542506b738c7f883b7c40b738}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{class_f_t_vector}{F\+T\+Vector}$<$ F\+T\+Point $>$ \hyperlink{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}{Point\+Vector}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_f_t_contour_a791ea0ffe2cd46f90a6fefa4f1a369fc}{Add\+Point} (F\+T\+Point point)
+\item 
+void \hyperlink{class_f_t_contour_a664f820b99921d82f6c675fd2b27f7d7}{Add\+Outset\+Point} (F\+T\+Point point)
+\item 
+void {\bfseries Add\+Front\+Point} (F\+T\+Point point)\hypertarget{class_f_t_contour_aa36ae9f4f5382b3bd0229c5e0dc1f8cd}{}\label{class_f_t_contour_aa36ae9f4f5382b3bd0229c5e0dc1f8cd}
+
+\item 
+void {\bfseries Add\+Back\+Point} (F\+T\+Point point)\hypertarget{class_f_t_contour_a2297abe1dcaf258e5818135e3d560fd1}{}\label{class_f_t_contour_a2297abe1dcaf258e5818135e3d560fd1}
+
+\item 
+void \hyperlink{class_f_t_contour_af197f00ef25c397d66ae1f924a5eb20e}{evaluate\+Quadratic\+Curve} (F\+T\+Point, F\+T\+Point, F\+T\+Point)
+\item 
+void \hyperlink{class_f_t_contour_ae7b958ab6788c205765601839e29afd8}{evaluate\+Cubic\+Curve} (F\+T\+Point, F\+T\+Point, F\+T\+Point, F\+T\+Point)
+\item 
+F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE \hyperlink{class_f_t_contour_a16da794bf4e2ed5828c121d648ba74cb}{Norm\+Vector} (const F\+T\+Point \&v)
+\item 
+void \hyperlink{class_f_t_contour_ad9b339af3bc9d36304bdbbf2590e4c0f}{Rotation\+Matrix} (const F\+T\+Point \&a, const F\+T\+Point \&b, F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$mat\+Rot, F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$inv\+Rot)
+\item 
+void \hyperlink{class_f_t_contour_a58788008a318851ac2b3198c8ade5397}{Mult\+Matrix\+Vect} (F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$mat, F\+T\+Point \&v)
+\item 
+void \hyperlink{class_f_t_contour_a8e7c2a92563b494670a65d5380642f76}{Compute\+Bisec} (F\+T\+Point \&v)
+\item 
+F\+T\+Point \hyperlink{class_f_t_contour_af5dc9b54b746dbbefc9cfe050df8d795}{Compute\+Outset\+Point} (F\+T\+Point a, F\+T\+Point b, F\+T\+Point c)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}{Point\+Vector} {\bfseries point\+List}\hypertarget{class_f_t_contour_a0ad61ac9f17355472f12fe14b1325d41}{}\label{class_f_t_contour_a0ad61ac9f17355472f12fe14b1325d41}
+
+\item 
+\hyperlink{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}{Point\+Vector} {\bfseries outset\+Point\+List}\hypertarget{class_f_t_contour_acb50773e4091b0d8a36c94163cb49840}{}\label{class_f_t_contour_acb50773e4091b0d8a36c94163cb49840}
+
+\item 
+\hyperlink{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}{Point\+Vector} {\bfseries front\+Point\+List}\hypertarget{class_f_t_contour_a431707d1e046f3f30edde1287e77d556}{}\label{class_f_t_contour_a431707d1e046f3f30edde1287e77d556}
+
+\item 
+\hyperlink{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}{Point\+Vector} {\bfseries back\+Point\+List}\hypertarget{class_f_t_contour_aab7c5b0faef2929e2c7f22c4514d56b4}{}\label{class_f_t_contour_aab7c5b0faef2929e2c7f22c4514d56b4}
+
+\item 
+bool \hyperlink{class_f_t_contour_a67428b983bf4c5d0c5101ec382c92bac}{clockwise}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_f_t_contour}{F\+T\+Contour} class is a container of points that describe a vector font outline. It is used as a container for the output of the bezier curve evaluator in \hyperlink{class_f_t_vectoriser}{F\+T\+Vectoriser}.
+
+\begin{DoxySeeAlso}{See also}
+F\+T\+Outline\+Glyph 
+
+F\+T\+Polygon\+Glyph 
+
+F\+T\+Point 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Typedef Documentation}
+\index{F\+T\+Contour@{F\+T\+Contour}!Point\+Vector@{Point\+Vector}}
+\index{Point\+Vector@{Point\+Vector}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Point\+Vector}{PointVector}}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf F\+T\+Vector}$<$F\+T\+Point$>$ {\bf F\+T\+Contour\+::\+Point\+Vector}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}{}\label{class_f_t_contour_a170439e09f11c88af80c13b772b77f84}
+The list of points in this contour 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{F\+T\+Contour@{F\+T\+Contour}!F\+T\+Contour@{F\+T\+Contour}}
+\index{F\+T\+Contour@{F\+T\+Contour}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{F\+T\+Contour(\+F\+T\+\_\+\+Vector $\ast$contour, char $\ast$point\+Tags, unsigned int number\+Of\+Points)}{FTContour(FT_Vector *contour, char *pointTags, unsigned int numberOfPoints)}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Contour\+::\+F\+T\+Contour (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+T\+\_\+\+Vector} $\ast$}]{contour, }
+\item[{char $\ast$}]{point\+Tags, }
+\item[{unsigned int}]{number\+Of\+Points}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_contour_a1a682c070617bf9023ea38c65b32ade3}{}\label{class_f_t_contour_a1a682c070617bf9023ea38c65b32ade3}
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em contour} & \\
+\hline
+{\em point\+Tags} & \\
+\hline
+{\em number\+Of\+Points} & \\
+\hline
+\end{DoxyParams}
+\index{F\+T\+Contour@{F\+T\+Contour}!````~F\+T\+Contour@{$\sim$\+F\+T\+Contour}}
+\index{````~F\+T\+Contour@{$\sim$\+F\+T\+Contour}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{$\sim$\+F\+T\+Contour()}{~FTContour()}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Contour\+::$\sim$\+F\+T\+Contour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_contour_a89ac638fc2bbe641d730af84bf13b242}{}\label{class_f_t_contour_a89ac638fc2bbe641d730af84bf13b242}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Contour@{F\+T\+Contour}!Add\+Outset\+Point@{Add\+Outset\+Point}}
+\index{Add\+Outset\+Point@{Add\+Outset\+Point}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Add\+Outset\+Point(\+F\+T\+Point point)}{AddOutsetPoint(FTPoint point)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::\+Add\+Outset\+Point (
+\begin{DoxyParamCaption}
+\item[{F\+T\+Point}]{point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_a664f820b99921d82f6c675fd2b27f7d7}{}\label{class_f_t_contour_a664f820b99921d82f6c675fd2b27f7d7}
+Add a point to this contour. This function tests for duplicate points.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be added to the contour. \\
+\hline
+\end{DoxyParams}
+\index{F\+T\+Contour@{F\+T\+Contour}!Add\+Point@{Add\+Point}}
+\index{Add\+Point@{Add\+Point}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Add\+Point(\+F\+T\+Point point)}{AddPoint(FTPoint point)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::\+Add\+Point (
+\begin{DoxyParamCaption}
+\item[{F\+T\+Point}]{point}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_a791ea0ffe2cd46f90a6fefa4f1a369fc}{}\label{class_f_t_contour_a791ea0ffe2cd46f90a6fefa4f1a369fc}
+Add a point to this contour. This function tests for duplicate points.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be added to the contour. \\
+\hline
+\end{DoxyParams}
+\index{F\+T\+Contour@{F\+T\+Contour}!Back\+Point@{Back\+Point}}
+\index{Back\+Point@{Back\+Point}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Back\+Point(size\+\_\+t index) const }{BackPoint(size_t index) const }}]{\setlength{\rightskip}{0pt plus 5cm}const F\+T\+Point\& F\+T\+Contour\+::\+Back\+Point (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_contour_add4587cac25790725e704fdd7e9fa9fe}{}\label{class_f_t_contour_add4587cac25790725e704fdd7e9fa9fe}
+Return a point at index of the back outset contour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the point in the curve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const point reference 
+\end{DoxyReturn}
+\index{F\+T\+Contour@{F\+T\+Contour}!Compute\+Bisec@{Compute\+Bisec}}
+\index{Compute\+Bisec@{Compute\+Bisec}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Compute\+Bisec(\+F\+T\+Point \&v)}{ComputeBisec(FTPoint &v)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::\+Compute\+Bisec (
+\begin{DoxyParamCaption}
+\item[{F\+T\+Point \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_a8e7c2a92563b494670a65d5380642f76}{}\label{class_f_t_contour_a8e7c2a92563b494670a65d5380642f76}
+Compute the vector bisecting from a vector \textquotesingle{}v\textquotesingle{} and a distance \textquotesingle{}d\textquotesingle{} \index{F\+T\+Contour@{F\+T\+Contour}!Compute\+Outset\+Point@{Compute\+Outset\+Point}}
+\index{Compute\+Outset\+Point@{Compute\+Outset\+Point}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Compute\+Outset\+Point(\+F\+T\+Point a, F\+T\+Point b, F\+T\+Point c)}{ComputeOutsetPoint(FTPoint a, FTPoint b, FTPoint c)}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Point F\+T\+Contour\+::\+Compute\+Outset\+Point (
+\begin{DoxyParamCaption}
+\item[{F\+T\+Point}]{a, }
+\item[{F\+T\+Point}]{b, }
+\item[{F\+T\+Point}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_af5dc9b54b746dbbefc9cfe050df8d795}{}\label{class_f_t_contour_af5dc9b54b746dbbefc9cfe050df8d795}
+Compute the outset point coordinates \index{F\+T\+Contour@{F\+T\+Contour}!evaluate\+Cubic\+Curve@{evaluate\+Cubic\+Curve}}
+\index{evaluate\+Cubic\+Curve@{evaluate\+Cubic\+Curve}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{evaluate\+Cubic\+Curve(\+F\+T\+Point, F\+T\+Point, F\+T\+Point, F\+T\+Point)}{evaluateCubicCurve(FTPoint, FTPoint, FTPoint, FTPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::evaluate\+Cubic\+Curve (
+\begin{DoxyParamCaption}
+\item[{F\+T\+Point}]{A, }
+\item[{F\+T\+Point}]{B, }
+\item[{F\+T\+Point}]{C, }
+\item[{F\+T\+Point}]{D}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_ae7b958ab6788c205765601839e29afd8}{}\label{class_f_t_contour_ae7b958ab6788c205765601839e29afd8}
+De Casteljau (bezier) algorithm contributed by Jed Soane Evaluates a cubic (third degree) curve \index{F\+T\+Contour@{F\+T\+Contour}!evaluate\+Quadratic\+Curve@{evaluate\+Quadratic\+Curve}}
+\index{evaluate\+Quadratic\+Curve@{evaluate\+Quadratic\+Curve}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{evaluate\+Quadratic\+Curve(\+F\+T\+Point, F\+T\+Point, F\+T\+Point)}{evaluateQuadraticCurve(FTPoint, FTPoint, FTPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::evaluate\+Quadratic\+Curve (
+\begin{DoxyParamCaption}
+\item[{F\+T\+Point}]{A, }
+\item[{F\+T\+Point}]{B, }
+\item[{F\+T\+Point}]{C}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_af197f00ef25c397d66ae1f924a5eb20e}{}\label{class_f_t_contour_af197f00ef25c397d66ae1f924a5eb20e}
+De Casteljau (bezier) algorithm contributed by Jed Soane Evaluates a quadratic or conic (second degree) curve \index{F\+T\+Contour@{F\+T\+Contour}!Front\+Point@{Front\+Point}}
+\index{Front\+Point@{Front\+Point}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Front\+Point(size\+\_\+t index) const }{FrontPoint(size_t index) const }}]{\setlength{\rightskip}{0pt plus 5cm}const F\+T\+Point\& F\+T\+Contour\+::\+Front\+Point (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_contour_a89f7120855b97ae91c63d13cd22f3e04}{}\label{class_f_t_contour_a89f7120855b97ae91c63d13cd22f3e04}
+Return a point at index of the front outset contour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the point in the curve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const point reference 
+\end{DoxyReturn}
+\index{F\+T\+Contour@{F\+T\+Contour}!Mult\+Matrix\+Vect@{Mult\+Matrix\+Vect}}
+\index{Mult\+Matrix\+Vect@{Mult\+Matrix\+Vect}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Mult\+Matrix\+Vect(\+F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E $\ast$mat, F\+T\+Point \&v)}{MultMatrixVect(FTGL_DOUBLE *mat, FTPoint &v)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::\+Mult\+Matrix\+Vect (
+\begin{DoxyParamCaption}
+\item[{F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$}]{mat, }
+\item[{F\+T\+Point \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_a58788008a318851ac2b3198c8ade5397}{}\label{class_f_t_contour_a58788008a318851ac2b3198c8ade5397}
+Matrix and vector multiplication \index{F\+T\+Contour@{F\+T\+Contour}!Norm\+Vector@{Norm\+Vector}}
+\index{Norm\+Vector@{Norm\+Vector}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Norm\+Vector(const F\+T\+Point \&v)}{NormVector(const FTPoint &v)}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE F\+T\+Contour\+::\+Norm\+Vector (
+\begin{DoxyParamCaption}
+\item[{const F\+T\+Point \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_a16da794bf4e2ed5828c121d648ba74cb}{}\label{class_f_t_contour_a16da794bf4e2ed5828c121d648ba74cb}
+Compute the vector norm \index{F\+T\+Contour@{F\+T\+Contour}!Outset@{Outset}}
+\index{Outset@{Outset}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Outset(size\+\_\+t index) const }{Outset(size_t index) const }}]{\setlength{\rightskip}{0pt plus 5cm}const F\+T\+Point\& F\+T\+Contour\+::\+Outset (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_contour_a5b720df9b54e3564d762a6fe8eee3143}{}\label{class_f_t_contour_a5b720df9b54e3564d762a6fe8eee3143}
+Return a point at index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the point in the outset curve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const point reference 
+\end{DoxyReturn}
+\index{F\+T\+Contour@{F\+T\+Contour}!Point@{Point}}
+\index{Point@{Point}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Point(size\+\_\+t index) const }{Point(size_t index) const }}]{\setlength{\rightskip}{0pt plus 5cm}const F\+T\+Point\& F\+T\+Contour\+::\+Point (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_contour_a055f10124231687d7647d56ee6b680ef}{}\label{class_f_t_contour_a055f10124231687d7647d56ee6b680ef}
+Return a point at index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & of the point in the curve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const point reference 
+\end{DoxyReturn}
+\index{F\+T\+Contour@{F\+T\+Contour}!Point\+Count@{Point\+Count}}
+\index{Point\+Count@{Point\+Count}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Point\+Count() const }{PointCount() const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t F\+T\+Contour\+::\+Point\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_contour_ab31ce24e66d9534b5e0b052b0b6f408b}{}\label{class_f_t_contour_ab31ce24e66d9534b5e0b052b0b6f408b}
+How many points define this contour
+
+\begin{DoxyReturn}{Returns}
+the number of points in this contour 
+\end{DoxyReturn}
+\index{F\+T\+Contour@{F\+T\+Contour}!Rotation\+Matrix@{Rotation\+Matrix}}
+\index{Rotation\+Matrix@{Rotation\+Matrix}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Rotation\+Matrix(const F\+T\+Point \&a, const F\+T\+Point \&b, F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E $\ast$mat\+Rot, F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E $\ast$inv\+Rot)}{RotationMatrix(const FTPoint &a, const FTPoint &b, FTGL_DOUBLE *matRot, FTGL_DOUBLE *invRot)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::\+Rotation\+Matrix (
+\begin{DoxyParamCaption}
+\item[{const F\+T\+Point \&}]{a, }
+\item[{const F\+T\+Point \&}]{b, }
+\item[{F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$}]{mat\+Rot, }
+\item[{F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$}]{inv\+Rot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_contour_ad9b339af3bc9d36304bdbbf2590e4c0f}{}\label{class_f_t_contour_ad9b339af3bc9d36304bdbbf2590e4c0f}
+Compute a rotation matrix from a vector \index{F\+T\+Contour@{F\+T\+Contour}!Set\+Parity@{Set\+Parity}}
+\index{Set\+Parity@{Set\+Parity}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{Set\+Parity(int parity)}{SetParity(int parity)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Contour\+::\+Set\+Parity (
+\begin{DoxyParamCaption}
+\item[{int}]{parity}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_contour_a7129afbf6bde74d5c9c46ad47bf6e049}{}\label{class_f_t_contour_a7129afbf6bde74d5c9c46ad47bf6e049}
+Make sure the glyph has the proper parity and create the front/back outset contour.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parity} & The contour\textquotesingle{}s parity within the glyph. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Contour@{F\+T\+Contour}!clockwise@{clockwise}}
+\index{clockwise@{clockwise}!F\+T\+Contour@{F\+T\+Contour}}
+\subsubsection[{\texorpdfstring{clockwise}{clockwise}}]{\setlength{\rightskip}{0pt plus 5cm}bool F\+T\+Contour\+::clockwise\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_contour_a67428b983bf4c5d0c5101ec382c92bac}{}\label{class_f_t_contour_a67428b983bf4c5d0c5101ec382c92bac}
+Is this contour clockwise or anti-\/clockwise? 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Contour.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Contour.\+cpp\end{DoxyCompactItemize}

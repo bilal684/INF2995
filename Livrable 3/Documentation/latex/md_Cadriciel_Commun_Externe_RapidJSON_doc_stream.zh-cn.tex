@@ -1,0 +1,345 @@
+在\+Rapid\+J\+S\+O\+N中，{\ttfamily \hyperlink{classrapidjson_1_1_stream}{rapidjson\+::\+Stream}}是用於读写\+J\+S\+O\+N的概念（概念是指\+C++的concept）。在这里我们先介绍如何使用\+Rapid\+J\+S\+O\+N提供的各种流。然后再看看如何自行定义流。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_MemoryStreams}{}\section{Memory Streams}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_MemoryStreams}
+内存流把\+J\+S\+O\+N存储在内存之中。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringStream}{}\subsection{String\+Stream (\+Input)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringStream}
+{\ttfamily String\+Stream}是最基本的输入流，它表示一个完整的、只读的、存储于内存的\+J\+S\+O\+N。它在{\ttfamily \hyperlink{rapidjson_8h}{rapidjson/rapidjson.\+h}}中定义。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"} \textcolor{comment}{// 会包含 "rapidjson/rapidjson.h"}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{comment}{// ...}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} json[] = \textcolor{stringliteral}{"[1, 2, 3, 4]"};
+\hyperlink{struct_generic_string_stream}{StringStream} s(json);
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}(s);
+\end{DoxyCode}
+
+
+由于这是非常常用的用法，\+Rapid\+J\+S\+O\+N提供{\ttfamily Document\+::\+Parse(const char$\ast$)}去做完全相同的事情：
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// ...}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} json[] = \textcolor{stringliteral}{"[1, 2, 3, 4]"};
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\end{DoxyCode}
+
+
+需要注意，{\ttfamily String\+Stream}是{\ttfamily \hyperlink{struct_generic_string_stream}{Generic\+String\+Stream}$<$\hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$ $>$}的typedef，使用者可用其他编码类去代表流所使用的字符集。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringBuffer}{}\subsection{String\+Buffer (\+Output)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringBuffer}
+{\ttfamily String\+Buffer}是一个简单的输出流。它分配一个内存缓冲区，供写入整个\+J\+S\+O\+N。可使用{\ttfamily Get\+String()}来获取该缓冲区。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/stringbuffer.h"}
+
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer;
+\hyperlink{class_writer}{Writer<StringBuffer>} writer(buffer);
+d.Accept(writer);
+
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* output = buffer.GetString();
+\end{DoxyCode}
+
+
+当缓冲区满溢，它将自动增加容量。缺省容量是256个字符（\+U\+T\+F8是256字节，\+U\+T\+F16是512字节等）。使用者能自行提供分配器及初始容量。
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer1(0, 1024); \textcolor{comment}{// 使用它的分配器，初始大小 = 1024}
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer2(allocator, 1024);
+\end{DoxyCode}
+
+
+如无设置分配器，{\ttfamily String\+Buffer}会自行实例化一个内部分配器。
+
+相似地，{\ttfamily String\+Buffer}是{\ttfamily \hyperlink{class_generic_string_buffer}{Generic\+String\+Buffer}$<$\hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$ $>$}的typedef。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileStreams}{}\section{File Streams}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileStreams}
+当要从文件解析一个\+J\+S\+O\+N，你可以把整个\+J\+S\+O\+N读入内存并使用上述的{\ttfamily String\+Stream}。
+
+然而，若\+J\+S\+O\+N很大，或是内存有限，你可以改用{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}。它只会从文件读取一部分至缓冲区，然后让那部分被解析。若缓冲区的字符都被读完，它会再从文件读取下一部分。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileReadStream}{}\subsection{File\+Read\+Stream (\+Input)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileReadStream}
+{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}通过{\ttfamily F\+I\+LE}指针读取文件。使用者需要提供一个缓冲区。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+FILE* fp = fopen(\textcolor{stringliteral}{"big.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// 非Windows平台使用"r"}
+
+\textcolor{keywordtype}{char} readBuffer[65536];
+\hyperlink{class_file_read_stream}{FileReadStream} is(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}(is);
+
+fclose(fp);
+\end{DoxyCode}
+
+
+与{\ttfamily String\+Streams}不一样，{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}是一个字节流。它不处理编码。若文件并非\+U\+T\+F-\/8编码，可以把字节流用{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}包装。我们很快会讨论这个问题。
+
+除了读取文件，使用者也可以使用{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}来读取{\ttfamily stdin}。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileWriteStream}{}\subsection{File\+Write\+Stream (\+Output)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileWriteStream}
+{\ttfamily \hyperlink{class_file_write_stream}{File\+Write\+Stream}}是一个含缓冲功能的输出流。它的用法与{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}非常相似。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/filewritestream.h"}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\textcolor{comment}{// ...}
+
+FILE* fp = fopen(\textcolor{stringliteral}{"output.json"}, \textcolor{stringliteral}{"wb"}); \textcolor{comment}{// 非Windows平台使用"w"}
+
+\textcolor{keywordtype}{char} writeBuffer[65536];
+\hyperlink{class_file_write_stream}{FileWriteStream} os(fp, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+
+\hyperlink{class_writer}{Writer<FileWriteStream>} writer(os);
+d.Accept(writer);
+
+fclose(fp);
+\end{DoxyCode}
+
+
+它也可以把输出导向{\ttfamily stdout}。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedStreams}{}\section{Encoded Streams}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedStreams}
+编码流（encoded streams）本身不存储\+J\+S\+O\+N，它们是通过包装字节流来提供基本的编码／解码功能。
+
+如上所述，我们可以直接读入\+U\+T\+F-\/8字节流。然而，\+U\+T\+F-\/16及\+U\+T\+F-\/32有字节序（endian）问题。要正确地处理字节序，需要在读取时把字节转换成字符（如对\+U\+T\+F-\/16使用{\ttfamily wchar\+\_\+t}），以及在写入时把字符转换为字节。
+
+除此以外，我们也需要处理\href{http://en.wikipedia.org/wiki/Byte_order_mark}{\tt 字节顺序标记（byte order mark, B\+O\+M）}。当从一个字节流读取时，需要检测\+B\+O\+M，或者仅仅是把存在的\+B\+O\+M消去。当把\+J\+S\+O\+N写入字节流时，也可选择写入\+B\+O\+M。
+
+若一个流的编码在编译期已知，你可使用{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}及{\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}。若一个流可能存储\+U\+T\+F-\/8、\+U\+T\+F-\/16\+L\+E、\+U\+T\+F-\/16\+B\+E、\+U\+T\+F-\/32\+L\+E、\+U\+T\+F-\/32\+B\+E的\+J\+S\+O\+N，并且编码只能在运行时得知，你便可以使用{\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}}及{\ttfamily \hyperlink{class_auto_u_t_f_output_stream}{Auto\+U\+T\+F\+Output\+Stream}}。这些流定义在{\ttfamily \hyperlink{encodedstream_8h_source}{rapidjson/encodedstream.\+h}}。
+
+注意到，这些编码流可以施于文件以外的流。例如，你可以用编码流包装内存中的文件或自定义的字节流。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedInputStream}{}\subsection{Encoded\+Input\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedInputStream}
+{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}含两个模板参数。第一个是{\ttfamily Encoding}类型，例如定义于{\ttfamily \hyperlink{encodings_8h_source}{rapidjson/encodings.\+h}}的{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}、{\ttfamily \hyperlink{struct_u_t_f16_l_e}{U\+T\+F16\+LE}}。第二个参数是被包装的流的类型。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}   \textcolor{comment}{// FileReadStream}
+\textcolor{preprocessor}{#include "rapidjson/encodedstream.h"}    \textcolor{comment}{// EncodedInputStream}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+FILE* fp = fopen(\textcolor{stringliteral}{"utf16le.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// 非Windows平台使用"r"}
+
+\textcolor{keywordtype}{char} readBuffer[256];
+\hyperlink{class_file_read_stream}{FileReadStream} bis(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_encoded_input_stream}{EncodedInputStream<UTF16LE<>}, \hyperlink{class_file_read_stream}{FileReadStream}> eis(bis);  \textcolor{comment}{//
+       用eis包装bis}
+
+\hyperlink{class_generic_document}{Document} d; \textcolor{comment}{// Document为GenericDocument<UTF8<> > }
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}<0, \hyperlink{struct_u_t_f16_l_e}{UTF16LE<>} >(eis);  \textcolor{comment}{// 把UTF-16LE文件解析至内存中的UTF-8}
+
+fclose(fp);
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedOutputStream}{}\subsection{Encoded\+Output\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedOutputStream}
+{\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}也是相似的，但它的构造函数有一个{\ttfamily bool put\+B\+OM}参数，用于控制是否在输出字节流写入\+B\+O\+M。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/filewritestream.h"}  \textcolor{comment}{// FileWriteStream}
+\textcolor{preprocessor}{#include "rapidjson/encodedstream.h"}    \textcolor{comment}{// EncodedOutputStream}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\hyperlink{class_generic_document}{Document} d;         \textcolor{comment}{// Document为GenericDocument<UTF8<> > }
+\textcolor{comment}{// ...}
+
+FILE* fp = fopen(\textcolor{stringliteral}{"output\_utf32le.json"}, \textcolor{stringliteral}{"wb"}); \textcolor{comment}{// 非Windows平台使用"w"}
+
+\textcolor{keywordtype}{char} writeBuffer[256];
+\hyperlink{class_file_write_stream}{FileWriteStream} bos(fp, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+
+\textcolor{keyword}{typedef} EncodedOutputStream<UTF32LE<>, \hyperlink{class_file_write_stream}{FileWriteStream}> OutputStream;
+OutputStream eos(bos, \textcolor{keyword}{true});   \textcolor{comment}{// 写入BOM}
+
+\hyperlink{class_writer}{Writer<OutputStream, UTF32LE<>}, \hyperlink{struct_u_t_f8}{UTF8<>}> writer(eos);
+d.Accept(writer);   \textcolor{comment}{// 这里从内存的UTF-8生成UTF32-LE文件}
+
+fclose(fp);
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFInputStream}{}\subsection{Auto\+U\+T\+F\+Input\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFInputStream}
+有时候，应用软件可能需要㲃理所有可支持的\+J\+S\+O\+N编码。{\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}}会先使用\+B\+O\+M来检测编码。若\+B\+O\+M不存在，它便会使用合法\+J\+S\+O\+N的特性来检测。若两种方法都失败，它就会倒退至构造函数提供的\+U\+T\+F类型。
+
+由于字符（编码单元／code unit）可能是8位、16位或32位，{\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}} 需要一个能至少储存32位的字符类型。我们可以使用{\ttfamily unsigned}作为模板参数：
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}   \textcolor{comment}{// FileReadStream}
+\textcolor{preprocessor}{#include "rapidjson/encodedstream.h"}    \textcolor{comment}{// AutoUTFInputStream}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+FILE* fp = fopen(\textcolor{stringliteral}{"any.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// 非Windows平台使用"r"}
+
+\textcolor{keywordtype}{char} readBuffer[256];
+\hyperlink{class_file_read_stream}{FileReadStream} bis(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_auto_u_t_f_input_stream}{AutoUTFInputStream<unsigned, FileReadStream>} eis(bis);  \textcolor{comment}{//
+       用eis包装bis}
+
+\hyperlink{class_generic_document}{Document} d;         \textcolor{comment}{// Document为GenericDocument<UTF8<> > }
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}<0, \hyperlink{struct_auto_u_t_f}{AutoUTF<unsigned>} >(eis); \textcolor{comment}{// 把任何UTF编码的文件解析至内存中的UTF-8}
+
+fclose(fp);
+\end{DoxyCode}
+
+
+当要指定流的编码，可使用上面例子中{\ttfamily Parse\+Stream()}的参数{\ttfamily \hyperlink{struct_auto_u_t_f}{Auto\+U\+TF}$<$Char\+Type$>$}。
+
+你可以使用{\ttfamily U\+T\+F\+Type Get\+Type()}去获取\+U\+T\+F类型，并且用{\ttfamily Has\+B\+O\+M()}检测输入流是否含有\+B\+O\+M。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFOutputStream}{}\subsection{Auto\+U\+T\+F\+Output\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFOutputStream}
+相似地，要在运行时选择输出的编码，我们可使用{\ttfamily \hyperlink{class_auto_u_t_f_output_stream}{Auto\+U\+T\+F\+Output\+Stream}}。这个类本身并非「自动」。你需要在运行时指定\+U\+T\+F类型，以及是否写入\+B\+O\+M。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keywordtype}{void} WriteJSONFile(FILE* fp, UTFType type, \textcolor{keywordtype}{bool} putBOM, \textcolor{keyword}{const} \hyperlink{class_generic_document}{Document}& d) \{
+    \textcolor{keywordtype}{char} writeBuffer[256];
+    \hyperlink{class_file_write_stream}{FileWriteStream} bos(fp, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+
+    \textcolor{keyword}{typedef} \hyperlink{class_auto_u_t_f_output_stream}{AutoUTFOutputStream<unsigned, FileWriteStream>} 
+      OutputStream;
+    OutputStream eos(bos, type, putBOM);
+
+    \hyperlink{class_writer}{Writer<OutputStream, UTF8<>}, \hyperlink{struct_auto_u_t_f}{AutoUTF<>} > writer;
+    d.Accept(writer);
+\}
+\end{DoxyCode}
+
+
+{\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}}／{\ttfamily \hyperlink{class_auto_u_t_f_output_stream}{Auto\+U\+T\+F\+Output\+Stream}}是比{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}／{\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}方便。但前者会产生一点运行期额外开销。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_CustomStream}{}\section{Custom Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_CustomStream}
+除了内存／文件流，使用者可创建自行定义适配\+Rapid\+J\+S\+ON A\+P\+I的流类。例如，你可以创建网络流、从压缩文件读取的流等等。
+
+Rapid\+J\+S\+O\+N利用模板结合不同的类型。只要一个类包含所有所需的接口，就可以作为一个流。流的接合定义在{\ttfamily \hyperlink{rapidjson_8h}{rapidjson/rapidjson.\+h}}的注释里：
+
+
+\begin{DoxyCode}
+concept Stream \{
+    \textcolor{keyword}{typename} Ch;    
+
+    Ch Peek() \textcolor{keyword}{const};
+
+    Ch Take();
+
+    \textcolor{keywordtype}{size\_t} Tell();
+
+    Ch* PutBegin();
+
+    \textcolor{keywordtype}{void} Put(Ch c);
+
+    \textcolor{keywordtype}{void} Flush();
+
+    \textcolor{keywordtype}{size\_t} PutEnd(Ch* begin);
+\}
+\end{DoxyCode}
+
+
+输入流必须实现{\ttfamily Peek()}、{\ttfamily Take()}及{\ttfamily Tell()}。 输出流必须实现{\ttfamily Put()}及{\ttfamily Flush()}。 {\ttfamily Put\+Begin()}及{\ttfamily Put\+End()}是特殊的接口，仅用于原位（$\ast$in situ$\ast$）解析。一般的流不需实现它们。然而，即使接口不需用于某些流，仍然需要提供空实现，否则会产生编译错误。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleIStreamWrapper}{}\subsection{Example\+: istream wrapper}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleIStreamWrapper}
+以下的例子是{\ttfamily std\+::istream}的包装类，它只需现3个函数。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }IStreamWrapper \{
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} Ch;
+
+    IStreamWrapper(std::istream& is) : is\_(is) \{
+    \}
+
+    Ch Peek()\textcolor{keyword}{ const }\{ \textcolor{comment}{// 1}
+        \textcolor{keywordtype}{int} c = is\_.peek();
+        \textcolor{keywordflow}{return} c == std::char\_traits<char>::eof() ? \textcolor{charliteral}{'\(\backslash\)0'} : (Ch)c;
+    \}
+
+    Ch Take() \{ \textcolor{comment}{// 2}
+        \textcolor{keywordtype}{int} c = is\_.get();
+        \textcolor{keywordflow}{return} c == std::char\_traits<char>::eof() ? \textcolor{charliteral}{'\(\backslash\)0'} : (Ch)c;
+    \}
+
+    \textcolor{keywordtype}{size\_t} Tell()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})is\_.tellg(); \} \textcolor{comment}{// 3}
+
+    Ch* PutBegin() \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+    \textcolor{keywordtype}{void} Put(Ch) \{ assert(\textcolor{keyword}{false}); \}
+    \textcolor{keywordtype}{void} Flush() \{ assert(\textcolor{keyword}{false}); \}
+    \textcolor{keywordtype}{size\_t} PutEnd(Ch*) \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+
+\textcolor{keyword}{private}:
+    IStreamWrapper(\textcolor{keyword}{const} IStreamWrapper&);
+    IStreamWrapper& operator=(\textcolor{keyword}{const} IStreamWrapper&);
+
+    std::istream& is\_;
+\};
+\end{DoxyCode}
+
+
+使用者能用它来包装{\ttfamily std\+::stringstream}、{\ttfamily std\+::ifstream}的实例。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* json = \textcolor{stringliteral}{"[1,2,3,4]"};
+std::stringstream ss(json);
+IStreamWrapper is(ss);
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}(is);
+\end{DoxyCode}
+
+
+但要注意，由于标准库的内部开销问，此实现的性能可能不如\+Rapid\+J\+S\+O\+N的内存／文件流。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleOStreamWrapper}{}\subsection{Example\+: ostream wrapper}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleOStreamWrapper}
+以下的例子是{\ttfamily std\+::istream}的包装类，它只需实现2个函数。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }OStreamWrapper \{
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} Ch;
+
+    OStreamWrapper(std::ostream& os) : os\_(os) \{
+    \}
+
+    Ch Peek()\textcolor{keyword}{ const }\{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} \textcolor{charliteral}{'\(\backslash\)0'}; \}
+    Ch Take() \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} \textcolor{charliteral}{'\(\backslash\)0'}; \}
+    \textcolor{keywordtype}{size\_t} Tell()\textcolor{keyword}{ const }\{  \}
+
+    Ch* PutBegin() \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+    \textcolor{keywordtype}{void} Put(Ch c) \{ os\_.put(c); \}                  \textcolor{comment}{// 1}
+    \textcolor{keywordtype}{void} Flush() \{ os\_.flush(); \}                   \textcolor{comment}{// 2}
+    \textcolor{keywordtype}{size\_t} PutEnd(Ch*) \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+
+\textcolor{keyword}{private}:
+    OStreamWrapper(\textcolor{keyword}{const} OStreamWrapper&);
+    OStreamWrapper& operator=(\textcolor{keyword}{const} OStreamWrapper&);
+
+    std::ostream& os\_;
+\};
+\end{DoxyCode}
+
+
+使用者能用它来包装{\ttfamily std\+::stringstream}、{\ttfamily std\+::ofstream}的实例。
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+\textcolor{comment}{// ...}
+
+std::stringstream ss;
+OSStreamWrapper os(ss);
+
+\hyperlink{class_writer}{Writer<OStreamWrapper>} writer(os);
+d.Accept(writer);
+\end{DoxyCode}
+
+
+但要注意，由于标准库的内部开销问，此实现的性能可能不如\+Rapid\+J\+S\+O\+N的内存／文件流。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_Summary}{}\section{Summary}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_Summary}
+本节描述了\+Rapid\+J\+S\+O\+N提供的各种流的类。内存流很简单。若\+J\+S\+O\+N存储在文件中，文件流可减少\+J\+S\+O\+N解析及生成所需的内存量。编码流在字节流和字符流之间作转换。最后，使用者可使用一个简单接口创建自定义的流。 

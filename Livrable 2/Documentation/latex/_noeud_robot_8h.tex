@@ -1,0 +1,64 @@
+\hypertarget{_noeud_robot_8h}{}\section{C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\+Noeud\+Robot.h File Reference}
+\label{_noeud_robot_8h}\index{C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\+Noeud\+Robot.\+h@{C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\+Noeud\+Robot.\+h}}
+{\ttfamily \#include \char`\"{}Noeud\+Composite.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}G\+L/glew.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Visiteur\+Abstrait.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include \char`\"{}Facade\+Modele.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\+Comportement/\+Comportement\+Types.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\+Configuration/\+Profil.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../\+Configuration/\+Debug.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_noeud_robot}{Noeud\+Robot}
+\begin{DoxyCompactList}\small\item\em Classe qui représente le robot du premier projet intégrateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__inf2990_ga8f54284842b699d5f4247ed06fa85814}{Type\+Collision} \{ \\*
+{\bfseries A\+U\+C\+U\+NE} = 0, 
+{\bfseries A\+V\+A\+NT}, 
+{\bfseries A\+V\+A\+N\+T\+\_\+\+D\+R\+O\+IT}, 
+{\bfseries A\+V\+A\+N\+T\+\_\+\+G\+A\+U\+C\+HE}, 
+\\*
+{\bfseries A\+R\+R\+I\+E\+R\+E\+\_\+\+D\+R\+O\+IT}, 
+{\bfseries A\+R\+R\+I\+E\+R\+E\+\_\+\+G\+A\+U\+C\+HE}, 
+{\bfseries A\+R\+R\+I\+E\+RE}
+ \}\hypertarget{group__inf2990_ga8f54284842b699d5f4247ed06fa85814}{}\label{group__inf2990_ga8f54284842b699d5f4247ed06fa85814}
+\begin{DoxyCompactList}\small\item\em Type de collisions possibles avec le robot. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__inf2990_ga221eba0d5a164abc7519084fa785b663}{Objet\+Collision} \{ {\bfseries A\+U\+C\+UN} = 0, 
+{\bfseries P\+O\+T\+E\+AU}, 
+{\bfseries M\+UR}
+ \}\hypertarget{group__inf2990_ga221eba0d5a164abc7519084fa785b663}{}\label{group__inf2990_ga221eba0d5a164abc7519084fa785b663}
+\begin{DoxyCompactList}\small\item\em Objet en collision possible avec le robot. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__inf2990_ga25a668dc20f51114c86dd7cabe2d5ee4}{Etat\+Deplacement} \{ {\bfseries A\+V\+A\+N\+C\+ER} = 0, 
+{\bfseries R\+E\+C\+U\+L\+ER}, 
+{\bfseries A\+V\+A\+N\+C\+E\+R\+\_\+\+A\+N\+G\+L\+E\+\_\+\+R\+E\+F\+L\+E\+X\+I\+ON}, 
+{\bfseries R\+E\+C\+U\+L\+E\+R\+\_\+\+A\+N\+G\+L\+E\+\_\+\+R\+E\+F\+L\+E\+X\+I\+ON}
+ \}\hypertarget{group__inf2990_ga25a668dc20f51114c86dd7cabe2d5ee4}{}\label{group__inf2990_ga25a668dc20f51114c86dd7cabe2d5ee4}
+\begin{DoxyCompactList}\small\item\em Les differents etat de deplacement du robot. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{group__inf2990_ga78c4b4b2d2831a2c3c858b7d94c5c0b0}{C\+O\+E\+F\+F\+\_\+\+F\+R\+I\+C\+T\+I\+ON} = 2
+\begin{DoxyCompactList}\small\item\em Coefficient de friction du robot. \end{DoxyCompactList}\item 
+const int \hyperlink{group__inf2990_ga5a1714f8f33664fd62d33ddeb31aa608}{D\+E\+C\+O\+M\+P\+T\+\_\+\+D\+E\+B\+L\+O\+C\+A\+G\+E\+\_\+\+M\+AX} = 3
+\begin{DoxyCompactList}\small\item\em Decompte deblocage max du robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Martin Paradis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2015-\/08-\/30 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}

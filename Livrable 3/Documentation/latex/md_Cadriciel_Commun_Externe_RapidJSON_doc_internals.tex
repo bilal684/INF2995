@@ -1,0 +1,414 @@
+This section records some design and implementation details.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Architecture}{}\section{Architecture}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Architecture}
+\subsection*{S\+AX and D\+OM}
+
+The basic relationships of S\+AX and D\+OM is shown in the following U\+ML diagram.
+
+
+
+The core of the relationship is the {\ttfamily Handler} concept. From the S\+AX side, {\ttfamily Reader} parses a J\+S\+ON from a stream and publish events to a {\ttfamily Handler}. {\ttfamily \hyperlink{class_writer}{Writer}} implements the {\ttfamily Handler} concept to handle the same set of events. From the D\+OM side, {\ttfamily Document} implements the {\ttfamily Handler} concept to build a D\+OM according to the events. {\ttfamily Value} supports a {\ttfamily Value\+::\+Accept(\+Handler\&)} function, which traverses the D\+OM to publish events.
+
+With this design, S\+AX is not dependent on D\+OM. Even {\ttfamily Reader} and {\ttfamily \hyperlink{class_writer}{Writer}} have no dependencies between them. This provides flexibility to chain event publisher and handlers. Besides, {\ttfamily Value} does not depends on S\+AX as well. So, in addition to stringify a D\+OM to J\+S\+ON, user may also stringify it to a X\+ML writer, or do anything else.
+
+\subsection*{Utility Classes}
+
+Both S\+AX and D\+OM A\+P\+Is depends on 3 additional concepts\+: {\ttfamily Allocator}, {\ttfamily Encoding} and {\ttfamily Stream}. Their inheritance hierarchy is shown as below.
+
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Value}{}\section{Value}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Value}
+{\ttfamily Value} (actually a typedef of {\ttfamily \hyperlink{class_generic_value}{Generic\+Value}$<$\hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$$>$}) is the core of D\+OM A\+PI. This section describes the design of it.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_DataLayout}{}\subsection{Data Layout}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_DataLayout}
+{\ttfamily Value} is a \href{http://en.wikipedia.org/wiki/Variant_type}{\tt variant type}. In Rapid\+J\+S\+ON\textquotesingle{}s context, an instance of {\ttfamily Value} can contain 1 of 6 J\+S\+ON value types. This is possible by using {\ttfamily union}. Each {\ttfamily Value} contains two members\+: {\ttfamily union Data data\+\_\+} and a{\ttfamily unsigned flags\+\_\+}. The {\ttfamily flags\+\_\+} indiciates the J\+S\+ON type, and also additional information.
+
+The following tables show the data layout of each type. The 32-\/bit/64-\/bit columns indicates the size of the field in bytes.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Null }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Null }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Null\+Type k\+Null\+Flag} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Bool }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Bool }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Bool\+Type} (either {\ttfamily k\+True\+Flag} or {\ttfamily k\+False\+Flag}) &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf String }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf String }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily Ch$\ast$ str} &Pointer to the string (may own) &\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily Size\+Type length} &Length of string &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+String\+Type k\+String\+Flag ...} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Object }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Object }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily Member$\ast$ members} &Pointer to array of members (owned) &\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily Size\+Type size} &Number of members &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily Size\+Type capacity} &Capacity of members &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Object\+Type k\+Object\+Flag} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Array }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Array }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily Value$\ast$ values} &Pointer to array of values (owned) &\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily Size\+Type size} &Number of values &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily Size\+Type capacity} &Capacity of values &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Array\+Type k\+Array\+Flag} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Int) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Int) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily int i} &32-\/bit signed integer &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(zero padding) &0 &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Number\+Type k\+Number\+Flag k\+Int\+Flag k\+Int64\+Flag ...} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (U\+Int) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (U\+Int) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily unsigned u} &32-\/bit unsigned integer &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(zero padding) &0 &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Number\+Type k\+Number\+Flag k\+U\+Int\+Flag k\+U\+Int64\+Flag ...} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Int64) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Int64) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily int64\+\_\+t i64} &64-\/bit signed integer &\PBS\centering 8 &\PBS\centering 8 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Number\+Type k\+Number\+Flag k\+Int64\+Flag ...} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Uint64) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Uint64) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily uint64\+\_\+t i64} &64-\/bit unsigned integer &\PBS\centering 8 &\PBS\centering 8 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Number\+Type k\+Number\+Flag k\+Int64\+Flag ...} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Double) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Number (Double) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily uint64\+\_\+t i64} &Double precision floating-\/point &\PBS\centering 8 &\PBS\centering 8 \\\cline{1-4}
+(unused) &&\PBS\centering 4 &\PBS\centering 8 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+Number\+Type k\+Number\+Flag k\+Double\+Flag} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+Here are some notes\+:
+\begin{DoxyItemize}
+\item To reduce memory consumption for 64-\/bit architecture, {\ttfamily Size\+Type} is typedef as {\ttfamily unsigned} instead of {\ttfamily size\+\_\+t}.
+\item Zero padding for 32-\/bit number may be placed after or before the actual type, according to the endianess. This makes possible for interpreting a 32-\/bit integer as a 64-\/bit integer, without any conversion.
+\item An {\ttfamily Int} is always an {\ttfamily Int64}, but the converse is not always true.
+\end{DoxyItemize}\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Flags}{}\subsection{Flags}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Flags}
+The 32-\/bit {\ttfamily flags\+\_\+} contains both J\+S\+ON type and other additional information. As shown in the above tables, each J\+S\+ON type contains redundant {\ttfamily k\+X\+X\+X\+Type} and {\ttfamily k\+X\+X\+X\+Flag}. This design is for optimizing the operation of testing bit-\/flags ({\ttfamily Is\+Number()}) and obtaining a sequential number for each type ({\ttfamily Get\+Type()}).
+
+String has two optional flags. {\ttfamily k\+Copy\+Flag} means that the string owns a copy of the string. {\ttfamily k\+Inline\+Str\+Flag} means using \href{#ShortString}{\tt Short-\/\+String Optimization}.
+
+Number is a bit more complicated. For normal integer values, it can contains {\ttfamily k\+Int\+Flag}, {\ttfamily k\+Uint\+Flag}, {\ttfamily k\+Int64\+Flag} and/or {\ttfamily k\+Uint64\+Flag}, according to the range of the integer. For numbers with fraction, and integers larger than 64-\/bit range, they will be stored as {\ttfamily double} with {\ttfamily k\+Double\+Flag}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_ShortString}{}\subsection{Short-\/\+String Optimization}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_ShortString}
+Kosta (-\/\+Github) provided a very neat short-\/string optimization. The optimization idea is given as follow. Excluding the {\ttfamily flags\+\_\+}, a {\ttfamily Value} has 12 or 16 bytes (32-\/bit or 64-\/bit) for storing actual data. Instead of storing a pointer to a string, it is possible to store short strings in these space internally. For encoding with 1-\/byte character type (e.\+g. {\ttfamily char}), it can store maximum 11 or 15 characters string inside the {\ttfamily Value} type.
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*4{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Short\+String (Ch=char) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Short\+String (Ch=char) }&{\bf }&\PBS\centering {\bf 32-\/bit}&\PBS\centering {\bf 64-\/bit  }\\\cline{1-4}
+\endhead
+{\ttfamily Ch str\mbox{[}Max\+Chars\mbox{]}} &String buffer &\PBS\centering 11 &\PBS\centering 15 \\\cline{1-4}
+{\ttfamily Ch inv\+Length} &Max\+Chars -\/ Length &\PBS\centering 1 &\PBS\centering 1 \\\cline{1-4}
+{\ttfamily unsigned flags\+\_\+} &{\ttfamily k\+String\+Type k\+String\+Flag ...} &\PBS\centering 4 &\PBS\centering 4 \\\cline{1-4}
+\end{longtabu}
+A special technique is applied. Instead of storing the length of string directly, it stores (Max\+Chars -\/ length). This make it possible to store 11 characters with trailing {\ttfamily \textbackslash{}0}.
+
+This optimization can reduce memory usage for copy-\/string. It can also improve cache-\/coherence thus improve runtime performance.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Allocator}{}\section{Allocator}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Allocator}
+{\ttfamily Allocator} is a concept in Rapid\+J\+S\+ON\+: 
+\begin{DoxyCode}
+concept Allocator \{
+    \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{bool} kNeedFree;    
+
+    \textcolor{comment}{// Allocate a memory block.}
+    \textcolor{comment}{// \(\backslash\)param size of the memory block in bytes.}
+    \textcolor{comment}{// \(\backslash\)returns pointer to the memory block.}
+    \textcolor{keywordtype}{void}* Malloc(\textcolor{keywordtype}{size\_t} size);
+
+    \textcolor{comment}{// Resize a memory block.}
+    \textcolor{comment}{// \(\backslash\)param originalPtr The pointer to current memory block. Null pointer is permitted.}
+    \textcolor{comment}{// \(\backslash\)param originalSize The current size in bytes. (Design issue: since some allocator may not book-keep
+       this, explicitly pass to it can save memory.)}
+    \textcolor{comment}{// \(\backslash\)param newSize the new size in bytes.}
+    \textcolor{keywordtype}{void}* Realloc(\textcolor{keywordtype}{void}* originalPtr, \textcolor{keywordtype}{size\_t} originalSize, \textcolor{keywordtype}{size\_t} newSize);
+
+    \textcolor{comment}{// Free a memory block.}
+    \textcolor{comment}{// \(\backslash\)param pointer to the memory block. Null pointer is permitted.}
+    \textcolor{keyword}{static} \textcolor{keywordtype}{void} Free(\textcolor{keywordtype}{void} *ptr);
+\};
+\end{DoxyCode}
+
+
+Note that {\ttfamily Malloc()} and {\ttfamily Realloc()} are member functions but {\ttfamily Free()} is static member function.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_MemoryPoolAllocator}{}\subsection{Memory\+Pool\+Allocator}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_MemoryPoolAllocator}
+{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}} is the default allocator for D\+OM. It allocate but do not free memory. This is suitable for building a D\+OM tree.
+
+Internally, it allocates chunks of memory from the base allocator (by default {\ttfamily \hyperlink{class_crt_allocator}{Crt\+Allocator}}) and stores the chunks as a singly linked list. When user requests an allocation, it allocates memory from the following order\+:
+
+
+\begin{DoxyEnumerate}
+\item User supplied buffer if it is available. (See User Buffer section in D\+OM)
+\item If user supplied buffer is full, use the current memory chunk.
+\item If the current block is full, allocate a new block of memory.
+\end{DoxyEnumerate}\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_ParsingOptimization}{}\section{Parsing Optimization}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_ParsingOptimization}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_SkipwhitespaceWithSIMD}{}\subsection{Skip Whitespaces with S\+I\+MD}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_SkipwhitespaceWithSIMD}
+When parsing J\+S\+ON from a stream, the parser need to skip 4 whitespace characters\+:
+
+
+\begin{DoxyEnumerate}
+\item Space ({\ttfamily U+0020})
+\item Character Tabulation ({\ttfamily U+000B})
+\item Line Feed ({\ttfamily U+000A})
+\item Carriage Return ({\ttfamily U+000D})
+\end{DoxyEnumerate}
+
+A simple implementation will be simply\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{reader_8h_a60338858b2582eca23f3e509a2d82e0e}{SkipWhitespace}(InputStream& s) \{
+    \textcolor{keywordflow}{while} (s.Peek() == \textcolor{charliteral}{' '} || s.Peek() == \textcolor{charliteral}{'\(\backslash\)n'} || s.Peek() == \textcolor{charliteral}{'\(\backslash\)r'} || s.Peek() == \textcolor{charliteral}{'\(\backslash\)t'})
+        s.Take();
+\}
+\end{DoxyCode}
+
+
+However, this requires 4 comparisons and a few branching for each character. This was found to be a hot spot.
+
+To accelerate this process, S\+I\+MD was applied to compare 16 characters with 4 white spaces for each iteration. Currently Rapid\+J\+S\+ON only supports S\+S\+E2 and S\+S\+E4.\+2 instructions for this. And it is only activated for U\+T\+F-\/8 memory streams, including string stream or {\itshape in situ} parsing.
+
+To enable this optimization, need to define {\ttfamily R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+S\+S\+E2} or {\ttfamily R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+S\+S\+E42} before including {\ttfamily \hyperlink{rapidjson_8h}{rapidjson.\+h}}. Some compilers can detect the setting, as in {\ttfamily perftest.\+h}\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// \_\_SSE2\_\_ and \_\_SSE4\_2\_\_ are recognized by gcc, clang, and the Intel compiler.}
+\textcolor{comment}{// We use -march=native with gmake to enable -msse2 and -msse4.2, if supported.}
+\textcolor{preprocessor}{#if defined(\_\_SSE4\_2\_\_)}
+\textcolor{preprocessor}{#  define RAPIDJSON\_SSE42}
+\textcolor{preprocessor}{#elif defined(\_\_SSE2\_\_)}
+\textcolor{preprocessor}{#  define RAPIDJSON\_SSE2}
+\textcolor{preprocessor}{#endif}
+\end{DoxyCode}
+
+
+Note that, these are compile-\/time settings. Running the executable on a machine without such instruction set support will make it crash.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_LocalStreamCopy}{}\subsection{Local Stream Copy}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_LocalStreamCopy}
+During optimization, it is found that some compilers cannot localize some member data access of streams into local variables or registers. Experimental results show that for some stream types, making a copy of the stream and used it in inner-\/loop can improve performance. For example, the actual (non-\/\+S\+I\+MD) implementation of {\ttfamily \hyperlink{reader_8h_a60338858b2582eca23f3e509a2d82e0e}{Skip\+Whitespace()}} is implemented as\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} InputStream>
+\textcolor{keywordtype}{void} \hyperlink{reader_8h_a60338858b2582eca23f3e509a2d82e0e}{SkipWhitespace}(InputStream& is) \{
+    \hyperlink{classinternal_1_1_stream_local_copy}{internal::StreamLocalCopy<InputStream>} copy(is);
+    InputStream& s(copy.s);
+
+    \textcolor{keywordflow}{while} (s.Peek() == \textcolor{charliteral}{' '} || s.Peek() == \textcolor{charliteral}{'\(\backslash\)n'} || s.Peek() == \textcolor{charliteral}{'\(\backslash\)r'} || s.Peek() == \textcolor{charliteral}{'\(\backslash\)t'})
+        s.Take();
+\}
+\end{DoxyCode}
+
+
+Depending on the traits of stream, {\ttfamily Stream\+Local\+Copy} will make (or not make) a copy of the stream object, use it locally and copy the states of stream back to the original stream.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_ParsingDouble}{}\subsection{Parsing to Double}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_ParsingDouble}
+Parsing string into {\ttfamily double} is difficult. The standard library function {\ttfamily strtod()} can do the job but it is slow. By default, the parsers use normal precision setting. This has has maximum 3 \href{http://en.wikipedia.org/wiki/Unit_in_the_last_place}{\tt U\+LP} error and implemented in {\ttfamily internal\+::\+Strtod\+Normal\+Precision()}.
+
+When using {\ttfamily k\+Parse\+Full\+Precision\+Flag}, the parsers calls {\ttfamily internal\+::\+Strtod\+Full\+Precision()} instead, and this function actually implemented 3 versions of conversion methods.
+\begin{DoxyEnumerate}
+\item \href{http://www.exploringbinary.com/fast-path-decimal-to-floating-point-conversion/}{\tt Fast-\/\+Path}.
+\item Custom D\+I\+Y-\/\+FP implementation as in \href{https://github.com/floitsch/double-conversion}{\tt double-\/conversion}.
+\item Big Integer Method as in (Clinger, William D.\+ \+How to read floating point numbers accurately. Vol. 25. No. 6. A\+CM, 1990).
+\end{DoxyEnumerate}
+
+If the first conversion methods fail, it will try the second, and so on.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_GenerationOptimization}{}\section{Generation Optimization}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_GenerationOptimization}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_itoa}{}\subsection{Integer-\/to-\/\+String conversion}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_itoa}
+The naive algorithm for integer-\/to-\/string conversion involves division per each decimal digit. We have implemented various implementations and evaluated them in \href{https://github.com/miloyip/itoa-benchmark}{\tt itoa-\/benchmark}.
+
+Although S\+S\+E2 version is the fastest but the difference is minor by comparing to the first running-\/up {\ttfamily branchlut}. And {\ttfamily branchlut} is pure C++ implementation so we adopt {\ttfamily branchlut} in Rapid\+J\+S\+ON.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_dtoa}{}\subsection{Double-\/to-\/\+String conversion}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_dtoa}
+Originally Rapid\+J\+S\+ON uses {\ttfamily snprintf(..., ..., \char`\"{}\%g\char`\"{})} to achieve double-\/to-\/string conversion. This is not accurate as the default precision is 6. Later we also find that this is slow and there is an alternative.
+
+Google\textquotesingle{}s V8 \href{https://github.com/floitsch/double-conversion}{\tt double-\/conversion} implemented a newer, fast algorithm called Grisu3 (Loitsch, Florian. \char`\"{}\+Printing floating-\/point numbers quickly and accurately with integers.\char`\"{} \+A\+CM Sigplan Notices 45.6 (2010)\+: 233-\/243.).
+
+However, since it is not header-\/only so that we implemented a header-\/only version of Grisu2. This algorithm guarantees that the result is always accurate. And in most of cases it produces the shortest (optimal) string representation.
+
+The header-\/only conversion function has been evaluated in \href{https://github.com/miloyip/dtoa-benchmark}{\tt dtoa-\/benchmark}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Parser}{}\section{Parser}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_Parser}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParser}{}\subsection{Iterative Parser}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParser}
+The iterative parser is a recursive descent L\+L(1) parser implemented in a non-\/recursive manner.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParserGrammar}{}\subsubsection{Grammar}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParserGrammar}
+The grammar used for this parser is based on strict J\+S\+ON syntax\+: 
+\begin{DoxyCode}
+1 S -> array | object
+2 array -> [ values ]
+3 object -> \{ members \}
+4 values -> non-empty-values | ε
+5 non-empty-values -> value addition-values
+6 addition-values -> ε | , non-empty-values
+7 members -> non-empty-members | ε
+8 non-empty-members -> member addition-members
+9 addition-members -> ε | , non-empty-members
+10 member -> STRING : value
+11 value -> STRING | NUMBER | NULL | BOOLEAN | object | array
+\end{DoxyCode}
+
+
+Note that left factoring is applied to non-\/terminals {\ttfamily values} and {\ttfamily members} to make the grammar be L\+L(1).\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParserParsingTable}{}\subsubsection{Parsing Table}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParserParsingTable}
+Based on the grammar, we can construct the F\+I\+R\+ST and F\+O\+L\+L\+OW set.
+
+The F\+I\+R\+ST set of non-\/terminals is listed below\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering {\bf N\+O\+N-\/\+T\+E\+R\+M\+I\+N\+AL }&\PBS\centering {\bf F\+I\+R\+ST  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering {\bf N\+O\+N-\/\+T\+E\+R\+M\+I\+N\+AL }&\PBS\centering {\bf F\+I\+R\+ST  }\\\cline{1-2}
+\endhead
+\PBS\centering array &\PBS\centering \mbox{[} \\\cline{1-2}
+\PBS\centering object &\PBS\centering \{ \\\cline{1-2}
+\PBS\centering values &\PBS\centering ε S\+T\+R\+I\+NG N\+U\+M\+B\+ER N\+U\+LL B\+O\+O\+L\+E\+AN \{ \mbox{[} \\\cline{1-2}
+\PBS\centering addition-\/values &\PBS\centering ε C\+O\+M\+MA \\\cline{1-2}
+\PBS\centering members &\PBS\centering ε S\+T\+R\+I\+NG \\\cline{1-2}
+\PBS\centering addition-\/members &\PBS\centering ε C\+O\+M\+MA \\\cline{1-2}
+\PBS\centering member &\PBS\centering S\+T\+R\+I\+NG \\\cline{1-2}
+\PBS\centering value &\PBS\centering S\+T\+R\+I\+NG N\+U\+M\+B\+ER N\+U\+LL B\+O\+O\+L\+E\+AN \{ \mbox{[} \\\cline{1-2}
+\PBS\centering S &\PBS\centering \mbox{[} \{ \\\cline{1-2}
+\PBS\centering non-\/empty-\/members &\PBS\centering S\+T\+R\+I\+NG \\\cline{1-2}
+\PBS\centering non-\/empty-\/values &\PBS\centering S\+T\+R\+I\+NG N\+U\+M\+B\+ER N\+U\+LL B\+O\+O\+L\+E\+AN \{ \mbox{[} \\\cline{1-2}
+\end{longtabu}
+The F\+O\+L\+L\+OW set is listed below\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering {\bf N\+O\+N-\/\+T\+E\+R\+M\+I\+N\+AL }&\PBS\centering {\bf F\+O\+L\+L\+OW  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering {\bf N\+O\+N-\/\+T\+E\+R\+M\+I\+N\+AL }&\PBS\centering {\bf F\+O\+L\+L\+OW  }\\\cline{1-2}
+\endhead
+\PBS\centering S &\PBS\centering \$ \\\cline{1-2}
+\PBS\centering array &\PBS\centering , \$ \} \mbox{]} \\\cline{1-2}
+\PBS\centering object &\PBS\centering , \$ \} \mbox{]} \\\cline{1-2}
+\PBS\centering values &\PBS\centering \mbox{]} \\\cline{1-2}
+\PBS\centering non-\/empty-\/values &\PBS\centering \mbox{]} \\\cline{1-2}
+\PBS\centering addition-\/values &\PBS\centering \mbox{]} \\\cline{1-2}
+\PBS\centering members &\PBS\centering \} \\\cline{1-2}
+\PBS\centering non-\/empty-\/members &\PBS\centering \} \\\cline{1-2}
+\PBS\centering addition-\/members &\PBS\centering \} \\\cline{1-2}
+\PBS\centering member &\PBS\centering , \} \\\cline{1-2}
+\PBS\centering value &\PBS\centering , \} \mbox{]} \\\cline{1-2}
+\end{longtabu}
+Finally the parsing table can be constructed from F\+I\+R\+ST and F\+O\+L\+L\+OW set\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*11{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering {\bf N\+O\+N-\/\+T\+E\+R\+M\+I\+N\+AL }&\PBS\centering {\bf \mbox{[} }&\PBS\centering {\bf \{ }&\PBS\centering {\bf , }&\PBS\centering {\bf \+: }&\PBS\centering {\bf \mbox{]} }&\PBS\centering {\bf \} }&\PBS\centering {\bf S\+T\+R\+I\+NG }&\PBS\centering {\bf N\+U\+M\+B\+ER }&\PBS\centering {\bf N\+U\+LL }&\PBS\centering {\bf B\+O\+O\+L\+E\+AN  }\\\cline{1-11}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering {\bf N\+O\+N-\/\+T\+E\+R\+M\+I\+N\+AL }&\PBS\centering {\bf \mbox{[} }&\PBS\centering {\bf \{ }&\PBS\centering {\bf , }&\PBS\centering {\bf \+: }&\PBS\centering {\bf \mbox{]} }&\PBS\centering {\bf \} }&\PBS\centering {\bf S\+T\+R\+I\+NG }&\PBS\centering {\bf N\+U\+M\+B\+ER }&\PBS\centering {\bf N\+U\+LL }&\PBS\centering {\bf B\+O\+O\+L\+E\+AN  }\\\cline{1-11}
+\endhead
+\PBS\centering S &\PBS\centering array &\PBS\centering object &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering array &\PBS\centering \mbox{[} values \mbox{]} &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering object &\PBS\centering &\PBS\centering \{ members \} &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering values &\PBS\centering non-\/empty-\/values &\PBS\centering non-\/empty-\/values &\PBS\centering &\PBS\centering &\PBS\centering ε &\PBS\centering &\PBS\centering non-\/empty-\/values &\PBS\centering non-\/empty-\/values &\PBS\centering non-\/empty-\/values &\PBS\centering non-\/empty-\/values \\\cline{1-11}
+\PBS\centering non-\/empty-\/values &\PBS\centering value addition-\/values &\PBS\centering value addition-\/values &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering value addition-\/values &\PBS\centering value addition-\/values &\PBS\centering value addition-\/values &\PBS\centering value addition-\/values \\\cline{1-11}
+\PBS\centering addition-\/values &\PBS\centering &\PBS\centering &\PBS\centering , non-\/empty-\/values &\PBS\centering &\PBS\centering ε &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering members &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering ε &\PBS\centering non-\/empty-\/members &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering non-\/empty-\/members &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering member addition-\/members &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering addition-\/members &\PBS\centering &\PBS\centering &\PBS\centering , non-\/empty-\/members &\PBS\centering &\PBS\centering &\PBS\centering ε &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering member &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering S\+T\+R\+I\+NG \+: value &\PBS\centering &\PBS\centering &\PBS\centering \\\cline{1-11}
+\PBS\centering value &\PBS\centering array &\PBS\centering object &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering &\PBS\centering S\+T\+R\+I\+NG &\PBS\centering N\+U\+M\+B\+ER &\PBS\centering N\+U\+LL &\PBS\centering B\+O\+O\+L\+E\+AN \\\cline{1-11}
+\end{longtabu}
+There is a great \href{http://hackingoff.com/compilers/predict-first-follow-set}{\tt tool} for above grammar analysis.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParserImplementation}{}\subsubsection{Implementation}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_internals_IterativeParserImplementation}
+Based on the parsing table, a direct(or conventional) implementation that pushes the production body in reverse order while generating a production could work.
+
+In Rapid\+J\+S\+ON, several modifications(or adaptations to current design) are made to a direct implementation.
+
+First, the parsing table is encoded in a state machine in Rapid\+J\+S\+ON. States are constructed by the head and body of production. State transitions are constructed by production rules. Besides, extra states are added for productions involved with {\ttfamily array} and {\ttfamily object}. In this way the generation of array values or object members would be a single state transition, rather than several pop/push operations in the direct implementation. This also makes the estimation of stack size more easier.
+
+The state diagram is shown as follows\+:
+
+
+
+Second, the iterative parser also keeps track of array\textquotesingle{}s value count and object\textquotesingle{}s member count in its internal stack, which may be different from a conventional implementation. 

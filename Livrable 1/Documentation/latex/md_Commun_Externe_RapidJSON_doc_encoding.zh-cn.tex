@@ -1,0 +1,142 @@
+根据\href{http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf}{\tt E\+C\+M\+A-\/404}：
+
+\begin{quote}
+(in Introduction) J\+S\+ON text is a sequence of Unicode code points.
+
+翻译：\+J\+S\+O\+N文本是\+Unicode码点的序列。 \end{quote}
+
+
+较早的\href{http://www.ietf.org/rfc/rfc4627.txt}{\tt R\+F\+C4627}申明：
+
+\begin{quote}
+(in §3) J\+S\+ON text S\+H\+A\+LL be encoded in Unicode. The default encoding is U\+T\+F-\/8.
+
+翻译：\+J\+S\+O\+N文本应该以\+Unicode编码。缺省的编码为\+U\+T\+F-\/8。 \end{quote}
+
+
+\begin{quote}
+(in §6) J\+S\+ON may be represented using U\+T\+F-\/8, U\+T\+F-\/16, or U\+T\+F-\/32. When J\+S\+ON is written in U\+T\+F-\/8, J\+S\+ON is 8bit compatible. When J\+S\+ON is written in U\+T\+F-\/16 or U\+T\+F-\/32, the binary content-\/transfer-\/encoding must be used.
+
+翻译：\+J\+S\+O\+N可使用\+U\+T\+F-\/8、\+U\+T\+F-\/16或\+U\+T\+F-\/18表示。当\+J\+S\+O\+N以\+U\+T\+F-\/8写入，该\+J\+S\+O\+N是8位兼容的。当\+J\+S\+O\+N以\+U\+T\+F-\/16或\+U\+T\+F-\/32写入，就必须使用二进制的内容传送编码。 \end{quote}
+
+
+Rapid\+J\+S\+O\+N支持多种编码。它也能检查\+J\+S\+O\+N的编码，以及在不同编码中进行转码。所有这些功能都是在内部实现，无需使用外部的程序库（如\href{http://site.icu-project.org/}{\tt I\+CU}）。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_Unicode}{}\section{Unicode}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_Unicode}
+根据 \href{http://www.unicode.org/standard/translations/t-chinese.html}{\tt Unicode的官方网站}： $>$Unicode给每个字符提供了一个唯一的数字， 不论是什么平台、 不论是什么程序、 不论是什么语言。
+
+这些唯一数字称为码点（code point），其范围介乎{\ttfamily 0x0}至{\ttfamily 0x10\+F\+F\+FF}之间。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_UTF}{}\subsection{Unicode Transformation Format}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_UTF}
+存储\+Unicode码点有多种编码方式。这些称为\+Unicode转换格式（\+Unicode Transformation Format, U\+T\+F）。\+Rapid\+J\+S\+O\+N支持最常用的\+U\+T\+F，包括：
+
+
+\begin{DoxyItemize}
+\item U\+T\+F-\/8：8位可变长度编码。它把一个码点映射至1至4个字节。
+\item U\+T\+F-\/16：16位可变长度编码。它把一个码点映射至1至2个16位编码单元（即2至4个字节）。
+\item U\+T\+F-\/32：32位固定长度编码。它直接把码点映射至单个32位编码单元（即4字节）。
+\end{DoxyItemize}
+
+对于\+U\+T\+F-\/16及\+U\+T\+F-\/32来说，字节序（endianness）是有影响的。在内存中，它们通常都是以该计算机的字节序来存储。然而，当要储存在文件中或在网上传输，我们需要指明字节序列的字节序，是小端（little endian, L\+E）还是大端（big-\/endian, B\+E）。
+
+Rapid\+J\+S\+O\+N通过{\ttfamily \hyperlink{encodings_8h_source}{rapidjson/encodings.\+h}}中的struct去提供各种编码：
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{namespace }\hyperlink{namespacerapidjson}{rapidjson} \{
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{char}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f8}{UTF8};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{wchar\_t}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f16}{UTF16};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{wchar\_t}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f16_l_e}{UTF16LE};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{wchar\_t}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f16_b_e}{UTF16BE};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{unsigned}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f32}{UTF32};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{unsigned}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f32_l_e}{UTF32LE};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} CharType = \textcolor{keywordtype}{unsigned}>
+\textcolor{keyword}{struct }\hyperlink{struct_u_t_f32_b_e}{UTF32BE};
+
+\} \textcolor{comment}{// namespace rapidjson}
+\end{DoxyCode}
+
+
+对于在内存中的文本，我们正常会使用{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}、{\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}}或{\ttfamily \hyperlink{struct_u_t_f32}{U\+T\+F32}}。对于处理经过\+I/\+O的文本，我们可使用{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}、{\ttfamily \hyperlink{struct_u_t_f16_l_e}{U\+T\+F16\+LE}}、{\ttfamily \hyperlink{struct_u_t_f16_b_e}{U\+T\+F16\+BE}}、{\ttfamily \hyperlink{struct_u_t_f32_l_e}{U\+T\+F32\+LE}}或{\ttfamily \hyperlink{struct_u_t_f32_b_e}{U\+T\+F32\+BE}}。
+
+当使用\+D\+O\+M风格的\+A\+P\+I，{\ttfamily \hyperlink{class_generic_value}{Generic\+Value}$<$Encoding$>$}及{\ttfamily \hyperlink{class_generic_document}{Generic\+Document}$<$Encoding$>$}里的{\ttfamily Encoding}模板参数是用于指明内存中存储的\+J\+S\+O\+N字符串使用哪种编码。因此通常我们会在此参数中使用{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}、{\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}}或{\ttfamily \hyperlink{struct_u_t_f32}{U\+T\+F32}}。如何选择，视乎应用软件所使用的操作系统及其他程序库。例如，\+Windows A\+P\+I使用\+U\+T\+F-\/16表示\+Unicode字符，而多数的\+Linux发行版本及应用软件则更喜欢\+U\+T\+F-\/8。
+
+使用\+U\+T\+F-\/16的\+D\+O\+M声明例子：
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{typedef} \hyperlink{class_generic_document}{GenericDocument<UTF16<>} > WDocument;
+\textcolor{keyword}{typedef} \hyperlink{class_generic_value}{GenericValue<UTF16<>} > WValue;
+\end{DoxyCode}
+
+
+可以在D\+OM\textquotesingle{}s Encoding一节看到更详细的使用例子。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_CharacterType}{}\subsection{Character Type}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_CharacterType}
+从之前的声明中可以看到，每个编码都有一个{\ttfamily Char\+Type}模板参数。这可能比较容易混淆，实际上，每个{\ttfamily Char\+Type}存储一个编码单元，而不是一个字符（码点）。如之前所谈及，在\+U\+T\+F-\/8中一个码点可能会编码成1至4个编码单元。
+
+对于{\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}(L\+E$\vert$\+BE)}及{\ttfamily \hyperlink{struct_u_t_f32}{U\+T\+F32}(L\+E$\vert$\+BE)}来说，{\ttfamily Char\+Type}必须分别是一个至少2及4字节的整数类型。
+
+注意\+C++11新添了{\ttfamily char16\+\_\+t}及{\ttfamily char32\+\_\+t}类型，也可分别用于{\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}}及{\ttfamily \hyperlink{struct_u_t_f32}{U\+T\+F32}}。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_AutoUTF}{}\subsection{Auto\+U\+TF}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_AutoUTF}
+上述所介绍的编码都是在编译期静态挷定的。换句话说，使用者必须知道内存或流之中使用了哪种编码。然而，有时候我们可能需要读写不同编码的文件，而且这些编码需要在运行时才能决定。
+
+{\ttfamily \hyperlink{struct_auto_u_t_f}{Auto\+U\+TF}}是为此而设计的编码。它根据输入或输出流来选择使用哪种编码。目前它应该与{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}及{\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}结合使用。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_ASCII}{}\subsection{A\+S\+C\+II}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_ASCII}
+虽然\+J\+S\+O\+N标准并未提及\href{http://en.wikipedia.org/wiki/ASCII}{\tt A\+S\+C\+II}，有时候我们希望写入7位的\+A\+S\+C\+II J\+S\+O\+N，以供未能处理\+U\+T\+F-\/8的应用程序使用。由于任\+J\+S\+O\+N都可以把\+Unicode字符表示为{\ttfamily \textbackslash{}u\+X\+X\+XX}转义序列，\+J\+S\+O\+N总是可用\+A\+S\+C\+I\+I来编码。
+
+以下的例子把\+U\+T\+F-\/8的\+D\+O\+M写成\+A\+S\+C\+I\+I的\+J\+S\+O\+N：
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+\hyperlink{class_generic_document}{Document} d; \textcolor{comment}{// UTF8<>}
+\textcolor{comment}{// ...}
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer;
+\hyperlink{class_writer}{Writer<StringBuffer, Document::EncodingType, ASCII<>} > 
+      writer(buffer);
+d.Accept(writer);
+std::cout << buffer.GetString();
+\end{DoxyCode}
+
+
+A\+S\+C\+I\+I可用于输入流。当输入流包含大于127的字节，就会导致{\ttfamily k\+Parse\+Error\+String\+Invalid\+Encoding}错误。
+
+\hyperlink{struct_a_s_c_i_i}{A\+S\+C\+II} {\itshape 不能} 用于内存（{\ttfamily Document}的编码，或{\ttfamily Reader}的目标编码)，因为它不能表示\+Unicode码点。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_ValidationTranscoding}{}\section{Validation \& Transcoding}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_ValidationTranscoding}
+当\+Rapid\+J\+S\+O\+N解析一个\+J\+S\+O\+N时，它能校验输入\+J\+S\+O\+N，判断它是否所标明编码的合法序列。要开启此选项，请把{\ttfamily k\+Parse\+Validate\+Encoding\+Flag}加入{\ttfamily parse\+Flags}模板参数。
+
+若输入编码和输出编码并不相同，{\ttfamily Reader}及{\ttfamily \hyperlink{class_writer}{Writer}}会算把文本转码。在这种情况下，并不需要{\ttfamily k\+Parse\+Validate\+Encoding\+Flag}，因为它必须解码输入序列。若序列不能被解码，它必然是不合法的。\hypertarget{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_Transcoder}{}\subsection{Transcoder}\label{md_Commun_Externe_RapidJSON_doc_encoding.zh-cn_Transcoder}
+虽然\+Rapid\+J\+S\+O\+N的编码功能是为\+J\+S\+O\+N解析／生成而设计，使用者也可以“滥用”它们来为非\+J\+S\+O\+N字符串转码。
+
+以下的例子把\+U\+T\+F-\/8字符串转码成\+U\+T\+F-\/16：
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/encodings.h"}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* s = \textcolor{stringliteral}{"..."}; \textcolor{comment}{// UTF-8 string}
+\hyperlink{struct_generic_string_stream}{StringStream} source(s);
+\hyperlink{class_generic_string_buffer}{GenericStringBuffer<UTF16<>} > target;
+
+\textcolor{keywordtype}{bool} hasError = \textcolor{keyword}{false};
+\textcolor{keywordflow}{while} (source.Peak() != \textcolor{charliteral}{'\(\backslash\)0'})
+    \textcolor{keywordflow}{if} (!\hyperlink{struct_transcoder_a0ea2edfe35784ebf1063921d2bd5fb66}{Transcoder::Transcode}<\hyperlink{struct_u_t_f8}{UTF8<>}, \hyperlink{struct_u_t_f16}{UTF16<>} >(source, target)) \{
+        hasError = \textcolor{keyword}{true};
+        \textcolor{keywordflow}{break};
+    \}
+
+\textcolor{keywordflow}{if} (!hasError) \{
+    \textcolor{keyword}{const} \textcolor{keywordtype}{wchar\_t}* t = target.GetString();
+    \textcolor{comment}{// ...}
+\}
+\end{DoxyCode}
+
+
+你也可以用{\ttfamily \hyperlink{struct_auto_u_t_f}{Auto\+U\+TF}}及对应的流来在运行时设置内源／目的之编码。 

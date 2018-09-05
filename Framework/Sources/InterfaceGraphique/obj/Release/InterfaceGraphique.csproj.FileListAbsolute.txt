@@ -1,0 +1,14 @@
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Exe\InterfaceGraphique.exe.config
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Exe\InterfaceGraphique.exe
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Exe\InterfaceGraphique.pdb
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.csprojResolveAssemblyReference.cache
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.Aide.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.Configuration.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.ConfigurationEdition.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.Edition.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.MenuPrincipale.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.Properties.Resources.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.Simulation.resources
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.csproj.GenerateResource.Cache
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.exe
+C:\Users\Bilal Itani\Desktop\inf2990-11\Cadriciel\Sources\InterfaceGraphique\obj\Release\InterfaceGraphique.pdb

@@ -1,0 +1,32 @@
+\hypertarget{struct_memory_pool_allocator_1_1_chunk_header}{}\section{Memory\+Pool\+Allocator$<$ Base\+Allocator $>$\+:\+:Chunk\+Header Struct Reference}
+\label{struct_memory_pool_allocator_1_1_chunk_header}\index{Memory\+Pool\+Allocator$<$ Base\+Allocator $>$\+::\+Chunk\+Header@{Memory\+Pool\+Allocator$<$ Base\+Allocator $>$\+::\+Chunk\+Header}}
+
+
+Chunk header for perpending to each chunk.  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \hyperlink{struct_memory_pool_allocator_1_1_chunk_header_ae19df98bce5dd485a23f953112ecde5f}{capacity}\hypertarget{struct_memory_pool_allocator_1_1_chunk_header_ae19df98bce5dd485a23f953112ecde5f}{}\label{struct_memory_pool_allocator_1_1_chunk_header_ae19df98bce5dd485a23f953112ecde5f}
+
+\begin{DoxyCompactList}\small\item\em Capacity of the chunk in bytes (excluding the header itself). \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{struct_memory_pool_allocator_1_1_chunk_header_ac9f3868f4cd36cdb7c712c9a48686680}{size}\hypertarget{struct_memory_pool_allocator_1_1_chunk_header_ac9f3868f4cd36cdb7c712c9a48686680}{}\label{struct_memory_pool_allocator_1_1_chunk_header_ac9f3868f4cd36cdb7c712c9a48686680}
+
+\begin{DoxyCompactList}\small\item\em Current size of allocated memory in bytes. \end{DoxyCompactList}\item 
+\hyperlink{struct_memory_pool_allocator_1_1_chunk_header}{Chunk\+Header} $\ast$ \hyperlink{struct_memory_pool_allocator_1_1_chunk_header_a4d24357c177824b3af56ec1098d9d9dc}{next}\hypertarget{struct_memory_pool_allocator_1_1_chunk_header_a4d24357c177824b3af56ec1098d9d9dc}{}\label{struct_memory_pool_allocator_1_1_chunk_header_a4d24357c177824b3af56ec1098d9d9dc}
+
+\begin{DoxyCompactList}\small\item\em Next chunk in the linked list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Base\+Allocator = Crt\+Allocator$>$\\*
+struct Memory\+Pool\+Allocator$<$ Base\+Allocator $>$\+::\+Chunk\+Header}
+
+Chunk header for perpending to each chunk. 
+
+Chunks are stored as a singly linked list. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+Rapid\+J\+S\+O\+N/include/rapidjson/allocators.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,341 @@
+\hypertarget{class_noeud_robot}{}\section{Noeud\+Robot Class Reference}
+\label{class_noeud_robot}\index{Noeud\+Robot@{Noeud\+Robot}}
+
+
+Classe qui représente le robot du premier projet intégrateur.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Robot.\+h$>$}
+
+Inheritance diagram for Noeud\+Robot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_noeud_robot}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_noeud_robot_aa7d43a71eae8061ee62a756fbc59fec5}{Noeud\+Robot} ()\hypertarget{class_noeud_robot_aa7d43a71eae8061ee62a756fbc59fec5}{}\label{class_noeud_robot_aa7d43a71eae8061ee62a756fbc59fec5}
+
+\begin{DoxyCompactList}\small\item\em Constructeur defaut. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga5649710d151f0548d8a7a279aad4c655}{$\sim$\+Noeud\+Robot} ()
+\begin{DoxyCompactList}\small\item\em destructeur. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga147453ac7f72970d7d9bfe336998ad94}{Noeud\+Robot} (const std\+::string \&type\+Noeud)
+\begin{DoxyCompactList}\small\item\em Constructeur du noeud robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gad63a8e09cc5ca8cc349f35e0901474e2}{afficher\+Concret} () const 
+\begin{DoxyCompactList}\small\item\em Affiche le robot. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga0ebb5112a0c82326a69826abb7bed323}{animer} (float dt)
+\item 
+void \hyperlink{group__inf2990_gaa6609972829a43ac4526eb2d43ef5428}{avancer} (float dt)
+\begin{DoxyCompactList}\small\item\em Mouvements du robot. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gabd77011c5ff987086fbb7520acbd5231}{reculer} (float dt)
+\item 
+void \hyperlink{group__inf2990_ga7b8e09b73eef79853b0d99ea716e1bd0}{virer\+AvG} (float dt)
+\item 
+void \hyperlink{group__inf2990_ga83effbe19ea7e064c8ad0aa0c21fa908}{virer\+AvD} (float dt)
+\item 
+void \hyperlink{group__inf2990_ga3fb4a3b28060801020dccd97140d7a28}{virer\+ArG} (float dt)
+\item 
+void \hyperlink{group__inf2990_gadce99535d73192120dec5f5fb62cdf1f}{virer\+ArD} (float dt)
+\item 
+void \hyperlink{group__inf2990_gab06f8c537708301af5b9edfdf4d42eb2}{se\+Deplacer} (float dt)
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_ga4ec188dfc86a70e02909339117d67fe5}{obtenir\+Senseur\+De\+Ligne\+Extreme\+Gauche} () const 
+\begin{DoxyCompactList}\small\item\em Accesseurs du suiveur de ligne de cytron. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_gaef63c8ca1bb34acc746ebbfac4b4fe5d}{obtenir\+Senseur\+De\+Ligne\+Gauche} () const 
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_ga9a8c87599a272a8792aa32c0e0c8a568}{obtenir\+Senseur\+De\+Ligne\+Central} () const 
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_ga9339bf56dc12dbcf4a45464813791cf8}{obtenir\+Senseurs\+De\+Ligne\+Droite} () const 
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_ga21005fbffd140f395ed88d931a8ff039}{obtenir\+Senseur\+De\+Ligne\+Extreme\+Droite} () const 
+\item 
+void \hyperlink{group__inf2990_gaf1516fb78545defbee96bc91e6d9b358}{mettre\+A\+Jour\+Senseurs} ()
+\item 
+bool \hyperlink{group__inf2990_ga50eb727eb48334c3bb0177fdee0ea41b}{mettre\+Ajour\+Detectionsenseurs} ()
+\item 
+int {\bfseries obtenir\+Nombre\+Senseurs\+Actifs} ()
+\item 
+bool \hyperlink{class_noeud_robot_ad140f24b92718f7cf6c2d09dcbb6fb0b}{verifier\+Senseurs} ()\hypertarget{class_noeud_robot_ad140f24b92718f7cf6c2d09dcbb6fb0b}{}\label{class_noeud_robot_ad140f24b92718f7cf6c2d09dcbb6fb0b}
+
+\begin{DoxyCompactList}\small\item\em Détecteur des senseurs du suiveur de ligne. \end{DoxyCompactList}\item 
+bool {\bfseries est\+Detecte\+Senseur\+De\+Ligne\+Extreme\+Gauche} () const \hypertarget{class_noeud_robot_aa0acf499548e8233bd0480d4db8ca11e}{}\label{class_noeud_robot_aa0acf499548e8233bd0480d4db8ca11e}
+
+\item 
+bool {\bfseries est\+Detecte\+Senseur\+De\+Ligne\+Gauche} () const \hypertarget{class_noeud_robot_affa57a16aad669e60f259169e0491499}{}\label{class_noeud_robot_affa57a16aad669e60f259169e0491499}
+
+\item 
+bool {\bfseries est\+Detecte\+Senseur\+De\+Ligne\+Central} () const \hypertarget{class_noeud_robot_a14a058049b01c013a357c572a216d705}{}\label{class_noeud_robot_a14a058049b01c013a357c572a216d705}
+
+\item 
+bool {\bfseries estdetecte\+Senseurs\+De\+Ligne\+Droite} () const \hypertarget{class_noeud_robot_a80567362e44d19ef4e00a292a95a707a}{}\label{class_noeud_robot_a80567362e44d19ef4e00a292a95a707a}
+
+\item 
+bool {\bfseries est\+Detecte\+Senseur\+De\+Ligne\+Extreme\+Droite} () const \hypertarget{class_noeud_robot_a9f9e75006fec204212d4d020e86a6656}{}\label{class_noeud_robot_a9f9e75006fec204212d4d020e86a6656}
+
+\item 
+void \hyperlink{class_noeud_robot_ab1efc029123cc38ce38b9df8a208626e}{set\+Senseur\+De\+Ligne\+Extreme\+Gauche} (bool senseur)\hypertarget{class_noeud_robot_ab1efc029123cc38ce38b9df8a208626e}{}\label{class_noeud_robot_ab1efc029123cc38ce38b9df8a208626e}
+
+\begin{DoxyCompactList}\small\item\em changer l\textquotesingle{}etat d\textquotesingle{}un senseur \end{DoxyCompactList}\item 
+void {\bfseries set\+Senseur\+De\+Ligne\+Gauche} (bool senseur)\hypertarget{class_noeud_robot_a78adc16ac72e867f42d79d1b0b70688f}{}\label{class_noeud_robot_a78adc16ac72e867f42d79d1b0b70688f}
+
+\item 
+void {\bfseries set\+Senseur\+De\+Ligne\+Central} (bool senseur)\hypertarget{class_noeud_robot_ace1e59e72a0cd6f8cfe37dee6fe2f7f5}{}\label{class_noeud_robot_ace1e59e72a0cd6f8cfe37dee6fe2f7f5}
+
+\item 
+void {\bfseries set\+Senseur\+De\+Ligne\+Droite} (bool senseur)\hypertarget{class_noeud_robot_a1ce860cceadc08dfcaf04795e1227666}{}\label{class_noeud_robot_a1ce860cceadc08dfcaf04795e1227666}
+
+\item 
+void {\bfseries set\+Senseur\+De\+Ligne\+Extreme\+Droite} (bool senseur)\hypertarget{class_noeud_robot_ae7602e55bd223671fe9e5f42add75269}{}\label{class_noeud_robot_ae7602e55bd223671fe9e5f42add75269}
+
+\item 
+float \hyperlink{class_noeud_robot_a978180bc07fc378727ad6da67b889bd5}{obtenir\+Vitesse\+Maximale} () const \hypertarget{class_noeud_robot_a978180bc07fc378727ad6da67b889bd5}{}\label{class_noeud_robot_a978180bc07fc378727ad6da67b889bd5}
+
+\begin{DoxyCompactList}\small\item\em Vitesse du robot. \end{DoxyCompactList}\item 
+float {\bfseries obtenir\+Vitesse} () const \hypertarget{class_noeud_robot_aecfcb401c29183bd5067ace848061f67}{}\label{class_noeud_robot_aecfcb401c29183bd5067ace848061f67}
+
+\item 
+void {\bfseries regler\+Vitesse} ()\hypertarget{class_noeud_robot_a6ea5467dfba28dcffc360af557583c97}{}\label{class_noeud_robot_a6ea5467dfba28dcffc360af557583c97}
+
+\item 
+void \hyperlink{group__inf2990_ga915f4b91836a31515bd1f378c6ccae63}{afficher\+Capteurs\+Distances} () const 
+\begin{DoxyCompactList}\small\item\em Affichage des capteurs de distance. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gac5e4716263a7463c2880d4a573a1a57f}{mettre\+A\+Jour\+Points\+Capteurs} () const 
+\item 
+virtual \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{class_noeud_robot_a0718850ab0d3f2ed1aa5d3dbebe1c7aa}{get\+Roue\+Droite} ()\hypertarget{class_noeud_robot_a0718850ab0d3f2ed1aa5d3dbebe1c7aa}{}\label{class_noeud_robot_a0718850ab0d3f2ed1aa5d3dbebe1c7aa}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du noeud correspondant a la roue droite du robot. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{class_noeud_robot_a083f1899a0981a154831829472b31c68}{get\+Roue\+Gauche} ()\hypertarget{class_noeud_robot_a083f1899a0981a154831829472b31c68}{}\label{class_noeud_robot_a083f1899a0981a154831829472b31c68}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant ler etour du noeud correspondant a la roue gauche du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_robot_a786f5e7f33a37a6371993c48d3be0219}{set\+Roue\+Droite} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud\+Roue)\hypertarget{class_noeud_robot_a786f5e7f33a37a6371993c48d3be0219}{}\label{class_noeud_robot_a786f5e7f33a37a6371993c48d3be0219}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}un noeud correspondant a la roue droite du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_robot_a5222c5b0cd44f63b12de2351801a6493}{set\+Roue\+Gauche} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud\+Roue)\hypertarget{class_noeud_robot_a5222c5b0cd44f63b12de2351801a6493}{}\label{class_noeud_robot_a5222c5b0cd44f63b12de2351801a6493}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}un noeud correspondant a la roue gauche du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga3145fecfd559953a9fdc236623aaca52}{actionner\+Moteurs} (const double \&rapport\+Vitesse\+Gauche, const double \&rapport\+Vitesse\+Droit, const Direction \&direction)
+\item 
+virtual void \hyperlink{group__inf2990_gac1e31c2a3291910c02405436cc5e15f6}{arreter\+Moteurs} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}arreter les moteurs du robot. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \hyperlink{group__inf2990_gad561feaac062f26a00da912568d04f2d}{coordonnees\+Par\+Rapport\+A\+Origine} (\hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} point, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} position\+Origine, double theta) const 
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \hyperlink{class_noeud_robot_a92bb258a10c461527f7362f4d6a2f3b7}{obtenir\+P2\+Capteur\+Securitaire\+Droit} ()\hypertarget{class_noeud_robot_a92bb258a10c461527f7362f4d6a2f3b7}{}\label{class_noeud_robot_a92bb258a10c461527f7362f4d6a2f3b7}
+
+\begin{DoxyCompactList}\small\item\em Getters des points des capteurs. \end{DoxyCompactList}\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Securitaire\+Milieu} ()\hypertarget{class_noeud_robot_abe3f99721aa94aa1bc91a5c706ffb61b}{}\label{class_noeud_robot_abe3f99721aa94aa1bc91a5c706ffb61b}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Securitaire\+Gauche} ()\hypertarget{class_noeud_robot_a1d664ca8ef352ffb122fbb4d92948d7a}{}\label{class_noeud_robot_a1d664ca8ef352ffb122fbb4d92948d7a}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_robot_a9f9c4f44db44ffeacfe67c86e033d827}{}\label{class_noeud_robot_a9f9c4f44db44ffeacfe67c86e033d827}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_robot_ad732ec236a5599aef3426a67b574bc11}{}\label{class_noeud_robot_ad732ec236a5599aef3426a67b574bc11}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_robot_a689d963726577a7c0c2f098c91e572ec}{}\label{class_noeud_robot_a689d963726577a7c0c2f098c91e572ec}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P1\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_robot_a57a967c7bf9241623513d2e1c5960d4f}{}\label{class_noeud_robot_a57a967c7bf9241623513d2e1c5960d4f}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P1\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_robot_a9c603c0900cd1f3334fc8ad0d33cf9f5}{}\label{class_noeud_robot_a9c603c0900cd1f3334fc8ad0d33cf9f5}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P1\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_robot_a5ba426b2b7fe14908f0e6a45822831c3}{}\label{class_noeud_robot_a5ba426b2b7fe14908f0e6a45822831c3}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Securitaire\+Droit} ()\hypertarget{class_noeud_robot_a5f920022cf6fc892f7422f27308bfbbd}{}\label{class_noeud_robot_a5f920022cf6fc892f7422f27308bfbbd}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Securitaire\+Milieu} ()\hypertarget{class_noeud_robot_ad14515dfe84a0662375a02d45a444d58}{}\label{class_noeud_robot_ad14515dfe84a0662375a02d45a444d58}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Securitaire\+Gauche} ()\hypertarget{class_noeud_robot_a3595e58b0b0d6731a47fb2e396925e8e}{}\label{class_noeud_robot_a3595e58b0b0d6731a47fb2e396925e8e}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_robot_aa5b73f8f6db4a608a323cf8dac125e0b}{}\label{class_noeud_robot_aa5b73f8f6db4a608a323cf8dac125e0b}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_robot_aae012420c85460a7efc0d3c89e6a422b}{}\label{class_noeud_robot_aae012420c85460a7efc0d3c89e6a422b}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_robot_a69177a64adde05edeadb5648000ec85c}{}\label{class_noeud_robot_a69177a64adde05edeadb5648000ec85c}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P4\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_robot_a40239d55d49fcf8ab62e1e7e1f8b988e}{}\label{class_noeud_robot_a40239d55d49fcf8ab62e1e7e1f8b988e}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P4\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_robot_a138c11ef7fda25bd51395129e1b489a6}{}\label{class_noeud_robot_a138c11ef7fda25bd51395129e1b489a6}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P4\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_robot_a28ac021fcc554f95369932a4624f9253}{}\label{class_noeud_robot_a28ac021fcc554f95369932a4624f9253}
+
+\item 
+virtual void \hyperlink{class_noeud_robot_a0f7026d2c33aaf68673610d39cd6cb66}{set\+Detection\+Securitaire\+Droit} (const bool \&detection)\hypertarget{class_noeud_robot_a0f7026d2c33aaf68673610d39cd6cb66}{}\label{class_noeud_robot_a0f7026d2c33aaf68673610d39cd6cb66}
+
+\begin{DoxyCompactList}\small\item\em Setters des attributs de detection des capteurs. \end{DoxyCompactList}\item 
+virtual void {\bfseries set\+Detection\+Securitaire\+Milieu} (const bool \&detection)\hypertarget{class_noeud_robot_ae8c95c3ad0dcd6ccc370c0cb540af093}{}\label{class_noeud_robot_ae8c95c3ad0dcd6ccc370c0cb540af093}
+
+\item 
+virtual void {\bfseries set\+Detection\+Securitaire\+Gauche} (const bool \&detection)\hypertarget{class_noeud_robot_a901af47fd1b85a3d901fe6e52e38e89e}{}\label{class_noeud_robot_a901af47fd1b85a3d901fe6e52e38e89e}
+
+\item 
+virtual void {\bfseries set\+Detection\+Danger\+Droit} (const bool \&detection)\hypertarget{class_noeud_robot_a0ecbc9a2fdc914e074a2973e64332fc4}{}\label{class_noeud_robot_a0ecbc9a2fdc914e074a2973e64332fc4}
+
+\item 
+virtual void {\bfseries set\+Detection\+Danger\+Milieu} (const bool \&detection)\hypertarget{class_noeud_robot_ab6fcc59e565d4c85d48c7934260d2b3d}{}\label{class_noeud_robot_ab6fcc59e565d4c85d48c7934260d2b3d}
+
+\item 
+virtual void {\bfseries set\+Detection\+Danger\+Gauche} (const bool \&detection)\hypertarget{class_noeud_robot_ac81e3823a7d0454e95f790bf176d7891}{}\label{class_noeud_robot_ac81e3823a7d0454e95f790bf176d7891}
+
+\item 
+virtual bool \hyperlink{class_noeud_robot_a680ed0242fca7c53de31a7b1bbe18ce9}{get\+Etat\+Capteur\+Securitaire\+Droit} ()\hypertarget{class_noeud_robot_a680ed0242fca7c53de31a7b1bbe18ce9}{}\label{class_noeud_robot_a680ed0242fca7c53de31a7b1bbe18ce9}
+
+\begin{DoxyCompactList}\small\item\em Getters des etats de detection des zones securitaire et danger des differents capteurs. \end{DoxyCompactList}\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_robot_a5ce9a0bdadbc905c0b0662892ea38059}{}\label{class_noeud_robot_a5ce9a0bdadbc905c0b0662892ea38059}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Securitaire\+Milieu} ()\hypertarget{class_noeud_robot_a168fc17f881e720ac8e3a1587af03dc1}{}\label{class_noeud_robot_a168fc17f881e720ac8e3a1587af03dc1}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_robot_a64f95f42c0a08dc2a78ff77bb8c2d962}{}\label{class_noeud_robot_a64f95f42c0a08dc2a78ff77bb8c2d962}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Securitaire\+Gauche} ()\hypertarget{class_noeud_robot_aa7571d1fb0da741cf8099ac10189606d}{}\label{class_noeud_robot_aa7571d1fb0da741cf8099ac10189606d}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_robot_a894c8a81cf852297fef3a99fff07ff2a}{}\label{class_noeud_robot_a894c8a81cf852297fef3a99fff07ff2a}
+
+\item 
+void \hyperlink{group__inf2990_ga1d1e84dd2eb1aaacc5e5f8ae5fe68274}{afficher\+Type\+Et\+Objet\+Collision} (\hyperlink{group__inf2990_ga8f54284842b699d5f4247ed06fa85814}{Type\+Collision} type, \hyperlink{group__inf2990_ga221eba0d5a164abc7519084fa785b663}{Objet\+Collision} objet)
+\begin{DoxyCompactList}\small\item\em Permet l\textquotesingle{}affichage du type de collision et de l\textquotesingle{}objet en collision. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga5af9fb595302c54b2cf34586b8ab0fcf}{mettre\+Ajour\+Parametres} (float dt)
+\begin{DoxyCompactList}\small\item\em Met a jours les parametres du robot en tenant compte d\textquotesingle{}un certain dt. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga500ce269d10ead16acbb560396a085d7}{mettre\+Ajour\+Bte\+Englobante} ()
+\begin{DoxyCompactList}\small\item\em Met a jours la boite englobante du robot. \end{DoxyCompactList}\item 
+void {\bfseries definir\+Comportement} (\hyperlink{class_comportement_abstrait}{Comportement\+Abstrait} $\ast$comportement)\hypertarget{class_noeud_robot_a37f4c91ab6564360785d6413df59f413}{}\label{class_noeud_robot_a37f4c91ab6564360785d6413df59f413}
+
+\item 
+void {\bfseries interpreter\+Comportement} ()\hypertarget{class_noeud_robot_a4862f65545ca1654984a8a36310d60e4}{}\label{class_noeud_robot_a4862f65545ca1654984a8a36310d60e4}
+
+\item 
+void \hyperlink{group__inf2990_ga6c9edbee046f446f233a6bff82cf4fd6}{charger\+Profil} (char $\ast$nom\+Profil)
+\begin{DoxyCompactList}\small\item\em permet de charger le bon profil et de mettre a jour le profil courant \end{DoxyCompactList}\item 
+\hyperlink{class_profil}{Profil} $\ast$ \hyperlink{class_noeud_robot_ae5b049cc897bbc57c6297e8ae99cc993}{get\+Profil} ()\hypertarget{class_noeud_robot_ae5b049cc897bbc57c6297e8ae99cc993}{}\label{class_noeud_robot_ae5b049cc897bbc57c6297e8ae99cc993}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du profil. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_robot_a020fd3fbdcdf44f0017efa24a7017630}{setangle\+Rotation\+Initial} (double angle)\hypertarget{class_noeud_robot_a020fd3fbdcdf44f0017efa24a7017630}{}\label{class_noeud_robot_a020fd3fbdcdf44f0017efa24a7017630}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de l\textquotesingle{}angle de rotation initial du robot. \end{DoxyCompactList}\item 
+double \hyperlink{class_noeud_robot_ac5e33d8a08cda3b00ebd0bfaa12876c8}{get\+Angle\+Rotation\+Initial} ()\hypertarget{class_noeud_robot_ac5e33d8a08cda3b00ebd0bfaa12876c8}{}\label{class_noeud_robot_ac5e33d8a08cda3b00ebd0bfaa12876c8}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de l\textquotesingle{}angle de rotation initial du robot. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_robot_af95857692c9e68d03076ce28df3a19d7}{set\+Doit\+Suivre} (bool doit)\hypertarget{class_noeud_robot_af95857692c9e68d03076ce28df3a19d7}{}\label{class_noeud_robot_af95857692c9e68d03076ce28df3a19d7}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}un booleen suivi de ligne ou non au robot. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_robot_a48437f941764d5eaaafbe2daf6c492b0}{get\+Doit\+Suivre} ()\hypertarget{class_noeud_robot_a48437f941764d5eaaafbe2daf6c492b0}{}\label{class_noeud_robot_a48437f941764d5eaaafbe2daf6c492b0}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention d\textquotesingle{}un booleen represent si le robot doit suivre ou non la ligne. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_robot_aafbc62956b33a4ccf95eb02161c49232}{reset\+Temps\+Attente} ()\hypertarget{class_noeud_robot_aafbc62956b33a4ccf95eb02161c49232}{}\label{class_noeud_robot_aafbc62956b33a4ccf95eb02161c49232}
+
+\begin{DoxyCompactList}\small\item\em Reinitialise le temps d\textquotesingle{}attente du robot. \end{DoxyCompactList}\item 
+time\+\_\+t \hyperlink{class_noeud_robot_a834b50e295dd49fca7511a55f9deffa7}{get\+Temps\+Debut} ()\hypertarget{class_noeud_robot_a834b50e295dd49fca7511a55f9deffa7}{}\label{class_noeud_robot_a834b50e295dd49fca7511a55f9deffa7}
+
+\begin{DoxyCompactList}\small\item\em Temps initial de l\textquotesingle{}etat d\textquotesingle{}evitement. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_robot_a5a0c59fe56ad791335912996a3ca9548}{set\+Temps\+Debut} (time\+\_\+t time)\hypertarget{class_noeud_robot_a5a0c59fe56ad791335912996a3ca9548}{}\label{class_noeud_robot_a5a0c59fe56ad791335912996a3ca9548}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation du temps initial. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_robot_a8a0c728b3acd702e4b89bf26b0c5c040}{get\+Doit\+Attendre} ()\hypertarget{class_noeud_robot_a8a0c728b3acd702e4b89bf26b0c5c040}{}\label{class_noeud_robot_a8a0c728b3acd702e4b89bf26b0c5c040}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de l\textquotesingle{}etat d\textquotesingle{}attente du robot. \end{DoxyCompactList}\item 
+\hyperlink{class_comportement_abstrait}{Comportement\+Abstrait} $\ast$ \hyperlink{group__inf2990_ga22115551b5e4bb80972c2b40a794a9c9}{get\+Comportement} (E\+T\+A\+TS etat)
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du comportement du robot. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_debug}{Debug} $\ast$ \hyperlink{class_noeud_robot_a14d322ac7fc96d60a550335043289757}{obtenir\+Debug} ()\hypertarget{class_noeud_robot_a14d322ac7fc96d60a550335043289757}{}\label{class_noeud_robot_a14d322ac7fc96d60a550335043289757}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du profil de debugage. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga782cf07045b16946186017ef6ca18a85}{basculer\+Activation\+Lumiere\+Ambiante} (std\+::string log)
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}activation des differents mode de lumiere. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga247add01a614c6c19c9eeb9e1d6e473e}{basculer\+Activation\+Lumiere\+Directionnelle} (std\+::string log)
+\item 
+void \hyperlink{group__inf2990_ga4316cd5d1f6fac84028c9db3a037a197}{basculer\+Activation\+Spots} (std\+::string log)
+\item 
+void \hyperlink{class_noeud_robot_aeef7110c3509ba2687160289a131d432}{basculer\+Activation\+Debougage} ()\hypertarget{class_noeud_robot_aeef7110c3509ba2687160289a131d432}{}\label{class_noeud_robot_aeef7110c3509ba2687160289a131d432}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}activation de l\textquotesingle{}affichage console de debugage ou non. \end{DoxyCompactList}\item 
+\hyperlink{class_comportement_abstrait}{Comportement\+Abstrait} $\ast$ \hyperlink{class_noeud_robot_ada1f32ef09eacea82e0b74ff85856472}{get\+Comportement\+Courant} ()\hypertarget{class_noeud_robot_ada1f32ef09eacea82e0b74ff85856472}{}\label{class_noeud_robot_ada1f32ef09eacea82e0b74ff85856472}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du comportement courant du robot. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga0060e94f1b1f81eea2e6ff9cabe67108}{changer\+Comportements\+Obstacles} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de changer le comportement du robot lors de la rencontre d\textquotesingle{}un obstacle. \end{DoxyCompactList}\item 
+\hyperlink{class_profil}{Profil} $\ast$ \hyperlink{class_noeud_robot_a1e7e01629e1104522e6915ca74ddc289}{obtenir\+Profil} ()\hypertarget{class_noeud_robot_a1e7e01629e1104522e6915ca74ddc289}{}\label{class_noeud_robot_a1e7e01629e1104522e6915ca74ddc289}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du profil. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_robot_ae34f7d578604fa99dc161750d1fef5ce}{set\+Affichage\+Debogage\+Suivi\+Ligne} (const bool \&booleen)\hypertarget{class_noeud_robot_ae34f7d578604fa99dc161750d1fef5ce}{}\label{class_noeud_robot_ae34f7d578604fa99dc161750d1fef5ce}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de l\textquotesingle{}affichage debugage du suivi de ligne. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_robot_a6d14383c366f2cb0d41a967023ee3fbd}{set\+Etat} (const E\+T\+A\+TS \&etat)\hypertarget{class_noeud_robot_a6d14383c366f2cb0d41a967023ee3fbd}{}\label{class_noeud_robot_a6d14383c366f2cb0d41a967023ee3fbd}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}assigner l\textquotesingle{}etat actuelle du robot pour des fins d\textquotesingle{}affichage debugage a la console. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_robot_ae5d284e9bbb294931695ca6d2bb07821}{set\+Affichage\+Debogage\+Capteur\+Danger\+Droit} (const bool \&booleen)\hypertarget{class_noeud_robot_ae5d284e9bbb294931695ca6d2bb07821}{}\label{class_noeud_robot_ae5d284e9bbb294931695ca6d2bb07821}
+
+\begin{DoxyCompactList}\small\item\em methode permettant l\textquotesingle{}assignation de l\textquotesingle{}affichage debugage des capteurs de distance. \end{DoxyCompactList}\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Danger\+Milieu} (const bool \&booleen)\hypertarget{class_noeud_robot_a9c51b653156e87e9d4e99702fe191e0f}{}\label{class_noeud_robot_a9c51b653156e87e9d4e99702fe191e0f}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Danger\+Gauche} (const bool \&booleen)\hypertarget{class_noeud_robot_ab9f1902f5942a1965c356739ffb214b0}{}\label{class_noeud_robot_ab9f1902f5942a1965c356739ffb214b0}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Securitaire\+Droit} (const bool \&booleen)\hypertarget{class_noeud_robot_a6e996abe3ca9023221ae9653ea483bc2}{}\label{class_noeud_robot_a6e996abe3ca9023221ae9653ea483bc2}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Securitaire\+Milieu} (const bool \&booleen)\hypertarget{class_noeud_robot_a7fa9062e4e1ef478c151faecb96f13c4}{}\label{class_noeud_robot_a7fa9062e4e1ef478c151faecb96f13c4}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Securitaire\+Gauche} (const bool \&booleen)\hypertarget{class_noeud_robot_ab1c008e5234181377aaceebe17cbac9b}{}\label{class_noeud_robot_ab1c008e5234181377aaceebe17cbac9b}
+
+\item 
+bool \hyperlink{class_noeud_robot_a156c9893612838f0b5f3688b523a6f87}{obstacle\+Detecte} ()\hypertarget{class_noeud_robot_a156c9893612838f0b5f3688b523a6f87}{}\label{class_noeud_robot_a156c9893612838f0b5f3688b523a6f87}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant la verification d\textquotesingle{}une detection ou non d\textquotesingle{}un obstacle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structutilitaire_1_1_bte_englobante_robot}{utilitaire\+::\+Bte\+Englobante\+Robot} $\ast$ \hyperlink{class_noeud_robot_a10b3d108e18b0ca95b7ce31eaa4533ab}{bte\+Englobante\+\_\+} \{nullptr\}\hypertarget{class_noeud_robot_a10b3d108e18b0ca95b7ce31eaa4533ab}{}\label{class_noeud_robot_a10b3d108e18b0ca95b7ce31eaa4533ab}
+
+\begin{DoxyCompactList}\small\item\em Boite englobante du robot. \end{DoxyCompactList}\item 
+\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$ \hyperlink{class_noeud_robot_a7eb4ba1d2d4f07746fa2b959c4bbca7b}{visiteur\+Verifier\+Collision\+\_\+} \{nullptr\}\hypertarget{class_noeud_robot_a7eb4ba1d2d4f07746fa2b959c4bbca7b}{}\label{class_noeud_robot_a7eb4ba1d2d4f07746fa2b959c4bbca7b}
+
+\begin{DoxyCompactList}\small\item\em Visiteur verifiant les collisions du robot. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga8f54284842b699d5f4247ed06fa85814}{Type\+Collision} \hyperlink{class_noeud_robot_ae0ed7b2f48fb1017c8868a0330535119}{type\+Collision\+\_\+}\hypertarget{class_noeud_robot_ae0ed7b2f48fb1017c8868a0330535119}{}\label{class_noeud_robot_ae0ed7b2f48fb1017c8868a0330535119}
+
+\begin{DoxyCompactList}\small\item\em Type de collision du robot. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga221eba0d5a164abc7519084fa785b663}{Objet\+Collision} \hyperlink{class_noeud_robot_a10b58b77ee8ac465203245a8985a8973}{objet\+Collision\+\_\+}\hypertarget{class_noeud_robot_a10b58b77ee8ac465203245a8985a8973}{}\label{class_noeud_robot_a10b58b77ee8ac465203245a8985a8973}
+
+\begin{DoxyCompactList}\small\item\em Objet avec lequel le robot est en collision. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_robot_ad72cabb98336aab0b8491499a16e8f24}{mode\+Automatique\+\_\+} \{ false \}\hypertarget{class_noeud_robot_ad72cabb98336aab0b8491499a16e8f24}{}\label{class_noeud_robot_ad72cabb98336aab0b8491499a16e8f24}
+
+\begin{DoxyCompactList}\small\item\em Mode automatique du robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui représente le robot du premier projet intégrateur. 
+
+\begin{DoxyAuthor}{Author}
+Martin Paradis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2015-\/08-\/30 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_robot_8h}{Noeud\+Robot.\+h}\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_robot_8cpp}{Noeud\+Robot.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\hypertarget{class_interface_graphique_1_1_program}{}\section{Interface\+Graphique.\+Program Class Reference}
+\label{class_interface_graphique_1_1_program}\index{Interface\+Graphique.\+Program@{Interface\+Graphique.\+Program}}
+
+
+Classe representant le main du projet.  
+
+
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Object {\bfseries un\+Lock} = new Object()
+\item 
+static bool {\bfseries peut\+Afficher} = true
+\item 
+static \hyperlink{class_interface_graphique_1_1_edition}{Edition} {\bfseries edition}
+\item 
+static \hyperlink{class_interface_graphique_1_1_menu_principale}{Menu\+Principale} {\bfseries menu\+Principale}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{group__inf2990_ga9aeb8768ad67ed21f795d6eee48c47a9}{Main} (string\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Point d\textquotesingle{}entrée principal de l\textquotesingle{}application. \end{DoxyCompactList}\item 
+static void \hyperlink{group__inf2990_gaf51bcc84fd402db8d6f77143690fa443}{Executer\+Quand\+Inactif} (object sender, Event\+Args e)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries N\+B\+\_\+\+I\+M\+A\+G\+E\+S\+\_\+\+P\+A\+R\+\_\+\+S\+E\+C\+O\+N\+DE} = 60
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Time\+Span {\bfseries dernier\+Temps}
+\item 
+static Time\+Span {\bfseries temps\+Accumule}
+\item 
+static Stopwatch {\bfseries chrono} = Stopwatch.\+Start\+New()
+\item 
+static Time\+Span {\bfseries temps\+Ecoule\+Voulu} = Time\+Span.\+From\+Ticks(Time\+Span.\+Ticks\+Per\+Second / N\+B\+\_\+\+I\+M\+A\+G\+E\+S\+\_\+\+P\+A\+R\+\_\+\+S\+E\+C\+O\+N\+DE)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe representant le main du projet. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+Interface\+Graphique/\hyperlink{_program_8cs}{Program.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,3 @@
+/Framework/Commun/Externe/DLL/*.dll
+/Framework/Commun/Externe/Box2D/lib/*.lib
+*.lib

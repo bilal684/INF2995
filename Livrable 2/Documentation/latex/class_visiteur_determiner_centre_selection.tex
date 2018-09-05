@@ -1,0 +1,60 @@
+\hypertarget{class_visiteur_determiner_centre_selection}{}\section{Visiteur\+Determiner\+Centre\+Selection Class Reference}
+\label{class_visiteur_determiner_centre_selection}\index{Visiteur\+Determiner\+Centre\+Selection@{Visiteur\+Determiner\+Centre\+Selection}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud afin de determiner les coordonnees du centre du noeud.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Determiner\+Centre\+Selection.\+h$>$}
+
+Inheritance diagram for Visiteur\+Determiner\+Centre\+Selection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_determiner_centre_selection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga7472a788baf8d76723c35c1aa9da297a}{Visiteur\+Determiner\+Centre\+Selection} (bool min\+Max)
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_gae3ce8fdb6244aeb486daa628d19be58e}{$\sim$\+Visiteur\+Determiner\+Centre\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaa6848f1f75f4aa0b627cb9ead9ea75ab}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaec459d1a1659fbf738eaec05ad479587}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga214ee221e011359c741d7ddcaae0429c}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga6eda7d1a9589eca7b66a53271d88733f}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaaa82601f888c0133e633776c7ebc09d1}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga7cb023cc082f07ebbeaef885252db36f}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga170990fa68353816118b154086ab914b}{mettre\+A\+Jour\+Centre\+Selection} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud)
+\begin{DoxyCompactList}\small\item\em Methode permettant la mise a jour du centre d\textquotesingle{}un objet selectionne. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_ga9da6abbafbfeb986095a22690c8c8e47}{obtenir\+Centre\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du centre d\textquotesingle{}un objet selectionne. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud afin de determiner les coordonnees du centre du noeud. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_determiner_centre_selection_8h}{Visiteur\+Determiner\+Centre\+Selection.\+h}\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_determiner_centre_selection_8cpp}{Visiteur\+Determiner\+Centre\+Selection.\+cpp}\end{DoxyCompactItemize}

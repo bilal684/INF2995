@@ -1,0 +1,286 @@
+文档对象模型（\+Document Object Model, D\+O\+M）是一种罝于内存中的\+J\+S\+O\+N表示方式，以供查询及操作。我们己于教程中介绍了\+D\+O\+M的基本用法，本节将讲述一些细节及高级用法。\hypertarget{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_Template}{}\section{Template}\label{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_Template}
+教程中使用了{\ttfamily Value}和{\ttfamily Document}类型。与{\ttfamily std\+::string}相似，这些类型其实是两个模板类的{\ttfamily typedef}：
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{namespace }\hyperlink{namespacerapidjson}{rapidjson} \{
+
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} Encoding, \textcolor{keyword}{typename} Allocator = MemoryPoolAllocator<> >
+\textcolor{keyword}{class }\hyperlink{class_generic_value}{GenericValue} \{
+    \textcolor{comment}{// ...}
+\};
+
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} Encoding, \textcolor{keyword}{typename} Allocator = MemoryPoolAllocator<> >
+\textcolor{keyword}{class }\hyperlink{class_generic_document}{GenericDocument} : \textcolor{keyword}{public} \hyperlink{class_generic_value}{GenericValue}<Encoding, Allocator> \{
+    \textcolor{comment}{// ...}
+\};
+
+\textcolor{keyword}{typedef} \hyperlink{class_generic_value}{GenericValue<UTF8<>} > \hyperlink{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}{Value};
+\textcolor{keyword}{typedef} GenericDocument<UTF8<> > \hyperlink{document_8h_ac6ea5b168e3fe8c7fa532450fc9391f7}{Document};
+
+\} \textcolor{comment}{// namespace rapidjson}
+\end{DoxyCode}
+
+
+使用者可以自定义这些模板参数。\hypertarget{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_Encoding}{}\subsection{Encoding}\label{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_Encoding}
+{\ttfamily Encoding}参数指明在内存中的\+J\+S\+ON String使用哪种编码。可行的选项有{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}、{\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}}、{\ttfamily \hyperlink{struct_u_t_f32}{U\+T\+F32}}。要注意这3个类型其实也是模板类。{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$}等同{\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}$<$char$>$}，这代表它使用{\ttfamily char}来存储字符串。更多细节可以参考编码。
+
+这里是一个例子。假设一个\+Windows应用软件希望查询存储于\+J\+S\+O\+N中的本地化字符串。\+Windows中含\+Unicode的函数使用\+U\+T\+F-\/16（宽字符）编码。无论\+J\+S\+O\+N文件使用哪种编码，我们都可以把字符串以\+U\+T\+F-\/16形式存储在内存。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keyword}{typedef} \hyperlink{class_generic_document}{GenericDocument<UTF16<>} > WDocument;
+\textcolor{keyword}{typedef} \hyperlink{class_generic_value}{GenericValue<UTF16<>} > WValue;
+
+FILE* fp = fopen(\textcolor{stringliteral}{"localization.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// 非Windows平台使用"r"}
+
+\textcolor{keywordtype}{char} readBuffer[256];
+\hyperlink{class_file_read_stream}{FileReadStream} bis(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_auto_u_t_f_input_stream}{AutoUTFInputStream<unsigned, FileReadStream>} eis(bis);  \textcolor{comment}{//
+       包装bis成eis}
+
+WDocument d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}<0, \hyperlink{struct_auto_u_t_f}{AutoUTF<unsigned>} >(eis);
+
+\textcolor{keyword}{const} WValue locale(L\textcolor{stringliteral}{"ja"}); \textcolor{comment}{// Japanese}
+
+MessageBoxW(hWnd, d[locale].GetString(), L\textcolor{stringliteral}{"Test"}, MB\_OK);
+\end{DoxyCode}
+\hypertarget{md_Commun_Externe_RapidJSON_doc_internals_Allocator}{}\subsection{Allocator}\label{md_Commun_Externe_RapidJSON_doc_internals_Allocator}
+{\ttfamily Allocator}定义当{\ttfamily Document}/{\ttfamily Value}分配或释放内存时使用那个分配类。{\ttfamily Document}拥有或引用到一个{\ttfamily Allocator}实例。而为了节省内存，{\ttfamily Value}没有这么做。
+
+{\ttfamily \hyperlink{class_generic_document}{Generic\+Document}}的缺省分配器是{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}}。此分配器实际上会顺序地分配内存，并且不能逐一释放。当要解析一个\+J\+S\+O\+N并生成\+D\+O\+M，这种分配器是非常合适的。
+
+Rapid\+J\+S\+O\+N还提供另一个分配器{\ttfamily \hyperlink{class_crt_allocator}{Crt\+Allocator}}，当中\+C\+R\+T是\+C运行库（C Run\+Time library）的缩写。此分配器简单地读用标准的{\ttfamily malloc()}/{\ttfamily realloc()}/{\ttfamily free()}。当我们需要许多增减操作，这种分配器会更为适合。然而这种分配器远远比{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}}低效。\hypertarget{md_Commun_Externe_RapidJSON_doc_sax.zh-cn_Parsing}{}\section{Parsing}\label{md_Commun_Externe_RapidJSON_doc_sax.zh-cn_Parsing}
+{\ttfamily Document}提供几个解析函数。以下的(1)是根本的函数，其他都是调用(1)的协助函数。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{comment}{// (1) 根本}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} SourceEncoding, \textcolor{keyword}{typename} InputStream>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{GenericDocument::ParseStream}(InputStream& is);
+
+\textcolor{comment}{// (2) 使用流的编码}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} InputStream>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{GenericDocument::ParseStream}(InputStream& is);
+
+\textcolor{comment}{// (3) 使用缺省标志}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} InputStream>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{GenericDocument::ParseStream}(InputStream& is);
+
+\textcolor{comment}{// (4) 原位解析}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_a301f8f297a5a0da4b6be5459ad766f75}{GenericDocument::ParseInsitu}(Ch* str);
+
+\textcolor{comment}{// (5) 原位解析，使用缺省标志}
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_a301f8f297a5a0da4b6be5459ad766f75}{GenericDocument::ParseInsitu}(Ch* str);
+
+\textcolor{comment}{// (6) 正常解析一个字符串}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} SourceEncoding>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{GenericDocument::Parse}(\textcolor{keyword}{const} Ch* str);
+
+\textcolor{comment}{// (7) 正常解析一个字符串，使用Document的编码}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags>
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{GenericDocument::Parse}(\textcolor{keyword}{const} Ch* str);
+
+\textcolor{comment}{// (8) 正常解析一个字符串，使用缺省标志}
+\hyperlink{class_generic_document}{GenericDocument}& \hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{GenericDocument::Parse}(\textcolor{keyword}{const} Ch* str);
+\end{DoxyCode}
+
+
+教程中的例使用(8)去正常解析字符串。而流的例子使用前3个函数。我们将稍后介绍原位（$\ast$\+In situ$\ast$） 解析。
+
+{\ttfamily parse\+Flags}是以下位标置的组合：
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf 解析位标志 }&{\bf 意义  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf 解析位标志 }&{\bf 意义  }\\\cline{1-2}
+\endhead
+{\ttfamily k\+Parse\+No\+Flags} &没有任何标志。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Default\+Flags} &缺省的解析选项。它等于{\ttfamily R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+P\+A\+R\+S\+E\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+F\+L\+A\+GS}宏，此宏定义为{\ttfamily k\+Parse\+No\+Flags}。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Insitu\+Flag} &原位（破坏性）解析。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Validate\+Encoding\+Flag} &校验\+J\+S\+O\+N字符串的编码。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Iterative\+Flag} &迭代式（调用堆栈大小为常数复杂度）解析。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Stop\+When\+Done\+Flag} &当从流解析了一个完整的\+J\+S\+O\+N根节点之后，停止继续处理余下的流。当使用了此标志，解析器便不会产生{\ttfamily k\+Parse\+Error\+Document\+Root\+Not\+Singular}错误。可使用本标志去解析同一个流里的多个\+J\+S\+O\+N。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Full\+Precision\+Flag} &使用完整的精确度去解析数字（较慢）。如不设置此标节，则会使用正常的精确度（较快）。正常精确度会有最多3个\href{http://en.wikipedia.org/wiki/Unit_in_the_last_place}{\tt U\+LP}的误差。 \\\cline{1-2}
+\end{longtabu}
+由于使用了非类型模板参数，而不是函数参数，\+C++编译器能为个别组合生成代码，以改善性能及减少代码尺寸（当只用单种特化）。缺点是需要在编译期决定标志。
+
+{\ttfamily Source\+Encoding}参数定义流使用了什么编码。这与{\ttfamily Document}的{\ttfamily Encoding}不相同。细节可参考\href{#TranscodingAndValidation}{\tt 转码和校验}一节。
+
+此外{\ttfamily Input\+Stream}是输入流的类型。\hypertarget{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_ParseError}{}\subsection{Parse Error}\label{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_ParseError}
+当解析过程顺利完成，{\ttfamily Document}便会含有解析结果。当过程出现错误，原来的\+D\+O\+M会$\ast$维持不便$\ast$。可使用{\ttfamily bool Has\+Parse\+Error()}、{\ttfamily Parse\+Error\+Code Get\+Parse\+Error()}及{\ttfamily size\+\_\+t Get\+Parse\+Offset()}获取解析的错误状态。
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf 解析错误代号 }&{\bf 描述  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf 解析错误代号 }&{\bf 描述  }\\\cline{1-2}
+\endhead
+{\ttfamily k\+Parse\+Error\+None} &无错误。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Document\+Empty} &文档是空的。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Document\+Root\+Not\+Singular} &文档的根后面不能有其它值。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Value\+Invalid} &不合法的值。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Object\+Miss\+Name} &Object成员缺少名字。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Object\+Miss\+Colon} &Object成员名字后缺少冒号。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Object\+Miss\+Comma\+Or\+Curly\+Bracket} &Object成员后缺少逗号或{\ttfamily \}}。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Array\+Miss\+Comma\+Or\+Square\+Bracket} &Array元素后缺少逗号或{\ttfamily \mbox{]}} 。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Unicode\+Escape\+Invalid\+Hex} &String中的{\ttfamily \textbackslash{}\textbackslash{}u}转义符后含非十六进位数字。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Unicode\+Surrogate\+Invalid} &String中的代理对（surrogate pair）不合法。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Escape\+Invalid} &String含非法转义字符。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Miss\+Quotation\+Mark} &String缺少关闭引号。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+String\+Invalid\+Encoding} &String含非法编码。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Number\+Too\+Big} &Number的值太大，不能存储于{\ttfamily double}。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Number\+Miss\+Fraction} &Number缺少了小数部分。 \\\cline{1-2}
+{\ttfamily k\+Parse\+Error\+Number\+Miss\+Exponent} &Number缺少了指数。 \\\cline{1-2}
+\end{longtabu}
+错误的偏移量定义为从流开始至错误处的字符数量。目前\+Rapid\+J\+S\+O\+N不记录错误行号。
+
+要取得错误讯息，\+Rapid\+J\+S\+O\+N在{\ttfamily \hyperlink{en_8h_source}{rapidjson/error/en.\+h}}中提供了英文错误讯息。使用者可以修改它用于其他语言环境，或使用一个自定义的本地化系统。
+
+以下是一个处理错误的例子。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+\textcolor{preprocessor}{#include "rapidjson/error/en.h"}
+
+\textcolor{comment}{// ...}
+\hyperlink{class_generic_document}{Document} d;
+\textcolor{keywordflow}{if} (d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json).\hyperlink{class_generic_document_afe0c87d9fc13a78597360e0646479419}{HasParseError}()) \{
+    fprintf(stderr, \textcolor{stringliteral}{"\(\backslash\)nError(offset %u): %s\(\backslash\)n"}, 
+        (\textcolor{keywordtype}{unsigned})d.\hyperlink{class_generic_document_a2db6ad11d157342f725470fb898b6712}{GetErrorOffset}(),
+        \hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga755b523205f46c980c80d12e230a3abd}{GetParseError\_En}(d.GetParseErrorCode()));
+    \textcolor{comment}{// ...}
+\}
+\end{DoxyCode}
+\hypertarget{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_InSituParsing}{}\subsection{In Situ Parsing}\label{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_InSituParsing}
+根据\href{http://en.wikipedia.org/wiki/In_situ}{\tt 维基百科}\+:
+
+\begin{quote}
+{\itshape In situ} ... is a Latin phrase that translates literally to \char`\"{}on site\char`\"{} or \char`\"{}in position\char`\"{}. It means \char`\"{}locally\char`\"{}, \char`\"{}on site\char`\"{}, \char`\"{}on the premises\char`\"{} or \char`\"{}in place\char`\"{} to describe an event where it takes place, and is used in many different contexts. ... (In computer science) An algorithm is said to be an in situ algorithm, or in-\/place algorithm, if the extra amount of memory required to execute the algorithm is O(1), that is, does not exceed a constant no matter how large the input. For example, heapsort is an in situ sorting algorithm. \end{quote}
+
+
+\begin{quote}
+翻译：$\ast$\+In situ$\ast$……是一个拉丁文片语，字面上的意思是指「现场」、「在位置」。在许多不同语境中，它描述一个事件发生的位置，意指「本地」、「现场」、「在处所」、「就位」。 …… （在计算机科学中）一个算法若称为原位算法，或在位算法，是指执行该算法所需的额外内存空间是\+O(1)的，换句话说，无论输入大小都只需要常数空间。例如，堆排序是一个原位排序算法。 \end{quote}
+
+
+在正常的解析过程中，对\+J\+S\+ON string解码并复制至其他缓冲区是一个很大的开销。原位解析（$\ast$in situ$\ast$ parsing）把这些\+J\+S\+ON string直接解码于它原来存储的地方。由于解码后的string长度总是短于或等于原来储存于\+J\+S\+O\+N的string，所以这是可行的。在这个语境下，对\+J\+S\+ON string进行解码是指处理转义符，如{\ttfamily \char`\"{}\textbackslash{}\textbackslash{}n\char`\"{}}、{\ttfamily \char`\"{}\textbackslash{}\textbackslash{}u1234\char`\"{}}等，以及在string末端加入空终止符号(`\textquotesingle{}\textbackslash{}0\textquotesingle{}`)。
+
+以下的图比较正常及原位解析。\+J\+S\+ON string值包含指向解码后的字符串。
+
+
+
+在正常解析中，解码后的字符串被复制至全新分配的缓冲区中。{\ttfamily \char`\"{}\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}n\char`\"{}}（2个字符）被解码成{\ttfamily \char`\"{}\textbackslash{}\textbackslash{}n\char`\"{}}（1个字符）。{\ttfamily \char`\"{}\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}u0073\char`\"{}}（6个字符）被解码成{\ttfamily \char`\"{}s\char`\"{}}（1个字符）。
+
+
+
+原位解析直接修改了原来的\+J\+S\+O\+N。图中高亮了被更新的字符。若\+J\+S\+ON string不含转义符，例如{\ttfamily \char`\"{}msg\char`\"{}}，那么解析过程仅仅是以空字符代替结束双引号。
+
+由于原位解析修改了输入，其解析\+A\+P\+I需要{\ttfamily char$\ast$}而非{\ttfamily const char$\ast$}。
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// 把整个文件读入buffer}
+FILE* fp = fopen(\textcolor{stringliteral}{"test.json"}, \textcolor{stringliteral}{"r"});
+fseek(fp, 0, SEEK\_END);
+\textcolor{keywordtype}{size\_t} filesize = (size\_t)ftell(fp);
+fseek(fp, 0, SEEK\_SET);
+\textcolor{keywordtype}{char}* buffer = (\textcolor{keywordtype}{char}*)malloc(filesize + 1);
+\textcolor{keywordtype}{size\_t} readLength = fread(buffer, 1, filesize, fp);
+buffer[readLength] = \textcolor{charliteral}{'\(\backslash\)0'};
+fclose(fp);
+
+\textcolor{comment}{// 原位解析buffer至d，buffer内容会被修改。}
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_a301f8f297a5a0da4b6be5459ad766f75}{ParseInsitu}(buffer);
+
+\textcolor{comment}{// 在此查询、修改DOM……}
+
+free(buffer);
+\textcolor{comment}{// 注意：在这个位置，d可能含有指向已被释放的buffer的悬空指针}
+\end{DoxyCode}
+
+
+J\+S\+ON string会被打上const-\/string的标志。但它们可能并非真正的「常数」。它的生命周期取决于存储\+J\+S\+O\+N的缓冲区。
+
+原位解析把分配开销及内存复制减至最小。通常这样做能改善缓存一致性，而这对现代计算机来说是一个重要的性能因素。
+
+原位解析有以下限制：
+
+
+\begin{DoxyEnumerate}
+\item 整个\+J\+S\+O\+N须存储在内存之中。
+\item 流的来源缓码与文档的目标编码必须相同。
+\item 需要保留缓冲区，直至文档不再被使用。
+\item 若\+D\+O\+M需要在解析后被长期使用，而\+D\+O\+M内只有很少\+J\+S\+ON string，保留缓冲区可能造成内存浪费。
+\end{DoxyEnumerate}
+
+原位解析最适合用于短期的、用完即弃的\+J\+S\+O\+N。实际应用中，这些场合是非常普遍的，例如反序列化\+J\+S\+O\+N至\+C++对象、处理以\+J\+S\+O\+N表示的web请求等。\hypertarget{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_TranscodingAndValidation}{}\subsection{Transcoding and Validation}\label{md_Commun_Externe_RapidJSON_doc_dom.zh-cn_TranscodingAndValidation}
+Rapid\+J\+S\+O\+N内部支持不同\+Unicode格式（正式的术语是\+U\+C\+S变换格式）间的转换。在\+D\+O\+M解析时，流的来源编码与\+D\+O\+M的编码可以不同。例如，来源流可能含有\+U\+T\+F-\/8的\+J\+S\+O\+N，而\+D\+O\+M则使用\+U\+T\+F-\/16编码。在Encoded\+Input\+Stream一节里有一个例子。
+
+当从\+D\+O\+M输出一个\+J\+S\+O\+N至输出流之时，也可以使用转码功能。在Encoded\+Output\+Stream一节里有一个例子。
+
+在转码过程中，会把来源string解码成\+Unicode码点，然后把码点编码成目标格式。在解码时，它会校验来源string的字节序列是否合法。若遇上非合法序列，解析器会停止并返回{\ttfamily k\+Parse\+Error\+String\+Invalid\+Encoding}错误。
+
+当来源编码与\+D\+O\+M的编码相同，解析器缺省地$\ast$不会$\ast$校验序列。使用者可开启{\ttfamily k\+Parse\+Validate\+Encoding\+Flag}去强制校验。\hypertarget{md_Commun_Externe_RapidJSON_doc_sax.zh-cn_Techniques}{}\section{Techniques}\label{md_Commun_Externe_RapidJSON_doc_sax.zh-cn_Techniques}
+这里讨论一些\+D\+OM A\+P\+I的使用技巧。
+
+\subsection*{把\+D\+O\+M作为\+S\+A\+X事件发表者}
+
+在\+Rapid\+J\+S\+O\+N中，利用{\ttfamily \hyperlink{class_writer}{Writer}}把\+D\+O\+M生成\+J\+S\+O\+N的做法，看来有点奇怪。
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// ...}
+\hyperlink{class_writer}{Writer<StringBuffer>} writer(buffer);
+d.Accept(writer);
+\end{DoxyCode}
+
+
+实际上，{\ttfamily Value\+::\+Accept()}是负责发布该值相关的\+S\+A\+X事件至处理器的。通过这个设计，{\ttfamily Value}及{\ttfamily \hyperlink{class_writer}{Writer}}解除了偶合。{\ttfamily Value}可生成\+S\+A\+X事件，而{\ttfamily \hyperlink{class_writer}{Writer}}则可以处理这些事件。
+
+使用者可以创建自定义的处理器，去把\+D\+O\+M转换成其它格式。例如，一个把\+D\+O\+M转换成\+X\+M\+L的处理器。
+
+要知道更多关于\+S\+A\+X事件与处理器，可参阅S\+AX。
+
+\subsection*{使用者缓冲区\{ \#\+User\+Buffer\}}
+
+许多应用软件可能需要尽量减少内存分配。
+
+{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}}可以帮助这方面，它容许使用者提供一个缓冲区。该缓冲区可能置于程序堆栈，或是一个静态分配的「草稿缓冲区（scratch buffer）」（一个静态／全局的数组），用于储存临时数据。
+
+{\ttfamily \hyperlink{class_memory_pool_allocator}{Memory\+Pool\+Allocator}}会先用使用者缓冲区去解决分配请求。当使用者缓冲区用完，就会从基础分配器（缺省为{\ttfamily \hyperlink{class_crt_allocator}{Crt\+Allocator}}）分配一块内存。
+
+以下是使用堆栈内存的例子，第一个分配器用于存储值，第二个用于解析时的临时缓冲。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{typedef} GenericDocument<UTF8<>, MemoryPoolAllocator<>, MemoryPoolAllocator<>> DocumentType;
+\textcolor{keywordtype}{char} valueBuffer[4096];
+\textcolor{keywordtype}{char} parseBuffer[1024];
+MemoryPoolAllocator<> valueAllocator(valueBuffer, \textcolor{keyword}{sizeof}(valueBuffer));
+MemoryPoolAllocator<> parseAllocator(parseBuffer, \textcolor{keyword}{sizeof}(parseBuffer));
+DocumentType d(&valueAllocator, \textcolor{keyword}{sizeof}(parseBuffer), &parseAllocator);
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\end{DoxyCode}
+
+
+若解析时分配总量少于4096+1024字节时，这段代码不会造成任何堆内存分配（经{\ttfamily new}或{\ttfamily malloc()}）。
+
+使用者可以通过{\ttfamily \hyperlink{class_memory_pool_allocator_a2ccb6c068b8b35dbc3680dc5563af2f4}{Memory\+Pool\+Allocator\+::\+Size()}}查询当前已分的内存大小。那么使用者可以拟定使用者缓冲区的合适大小。 

@@ -1,0 +1,56 @@
+\hypertarget{class_visiteur_deplacer_selection}{}\section{Visiteur\+Deplacer\+Selection Class Reference}
+\label{class_visiteur_deplacer_selection}\index{Visiteur\+Deplacer\+Selection@{Visiteur\+Deplacer\+Selection}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud en mettant a jour sa position relative.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Deplacer\+Selection.\+h$>$}
+
+Inheritance diagram for Visiteur\+Deplacer\+Selection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_deplacer_selection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_visiteur_deplacer_selection_ac8102b493f78d32176857e579ca4af79}{Visiteur\+Deplacer\+Selection} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} deplacement)\hypertarget{class_visiteur_deplacer_selection_ac8102b493f78d32176857e579ca4af79}{}\label{class_visiteur_deplacer_selection_ac8102b493f78d32176857e579ca4af79}
+
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{class_visiteur_deplacer_selection_ac991a97f62ba053e3ee1d05d1ff2574a}{$\sim$\+Visiteur\+Deplacer\+Selection} ()\hypertarget{class_visiteur_deplacer_selection_ac991a97f62ba053e3ee1d05d1ff2574a}{}\label{class_visiteur_deplacer_selection_ac991a97f62ba053e3ee1d05d1ff2574a}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gae463efa27bc5f244668d09602b886880}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga86ed9fe4e1599c872d383e18d62f4c49}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga8dab3b2f2992051746bf44ecc3276584}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gabd8df32e6124577bc4434788e6334139}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gac52ba9e6f1c6c8ef1b34f238a3c53a75}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud en mettant a jour sa position relative. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_deplacer_selection_8h}{Visiteur\+Deplacer\+Selection.\+h}\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_deplacer_selection_8cpp}{Visiteur\+Deplacer\+Selection.\+cpp}\end{DoxyCompactItemize}

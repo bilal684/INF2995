@@ -1,0 +1,33 @@
+\hypertarget{classb2_contact_filter}{}\section{b2\+Contact\+Filter Class Reference}
+\label{classb2_contact_filter}\index{b2\+Contact\+Filter@{b2\+Contact\+Filter}}
+
+
+{\ttfamily \#include $<$b2\+World\+Callbacks.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classb2_contact_filter_a0e33d4fc90a9345160a07cc494b45ecd}{Should\+Collide} (\hyperlink{classb2_fixture}{b2\+Fixture} $\ast$fixtureA, \hyperlink{classb2_fixture}{b2\+Fixture} $\ast$fixtureB)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implement this class to provide collision filtering. In other words, you can implement this class if you want finer control over contact creation. 
+
+\subsection{Member Function Documentation}
+\index{b2\+Contact\+Filter@{b2\+Contact\+Filter}!Should\+Collide@{Should\+Collide}}
+\index{Should\+Collide@{Should\+Collide}!b2\+Contact\+Filter@{b2\+Contact\+Filter}}
+\subsubsection[{\texorpdfstring{Should\+Collide(b2\+Fixture $\ast$fixture\+A, b2\+Fixture $\ast$fixture\+B)}{ShouldCollide(b2Fixture *fixtureA, b2Fixture *fixtureB)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool b2\+Contact\+Filter\+::\+Should\+Collide (
+\begin{DoxyParamCaption}
+\item[{{\bf b2\+Fixture} $\ast$}]{fixtureA, }
+\item[{{\bf b2\+Fixture} $\ast$}]{fixtureB}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classb2_contact_filter_a0e33d4fc90a9345160a07cc494b45ecd}{}\label{classb2_contact_filter_a0e33d4fc90a9345160a07cc494b45ecd}
+Return true if contact calculations should be performed between these two shapes. \begin{DoxyWarning}{Warning}
+for performance reasons this is only called when the A\+A\+B\+Bs begin to overlap. 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Commun/\+Externe/\+Box2\+D/include/\+Box2\+D/\+Dynamics/b2\+World\+Callbacks.\+h\end{DoxyCompactItemize}

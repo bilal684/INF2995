@@ -1,0 +1,485 @@
+\hypertarget{class_noeud_abstrait}{}\section{Noeud\+Abstrait Class Reference}
+\label{class_noeud_abstrait}\index{Noeud\+Abstrait@{Noeud\+Abstrait}}
+
+
+Classe de base du patron composite utilisée pour créer l\textquotesingle{}arbre de rendu.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Abstrait.\+h$>$}
+
+Inheritance diagram for Noeud\+Abstrait\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.816707cm]{class_noeud_abstrait}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga1d1340ee36824e0c6013e65a1306d8f3}{Noeud\+Abstrait} (const std\+::string \&type=std\+::string\{\char`\"{}\char`\"{}\})
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+virtual \hyperlink{group__inf2990_ga0ab3f7ab838e8349113da5074abcdc3a}{$\sim$\+Noeud\+Abstrait} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void {\bfseries accepter\+Visiteur} (\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$visiteur)\hypertarget{class_noeud_abstrait_a4985b875171ddfae883d6112ab7757b7}{}\label{class_noeud_abstrait_a4985b875171ddfae883d6112ab7757b7}
+
+\item 
+\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_gaa2ac8c4cd02d88c312b92c65e07ed6d9}{obtenir\+Parent} ()
+\begin{DoxyCompactList}\small\item\em Obtient le parent de ce noeud. \end{DoxyCompactList}\item 
+const \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_gaf063d208bc4764b1fd2c4e76ec0469b9}{obtenir\+Parent} () const 
+\begin{DoxyCompactList}\small\item\em Obtient le parent de ce noeud (version constante). \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga7787ab59ecc1e6119287459a7154f307}{assigner\+Parent} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Assigne le parent de ce noeud. \end{DoxyCompactList}\item 
+const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \& \hyperlink{group__inf2990_ga62d73f67c3b33e2cb106630bd1736a58}{obtenir\+Position\+Relative} () const 
+\begin{DoxyCompactList}\small\item\em Obtient la position relative du noeud. \end{DoxyCompactList}\item 
+const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \& \hyperlink{group__inf2990_ga1c85f7c66aa05c05ab883719676b6a82}{obtenir\+Position\+Initiale\+En\+Traitement} () const 
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir la position initiale d\textquotesingle{}un objet. \end{DoxyCompactList}\item 
+const \hyperlink{group__core__types_ga0824ceed7ec3b2fba89765501c1540b5}{glm\+::dvec4} \& \hyperlink{group__inf2990_gaa2f20a6b5a9d921a06442afe0c927e18}{obtenir\+Rotation\+Relative} () const 
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir la rotation relative d\textquotesingle{}un objet avec son parent. \end{DoxyCompactList}\item 
+const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \& \hyperlink{group__inf2990_ga977ea0088c5e5ddf734349f937103fda}{obtenir\+Redimensionnement\+Relative} () const 
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir le redimensionnement relatif d\textquotesingle{}un objet avec son parent. \end{DoxyCompactList}\item 
+const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \& \hyperlink{group__inf2990_ga373d365ade3f4777945368f43c54fd19}{obtenir\+Scale\+Initiale\+En\+Traitement} () const 
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir le redimensionnement intiale d\textquotesingle{}un objet. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga11e12e42b05a5327c92cd7fd1b7e5a24}{assigner\+Position\+Relative} (const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&position\+Relative)
+\begin{DoxyCompactList}\small\item\em Assigne la position relative du noeud. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga12004cd2f6d5751833ebc019e382a4c7}{initialiser\+Position\+En\+Traitement} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}initialiser les positions des objets en traitement. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a861472188bc604805fccc05720d26a5b}{initialiser\+En\+Traitement} ()\hypertarget{class_noeud_abstrait_a861472188bc604805fccc05720d26a5b}{}\label{class_noeud_abstrait_a861472188bc604805fccc05720d26a5b}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}initialiser les positions des objets en traitement. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaf58f89f38653d50cc962c66effae5e87}{initialiser\+Scale\+En\+Traitement} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}initialiser le redimensionnement d\textquotesingle{}un objet en traitement. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaff49c2ade8febe4d78d4edbedba7317b}{assigner\+Rotation\+Relative} (const \hyperlink{group__core__types_ga0824ceed7ec3b2fba89765501c1540b5}{glm\+::dvec4} \&rotation\+Relative)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}assigner une rotation relative a un objet par rapport a son parent. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga9accda641b3c04396fa1130f0c50140c}{assigner\+Redimensionnement\+Relative} (const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&redimensionnement\+Relative)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}assigner un redimensionnement relatif d\textquotesingle{}un objet par rapport a son parent. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_af4dd0416f43d97c46c53dd515a9c10f9}{changer\+Scale} (double scale)\hypertarget{class_noeud_abstrait_af4dd0416f43d97c46c53dd515a9c10f9}{}\label{class_noeud_abstrait_af4dd0416f43d97c46c53dd515a9c10f9}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le redimensionnement d\textquotesingle{}un objet. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a5864e2957f7ef82c4e96ae20c62b3409}{augmenter\+Rotation\+Relative} (double rotation)\hypertarget{class_noeud_abstrait_a5864e2957f7ef82c4e96ae20c62b3409}{}\label{class_noeud_abstrait_a5864e2957f7ef82c4e96ae20c62b3409}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}augmenter la rotation d\textquotesingle{}un objet par rapport a son parent. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a9757485e2f8dcdd57d9067bb8f959827}{mettre\+Ajour\+Position} ()\hypertarget{class_noeud_abstrait_a9757485e2f8dcdd57d9067bb8f959827}{}\label{class_noeud_abstrait_a9757485e2f8dcdd57d9067bb8f959827}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de mettre a jour la position d\textquotesingle{}un objet. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{group__inf2990_ga2df7c53ab456cc88bce73f7eb913e3e6}{obtenir\+Type} () const 
+\begin{DoxyCompactList}\small\item\em Obtient le type du noeud. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gad5205d1e1b63fb66175a8580261d5eea}{assigner\+Affiche} (bool affiche)
+\begin{DoxyCompactList}\small\item\em Écrit l\textquotesingle{}état de l\textquotesingle{}affichage du du noeud. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga07fc02e86d59ccd2680f9e5f5b8e373d}{est\+Affiche} () const 
+\begin{DoxyCompactList}\small\item\em Vérifie si le noeud se fait afficher. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga0f39647390d357d8662a870f0c76242c}{assigner\+Selection} (bool selectionne)
+\begin{DoxyCompactList}\small\item\em Écrit l\textquotesingle{}état de la sélection du noeud. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga8fb7a3313ce4d361ef7ec8e45ba8add5}{est\+Selectionne} () const 
+\begin{DoxyCompactList}\small\item\em Vérifie si le noeud est sélectionné. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga397add0bac7ec3b842598a2085990b7d}{assigner\+Est\+Selectionnable} (bool selectionnable)
+\begin{DoxyCompactList}\small\item\em Écrit si le noeud peut être sélectionné ou non. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_gaa3f3a34571af62de0da5db2d8f54f690}{est\+Selectionnable} () const 
+\begin{DoxyCompactList}\small\item\em Vérifie si le noeud est sélectionnable. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gabb7f3756a4094dc588690126ec0703d3}{assigner\+Est\+Enregistrable} (bool enregistrable)
+\begin{DoxyCompactList}\small\item\em Écrit si le noeud peut être enregistré ou non. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga6a6af3639f1b4e3e33a126703376dcec}{est\+Enregistrable} () const 
+\begin{DoxyCompactList}\small\item\em Vérifie si le noeud est enregistrable. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_abstrait_a9e9d08cfb6db2d95cc4eccdfe9049279}{est\+Fantome} () const \hypertarget{class_noeud_abstrait_a9e9d08cfb6db2d95cc4eccdfe9049279}{}\label{class_noeud_abstrait_a9e9d08cfb6db2d95cc4eccdfe9049279}
+
+\begin{DoxyCompactList}\small\item\em Vérifie si le noeud peut etre supprime. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_abstrait_a2f9557deb7c3f2994dfa2fb3777a7a5e}{assigner\+Est\+Fantome} (bool fantome)\hypertarget{class_noeud_abstrait_a2f9557deb7c3f2994dfa2fb3777a7a5e}{}\label{class_noeud_abstrait_a2f9557deb7c3f2994dfa2fb3777a7a5e}
+
+\begin{DoxyCompactList}\small\item\em Vérifie si le noeud peut etre supprime. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga1f533acce98fbad7fa82758ccaea55ff}{assigner\+Objet\+Rendu} (\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const $\ast$modele, \hyperlink{classopengl_1_1_v_b_o}{opengl\+::\+V\+BO} const $\ast$liste)
+\begin{DoxyCompactList}\small\item\em Assigne le modèle3D et la liste d\textquotesingle{}affichage du noeud courant. \end{DoxyCompactList}\item 
+virtual unsigned int \hyperlink{group__inf2990_gad854800087fd6c13f1a63589caefb41d}{calculer\+Profondeur} () const 
+\begin{DoxyCompactList}\small\item\em Calcule la profondeur de l\textquotesingle{}arbre sous le noeud courant. \end{DoxyCompactList}\item 
+const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} {\bfseries obtenir\+Centre} () const \hypertarget{class_noeud_abstrait_ab7d177e49e45539017aa0a5cce133987}{}\label{class_noeud_abstrait_ab7d177e49e45539017aa0a5cce133987}
+
+\item 
+virtual void \hyperlink{group__inf2990_gae51115781db3d6571c990a55baa0a735}{assigner\+Centre} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} centre)
+\item 
+virtual void {\bfseries mettre\+Ajour\+Centre} ()\hypertarget{class_noeud_abstrait_a4b2c2d675452964a5e0bf8cc57239094}{}\label{class_noeud_abstrait_a4b2c2d675452964a5e0bf8cc57239094}
+
+\item 
+virtual void \hyperlink{group__inf2990_ga55435ee83860c6a2101334ba67bbd9b6}{vider} ()
+\begin{DoxyCompactList}\small\item\em Vide le noeud de ses enfants. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga2ab3dc520026d1ad77aa848981688bfd}{effacer} (const \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud)
+\begin{DoxyCompactList}\small\item\em Efface le noeud passé en paramètre. \end{DoxyCompactList}\item 
+virtual const \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_gaeda0df98faf404765d985fcde60fb924}{chercher} (const std\+::string \&type\+Noeud) const 
+\begin{DoxyCompactList}\small\item\em Cherche un noeud par le type (sur un noeud constant). \end{DoxyCompactList}\item 
+virtual \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_ga0868ae108165b071f6c8a68a7265c770}{chercher} (const std\+::string \&type\+Noeud)
+\begin{DoxyCompactList}\small\item\em Cherche un noeud par le type. \end{DoxyCompactList}\item 
+virtual const \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_gac334b078c318e39a065b85572778bf13}{chercher} (unsigned int indice) const 
+\begin{DoxyCompactList}\small\item\em Cherche un noeud enfant selon l\textquotesingle{}indice (sur un noeud constant). \end{DoxyCompactList}\item 
+virtual \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_ga13f7e9a637f7439b1a0cec0c49f6fa88}{chercher} (unsigned int indice)
+\begin{DoxyCompactList}\small\item\em Cherche un noeud enfant selon l\textquotesingle{}indice. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga31dd45110fcb977a956a32b918f71819}{ajouter} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$enfant)
+\begin{DoxyCompactList}\small\item\em Ajoute un noeud enfant. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ $>$ $\ast$ {\bfseries obtenir\+Enfants} ()\hypertarget{class_noeud_abstrait_a2aa9d4e7bbab8678ade93e761b6b2fbd}{}\label{class_noeud_abstrait_a2aa9d4e7bbab8678ade93e761b6b2fbd}
+
+\item 
+virtual unsigned int \hyperlink{group__inf2990_gad5a99959e905fc2d9f0fef16a02546a2}{obtenir\+Nombre\+Enfants} () const 
+\begin{DoxyCompactList}\small\item\em Obtient le nombre d\textquotesingle{}enfants du noeud. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga2516eef94f98d4951baff6fd45020725}{inverser\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Changer la sélection du noeud. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaf6440c1b4ab6861f0ace6ba410c1fc84}{effacer\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Efface les enfants sélectionnés. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga8ce119f6a5ac96f0918ec4d2b06da0c2}{effacer\+Fantome} ()
+\begin{DoxyCompactList}\small\item\em Efface les enfants fantomes. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaa9b1fa06dad2695ea6870411c62652b3}{selectionner\+Tout} ()
+\begin{DoxyCompactList}\small\item\em Sélectionne tous les enfants de même que le noeud. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga4f942bd122fc3402537ecac737c5248a}{deselectionner\+Tout} ()
+\begin{DoxyCompactList}\small\item\em Désélectionne tous les enfants de même que le noeud. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_gae7c702b865babd20ddd30dd776adc82b}{selection\+Existe} () const 
+\begin{DoxyCompactList}\small\item\em Vérifier si le noeud ou un de ses enfants est sélectionné. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga13a97383c2081b405fc2e0d97cff80df}{changer\+Mode\+Polygones} (bool est\+Force)
+\begin{DoxyCompactList}\small\item\em Change le mode d\textquotesingle{}affichage des polygones. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga726d9d0a524939f405aeeac3fbd06666}{assigner\+Mode\+Polygones} (G\+Lenum mode\+Polygones)
+\begin{DoxyCompactList}\small\item\em Assigne le mode d\textquotesingle{}affichage des polygones. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gae789271ea41032d717b8e4300be05de0}{afficher} () const 
+\begin{DoxyCompactList}\small\item\em Affiche le noeud. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga330df455c8b08440d3c8e64d0a480391}{afficher\+Concret} () const 
+\begin{DoxyCompactList}\small\item\em Affiche le noeud de manière concrète. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gadc6ebe69894dbb682fdd0ecb1b6c11e9}{animer} (float dt)
+\begin{DoxyCompactList}\small\item\em Anime le noeud. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga5737ac15ce5d6b429a1b9e2d00340dd8}{click\+Touche\+Noeud} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)
+\begin{DoxyCompactList}\small\item\em Verifie si un click de souris touche un noeud. \end{DoxyCompactList}\item 
+\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const \& \hyperlink{class_noeud_abstrait_a5d80050c4164ca8527adc5a4a14c853a}{obtenir\+Model} ()\hypertarget{class_noeud_abstrait_a5d80050c4164ca8527adc5a4a14c853a}{}\label{class_noeud_abstrait_a5d80050c4164ca8527adc5a4a14c853a}
+
+\begin{DoxyCompactList}\small\item\em Permet le retour du modele du noeud. \end{DoxyCompactList}\item 
+void \hyperlink{class_noeud_abstrait_a4df2e9db22710c8d2f49037d0913aa62}{set\+Points} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point1, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point2)\hypertarget{class_noeud_abstrait_a4df2e9db22710c8d2f49037d0913aa62}{}\label{class_noeud_abstrait_a4df2e9db22710c8d2f49037d0913aa62}
+
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}initialiser le point de depart et de faire d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a29e07dc3af59ea61a78815d7dfd34fdd}{get\+Point\+Depart} ()\hypertarget{class_noeud_abstrait_a29e07dc3af59ea61a78815d7dfd34fdd}{}\label{class_noeud_abstrait_a29e07dc3af59ea61a78815d7dfd34fdd}
+
+\begin{DoxyCompactList}\small\item\em Retourne le point de depart d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a9295ca42ea0cdb8d743c8a259d7a3780}{get\+Point\+Fin} ()\hypertarget{class_noeud_abstrait_a9295ca42ea0cdb8d743c8a259d7a3780}{}\label{class_noeud_abstrait_a9295ca42ea0cdb8d743c8a259d7a3780}
+
+\begin{DoxyCompactList}\small\item\em Retourne le point final d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_noeud_abstrait_a849f76157af887c1bce0340527b36971}{est\+Dans\+La\+Table\+Apres\+Deplacement} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} deplacement)\hypertarget{class_noeud_abstrait_a849f76157af887c1bce0340527b36971}{}\label{class_noeud_abstrait_a849f76157af887c1bce0340527b36971}
+
+\begin{DoxyCompactList}\small\item\em verifier si la noeud est dans la table \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_noeud_abstrait_aa53b62e807f73070e41f770f14cbf452}{est\+Dans\+La\+Table\+Apres\+Scale} (double scale)\hypertarget{class_noeud_abstrait_aa53b62e807f73070e41f770f14cbf452}{}\label{class_noeud_abstrait_aa53b62e807f73070e41f770f14cbf452}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si l\textquotesingle{}objet est toujours a l\textquotesingle{}interieur de la table apres redimensionnement. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_noeud_abstrait_ad1fb3d9abd2f132ea03c5bfaad9e9745}{est\+Dans\+La\+Table} ()\hypertarget{class_noeud_abstrait_ad1fb3d9abd2f132ea03c5bfaad9e9745}{}\label{class_noeud_abstrait_ad1fb3d9abd2f132ea03c5bfaad9e9745}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si un objet est toujours a l\textquotesingle{}interieur de la table. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_ad0e81a3c18565e08c5b1b25857998eae}{tourner} (double angle)\hypertarget{class_noeud_abstrait_ad0e81a3c18565e08c5b1b25857998eae}{}\label{class_noeud_abstrait_ad0e81a3c18565e08c5b1b25857998eae}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}effectuer une rotation a un objet. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga0824ceed7ec3b2fba89765501c1540b5}{glm\+::dvec4} \hyperlink{class_noeud_abstrait_a7f3bd3797ef6b874100e68c656e90d0f}{get\+Rotation\+Relative\+Avantraitement} ()\hypertarget{class_noeud_abstrait_a7f3bd3797ef6b874100e68c656e90d0f}{}\label{class_noeud_abstrait_a7f3bd3797ef6b874100e68c656e90d0f}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de la rotation relative d\textquotesingle{}un objet par rapport a son parent. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a8e8106483aa4bf73060e69dbd97b5894}{retourner\+Au\+Scale\+Initiale} ()\hypertarget{class_noeud_abstrait_a8e8106483aa4bf73060e69dbd97b5894}{}\label{class_noeud_abstrait_a8e8106483aa4bf73060e69dbd97b5894}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du dimensionnement initiale d\textquotesingle{}un objet. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_abstrait_a91c4c583f6a58b193c9b1dd93ef5ec96}{get\+Acceleration} () const \hypertarget{class_noeud_abstrait_a91c4c583f6a58b193c9b1dd93ef5ec96}{}\label{class_noeud_abstrait_a91c4c583f6a58b193c9b1dd93ef5ec96}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de l\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_abstrait_ac4d868e09e6c6da892ab5343bae705b2}{get\+Vitesse} () const \hypertarget{class_noeud_abstrait_ac4d868e09e6c6da892ab5343bae705b2}{}\label{class_noeud_abstrait_ac4d868e09e6c6da892ab5343bae705b2}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de la vitesse du robot. \end{DoxyCompactList}\item 
+virtual Direction \hyperlink{class_noeud_abstrait_aa71cf1e4909f495da72dade37070f13e}{get\+Direction} () const \hypertarget{class_noeud_abstrait_aa71cf1e4909f495da72dade37070f13e}{}\label{class_noeud_abstrait_aa71cf1e4909f495da72dade37070f13e}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de la direction du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_abstrait_a89c8b8ae85bb06e9833f02460ca6ee1d}{get\+Rapport\+Vitesse} () const \hypertarget{class_noeud_abstrait_a89c8b8ae85bb06e9833f02460ca6ee1d}{}\label{class_noeud_abstrait_a89c8b8ae85bb06e9833f02460ca6ee1d}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du rapport de vitesse du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_abstrait_ab72ee4a37291644c218a2fbb551abd73}{get\+Angle\+Rotation} () const \hypertarget{class_noeud_abstrait_ab72ee4a37291644c218a2fbb551abd73}{}\label{class_noeud_abstrait_ab72ee4a37291644c218a2fbb551abd73}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de l\textquotesingle{}angle de rotation du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_abstrait_ad29f6adb8dac24c2017e42c418b4a5cb}{get\+Incr\+Acceleration} () const \hypertarget{class_noeud_abstrait_ad29f6adb8dac24c2017e42c418b4a5cb}{}\label{class_noeud_abstrait_ad29f6adb8dac24c2017e42c418b4a5cb}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de l\textquotesingle{}increment d\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a21e02f56588d73166d6b1504986968f4}{set\+Incr\+Acceleration} (double incr\+Acceleration)\hypertarget{class_noeud_abstrait_a21e02f56588d73166d6b1504986968f4}{}\label{class_noeud_abstrait_a21e02f56588d73166d6b1504986968f4}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de l\textquotesingle{}increment d\textquotesingle{}acceleration au robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a0697aad394c79d743a38bbd0c8afbd67}{set\+Acceleration} (double acceleration)\hypertarget{class_noeud_abstrait_a0697aad394c79d743a38bbd0c8afbd67}{}\label{class_noeud_abstrait_a0697aad394c79d743a38bbd0c8afbd67}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}une acceleration au robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a7790b8e98d777aa243e86761dedebdd0}{set\+Vitesse} (double vitesse)\hypertarget{class_noeud_abstrait_a7790b8e98d777aa243e86761dedebdd0}{}\label{class_noeud_abstrait_a7790b8e98d777aa243e86761dedebdd0}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}une vitesse au robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_ac669dc8dea10940bf0931c6a147237a7}{set\+Direction} (Direction direction)\hypertarget{class_noeud_abstrait_ac669dc8dea10940bf0931c6a147237a7}{}\label{class_noeud_abstrait_ac669dc8dea10940bf0931c6a147237a7}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}une direction au robot. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{class_noeud_abstrait_aeea49277cb6ac36793a54e4cef10f0d9}{get\+Roue\+Droite} ()\hypertarget{class_noeud_abstrait_aeea49277cb6ac36793a54e4cef10f0d9}{}\label{class_noeud_abstrait_aeea49277cb6ac36793a54e4cef10f0d9}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du noeud correspondant a la roue droite du robot. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{class_noeud_abstrait_a5e5d6492f206d6fdacb75b3953d4a80b}{get\+Roue\+Gauche} ()\hypertarget{class_noeud_abstrait_a5e5d6492f206d6fdacb75b3953d4a80b}{}\label{class_noeud_abstrait_a5e5d6492f206d6fdacb75b3953d4a80b}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant ler etour du noeud correspondant a la roue gauche du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_aaabf008380a1e8f7c86ec2bb6223b7af}{set\+Roue\+Droite} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud\+Roue)\hypertarget{class_noeud_abstrait_aaabf008380a1e8f7c86ec2bb6223b7af}{}\label{class_noeud_abstrait_aaabf008380a1e8f7c86ec2bb6223b7af}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}un noeud correspondant a la roue droite du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a6cae0f5f2344996af84b930c5a482e3c}{set\+Roue\+Gauche} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud\+Roue)\hypertarget{class_noeud_abstrait_a6cae0f5f2344996af84b930c5a482e3c}{}\label{class_noeud_abstrait_a6cae0f5f2344996af84b930c5a482e3c}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}un noeud correspondant a la roue gauche du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a32648246e8b9aefd9f3a0bdeaf0728bb}{set\+Rapport\+Vitesse} (double rapport\+Vitesse)\hypertarget{class_noeud_abstrait_a32648246e8b9aefd9f3a0bdeaf0728bb}{}\label{class_noeud_abstrait_a32648246e8b9aefd9f3a0bdeaf0728bb}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation d\textquotesingle{}un rapport de vitesse au robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_ad8e4cabaab2ea9c9da3a8eeab66d24d9}{actionner\+Moteurs} (const double \&rapport\+Vitesse\+Gauche, const double \&rapport\+Vitesse\+Droit, const Direction \&direction)\hypertarget{class_noeud_abstrait_ad8e4cabaab2ea9c9da3a8eeab66d24d9}{}\label{class_noeud_abstrait_ad8e4cabaab2ea9c9da3a8eeab66d24d9}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}actionner les moteurs du robot dans une certaine direction avec un certain rapport de vitesse. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a9459e011cfd697cb089dca7541076bd0}{arreter\+Moteurs} ()\hypertarget{class_noeud_abstrait_a9459e011cfd697cb089dca7541076bd0}{}\label{class_noeud_abstrait_a9459e011cfd697cb089dca7541076bd0}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}arreter les moteurs du robot. \end{DoxyCompactList}\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \hyperlink{class_noeud_abstrait_a887950652eb1671ad8b7d431bd287d78}{obtenir\+P2\+Capteur\+Securitaire\+Droit} ()
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Securitaire\+Milieu} ()\hypertarget{class_noeud_abstrait_a48bc3a2e5c3df8ee61cacaf15ec8625d}{}\label{class_noeud_abstrait_a48bc3a2e5c3df8ee61cacaf15ec8625d}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Securitaire\+Gauche} ()\hypertarget{class_noeud_abstrait_a6987474f9477137ae2b5e4aee28e6546}{}\label{class_noeud_abstrait_a6987474f9477137ae2b5e4aee28e6546}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_abstrait_a185d1a098cf877928a2f9e57c51635ba}{}\label{class_noeud_abstrait_a185d1a098cf877928a2f9e57c51635ba}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_abstrait_ade876b80d76ac154bd303659424810a7}{}\label{class_noeud_abstrait_ade876b80d76ac154bd303659424810a7}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P2\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_abstrait_a076e273d6b7067d473527d5d8b55639a}{}\label{class_noeud_abstrait_a076e273d6b7067d473527d5d8b55639a}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P1\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_abstrait_a61ab9a39cd373cb346c03322a81f1f69}{}\label{class_noeud_abstrait_a61ab9a39cd373cb346c03322a81f1f69}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P1\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_abstrait_a1bbc4acbbb6bae50fe07dc7bd7bd9610}{}\label{class_noeud_abstrait_a1bbc4acbbb6bae50fe07dc7bd7bd9610}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P1\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_abstrait_aa0a1b502f2469d8fe000fd0cbc0a73d8}{}\label{class_noeud_abstrait_aa0a1b502f2469d8fe000fd0cbc0a73d8}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Securitaire\+Droit} ()\hypertarget{class_noeud_abstrait_a3e7365de071eae95414299a1227c24d7}{}\label{class_noeud_abstrait_a3e7365de071eae95414299a1227c24d7}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Securitaire\+Milieu} ()\hypertarget{class_noeud_abstrait_ae86baabbda11328cc5f5f4660597cfd2}{}\label{class_noeud_abstrait_ae86baabbda11328cc5f5f4660597cfd2}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Securitaire\+Gauche} ()\hypertarget{class_noeud_abstrait_a9c924ad4efa2c82ee73882335775afd8}{}\label{class_noeud_abstrait_a9c924ad4efa2c82ee73882335775afd8}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_abstrait_aaf8ad3ac0b97bdd59c7155afd09760e3}{}\label{class_noeud_abstrait_aaf8ad3ac0b97bdd59c7155afd09760e3}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_abstrait_a25e146cf2f344519dcd5e0fa577fde14}{}\label{class_noeud_abstrait_a25e146cf2f344519dcd5e0fa577fde14}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P3\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_abstrait_a8ba7de7b8e6a07bdc9593873ca2ef416}{}\label{class_noeud_abstrait_a8ba7de7b8e6a07bdc9593873ca2ef416}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P4\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_abstrait_a6afa714d281521fd5614e7a5b7d2e73d}{}\label{class_noeud_abstrait_a6afa714d281521fd5614e7a5b7d2e73d}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P4\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_abstrait_a5ab42ede128afe6fd9a6867800e16224}{}\label{class_noeud_abstrait_a5ab42ede128afe6fd9a6867800e16224}
+
+\item 
+virtual \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} {\bfseries obtenir\+P4\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_abstrait_a0bd0c0e4384c57b631c11353e9f0bc0e}{}\label{class_noeud_abstrait_a0bd0c0e4384c57b631c11353e9f0bc0e}
+
+\item 
+virtual void \hyperlink{class_noeud_abstrait_ab2df655a36231abb34b66542fea46f18}{set\+Detection\+Securitaire\+Droit} (const bool \&detection)\hypertarget{class_noeud_abstrait_ab2df655a36231abb34b66542fea46f18}{}\label{class_noeud_abstrait_ab2df655a36231abb34b66542fea46f18}
+
+\begin{DoxyCompactList}\small\item\em Setters des attributs de detection des capteurs. \end{DoxyCompactList}\item 
+virtual void {\bfseries set\+Detection\+Securitaire\+Milieu} (const bool \&detection)\hypertarget{class_noeud_abstrait_a807067b2c1c7df0f9a9a668da235b4e7}{}\label{class_noeud_abstrait_a807067b2c1c7df0f9a9a668da235b4e7}
+
+\item 
+virtual void {\bfseries set\+Detection\+Securitaire\+Gauche} (const bool \&detection)\hypertarget{class_noeud_abstrait_aae343323ab3871a7a3c1bac3ebe17d8c}{}\label{class_noeud_abstrait_aae343323ab3871a7a3c1bac3ebe17d8c}
+
+\item 
+virtual void {\bfseries set\+Detection\+Danger\+Droit} (const bool \&detection)\hypertarget{class_noeud_abstrait_a4bb53332c3eb3efb1ff8a1b7b677893f}{}\label{class_noeud_abstrait_a4bb53332c3eb3efb1ff8a1b7b677893f}
+
+\item 
+virtual void {\bfseries set\+Detection\+Danger\+Milieu} (const bool \&detection)\hypertarget{class_noeud_abstrait_ace5c8a383fd95b4a6352221e599fdf73}{}\label{class_noeud_abstrait_ace5c8a383fd95b4a6352221e599fdf73}
+
+\item 
+virtual void {\bfseries set\+Detection\+Danger\+Gauche} (const bool \&detection)\hypertarget{class_noeud_abstrait_a5f4729ea1e64132b0760f629d2c2be0b}{}\label{class_noeud_abstrait_a5f4729ea1e64132b0760f629d2c2be0b}
+
+\item 
+virtual bool \hyperlink{class_noeud_abstrait_a94e27b08ed74ca62cb47bdf4c6214997}{ligne\+Touchee} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)\hypertarget{class_noeud_abstrait_a94e27b08ed74ca62cb47bdf4c6214997}{}\label{class_noeud_abstrait_a94e27b08ed74ca62cb47bdf4c6214997}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si une ligne est detecter ou non. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_noeud_abstrait_a57f1d2f628bc23b3ea44c5457a507e96}{get\+Etat\+Capteur\+Securitaire\+Droit} ()
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Danger\+Droit} ()\hypertarget{class_noeud_abstrait_a8c28751fe5f15078da62887c2536d6f2}{}\label{class_noeud_abstrait_a8c28751fe5f15078da62887c2536d6f2}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Securitaire\+Milieu} ()\hypertarget{class_noeud_abstrait_a1b741ab3380c0b253b1d126d4c7ea930}{}\label{class_noeud_abstrait_a1b741ab3380c0b253b1d126d4c7ea930}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Danger\+Milieu} ()\hypertarget{class_noeud_abstrait_af5cd9d7273856e6712eb5959019f33a4}{}\label{class_noeud_abstrait_af5cd9d7273856e6712eb5959019f33a4}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Securitaire\+Gauche} ()\hypertarget{class_noeud_abstrait_ae4ed8ea10a9ab6632fa29938f12a9070}{}\label{class_noeud_abstrait_ae4ed8ea10a9ab6632fa29938f12a9070}
+
+\item 
+virtual bool {\bfseries get\+Etat\+Capteur\+Danger\+Gauche} ()\hypertarget{class_noeud_abstrait_abfbc5632bb46f679b408989fe5ba9098}{}\label{class_noeud_abstrait_abfbc5632bb46f679b408989fe5ba9098}
+
+\item 
+virtual void \hyperlink{class_noeud_abstrait_a46cfb1fb8a3de9fd8e387d1bb498dc57}{charger\+Profil} (char $\ast$nom\+Profil)\hypertarget{class_noeud_abstrait_a46cfb1fb8a3de9fd8e387d1bb498dc57}{}\label{class_noeud_abstrait_a46cfb1fb8a3de9fd8e387d1bb498dc57}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de charger le profil. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a765df13ab257ce6acfb7c5ff51b7d5c1}{charger\+Debug} (char $\ast$nom\+Fichier)\hypertarget{class_noeud_abstrait_a765df13ab257ce6acfb7c5ff51b7d5c1}{}\label{class_noeud_abstrait_a765df13ab257ce6acfb7c5ff51b7d5c1}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de charger le profil de debug. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_debug}{Debug} $\ast$ \hyperlink{class_noeud_abstrait_ac92836d9f76351456792a61b1cf6c95f}{obtenir\+Debug} ()\hypertarget{class_noeud_abstrait_ac92836d9f76351456792a61b1cf6c95f}{}\label{class_noeud_abstrait_ac92836d9f76351456792a61b1cf6c95f}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du profil de debug. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_profil}{Profil} $\ast$ \hyperlink{class_noeud_abstrait_af5c3590b56d106204d98a43fa5dc7c15}{obtenir\+Profil} ()\hypertarget{class_noeud_abstrait_af5c3590b56d106204d98a43fa5dc7c15}{}\label{class_noeud_abstrait_af5c3590b56d106204d98a43fa5dc7c15}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour du profil. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a5943624e0799e2d0549c86e11c007cc8}{set\+Affichage\+Debogage\+Suivi\+Ligne} (const bool \&booleen)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir l\textquotesingle{}affichage de debugage. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_ada343a49d13986529745bf787be944a3}{set\+Etat} (const E\+T\+A\+TS \&etat)\hypertarget{class_noeud_abstrait_ada343a49d13986529745bf787be944a3}{}\label{class_noeud_abstrait_ada343a49d13986529745bf787be944a3}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant de set le comportement actuelle du robot pour des fins d\textquotesingle{}affichage debugage a la console. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_abstrait_a6df1f0172745819acb29e1050282bb1f}{set\+Affichage\+Debogage\+Capteur\+Danger\+Droit} (const bool \&booleen)\hypertarget{class_noeud_abstrait_a6df1f0172745819acb29e1050282bb1f}{}\label{class_noeud_abstrait_a6df1f0172745819acb29e1050282bb1f}
+
+\begin{DoxyCompactList}\small\item\em methode permettant l\textquotesingle{}assignation de l\textquotesingle{}affichage debugage des capteurs de distance. \end{DoxyCompactList}\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Danger\+Milieu} (const bool \&booleen)\hypertarget{class_noeud_abstrait_ad2ca2eb1cfa491657a237e6505179188}{}\label{class_noeud_abstrait_ad2ca2eb1cfa491657a237e6505179188}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Danger\+Gauche} (const bool \&booleen)\hypertarget{class_noeud_abstrait_a16934f57d708d0f67ef4c4f2a17f9c6b}{}\label{class_noeud_abstrait_a16934f57d708d0f67ef4c4f2a17f9c6b}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Securitaire\+Droit} (const bool \&booleen)\hypertarget{class_noeud_abstrait_ac37db7a89de302caeeb533d721e7ba6a}{}\label{class_noeud_abstrait_ac37db7a89de302caeeb533d721e7ba6a}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Securitaire\+Milieu} (const bool \&booleen)\hypertarget{class_noeud_abstrait_a7330a86271a0e69fe3f44703f6dbdbe1}{}\label{class_noeud_abstrait_a7330a86271a0e69fe3f44703f6dbdbe1}
+
+\item 
+virtual void {\bfseries set\+Affichage\+Debogage\+Capteur\+Securitaire\+Gauche} (const bool \&booleen)\hypertarget{class_noeud_abstrait_a84b210ecce36486147f1ebf73acd2019}{}\label{class_noeud_abstrait_a84b210ecce36486147f1ebf73acd2019}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_noeud_abstrait_ad53da47a60f4b4fbbd400234cbdcb06b}{type\+\_\+}\hypertarget{class_noeud_abstrait_ad53da47a60f4b4fbbd400234cbdcb06b}{}\label{class_noeud_abstrait_ad53da47a60f4b4fbbd400234cbdcb06b}
+
+\begin{DoxyCompactList}\small\item\em Type du noeud. \end{DoxyCompactList}\item 
+G\+Lenum \hyperlink{class_noeud_abstrait_aa2b57eeb848bc8cb48562788daf81d3e}{mode\+Polygones\+\_\+} \{ G\+L\+\_\+\+F\+I\+LL \}\hypertarget{class_noeud_abstrait_aa2b57eeb848bc8cb48562788daf81d3e}{}\label{class_noeud_abstrait_aa2b57eeb848bc8cb48562788daf81d3e}
+
+\begin{DoxyCompactList}\small\item\em Mode d\textquotesingle{}affichage des polygones. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_ae8a50095413ac131cd6d07a384a9ff5d}{position\+Relative\+\_\+}\hypertarget{class_noeud_abstrait_ae8a50095413ac131cd6d07a384a9ff5d}{}\label{class_noeud_abstrait_ae8a50095413ac131cd6d07a384a9ff5d}
+
+\begin{DoxyCompactList}\small\item\em Position relative du noeud. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga0824ceed7ec3b2fba89765501c1540b5}{glm\+::dvec4} \hyperlink{class_noeud_abstrait_a2e30910aade2c17a65d4b647bed04adf}{rotation\+Relative\+\_\+}\hypertarget{class_noeud_abstrait_a2e30910aade2c17a65d4b647bed04adf}{}\label{class_noeud_abstrait_a2e30910aade2c17a65d4b647bed04adf}
+
+\begin{DoxyCompactList}\small\item\em Position relative du noeud. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a32e4a2411e05bb6a007261f55eb38875}{redimensionnement\+Relative\+\_\+}\hypertarget{class_noeud_abstrait_a32e4a2411e05bb6a007261f55eb38875}{}\label{class_noeud_abstrait_a32e4a2411e05bb6a007261f55eb38875}
+
+\begin{DoxyCompactList}\small\item\em Position relative du noeud. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_abstrait_a20af11e8041b0af8a34b6f041bb24c7f}{affiche\+\_\+} \{ true \}\hypertarget{class_noeud_abstrait_a20af11e8041b0af8a34b6f041bb24c7f}{}\label{class_noeud_abstrait_a20af11e8041b0af8a34b6f041bb24c7f}
+
+\begin{DoxyCompactList}\small\item\em Vrai si on doit afficher le noeud. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_abstrait_a7b2d2410f947987765a9ef41fedcc703}{selectionne\+\_\+} \{ false \}\hypertarget{class_noeud_abstrait_a7b2d2410f947987765a9ef41fedcc703}{}\label{class_noeud_abstrait_a7b2d2410f947987765a9ef41fedcc703}
+
+\begin{DoxyCompactList}\small\item\em Sélection du noeud. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_abstrait_a2e5d12f2a106f410e149263fa72a530f}{selectionnable\+\_\+} \{ true \}\hypertarget{class_noeud_abstrait_a2e5d12f2a106f410e149263fa72a530f}{}\label{class_noeud_abstrait_a2e5d12f2a106f410e149263fa72a530f}
+
+\begin{DoxyCompactList}\small\item\em Vrai si le noeud est sélectionnable. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_abstrait_aa4b43e83161e8650b8810c8e29f0c985}{enregistrable\+\_\+} \{ true \}\hypertarget{class_noeud_abstrait_aa4b43e83161e8650b8810c8e29f0c985}{}\label{class_noeud_abstrait_aa4b43e83161e8650b8810c8e29f0c985}
+
+\begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet peut être sauvegardé en X\+ML. \end{DoxyCompactList}\item 
+bool \hyperlink{class_noeud_abstrait_a836dec62b68493d9adada5df556c3f73}{fantome\+\_\+} \{ false \}\hypertarget{class_noeud_abstrait_a836dec62b68493d9adada5df556c3f73}{}\label{class_noeud_abstrait_a836dec62b68493d9adada5df556c3f73}
+
+\begin{DoxyCompactList}\small\item\em Détermine si l\textquotesingle{}objet peut être supprimé. \end{DoxyCompactList}\item 
+\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{class_noeud_abstrait_a002558def0146fea8c413c7928b962a1}{parent\+\_\+} \{ nullptr \}\hypertarget{class_noeud_abstrait_a002558def0146fea8c413c7928b962a1}{}\label{class_noeud_abstrait_a002558def0146fea8c413c7928b962a1}
+
+\begin{DoxyCompactList}\small\item\em Pointeur vers le parent. \end{DoxyCompactList}\item 
+\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const $\ast$ \hyperlink{class_noeud_abstrait_abc3dc8e24578214b7c6081be3246645e}{modele\+\_\+}\hypertarget{class_noeud_abstrait_abc3dc8e24578214b7c6081be3246645e}{}\label{class_noeud_abstrait_abc3dc8e24578214b7c6081be3246645e}
+
+\begin{DoxyCompactList}\small\item\em Modèle 3D correspondant à ce noeud. \end{DoxyCompactList}\item 
+\hyperlink{classopengl_1_1_v_b_o}{opengl\+::\+V\+BO} const $\ast$ \hyperlink{class_noeud_abstrait_ae53668f6c4df669a0923a16b3cb84f83}{vbo\+\_\+}\hypertarget{class_noeud_abstrait_ae53668f6c4df669a0923a16b3cb84f83}{}\label{class_noeud_abstrait_ae53668f6c4df669a0923a16b3cb84f83}
+
+\begin{DoxyCompactList}\small\item\em Storage pour le dessin du modèle. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_ac5b07951404ec40477eb89670ee71bd6}{position\+Initiale\+En\+Traitement\+\_\+}
+\begin{DoxyCompactList}\small\item\em Angle de rotation en degré \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a3adbce3cb9dc8d41ef8baace15fb2ba8}{scale\+Initiale\+En\+Traitement\+\_\+}\hypertarget{class_noeud_abstrait_a3adbce3cb9dc8d41ef8baace15fb2ba8}{}\label{class_noeud_abstrait_a3adbce3cb9dc8d41ef8baace15fb2ba8}
+
+\begin{DoxyCompactList}\small\item\em Scale initial d\textquotesingle{}un noeud en traitement. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a78d62c6ee004b05ba37327d8f3aaa776}{point\+Depart\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_abstrait_a78d62c6ee004b05ba37327d8f3aaa776}{}\label{class_noeud_abstrait_a78d62c6ee004b05ba37327d8f3aaa776}
+
+\begin{DoxyCompactList}\small\item\em Point de depart d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a817839241256bb4701afa6392e683a5a}{point\+Fin\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_abstrait_a817839241256bb4701afa6392e683a5a}{}\label{class_noeud_abstrait_a817839241256bb4701afa6392e683a5a}
+
+\begin{DoxyCompactList}\small\item\em Point final d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga0824ceed7ec3b2fba89765501c1540b5}{glm\+::dvec4} \hyperlink{class_noeud_abstrait_a97561efd92b0cc857c4fbd28c5411008}{rotation\+Relative\+Avantraitement\+\_\+}\hypertarget{class_noeud_abstrait_a97561efd92b0cc857c4fbd28c5411008}{}\label{class_noeud_abstrait_a97561efd92b0cc857c4fbd28c5411008}
+
+\begin{DoxyCompactList}\small\item\em Rotation relative d\textquotesingle{}un noeud avant un traitement. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_abstrait_a3f96db586331c36efe8d4a0ace937608}{centre\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_abstrait_a3f96db586331c36efe8d4a0ace937608}{}\label{class_noeud_abstrait_a3f96db586331c36efe8d4a0ace937608}
+
+\begin{DoxyCompactList}\small\item\em Centre d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\hyperlink{structutilitaire_1_1_boite_englobante}{utilitaire\+::\+Boite\+Englobante} \hyperlink{class_noeud_abstrait_ae73f3600b370a748028879aab1142996}{bte\+Englobante\+\_\+}\hypertarget{class_noeud_abstrait_ae73f3600b370a748028879aab1142996}{}\label{class_noeud_abstrait_ae73f3600b370a748028879aab1142996}
+
+\begin{DoxyCompactList}\small\item\em Boite englobante d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\hyperlink{structutilitaire_1_1_cylindre_englobant}{utilitaire\+::\+Cylindre\+Englobant} \hyperlink{class_noeud_abstrait_ae09a5968812e7a605cb6bfe1e99c7f43}{cyl\+Englobant\+\_\+}\hypertarget{class_noeud_abstrait_ae09a5968812e7a605cb6bfe1e99c7f43}{}\label{class_noeud_abstrait_ae09a5968812e7a605cb6bfe1e99c7f43}
+
+\begin{DoxyCompactList}\small\item\em Cylindre engloant d\textquotesingle{}un noeud. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe de base du patron composite utilisée pour créer l\textquotesingle{}arbre de rendu. 
+
+Cette classe abstraite comprend l\textquotesingle{}interface de base que doivent implanter tous les noeuds pouvant être présent dans l\textquotesingle{}arbre de rendu.
+
+\begin{DoxyAuthor}{Author}
+D\+G\+I-\/2990 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2007-\/01-\/24 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\index{Noeud\+Abstrait@{Noeud\+Abstrait}!get\+Etat\+Capteur\+Securitaire\+Droit@{get\+Etat\+Capteur\+Securitaire\+Droit}}
+\index{get\+Etat\+Capteur\+Securitaire\+Droit@{get\+Etat\+Capteur\+Securitaire\+Droit}!Noeud\+Abstrait@{Noeud\+Abstrait}}
+\subsubsection[{\texorpdfstring{get\+Etat\+Capteur\+Securitaire\+Droit()}{getEtatCapteurSecuritaireDroit()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Noeud\+Abstrait\+::get\+Etat\+Capteur\+Securitaire\+Droit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_noeud_abstrait_a57f1d2f628bc23b3ea44c5457a507e96}{}\label{class_noeud_abstrait_a57f1d2f628bc23b3ea44c5457a507e96}
+Getters des etats de detection des zones securitaire et danger des differents capteurs. Getters de l\textquotesingle{}etat de detection des capteurs de distance. 
+
+Reimplemented in \hyperlink{class_noeud_robot_a680ed0242fca7c53de31a7b1bbe18ce9}{Noeud\+Robot}, and \hyperlink{class_noeud_composite_ae4a311afbb3146ce0105de44892091e1}{Noeud\+Composite}.
+
+\index{Noeud\+Abstrait@{Noeud\+Abstrait}!obtenir\+P2\+Capteur\+Securitaire\+Droit@{obtenir\+P2\+Capteur\+Securitaire\+Droit}}
+\index{obtenir\+P2\+Capteur\+Securitaire\+Droit@{obtenir\+P2\+Capteur\+Securitaire\+Droit}!Noeud\+Abstrait@{Noeud\+Abstrait}}
+\subsubsection[{\texorpdfstring{obtenir\+P2\+Capteur\+Securitaire\+Droit()}{obtenirP2CapteurSecuritaireDroit()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf glm\+::dvec2} Noeud\+Abstrait\+::obtenir\+P2\+Capteur\+Securitaire\+Droit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_noeud_abstrait_a887950652eb1671ad8b7d431bd287d78}{}\label{class_noeud_abstrait_a887950652eb1671ad8b7d431bd287d78}
+Getters des points des capteurs Getters pour obtenir les differents points pour les capteurs de distance. 
+
+Reimplemented in \hyperlink{class_noeud_robot_a92bb258a10c461527f7362f4d6a2f3b7}{Noeud\+Robot}, and \hyperlink{class_noeud_composite_a5ff027b3ffdfa75196da392728560f6f}{Noeud\+Composite}.
+
+\index{Noeud\+Abstrait@{Noeud\+Abstrait}!set\+Affichage\+Debogage\+Suivi\+Ligne@{set\+Affichage\+Debogage\+Suivi\+Ligne}}
+\index{set\+Affichage\+Debogage\+Suivi\+Ligne@{set\+Affichage\+Debogage\+Suivi\+Ligne}!Noeud\+Abstrait@{Noeud\+Abstrait}}
+\subsubsection[{\texorpdfstring{set\+Affichage\+Debogage\+Suivi\+Ligne(const bool \&booleen)}{setAffichageDebogageSuiviLigne(const bool &booleen)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Noeud\+Abstrait\+::set\+Affichage\+Debogage\+Suivi\+Ligne (
+\begin{DoxyParamCaption}
+\item[{const bool \&}]{booleen}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_noeud_abstrait_a5943624e0799e2d0549c86e11c007cc8}{}\label{class_noeud_abstrait_a5943624e0799e2d0549c86e11c007cc8}
+
+
+Methode permettant d\textquotesingle{}obtenir l\textquotesingle{}affichage de debugage. 
+
+Methode permettant de set l\textquotesingle{}affichage debugage correspondant au suivi de ligne. 
+
+Reimplemented in \hyperlink{class_noeud_robot_ae34f7d578604fa99dc161750d1fef5ce}{Noeud\+Robot}, and \hyperlink{class_noeud_composite_ad086cc07807ed6f26713e86e0783d5fc}{Noeud\+Composite}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Noeud\+Abstrait@{Noeud\+Abstrait}!position\+Initiale\+En\+Traitement\+\_\+@{position\+Initiale\+En\+Traitement\+\_\+}}
+\index{position\+Initiale\+En\+Traitement\+\_\+@{position\+Initiale\+En\+Traitement\+\_\+}!Noeud\+Abstrait@{Noeud\+Abstrait}}
+\subsubsection[{\texorpdfstring{position\+Initiale\+En\+Traitement\+\_\+}{positionInitialeEnTraitement_}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::dvec3} Noeud\+Abstrait\+::position\+Initiale\+En\+Traitement\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_noeud_abstrait_ac5b07951404ec40477eb89670ee71bd6}{}\label{class_noeud_abstrait_ac5b07951404ec40477eb89670ee71bd6}
+
+
+Angle de rotation en degré 
+
+Position initial d\textquotesingle{}un noeud en traitement. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_abstrait_8h}{Noeud\+Abstrait.\+h}\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_abstrait_8cpp}{Noeud\+Abstrait.\+cpp}\end{DoxyCompactItemize}

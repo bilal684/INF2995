@@ -1,0 +1,56 @@
+\hypertarget{class_visiteur_vers_x_m_l}{}\section{Visiteur\+Vers\+X\+ML Class Reference}
+\label{class_visiteur_vers_x_m_l}\index{Visiteur\+Vers\+X\+ML@{Visiteur\+Vers\+X\+ML}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud en remplissat chaque element\+X\+ML et en l\textquotesingle{}ajoutant au root du document X\+ML.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Vers\+X\+M\+L.\+h$>$}
+
+Inheritance diagram for Visiteur\+Vers\+X\+ML\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_vers_x_m_l}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_visiteur_vers_x_m_l_a38f9b2baadca2a15a73589e8b844ddc3}{Visiteur\+Vers\+X\+ML} (\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+X\+M\+L\+Document} $\ast$document\+X\+ML, \hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+X\+M\+L\+Element} $\ast$element\+X\+ML)\hypertarget{class_visiteur_vers_x_m_l_a38f9b2baadca2a15a73589e8b844ddc3}{}\label{class_visiteur_vers_x_m_l_a38f9b2baadca2a15a73589e8b844ddc3}
+
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{class_visiteur_vers_x_m_l_ada9b3402bee9c1fec2959b0d843e2ef7}{$\sim$\+Visiteur\+Vers\+X\+ML} ()\hypertarget{class_visiteur_vers_x_m_l_ada9b3402bee9c1fec2959b0d843e2ef7}{}\label{class_visiteur_vers_x_m_l_ada9b3402bee9c1fec2959b0d843e2ef7}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga22f55119ea140e46d41130b9d6dc2af2}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga58d7f0f71eb559fcc5b0f7d307a014ad}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga520481b548e656cbfb2cc4ec1d924322}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga35001b68462a5252ddd3b886bc467664}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga583469cef927f86fc630d52e4f7f13da}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud en remplissat chaque element\+X\+ML et en l\textquotesingle{}ajoutant au root du document X\+ML. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car il possede des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_vers_x_m_l_8h}{Visiteur\+Vers\+X\+M\+L.\+h}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_vers_x_m_l_8cpp}{Visiteur\+Vers\+X\+M\+L.\+cpp}\end{DoxyCompactItemize}

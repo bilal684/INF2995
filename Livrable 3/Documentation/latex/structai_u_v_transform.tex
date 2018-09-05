@@ -1,0 +1,50 @@
+\hypertarget{structai_u_v_transform}{}\section{ai\+U\+V\+Transform Struct Reference}
+\label{structai_u_v_transform}\index{ai\+U\+V\+Transform@{ai\+U\+V\+Transform}}
+
+
+Defines how an UV channel is transformed.  
+
+
+
+
+{\ttfamily \#include $<$material.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector2_d}{ai\+Vector2D} \hyperlink{structai_u_v_transform_a8c7f35959aa342bf0cef670246fbb813}{m\+Translation}
+\item 
+C\+\_\+\+S\+T\+R\+U\+CT \hyperlink{structai_vector2_d}{ai\+Vector2D} \hyperlink{structai_u_v_transform_a89429a027cbf914e7212e48149a957c8}{m\+Scaling}
+\item 
+float \hyperlink{structai_u_v_transform_aa8dcf39ccd39f786b3f5f163bd663792}{m\+Rotation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines how an UV channel is transformed. 
+
+This is just a helper structure for the \#\+A\+I\+\_\+\+M\+A\+T\+K\+E\+Y\+\_\+\+U\+V\+T\+R\+A\+N\+S\+F\+O\+RM key. See its documentation for more details.
+
+Typically you\textquotesingle{}ll want to build a matrix of this information. However, we keep separate scaling/translation/rotation values to make it easier to process and optimize UV transformations internally. 
+
+\subsection{Member Data Documentation}
+\index{ai\+U\+V\+Transform@{ai\+U\+V\+Transform}!m\+Rotation@{m\+Rotation}}
+\index{m\+Rotation@{m\+Rotation}!ai\+U\+V\+Transform@{ai\+U\+V\+Transform}}
+\subsubsection[{\texorpdfstring{m\+Rotation}{mRotation}}]{\setlength{\rightskip}{0pt plus 5cm}float ai\+U\+V\+Transform\+::m\+Rotation}\hypertarget{structai_u_v_transform_aa8dcf39ccd39f786b3f5f163bd663792}{}\label{structai_u_v_transform_aa8dcf39ccd39f786b3f5f163bd663792}
+Rotation -\/ in counter-\/clockwise direction.
+
+The rotation angle is specified in radians. The rotation center is 0.\+5f$\vert$0.5f. The default value 0.\+f. \index{ai\+U\+V\+Transform@{ai\+U\+V\+Transform}!m\+Scaling@{m\+Scaling}}
+\index{m\+Scaling@{m\+Scaling}!ai\+U\+V\+Transform@{ai\+U\+V\+Transform}}
+\subsubsection[{\texorpdfstring{m\+Scaling}{mScaling}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector2D} ai\+U\+V\+Transform\+::m\+Scaling}\hypertarget{structai_u_v_transform_a89429a027cbf914e7212e48149a957c8}{}\label{structai_u_v_transform_a89429a027cbf914e7212e48149a957c8}
+Scaling on the u and v axes.
+
+The default value is (1$\vert$1). \index{ai\+U\+V\+Transform@{ai\+U\+V\+Transform}!m\+Translation@{m\+Translation}}
+\index{m\+Translation@{m\+Translation}!ai\+U\+V\+Transform@{ai\+U\+V\+Transform}}
+\subsubsection[{\texorpdfstring{m\+Translation}{mTranslation}}]{\setlength{\rightskip}{0pt plus 5cm}C\+\_\+\+S\+T\+R\+U\+CT {\bf ai\+Vector2D} ai\+U\+V\+Transform\+::m\+Translation}\hypertarget{structai_u_v_transform_a8c7f35959aa342bf0cef670246fbb813}{}\label{structai_u_v_transform_a8c7f35959aa342bf0cef670246fbb813}
+Translation on the u and v axes.
+
+The default value is (0$\vert$0). 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Commun/\+Externe/assimp/include/\hyperlink{material_8h}{material.\+h}\end{DoxyCompactItemize}

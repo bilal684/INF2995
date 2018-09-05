@@ -1,0 +1,346 @@
+In Rapid\+J\+S\+ON, {\ttfamily \hyperlink{classrapidjson_1_1_stream}{rapidjson\+::\+Stream}} is a concept for reading/writing J\+S\+ON. Here we first show how to use streams provided. And then see how to create a custom stream.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_MemoryStreams}{}\section{Memory Streams}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_MemoryStreams}
+Memory streams store J\+S\+ON in memory.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringStream}{}\subsection{String\+Stream (\+Input)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringStream}
+{\ttfamily String\+Stream} is the most basic input stream. It represents a complete, read-\/only J\+S\+ON stored in memory. It is defined in {\ttfamily \hyperlink{rapidjson_8h}{rapidjson/rapidjson.\+h}}.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"} \textcolor{comment}{// will include "rapidjson/rapidjson.h"}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{comment}{// ...}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} json[] = \textcolor{stringliteral}{"[1, 2, 3, 4]"};
+\hyperlink{struct_generic_string_stream}{StringStream} s(json);
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}(s);
+\end{DoxyCode}
+
+
+Since this is very common usage, {\ttfamily Document\+::\+Parse(const char$\ast$)} is provided to do exactly the same as above\+:
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// ...}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char} json[] = \textcolor{stringliteral}{"[1, 2, 3, 4]"};
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\end{DoxyCode}
+
+
+Note that, {\ttfamily String\+Stream} is a typedef of {\ttfamily \hyperlink{struct_generic_string_stream}{Generic\+String\+Stream}$<$\hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$ $>$}, user may use another encodings to represent the character set of the stream.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringBuffer}{}\subsection{String\+Buffer (\+Output)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_StringBuffer}
+{\ttfamily String\+Buffer} is a simple output stream. It allocates a memory buffer for writing the whole J\+S\+ON. Use {\ttfamily Get\+String()} to obtain the buffer.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/stringbuffer.h"}
+
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer;
+\hyperlink{class_writer}{Writer<StringBuffer>} writer(buffer);
+d.Accept(writer);
+
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* output = buffer.GetString();
+\end{DoxyCode}
+
+
+When the buffer is full, it will increases the capacity automatically. The default capacity is 256 characters (256 bytes for \hyperlink{struct_u_t_f8}{U\+T\+F8}, 512 bytes for \hyperlink{struct_u_t_f16}{U\+T\+F16}, etc.). User can provide an allocator and a initial capacity.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer1(0, 1024); \textcolor{comment}{// Use its allocator, initial size = 1024}
+\hyperlink{class_generic_string_buffer}{StringBuffer} buffer2(allocator, 1024);
+\end{DoxyCode}
+
+
+By default, {\ttfamily String\+Buffer} will instantiate an internal allocator.
+
+Similarly, {\ttfamily String\+Buffer} is a typedef of {\ttfamily \hyperlink{class_generic_string_buffer}{Generic\+String\+Buffer}$<$\hyperlink{struct_u_t_f8}{U\+T\+F8}$<$$>$ $>$}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileStreams}{}\section{File Streams}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileStreams}
+When parsing a J\+S\+ON from file, you may read the whole J\+S\+ON into memory and use {\ttfamily String\+Stream} above.
+
+However, if the J\+S\+ON is big, or memory is limited, you can use {\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}. It only read a part of J\+S\+ON from file into buffer, and then let the part be parsed. If it runs out of characters in the buffer, it will read the next part from file.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileReadStream}{}\subsection{File\+Read\+Stream (\+Input)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileReadStream}
+{\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}} reads the file via a {\ttfamily F\+I\+LE} pointer. And user need to provide a buffer.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+FILE* fp = fopen(\textcolor{stringliteral}{"big.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// non-Windows use "r"}
+
+\textcolor{keywordtype}{char} readBuffer[65536];
+\hyperlink{class_file_read_stream}{FileReadStream} is(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}(is);
+
+fclose(fp);
+\end{DoxyCode}
+
+
+Different from string streams, {\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}} is byte stream. It does not handle encodings. If the file is not U\+T\+F-\/8, the byte stream can be wrapped in a {\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}}. It will be discussed very soon.
+
+Apart from reading file, user can also use {\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}} to read {\ttfamily stdin}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileWriteStream}{}\subsection{File\+Write\+Stream (\+Output)}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_FileWriteStream}
+{\ttfamily \hyperlink{class_file_write_stream}{File\+Write\+Stream}} is buffered output stream. Its usage is very similar to {\ttfamily \hyperlink{class_file_read_stream}{File\+Read\+Stream}}.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/filewritestream.h"}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_aebd4e7fddd80c1e1174837aee6d2159b}{Parse}(json);
+\textcolor{comment}{// ...}
+
+FILE* fp = fopen(\textcolor{stringliteral}{"output.json"}, \textcolor{stringliteral}{"wb"}); \textcolor{comment}{// non-Windows use "w"}
+
+\textcolor{keywordtype}{char} writeBuffer[65536];
+\hyperlink{class_file_write_stream}{FileWriteStream} os(fp, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+
+\hyperlink{class_writer}{Writer<FileWriteStream>} writer(os);
+d.Accept(writer);
+
+fclose(fp);
+\end{DoxyCode}
+
+
+It can also directs the output to {\ttfamily stdout}.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedStreams}{}\section{Encoded Streams}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedStreams}
+Encoded streams do not contain J\+S\+ON itself, but they wrap byte streams to provide basic encoding/decoding function.
+
+As mentioned above, U\+T\+F-\/8 byte streams can be read directly. However, U\+T\+F-\/16 and U\+T\+F-\/32 have endian issue. To handle endian correctly, it needs to convert bytes into characters (e.\+g. {\ttfamily wchar\+\_\+t} for U\+T\+F-\/16) while reading, and characters into bytes while writing.
+
+Besides, it also need to handle \href{http://en.wikipedia.org/wiki/Byte_order_mark}{\tt byte order mark (B\+OM)}. When reading from a byte stream, it is needed to detect or just consume the B\+OM if exists. When writing to a byte stream, it can optionally write B\+OM.
+
+If the encoding of stream is known in compile-\/time, you may use {\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}} and {\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}. If the stream can be U\+T\+F-\/8, U\+T\+F-\/16\+LE, U\+T\+F-\/16\+BE, U\+T\+F-\/32\+LE, U\+T\+F-\/32\+BE J\+S\+ON, and it is only known in runtime, you may use {\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}} and {\ttfamily \hyperlink{class_auto_u_t_f_output_stream}{Auto\+U\+T\+F\+Output\+Stream}}. These streams are defined in {\ttfamily \hyperlink{encodedstream_8h_source}{rapidjson/encodedstream.\+h}}.
+
+Note that, these encoded streams can be applied to streams other than file. For example, you may have a file in memory, or a custom byte stream, be wrapped in encoded streams.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedInputStream}{}\subsection{Encoded\+Input\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedInputStream}
+{\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}} has two template parameters. The first one is a {\ttfamily Encoding} class, such as {\ttfamily \hyperlink{struct_u_t_f8}{U\+T\+F8}}, {\ttfamily \hyperlink{struct_u_t_f16_l_e}{U\+T\+F16\+LE}}, defined in {\ttfamily \hyperlink{encodings_8h_source}{rapidjson/encodings.\+h}}. The second one is the class of stream to be wrapped.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}   \textcolor{comment}{// FileReadStream}
+\textcolor{preprocessor}{#include "rapidjson/encodedstream.h"}    \textcolor{comment}{// EncodedInputStream}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+FILE* fp = fopen(\textcolor{stringliteral}{"utf16le.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// non-Windows use "r"}
+
+\textcolor{keywordtype}{char} readBuffer[256];
+\hyperlink{class_file_read_stream}{FileReadStream} bis(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_encoded_input_stream}{EncodedInputStream<UTF16LE<>}, \hyperlink{class_file_read_stream}{FileReadStream}> eis(bis);  \textcolor{comment}{// wraps
+       bis into eis}
+
+\hyperlink{class_generic_document}{Document} d; \textcolor{comment}{// Document is GenericDocument<UTF8<> > }
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}<0, \hyperlink{struct_u_t_f16_l_e}{UTF16LE<>} >(eis);  \textcolor{comment}{// Parses UTF-16LE file into UTF-8 in memory}
+
+fclose(fp);
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedOutputStream}{}\subsection{Encoded\+Output\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_EncodedOutputStream}
+{\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}} is similar but it has a {\ttfamily bool put\+B\+OM} parameter in the constructor, controlling whether to write B\+OM into output byte stream.
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/filewritestream.h"}  \textcolor{comment}{// FileWriteStream}
+\textcolor{preprocessor}{#include "rapidjson/encodedstream.h"}    \textcolor{comment}{// EncodedOutputStream}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\hyperlink{class_generic_document}{Document} d;         \textcolor{comment}{// Document is GenericDocument<UTF8<> > }
+\textcolor{comment}{// ...}
+
+FILE* fp = fopen(\textcolor{stringliteral}{"output\_utf32le.json"}, \textcolor{stringliteral}{"wb"}); \textcolor{comment}{// non-Windows use "w"}
+
+\textcolor{keywordtype}{char} writeBuffer[256];
+\hyperlink{class_file_write_stream}{FileWriteStream} bos(fp, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+
+\textcolor{keyword}{typedef} EncodedOutputStream<UTF32LE<>, \hyperlink{class_file_write_stream}{FileWriteStream}> OutputStream;
+OutputStream eos(bos, \textcolor{keyword}{true});   \textcolor{comment}{// Write BOM}
+
+\hyperlink{class_writer}{Writer<OutputStream, UTF32LE<>}, \hyperlink{struct_u_t_f8}{UTF8<>}> writer(eos);
+d.Accept(writer);   \textcolor{comment}{// This generates UTF32-LE file from UTF-8 in memory}
+
+fclose(fp);
+\end{DoxyCode}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFInputStream}{}\subsection{Auto\+U\+T\+F\+Input\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFInputStream}
+Sometimes an application may want to handle all supported J\+S\+ON encoding. {\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}} will detection encoding by B\+OM first. If B\+OM is unavailable, it will use characteristics of valid J\+S\+ON to make detection. If neither method success, it falls back to the U\+TF type provided in constructor.
+
+Since the characters (code units) may be 8-\/bit, 16-\/bit or 32-\/bit. {\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}} requires a character type which can hold at least 32-\/bit. We may use {\ttfamily unsigned}, as in the template parameter\+:
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{document_8h}{rapidjson/document.h}"}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}   \textcolor{comment}{// FileReadStream}
+\textcolor{preprocessor}{#include "rapidjson/encodedstream.h"}    \textcolor{comment}{// AutoUTFInputStream}
+\textcolor{preprocessor}{#include <cstdio>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+FILE* fp = fopen(\textcolor{stringliteral}{"any.json"}, \textcolor{stringliteral}{"rb"}); \textcolor{comment}{// non-Windows use "r"}
+
+\textcolor{keywordtype}{char} readBuffer[256];
+\hyperlink{class_file_read_stream}{FileReadStream} bis(fp, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+\hyperlink{class_auto_u_t_f_input_stream}{AutoUTFInputStream<unsigned, FileReadStream>} eis(bis);  \textcolor{comment}{//
+       wraps bis into eis}
+
+\hyperlink{class_generic_document}{Document} d;         \textcolor{comment}{// Document is GenericDocument<UTF8<> > }
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}<0, \hyperlink{struct_auto_u_t_f}{AutoUTF<unsigned>} >(eis); \textcolor{comment}{// This parses any UTF file into
+       UTF-8 in memory}
+
+fclose(fp);
+\end{DoxyCode}
+
+
+When specifying the encoding of stream, uses {\ttfamily \hyperlink{struct_auto_u_t_f}{Auto\+U\+TF}$<$Char\+Type$>$} as in {\ttfamily Parse\+Stream()} above.
+
+You can obtain the type of U\+TF via {\ttfamily U\+T\+F\+Type Get\+Type()}. And check whether a B\+OM is found by {\ttfamily Has\+B\+O\+M()}\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFOutputStream}{}\subsection{Auto\+U\+T\+F\+Output\+Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_AutoUTFOutputStream}
+Similarly, to choose encoding for output during runtime, we can use {\ttfamily \hyperlink{class_auto_u_t_f_output_stream}{Auto\+U\+T\+F\+Output\+Stream}}. This class is not automatic {\itshape per se}. You need to specify the U\+TF type and whether to write B\+OM in runtime.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keywordtype}{void} WriteJSONFile(FILE* fp, UTFType type, \textcolor{keywordtype}{bool} putBOM, \textcolor{keyword}{const} \hyperlink{class_generic_document}{Document}& d) \{
+    \textcolor{keywordtype}{char} writeBuffer[256];
+    \hyperlink{class_file_write_stream}{FileWriteStream} bos(fp, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+
+    \textcolor{keyword}{typedef} \hyperlink{class_auto_u_t_f_output_stream}{AutoUTFOutputStream<unsigned, FileWriteStream>} 
+      OutputStream;
+    OutputStream eos(bos, type, putBOM);
+
+    \hyperlink{class_writer}{Writer<OutputStream, UTF8<>}, \hyperlink{struct_auto_u_t_f}{AutoUTF<>} > writer;
+    d.Accept(writer);
+\}
+\end{DoxyCode}
+
+
+{\ttfamily \hyperlink{class_auto_u_t_f_input_stream}{Auto\+U\+T\+F\+Input\+Stream}} and {\ttfamily \hyperlink{class_auto_u_t_f_output_stream}{Auto\+U\+T\+F\+Output\+Stream}} is more convenient than {\ttfamily \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream}} and {\ttfamily \hyperlink{class_encoded_output_stream}{Encoded\+Output\+Stream}}. They just incur a little bit runtime overheads.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_CustomStream}{}\section{Custom Stream}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_CustomStream}
+In addition to memory/file streams, user can create their own stream classes which fits Rapid\+J\+S\+ON\textquotesingle{}s A\+PI. For example, you may create network stream, stream from compressed file, etc.
+
+Rapid\+J\+S\+ON combines different types using templates. A class containing all required interface can be a stream. The Stream interface is defined in comments of {\ttfamily \hyperlink{rapidjson_8h}{rapidjson/rapidjson.\+h}}\+:
+
+
+\begin{DoxyCode}
+concept Stream \{
+    \textcolor{keyword}{typename} Ch;    
+
+    Ch Peek() \textcolor{keyword}{const};
+
+    Ch Take();
+
+    \textcolor{keywordtype}{size\_t} Tell();
+
+    Ch* PutBegin();
+
+    \textcolor{keywordtype}{void} Put(Ch c);
+
+    \textcolor{keywordtype}{void} Flush();
+
+    \textcolor{keywordtype}{size\_t} PutEnd(Ch* begin);
+\}
+\end{DoxyCode}
+
+
+For input stream, they must implement {\ttfamily Peek()}, {\ttfamily Take()} and {\ttfamily Tell()}. For output stream, they must implement {\ttfamily Put()} and {\ttfamily Flush()}. There are two special interface, {\ttfamily Put\+Begin()} and {\ttfamily Put\+End()}, which are only for {\itshape in situ} parsing. Normal streams do not implement them. However, if the interface is not needed for a particular stream, it is still need to a dummy implementation, otherwise will generate compilation error.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleIStreamWrapper}{}\subsection{Example\+: istream wrapper}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleIStreamWrapper}
+The following example is a wrapper of {\ttfamily std\+::istream}, which only implements 3 functions.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }IStreamWrapper \{
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} Ch;
+
+    IStreamWrapper(std::istream& is) : is\_(is) \{
+    \}
+
+    Ch Peek()\textcolor{keyword}{ const }\{ \textcolor{comment}{// 1}
+        \textcolor{keywordtype}{int} c = is\_.peek();
+        \textcolor{keywordflow}{return} c == std::char\_traits<char>::eof() ? \textcolor{charliteral}{'\(\backslash\)0'} : (Ch)c;
+    \}
+
+    Ch Take() \{ \textcolor{comment}{// 2}
+        \textcolor{keywordtype}{int} c = is\_.get();
+        \textcolor{keywordflow}{return} c == std::char\_traits<char>::eof() ? \textcolor{charliteral}{'\(\backslash\)0'} : (Ch)c;
+    \}
+
+    \textcolor{keywordtype}{size\_t} Tell()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})is\_.tellg(); \} \textcolor{comment}{// 3}
+
+    Ch* PutBegin() \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+    \textcolor{keywordtype}{void} Put(Ch) \{ assert(\textcolor{keyword}{false}); \}
+    \textcolor{keywordtype}{void} Flush() \{ assert(\textcolor{keyword}{false}); \}
+    \textcolor{keywordtype}{size\_t} PutEnd(Ch*) \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+
+\textcolor{keyword}{private}:
+    IStreamWrapper(\textcolor{keyword}{const} IStreamWrapper&);
+    IStreamWrapper& operator=(\textcolor{keyword}{const} IStreamWrapper&);
+
+    std::istream& is\_;
+\};
+\end{DoxyCode}
+
+
+User can use it to wrap instances of {\ttfamily std\+::stringstream}, {\ttfamily std\+::ifstream}.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* json = \textcolor{stringliteral}{"[1,2,3,4]"};
+std::stringstream ss(json);
+IStreamWrapper is(ss);
+
+\hyperlink{class_generic_document}{Document} d;
+d.\hyperlink{class_generic_document_afe94c0abc83a20f2d7dc1ba7677e6238}{ParseStream}(is);
+\end{DoxyCode}
+
+
+Note that, this implementation may not be as efficient as Rapid\+J\+S\+ON\textquotesingle{}s memory or file streams, due to internal overheads of the standard library.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleOStreamWrapper}{}\subsection{Example\+: ostream wrapper}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_ExampleOStreamWrapper}
+The following example is a wrapper of {\ttfamily std\+::istream}, which only implements 2 functions.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }OStreamWrapper \{
+\textcolor{keyword}{public}:
+    \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} Ch;
+
+    OStreamWrapper(std::ostream& os) : os\_(os) \{
+    \}
+
+    Ch Peek()\textcolor{keyword}{ const }\{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} \textcolor{charliteral}{'\(\backslash\)0'}; \}
+    Ch Take() \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} \textcolor{charliteral}{'\(\backslash\)0'}; \}
+    \textcolor{keywordtype}{size\_t} Tell()\textcolor{keyword}{ const }\{  \}
+
+    Ch* PutBegin() \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+    \textcolor{keywordtype}{void} Put(Ch c) \{ os\_.put(c); \}                  \textcolor{comment}{// 1}
+    \textcolor{keywordtype}{void} Flush() \{ os\_.flush(); \}                   \textcolor{comment}{// 2}
+    \textcolor{keywordtype}{size\_t} PutEnd(Ch*) \{ assert(\textcolor{keyword}{false}); \textcolor{keywordflow}{return} 0; \}
+
+\textcolor{keyword}{private}:
+    OStreamWrapper(\textcolor{keyword}{const} OStreamWrapper&);
+    OStreamWrapper& operator=(\textcolor{keyword}{const} OStreamWrapper&);
+
+    std::ostream& os\_;
+\};
+\end{DoxyCode}
+
+
+User can use it to wrap instances of {\ttfamily std\+::stringstream}, {\ttfamily std\+::ofstream}.
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_document}{Document} d;
+\textcolor{comment}{// ...}
+
+std::stringstream ss;
+OSStreamWrapper os(ss);
+
+\hyperlink{class_writer}{Writer<OStreamWrapper>} writer(os);
+d.Accept(writer);
+\end{DoxyCode}
+
+
+Note that, this implementation may not be as efficient as Rapid\+J\+S\+ON\textquotesingle{}s memory or file streams, due to internal overheads of the standard library.\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_Summary}{}\section{Summary}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_stream.zh-cn_Summary}
+This section describes stream classes available in Rapid\+J\+S\+ON. Memory streams are simple. File stream can reduce the memory required during J\+S\+ON parsing and generation, if the J\+S\+ON is stored in file system. Encoded streams converts between byte streams and character streams. Finally, user may create custom streams using a simple interface. 

@@ -1,0 +1,69 @@
+\hypertarget{class_noeud_segment}{}\section{Noeud\+Segment Class Reference}
+\label{class_noeud_segment}\index{Noeud\+Segment@{Noeud\+Segment}}
+
+
+Classe qui représente un noeud segment.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Segment.\+h$>$}
+
+Inheritance diagram for Noeud\+Segment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_noeud_segment}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga10b40095ce1eec28d4ab46e01b2967f3}{Noeud\+Segment} (const std\+::string \&type\+Noeud)
+\begin{DoxyCompactList}\small\item\em Constructeur du noeud segment. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_gad077426a22b964bb175e52a4090a13ac}{$\sim$\+Noeud\+Segment} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga0ba0aafc1352a0681bc9a90859795a20}{afficher\+Concret} () const 
+\begin{DoxyCompactList}\small\item\em Affiche le noeud segment. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gadd01859fabe7b402a37563f5593c27b6}{accepter\+Visiteur} (\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$visiteur)
+\begin{DoxyCompactList}\small\item\em appliquer l\textquotesingle{}algorithme du visiteur sur le noeud courant \end{DoxyCompactList}\item 
+virtual bool \hyperlink{group__inf2990_ga50c66d33accb73a1d483065132b2c0c6}{click\+Touche\+Noeud} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic sur le noeud segment. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga07c1d83a644ee87dffd1460a49cf153a}{est\+Dans\+La\+Table\+Apres\+Deplacement} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} deplacement)
+\begin{DoxyCompactList}\small\item\em verifier si la noeud est dans la table \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga06c823540721c79baa4870b90e0742e8}{est\+Dans\+La\+Table} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier si un objet de type segment est toujours sur la table. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gac05accff8a55ce58e2aed479ea469d2b}{initialiser\+En\+Traitement} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}initialiser des donnees d\textquotesingle{}un objet de type segment en traitement. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_segment_a3a2752e05a45551c79fd644fae1832c8}{get\+Point\+Depart\+Initial\+En\+Traitement} ()\hypertarget{class_noeud_segment_a3a2752e05a45551c79fd644fae1832c8}{}\label{class_noeud_segment_a3a2752e05a45551c79fd644fae1832c8}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du point de depart initial d\textquotesingle{}un objet de type segment. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{class_noeud_segment_a40c15e34adc7b467533fb36f790ebd70}{get\+Point\+Fin\+Initial\+En\+Traitement} ()\hypertarget{class_noeud_segment_a40c15e34adc7b467533fb36f790ebd70}{}\label{class_noeud_segment_a40c15e34adc7b467533fb36f790ebd70}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du point final initial d\textquotesingle{}un objet de type segment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} {\bfseries point\+Depart\+Initial\+En\+Traitement\+\_\+}\hypertarget{class_noeud_segment_a33c48d4f1737de4050d760ba3ec78fea}{}\label{class_noeud_segment_a33c48d4f1737de4050d760ba3ec78fea}
+
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} {\bfseries point\+Fin\+Initial\+En\+Traitement\+\_\+}\hypertarget{class_noeud_segment_ad03248d19b88c9bcdcf559bb8bf74d89}{}\label{class_noeud_segment_ad03248d19b88c9bcdcf559bb8bf74d89}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui représente un noeud segment. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_segment_8h}{Noeud\+Segment.\+h}\item 
+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_segment_8cpp}{Noeud\+Segment.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,76 @@
+\hypertarget{classvisiteur_select_elastique}{}\section{visiteur\+Select\+Elastique Class Reference}
+\label{classvisiteur_select_elastique}\index{visiteur\+Select\+Elastique@{visiteur\+Select\+Elastique}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud afin de permettre la selection par rectangle elastqiue.  
+
+
+
+
+{\ttfamily \#include $<$visiteur\+Select\+Elastique.\+h$>$}
+
+Inheritance diagram for visiteur\+Select\+Elastique\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classvisiteur_select_elastique}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvisiteur_select_elastique_ac9779a5721160f8eea501a9265cbf384}{visiteur\+Select\+Elastique} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point\+Min, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point\+Max, bool est\+Enfonce)\hypertarget{classvisiteur_select_elastique_ac9779a5721160f8eea501a9265cbf384}{}\label{classvisiteur_select_elastique_ac9779a5721160f8eea501a9265cbf384}
+
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{classvisiteur_select_elastique_a92b090153b461ec07936f238bc4b0dcd}{$\sim$visiteur\+Select\+Elastique} ()\hypertarget{classvisiteur_select_elastique_a92b090153b461ec07936f238bc4b0dcd}{}\label{classvisiteur_select_elastique_a92b090153b461ec07936f238bc4b0dcd}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga92921e2f5caf55cbb24890bf832d9749}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga13429ac3a6406a34c70831d3617f6479}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga491e8902f47e8a514feaa1aa06ecdedf}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga621a5fe7defb6046539a12d13c94f8cc}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga7977b20e7e54c26e54de7f7fb436415a}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gad3b137f1fe9416077fda3727197c4f61}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} {\bfseries point\+\_\+min\+\_\+}\hypertarget{classvisiteur_select_elastique_ad0a01f5bf2f90901cdcf8188dc0afbd6}{}\label{classvisiteur_select_elastique_ad0a01f5bf2f90901cdcf8188dc0afbd6}
+
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} {\bfseries point\+\_\+max\+\_\+}\hypertarget{classvisiteur_select_elastique_a2383f0c9bbe4de4562a737bce8a8610f}{}\label{classvisiteur_select_elastique_a2383f0c9bbe4de4562a737bce8a8610f}
+
+\item 
+std\+::vector$<$ \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ $>$ {\bfseries objets\+Selectionnes\+\_\+}\hypertarget{classvisiteur_select_elastique_a597f4e19f1595825200d4b539fead859}{}\label{classvisiteur_select_elastique_a597f4e19f1595825200d4b539fead859}
+
+\item 
+bool {\bfseries sont\+Dans\+Rectangle\+\_\+} = true\hypertarget{classvisiteur_select_elastique_acab2fa75a1358744f7e1c5f4062b9803}{}\label{classvisiteur_select_elastique_acab2fa75a1358744f7e1c5f4062b9803}
+
+\item 
+bool {\bfseries selection\+C\+T\+R\+L\+\_\+}\hypertarget{classvisiteur_select_elastique_a63fe6262b265075697764c047a1a6bac}{}\label{classvisiteur_select_elastique_a63fe6262b265075697764c047a1a6bac}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud afin de permettre la selection par rectangle elastqiue. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+D\+L\+L/\+Visiteur/visiteur\+Select\+Elastique.\+h\item 
+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{visiteur_select_elastique_8cpp}{visiteur\+Select\+Elastique.\+cpp}\end{DoxyCompactItemize}

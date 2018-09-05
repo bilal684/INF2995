@@ -1,0 +1,54 @@
+\hypertarget{class_f_t_char_to_glyph_index_map}{}\section{F\+T\+Char\+To\+Glyph\+Index\+Map Class Reference}
+\label{class_f_t_char_to_glyph_index_map}\index{F\+T\+Char\+To\+Glyph\+Index\+Map@{F\+T\+Char\+To\+Glyph\+Index\+Map}}
+
+
+{\ttfamily \#include $<$F\+T\+Char\+To\+Glyph\+Index\+Map.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ {\bfseries Number\+Of\+Buckets} = 256, 
+{\bfseries Bucket\+Size} = 256, 
+{\bfseries Index\+Not\+Found} = -\/1
+ \}\hypertarget{class_f_t_char_to_glyph_index_map_a0bdc3bf15f20361affb9d4563fb73919}{}\label{class_f_t_char_to_glyph_index_map_a0bdc3bf15f20361affb9d4563fb73919}
+
+\item 
+typedef unsigned long {\bfseries Character\+Code}\hypertarget{class_f_t_char_to_glyph_index_map_a0c3d673d5c3e978b7c04ea367f82e624}{}\label{class_f_t_char_to_glyph_index_map_a0c3d673d5c3e978b7c04ea367f82e624}
+
+\item 
+typedef signed long {\bfseries Glyph\+Index}\hypertarget{class_f_t_char_to_glyph_index_map_a54a7eca7f7b06f9389c12ab96db36a25}{}\label{class_f_t_char_to_glyph_index_map_a54a7eca7f7b06f9389c12ab96db36a25}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries clear} ()\hypertarget{class_f_t_char_to_glyph_index_map_adc045f0ce5b32fa84681d63e35ac7369}{}\label{class_f_t_char_to_glyph_index_map_adc045f0ce5b32fa84681d63e35ac7369}
+
+\item 
+const Glyph\+Index {\bfseries find} (Character\+Code c)\hypertarget{class_f_t_char_to_glyph_index_map_a94a2e63c8689298ac8dffdc90f290bb2}{}\label{class_f_t_char_to_glyph_index_map_a94a2e63c8689298ac8dffdc90f290bb2}
+
+\item 
+void {\bfseries insert} (Character\+Code c, Glyph\+Index g)\hypertarget{class_f_t_char_to_glyph_index_map_aa5ee6e5371094dfa05fa69145c33547f}{}\label{class_f_t_char_to_glyph_index_map_aa5ee6e5371094dfa05fa69145c33547f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides a non-\/\+S\+TL alternative to the S\+TL map$<$unsigned long, unsigned long$>$ which maps character codes to glyph indices inside \hyperlink{class_f_t_charmap}{F\+T\+Charmap}.
+
+Implementation\+:
+\begin{DoxyItemize}
+\item Number\+Of\+Buckets buckets are considered.
+\item Each bucket has Bucket\+Size entries.
+\item When the glyph index for the character code C has to be stored, the bucket this character belongs to is found using \textquotesingle{}C div Bucket\+Size\textquotesingle{}. If this bucket has not been allocated yet, do it now. The entry in the bucked is found using \textquotesingle{}C mod Bucket\+Size\textquotesingle{}. If it is set to Index\+Not\+Found, then the glyph entry has not been set.
+\item Try to mimic the calls made to the S\+TL map A\+PI.
+\end{DoxyItemize}
+
+Caveats\+:
+\begin{DoxyItemize}
+\item The glyph index is now a signed long instead of unsigned long, so the special value Index\+Not\+Found (= -\/1) can be used to specify that the glyph index has not been stored yet. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Char\+To\+Glyph\+Index\+Map.\+h\end{DoxyCompactItemize}

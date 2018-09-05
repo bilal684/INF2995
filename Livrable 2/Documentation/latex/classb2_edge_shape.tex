@@ -1,0 +1,125 @@
+\hypertarget{classb2_edge_shape}{}\section{b2\+Edge\+Shape Class Reference}
+\label{classb2_edge_shape}\index{b2\+Edge\+Shape@{b2\+Edge\+Shape}}
+
+
+{\ttfamily \#include $<$b2\+Edge\+Shape.\+h$>$}
+
+Inheritance diagram for b2\+Edge\+Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classb2_edge_shape}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classb2_edge_shape_a67dd3b17630a600033cb4380697a4e9d}{Set} (const \hyperlink{structb2_vec2}{b2\+Vec2} \&v1, const \hyperlink{structb2_vec2}{b2\+Vec2} \&v2)\hypertarget{classb2_edge_shape_a67dd3b17630a600033cb4380697a4e9d}{}\label{classb2_edge_shape_a67dd3b17630a600033cb4380697a4e9d}
+
+\begin{DoxyCompactList}\small\item\em Set this as an isolated edge. \end{DoxyCompactList}\item 
+\hyperlink{classb2_shape}{b2\+Shape} $\ast$ \hyperlink{classb2_edge_shape_a24b5aaf94f659ea962dbfb1df220542d}{Clone} (\hyperlink{classb2_block_allocator}{b2\+Block\+Allocator} $\ast$allocator) const \hypertarget{classb2_edge_shape_a24b5aaf94f659ea962dbfb1df220542d}{}\label{classb2_edge_shape_a24b5aaf94f659ea962dbfb1df220542d}
+
+\begin{DoxyCompactList}\small\item\em Implement \hyperlink{classb2_shape}{b2\+Shape}. \end{DoxyCompactList}\item 
+int32 \hyperlink{classb2_edge_shape_a8c15a5a5aa8e7dc69826be17aaa82293}{Get\+Child\+Count} () const 
+\item 
+bool \hyperlink{classb2_edge_shape_a28a977f82e4bc1cf60a3143ba5636c22}{Test\+Point} (const \hyperlink{structb2_transform}{b2\+Transform} \&transform, const \hyperlink{structb2_vec2}{b2\+Vec2} \&p) const 
+\item 
+bool \hyperlink{classb2_edge_shape_aefbae6b3840f486b22ffecee7d0d15fd}{Ray\+Cast} (\hyperlink{structb2_ray_cast_output}{b2\+Ray\+Cast\+Output} $\ast$output, const \hyperlink{structb2_ray_cast_input}{b2\+Ray\+Cast\+Input} \&input, const \hyperlink{structb2_transform}{b2\+Transform} \&transform, int32 child\+Index) const \hypertarget{classb2_edge_shape_aefbae6b3840f486b22ffecee7d0d15fd}{}\label{classb2_edge_shape_aefbae6b3840f486b22ffecee7d0d15fd}
+
+\begin{DoxyCompactList}\small\item\em Implement \hyperlink{classb2_shape}{b2\+Shape}. \end{DoxyCompactList}\item 
+void \hyperlink{classb2_edge_shape_a30f601c611eb549f9f657eee89d82f9f}{Compute\+A\+A\+BB} (\hyperlink{structb2_a_a_b_b}{b2\+A\+A\+BB} $\ast$aabb, const \hyperlink{structb2_transform}{b2\+Transform} \&transform, int32 child\+Index) const 
+\item 
+void \hyperlink{classb2_edge_shape_a3a305707a07ca3dffa6f2eaff3735dff}{Compute\+Mass} (\hyperlink{structb2_mass_data}{b2\+Mass\+Data} $\ast$mass\+Data, float32 density) const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{classb2_edge_shape_a916cf02a752ff1a70db35b2edaf19bb4}{m\+\_\+vertex1}\hypertarget{classb2_edge_shape_a916cf02a752ff1a70db35b2edaf19bb4}{}\label{classb2_edge_shape_a916cf02a752ff1a70db35b2edaf19bb4}
+
+\begin{DoxyCompactList}\small\item\em These are the edge vertices. \end{DoxyCompactList}\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} {\bfseries m\+\_\+vertex2}\hypertarget{classb2_edge_shape_aa218bfe2bf135e4e94028b29aaa32fce}{}\label{classb2_edge_shape_aa218bfe2bf135e4e94028b29aaa32fce}
+
+\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{classb2_edge_shape_a907c9829484cc1ba7527ab368e9fdf93}{m\+\_\+vertex0}\hypertarget{classb2_edge_shape_a907c9829484cc1ba7527ab368e9fdf93}{}\label{classb2_edge_shape_a907c9829484cc1ba7527ab368e9fdf93}
+
+\begin{DoxyCompactList}\small\item\em Optional adjacent vertices. These are used for smooth collision. \end{DoxyCompactList}\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} {\bfseries m\+\_\+vertex3}\hypertarget{classb2_edge_shape_a7991fd8b38806a7785748cd991c18452}{}\label{classb2_edge_shape_a7991fd8b38806a7785748cd991c18452}
+
+\item 
+bool {\bfseries m\+\_\+has\+Vertex0}\hypertarget{classb2_edge_shape_a1d0f39259f0963146b343d6b048f3f8a}{}\label{classb2_edge_shape_a1d0f39259f0963146b343d6b048f3f8a}
+
+\item 
+bool {\bfseries m\+\_\+has\+Vertex3}\hypertarget{classb2_edge_shape_afeb0dfac66fe677ccd765d48610fa56f}{}\label{classb2_edge_shape_afeb0dfac66fe677ccd765d48610fa56f}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A line segment (edge) shape. These can be connected in chains or loops to other edge shapes. The connectivity information is used to ensure correct contact normals. 
+
+\subsection{Member Function Documentation}
+\index{b2\+Edge\+Shape@{b2\+Edge\+Shape}!Compute\+A\+A\+BB@{Compute\+A\+A\+BB}}
+\index{Compute\+A\+A\+BB@{Compute\+A\+A\+BB}!b2\+Edge\+Shape@{b2\+Edge\+Shape}}
+\subsubsection[{\texorpdfstring{Compute\+A\+A\+B\+B(b2\+A\+A\+B\+B $\ast$aabb, const b2\+Transform \&transform, int32 child\+Index) const }{ComputeAABB(b2AABB *aabb, const b2Transform &transform, int32 childIndex) const }}]{\setlength{\rightskip}{0pt plus 5cm}void b2\+Edge\+Shape\+::\+Compute\+A\+A\+BB (
+\begin{DoxyParamCaption}
+\item[{{\bf b2\+A\+A\+BB} $\ast$}]{aabb, }
+\item[{const {\bf b2\+Transform} \&}]{transform, }
+\item[{int32}]{child\+Index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classb2_edge_shape_a30f601c611eb549f9f657eee89d82f9f}{}\label{classb2_edge_shape_a30f601c611eb549f9f657eee89d82f9f}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classb2_shape_a0a7f4227b6c17450fc26e0b6641b7abf}{b2\+Shape\+::\+Compute\+A\+A\+BB} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classb2_shape_a0a7f4227b6c17450fc26e0b6641b7abf}{b2\+Shape}.
+
+\index{b2\+Edge\+Shape@{b2\+Edge\+Shape}!Compute\+Mass@{Compute\+Mass}}
+\index{Compute\+Mass@{Compute\+Mass}!b2\+Edge\+Shape@{b2\+Edge\+Shape}}
+\subsubsection[{\texorpdfstring{Compute\+Mass(b2\+Mass\+Data $\ast$mass\+Data, float32 density) const }{ComputeMass(b2MassData *massData, float32 density) const }}]{\setlength{\rightskip}{0pt plus 5cm}void b2\+Edge\+Shape\+::\+Compute\+Mass (
+\begin{DoxyParamCaption}
+\item[{{\bf b2\+Mass\+Data} $\ast$}]{mass\+Data, }
+\item[{float32}]{density}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classb2_edge_shape_a3a305707a07ca3dffa6f2eaff3735dff}{}\label{classb2_edge_shape_a3a305707a07ca3dffa6f2eaff3735dff}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classb2_shape_a33cfcad2cf4cc31e1d001bf1baf10721}{b2\+Shape\+::\+Compute\+Mass} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classb2_shape_a33cfcad2cf4cc31e1d001bf1baf10721}{b2\+Shape}.
+
+\index{b2\+Edge\+Shape@{b2\+Edge\+Shape}!Get\+Child\+Count@{Get\+Child\+Count}}
+\index{Get\+Child\+Count@{Get\+Child\+Count}!b2\+Edge\+Shape@{b2\+Edge\+Shape}}
+\subsubsection[{\texorpdfstring{Get\+Child\+Count() const }{GetChildCount() const }}]{\setlength{\rightskip}{0pt plus 5cm}int32 b2\+Edge\+Shape\+::\+Get\+Child\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classb2_edge_shape_a8c15a5a5aa8e7dc69826be17aaa82293}{}\label{classb2_edge_shape_a8c15a5a5aa8e7dc69826be17aaa82293}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classb2_shape_acaade0398c8a6f3750ba0d25fbde2242}{b2\+Shape\+::\+Get\+Child\+Count} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classb2_shape_acaade0398c8a6f3750ba0d25fbde2242}{b2\+Shape}.
+
+\index{b2\+Edge\+Shape@{b2\+Edge\+Shape}!Test\+Point@{Test\+Point}}
+\index{Test\+Point@{Test\+Point}!b2\+Edge\+Shape@{b2\+Edge\+Shape}}
+\subsubsection[{\texorpdfstring{Test\+Point(const b2\+Transform \&transform, const b2\+Vec2 \&p) const }{TestPoint(const b2Transform &transform, const b2Vec2 &p) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool b2\+Edge\+Shape\+::\+Test\+Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf b2\+Transform} \&}]{transform, }
+\item[{const {\bf b2\+Vec2} \&}]{p}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classb2_edge_shape_a28a977f82e4bc1cf60a3143ba5636c22}{}\label{classb2_edge_shape_a28a977f82e4bc1cf60a3143ba5636c22}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classb2_shape_a11996b9bdcf8dca92a0c8bf484ab3f59}{b2\+Shape\+::\+Test\+Point} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{classb2_shape_a11996b9bdcf8dca92a0c8bf484ab3f59}{b2\+Shape}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Commun/\+Externe/\+Box2\+D/include/\+Box2\+D/\+Collision/\+Shapes/b2\+Edge\+Shape.\+h\end{DoxyCompactItemize}

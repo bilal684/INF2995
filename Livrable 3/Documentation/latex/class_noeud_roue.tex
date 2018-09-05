@@ -1,0 +1,106 @@
+\hypertarget{class_noeud_roue}{}\section{Noeud\+Roue Class Reference}
+\label{class_noeud_roue}\index{Noeud\+Roue@{Noeud\+Roue}}
+
+
+Classe qui représente un noeud roue.  
+
+
+
+
+{\ttfamily \#include $<$Noeud\+Roue.\+h$>$}
+
+Inheritance diagram for Noeud\+Roue\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_noeud_roue}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_noeud_roue_a27f2f2e11cd32652b00f084008425da3}{Noeud\+Roue} (const std\+::string \&type\+Noeud)\hypertarget{class_noeud_roue_a27f2f2e11cd32652b00f084008425da3}{}\label{class_noeud_roue_a27f2f2e11cd32652b00f084008425da3}
+
+\begin{DoxyCompactList}\small\item\em Constructeur du noeud roue. \end{DoxyCompactList}\item 
+\hyperlink{class_noeud_roue_a6405c77867780f1851334a005042ee25}{$\sim$\+Noeud\+Roue} ()\hypertarget{class_noeud_roue_a6405c77867780f1851334a005042ee25}{}\label{class_noeud_roue_a6405c77867780f1851334a005042ee25}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_a991232aa686e7c125683ff8f1843db9a}{afficher\+Concret} (const bool \&attribuer\+Couleur) const \hypertarget{class_noeud_roue_a991232aa686e7c125683ff8f1843db9a}{}\label{class_noeud_roue_a991232aa686e7c125683ff8f1843db9a}
+
+\begin{DoxyCompactList}\small\item\em Affiche le noeud \hyperlink{class_noeud_roue}{Noeud\+Roue} (n\textquotesingle{}affiche rien) \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_a994c23ef105826f24d3f86af365d1793}{animer} (float dt)\hypertarget{class_noeud_roue_a994c23ef105826f24d3f86af365d1793}{}\label{class_noeud_roue_a994c23ef105826f24d3f86af365d1793}
+
+\begin{DoxyCompactList}\small\item\em Effectue l\textquotesingle{}animation du noeud roue (aucune animation) \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga08008df883f54950f64378d1971560a8}{accepter\+Visiteur} (\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$visiteur)
+\begin{DoxyCompactList}\small\item\em appliquer l\textquotesingle{}algorithme du visiteur sur le noeud courant \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_roue_a992d5d3ee2d28e32e5437d04936c087f}{get\+Acceleration} () const \hypertarget{class_noeud_roue_a992d5d3ee2d28e32e5437d04936c087f}{}\label{class_noeud_roue_a992d5d3ee2d28e32e5437d04936c087f}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de l\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_roue_acab8c93f8269bbe56efd3cfa4688e804}{get\+Vitesse} () const \hypertarget{class_noeud_roue_acab8c93f8269bbe56efd3cfa4688e804}{}\label{class_noeud_roue_acab8c93f8269bbe56efd3cfa4688e804}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de la vitesse du robot. \end{DoxyCompactList}\item 
+virtual Direction \hyperlink{class_noeud_roue_a1e977bd5540b14e84bb80737413d909e}{get\+Direction} () const \hypertarget{class_noeud_roue_a1e977bd5540b14e84bb80737413d909e}{}\label{class_noeud_roue_a1e977bd5540b14e84bb80737413d909e}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de la direction du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_roue_a3db9ae3703e54c957a9a808035f7337e}{get\+Rapport\+Vitesse} () const \hypertarget{class_noeud_roue_a3db9ae3703e54c957a9a808035f7337e}{}\label{class_noeud_roue_a3db9ae3703e54c957a9a808035f7337e}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention du rapport de vitesse du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_roue_a976149b3e88901a582c65c7545bf1ae0}{get\+Angle\+Rotation} () const \hypertarget{class_noeud_roue_a976149b3e88901a582c65c7545bf1ae0}{}\label{class_noeud_roue_a976149b3e88901a582c65c7545bf1ae0}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de l\textquotesingle{}angle de rotation du robot. \end{DoxyCompactList}\item 
+virtual double \hyperlink{class_noeud_roue_aa4c62d6d39b99081d0b94784ed31306f}{get\+Incr\+Acceleration} () const \hypertarget{class_noeud_roue_aa4c62d6d39b99081d0b94784ed31306f}{}\label{class_noeud_roue_aa4c62d6d39b99081d0b94784ed31306f}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de l\textquotesingle{}increment d\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_ad8e48de7b68331f2a1c3792fa41ad786}{set\+Incr\+Acceleration} (double incr\+Acceleration)\hypertarget{class_noeud_roue_ad8e48de7b68331f2a1c3792fa41ad786}{}\label{class_noeud_roue_ad8e48de7b68331f2a1c3792fa41ad786}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de l\textquotesingle{}increment d\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_aaea240b89c95ce5963e8a517f3436843}{set\+Acceleration} (double acceleration)\hypertarget{class_noeud_roue_aaea240b89c95ce5963e8a517f3436843}{}\label{class_noeud_roue_aaea240b89c95ce5963e8a517f3436843}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de l\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_aaed51a5a93ae96eb2d96b64091b748cf}{set\+Vitesse} (double vitesse)\hypertarget{class_noeud_roue_aaed51a5a93ae96eb2d96b64091b748cf}{}\label{class_noeud_roue_aaed51a5a93ae96eb2d96b64091b748cf}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de la vitesse du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_a5385cbb18e0904efe8d52b96fa49b78c}{set\+Direction} (Direction direction)\hypertarget{class_noeud_roue_a5385cbb18e0904efe8d52b96fa49b78c}{}\label{class_noeud_roue_a5385cbb18e0904efe8d52b96fa49b78c}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de la direction du robot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_noeud_roue_a827172ccfce3fb6972bf88fd5f59fea4}{set\+Rapport\+Vitesse} (double rapport\+Vitesse)\hypertarget{class_noeud_roue_a827172ccfce3fb6972bf88fd5f59fea4}{}\label{class_noeud_roue_a827172ccfce3fb6972bf88fd5f59fea4}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation du rapport de vitesse du robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_noeud_roue_a87479bdb3ed3ec3aff20c88c71712fc8}{acceleration\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_roue_a87479bdb3ed3ec3aff20c88c71712fc8}{}\label{class_noeud_roue_a87479bdb3ed3ec3aff20c88c71712fc8}
+
+\begin{DoxyCompactList}\small\item\em Acceleration du robot. \end{DoxyCompactList}\item 
+double \hyperlink{class_noeud_roue_a26e5b950b93827a8cdf6ee6a2469e086}{vitesse\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_roue_a26e5b950b93827a8cdf6ee6a2469e086}{}\label{class_noeud_roue_a26e5b950b93827a8cdf6ee6a2469e086}
+
+\begin{DoxyCompactList}\small\item\em Vitesse du robot. \end{DoxyCompactList}\item 
+double \hyperlink{class_noeud_roue_a70a3cce52a93766bd22172cb5c15a6ab}{rapport\+Vitesse\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_roue_a70a3cce52a93766bd22172cb5c15a6ab}{}\label{class_noeud_roue_a70a3cce52a93766bd22172cb5c15a6ab}
+
+\begin{DoxyCompactList}\small\item\em Rapport de vitesse du robot. \end{DoxyCompactList}\item 
+double \hyperlink{class_noeud_roue_a4d1f6824aabca4ec0b73ea63ceab285e}{angle\+Rotation\+\_\+} \{ 0.\+0 \}\hypertarget{class_noeud_roue_a4d1f6824aabca4ec0b73ea63ceab285e}{}\label{class_noeud_roue_a4d1f6824aabca4ec0b73ea63ceab285e}
+
+\begin{DoxyCompactList}\small\item\em Angle de rotation du robot. \end{DoxyCompactList}\item 
+Direction \hyperlink{class_noeud_roue_a136b9708f3a46c13363ef92b3479f00c}{direction\+\_\+} \{ F\+O\+R\+W\+A\+RD \}\hypertarget{class_noeud_roue_a136b9708f3a46c13363ef92b3479f00c}{}\label{class_noeud_roue_a136b9708f3a46c13363ef92b3479f00c}
+
+\begin{DoxyCompactList}\small\item\em Direction du robot. \end{DoxyCompactList}\item 
+double \hyperlink{class_noeud_roue_ab89a35c69108f870da388b7366de7af4}{incr\+Acceleration\+\_\+} \{ 1.\+0 \}\hypertarget{class_noeud_roue_ab89a35c69108f870da388b7366de7af4}{}\label{class_noeud_roue_ab89a35c69108f870da388b7366de7af4}
+
+\begin{DoxyCompactList}\small\item\em Increment d\textquotesingle{}acceleration du robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui représente un noeud roue. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_roue_8h}{Noeud\+Roue.\+h}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Arbre/\+Noeuds/\hyperlink{_noeud_roue_droite_8cpp}{Noeud\+Roue\+Droite.\+cpp}\end{DoxyCompactItemize}

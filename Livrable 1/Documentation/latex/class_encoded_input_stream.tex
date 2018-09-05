@@ -1,0 +1,85 @@
+\hypertarget{class_encoded_input_stream}{}\section{Encoded\+Input\+Stream$<$ Encoding, Input\+Byte\+Stream $>$ Class Template Reference}
+\label{class_encoded_input_stream}\index{Encoded\+Input\+Stream$<$ Encoding, Input\+Byte\+Stream $>$@{Encoded\+Input\+Stream$<$ Encoding, Input\+Byte\+Stream $>$}}
+
+
+Input byte stream wrapper with a statically bound encoding.  
+
+
+
+
+{\ttfamily \#include $<$encodedstream.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Encoding\+::\+Ch {\bfseries Ch}\hypertarget{class_encoded_input_stream_acc387a1364390da244bbb1ab07bdceca}{}\label{class_encoded_input_stream_acc387a1364390da244bbb1ab07bdceca}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Encoded\+Input\+Stream} (Input\+Byte\+Stream \&is)\hypertarget{class_encoded_input_stream_a17f8e629500f6ae71cb72d1d63bf41fd}{}\label{class_encoded_input_stream_a17f8e629500f6ae71cb72d1d63bf41fd}
+
+\item 
+Ch {\bfseries Peek} () const \hypertarget{class_encoded_input_stream_abda3b0c141254343f4c481f67d52b423}{}\label{class_encoded_input_stream_abda3b0c141254343f4c481f67d52b423}
+
+\item 
+Ch {\bfseries Take} ()\hypertarget{class_encoded_input_stream_ab42cd57581bf62e42af471583e5b8377}{}\label{class_encoded_input_stream_ab42cd57581bf62e42af471583e5b8377}
+
+\item 
+size\+\_\+t {\bfseries Tell} () const \hypertarget{class_encoded_input_stream_a34cdb99fd81cd211f71903348e9c986f}{}\label{class_encoded_input_stream_a34cdb99fd81cd211f71903348e9c986f}
+
+\item 
+void {\bfseries Put} (Ch)\hypertarget{class_encoded_input_stream_afea36b666a44bd4adeabfcab7b68a322}{}\label{class_encoded_input_stream_afea36b666a44bd4adeabfcab7b68a322}
+
+\item 
+void {\bfseries Flush} ()\hypertarget{class_encoded_input_stream_aa4415bf4b97dd01e8c3de0ad7a161724}{}\label{class_encoded_input_stream_aa4415bf4b97dd01e8c3de0ad7a161724}
+
+\item 
+Ch $\ast$ {\bfseries Put\+Begin} ()\hypertarget{class_encoded_input_stream_ad97f7a549a8622c61b7fb2c63fedd69b}{}\label{class_encoded_input_stream_ad97f7a549a8622c61b7fb2c63fedd69b}
+
+\item 
+size\+\_\+t {\bfseries Put\+End} (Ch $\ast$)\hypertarget{class_encoded_input_stream_a83fe5ed281413d6005d1b324730e8bed}{}\label{class_encoded_input_stream_a83fe5ed281413d6005d1b324730e8bed}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+A\+S\+S\+E\+RT} (sizeof(typename Input\+Byte\+Stream\+::\+Ch)==1)\hypertarget{class_encoded_input_stream_acc6c2b46e636edfeb81dfaea80ee384a}{}\label{class_encoded_input_stream_acc6c2b46e636edfeb81dfaea80ee384a}
+
+\item 
+{\bfseries Encoded\+Input\+Stream} (const \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream} \&)\hypertarget{class_encoded_input_stream_a672ac1977918f6da245de0820d41b77e}{}\label{class_encoded_input_stream_a672ac1977918f6da245de0820d41b77e}
+
+\item 
+\hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream} \& {\bfseries operator=} (const \hyperlink{class_encoded_input_stream}{Encoded\+Input\+Stream} \&)\hypertarget{class_encoded_input_stream_aebee85cf36e2aa4ed25881a95678c4c4}{}\label{class_encoded_input_stream_aebee85cf36e2aa4ed25881a95678c4c4}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Input\+Byte\+Stream \& {\bfseries is\+\_\+}\hypertarget{class_encoded_input_stream_ab07b45f34f288184313750af5f7077b6}{}\label{class_encoded_input_stream_ab07b45f34f288184313750af5f7077b6}
+
+\item 
+Ch {\bfseries current\+\_\+}\hypertarget{class_encoded_input_stream_a20b49879c87fdf6d6ba20e99f0cf7893}{}\label{class_encoded_input_stream_a20b49879c87fdf6d6ba20e99f0cf7893}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Encoding, typename Input\+Byte\+Stream$>$\\*
+class Encoded\+Input\+Stream$<$ Encoding, Input\+Byte\+Stream $>$}
+
+Input byte stream wrapper with a statically bound encoding. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Encoding} & The interpretation of encoding of the stream. Either \hyperlink{struct_u_t_f8}{U\+T\+F8}, \hyperlink{struct_u_t_f16_l_e}{U\+T\+F16\+LE}, \hyperlink{struct_u_t_f16_b_e}{U\+T\+F16\+BE}, \hyperlink{struct_u_t_f32_l_e}{U\+T\+F32\+LE}, \hyperlink{struct_u_t_f32_b_e}{U\+T\+F32\+BE}. \\
+\hline
+{\em Input\+Byte\+Stream} & Type of input byte stream. For example, \hyperlink{class_file_read_stream}{File\+Read\+Stream}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+Rapid\+J\+S\+O\+N/include/rapidjson/encodedstream.\+h\end{DoxyCompactItemize}

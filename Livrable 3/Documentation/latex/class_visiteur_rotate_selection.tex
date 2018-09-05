@@ -1,0 +1,58 @@
+\hypertarget{class_visiteur_rotate_selection}{}\section{Visiteur\+Rotate\+Selection Class Reference}
+\label{class_visiteur_rotate_selection}\index{Visiteur\+Rotate\+Selection@{Visiteur\+Rotate\+Selection}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud en mettant a jour son orientation relative.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Rotate\+Selection.\+h$>$}
+
+Inheritance diagram for Visiteur\+Rotate\+Selection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_rotate_selection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga8c4e5023fe05edc2c9738bce5999f8af}{Visiteur\+Rotate\+Selection} (double rotation)
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga2861defe8cc8ef4a21b6ddc610862e93}{$\sim$\+Visiteur\+Rotate\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gadffd4a5d492386c1fde2e0dd27759b87}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gafb495675a97fadf392c13872b1170968}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaaca4a727795e02800ff45162d6e76099}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga2a8caac557c3fd93c7315cec17a609dc}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gacc533314859b0965503b0c25433adec3}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga449a9210fb5d54acab5b07703c6ce762}{set\+Centre} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} centre)
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}assignation de la coordonnee de centre a un objet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud en mettant a jour son orientation relative. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/Visiteur\+Rotate\+Selection.\+h\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/Visiteur\+Annuler\+Rotation\+Selection.\+cpp\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_rotate_selection_8cpp}{Visiteur\+Rotate\+Selection.\+cpp}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/visiteur\+Rotation\+Un\+Objet.\+cpp\end{DoxyCompactItemize}

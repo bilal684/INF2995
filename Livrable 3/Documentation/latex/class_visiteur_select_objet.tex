@@ -1,0 +1,61 @@
+\hypertarget{class_visiteur_select_objet}{}\section{Visiteur\+Select\+Objet Class Reference}
+\label{class_visiteur_select_objet}\index{Visiteur\+Select\+Objet@{Visiteur\+Select\+Objet}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud afin de permettre la selection par clic.  
+
+
+
+
+{\ttfamily \#include $<$visiteur\+Select\+Objet.\+h$>$}
+
+Inheritance diagram for Visiteur\+Select\+Objet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_select_objet}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_visiteur_select_objet_a7896793971401a49195cbe1675684543}{Visiteur\+Select\+Objet} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point, bool selection\+Unique, G\+Lubyte couleur\+Pixel\mbox{[}$\,$\mbox{]}, const bool \&initialiser\+Visite)\hypertarget{class_visiteur_select_objet_a7896793971401a49195cbe1675684543}{}\label{class_visiteur_select_objet_a7896793971401a49195cbe1675684543}
+
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{class_visiteur_select_objet_a66615d7597f1b07603ccbccd0a4c5bda}{$\sim$\+Visiteur\+Select\+Objet} ()\hypertarget{class_visiteur_select_objet_a66615d7597f1b07603ccbccd0a4c5bda}{}\label{class_visiteur_select_objet_a66615d7597f1b07603ccbccd0a4c5bda}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga82fa18ecd9303b8bd1937b7141cba556}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga73dad46d272fe6e7b8148e6b1dce2e8f}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaa14ed6845d4e0c01cd86b69d56472053}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga93285552394d22f30bfa4b494a623888}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga346ceeccff2d6f6681596ae5c40cbf2f}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gafe5423213bb46bfcae82db4865245c3f}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_visiteur_select_objet_a0af7a46cf91691495a77fcbe8d09c976}{obtenirselection\+Existe} ()\hypertarget{class_visiteur_select_objet_a0af7a46cf91691495a77fcbe8d09c976}{}\label{class_visiteur_select_objet_a0af7a46cf91691495a77fcbe8d09c976}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant le retour de la selectionexiste. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de parcourir l\textquotesingle{}arbre de rendu et de visiter chaque noeud afin de permettre la selection par clic. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{visiteur_select_objet_8h}{visiteur\+Select\+Objet.\+h}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{visiteur_select_objet_8cpp}{visiteur\+Select\+Objet.\+cpp}\end{DoxyCompactItemize}

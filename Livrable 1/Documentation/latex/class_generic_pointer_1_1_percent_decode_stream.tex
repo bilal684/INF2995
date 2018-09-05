@@ -1,0 +1,71 @@
+\hypertarget{class_generic_pointer_1_1_percent_decode_stream}{}\section{Generic\+Pointer$<$ Value\+Type, Allocator $>$\+:\+:Percent\+Decode\+Stream Class Reference}
+\label{class_generic_pointer_1_1_percent_decode_stream}\index{Generic\+Pointer$<$ Value\+Type, Allocator $>$\+::\+Percent\+Decode\+Stream@{Generic\+Pointer$<$ Value\+Type, Allocator $>$\+::\+Percent\+Decode\+Stream}}
+
+
+A helper stream for decoding a percent-\/encoded sequence into code unit.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_generic_pointer_1_1_percent_decode_stream_a1cece709ab2089cc6a8f60cf5df52802}{Percent\+Decode\+Stream} (const \hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} $\ast$source, const \hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} $\ast$end)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} {\bfseries Take} ()\hypertarget{class_generic_pointer_1_1_percent_decode_stream_a02da9a260a75c767b7ae6bffd37b255d}{}\label{class_generic_pointer_1_1_percent_decode_stream_a02da9a260a75c767b7ae6bffd37b255d}
+
+\item 
+size\+\_\+t {\bfseries Tell} () const \hypertarget{class_generic_pointer_1_1_percent_decode_stream_af9ed027feb3fa8d62364f75ff9931c1a}{}\label{class_generic_pointer_1_1_percent_decode_stream_af9ed027feb3fa8d62364f75ff9931c1a}
+
+\item 
+bool {\bfseries Is\+Valid} () const \hypertarget{class_generic_pointer_1_1_percent_decode_stream_a0deba6d1e988138c1431028b7fdfde3d}{}\label{class_generic_pointer_1_1_percent_decode_stream_a0deba6d1e988138c1431028b7fdfde3d}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} $\ast$ \hyperlink{class_generic_pointer_1_1_percent_decode_stream_a3d3af2068010133489411da5e06ee234}{src\+\_\+}\hypertarget{class_generic_pointer_1_1_percent_decode_stream_a3d3af2068010133489411da5e06ee234}{}\label{class_generic_pointer_1_1_percent_decode_stream_a3d3af2068010133489411da5e06ee234}
+
+\begin{DoxyCompactList}\small\item\em Current read position. \end{DoxyCompactList}\item 
+const \hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} $\ast$ \hyperlink{class_generic_pointer_1_1_percent_decode_stream_ae31de02a2b6bc43fc6072bd26e95c746}{head\+\_\+}\hypertarget{class_generic_pointer_1_1_percent_decode_stream_ae31de02a2b6bc43fc6072bd26e95c746}{}\label{class_generic_pointer_1_1_percent_decode_stream_ae31de02a2b6bc43fc6072bd26e95c746}
+
+\begin{DoxyCompactList}\small\item\em Original head of the string. \end{DoxyCompactList}\item 
+const \hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} $\ast$ \hyperlink{class_generic_pointer_1_1_percent_decode_stream_ad83c47089db2a7d20bb1dff7510d369f}{end\+\_\+}\hypertarget{class_generic_pointer_1_1_percent_decode_stream_ad83c47089db2a7d20bb1dff7510d369f}{}\label{class_generic_pointer_1_1_percent_decode_stream_ad83c47089db2a7d20bb1dff7510d369f}
+
+\begin{DoxyCompactList}\small\item\em Past-\/the-\/end position. \end{DoxyCompactList}\item 
+bool \hyperlink{class_generic_pointer_1_1_percent_decode_stream_a92c06268c22a1cdec8a227e8f20f7293}{valid\+\_\+}\hypertarget{class_generic_pointer_1_1_percent_decode_stream_a92c06268c22a1cdec8a227e8f20f7293}{}\label{class_generic_pointer_1_1_percent_decode_stream_a92c06268c22a1cdec8a227e8f20f7293}
+
+\begin{DoxyCompactList}\small\item\em Whether the parsing is valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\+Type, typename Allocator = Crt\+Allocator$>$\\*
+class Generic\+Pointer$<$ Value\+Type, Allocator $>$\+::\+Percent\+Decode\+Stream}
+
+A helper stream for decoding a percent-\/encoded sequence into code unit. 
+
+This stream decodes XY triplet into code unit (0-\/255). If it encounters invalid characters, it sets output code unit as 0 and mark invalid, and to be checked by Is\+Valid(). 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Generic\+Pointer\+::\+Percent\+Decode\+Stream@{Generic\+Pointer\+::\+Percent\+Decode\+Stream}!Percent\+Decode\+Stream@{Percent\+Decode\+Stream}}
+\index{Percent\+Decode\+Stream@{Percent\+Decode\+Stream}!Generic\+Pointer\+::\+Percent\+Decode\+Stream@{Generic\+Pointer\+::\+Percent\+Decode\+Stream}}
+\subsubsection[{\texorpdfstring{Percent\+Decode\+Stream(const Ch $\ast$source, const Ch $\ast$end)}{PercentDecodeStream(const Ch *source, const Ch *end)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\+Type, typename Allocator = Crt\+Allocator$>$ {\bf Generic\+Pointer}$<$ Value\+Type, Allocator $>$\+::Percent\+Decode\+Stream\+::\+Percent\+Decode\+Stream (
+\begin{DoxyParamCaption}
+\item[{const {\bf Ch} $\ast$}]{source, }
+\item[{const {\bf Ch} $\ast$}]{end}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_generic_pointer_1_1_percent_decode_stream_a1cece709ab2089cc6a8f60cf5df52802}{}\label{class_generic_pointer_1_1_percent_decode_stream_a1cece709ab2089cc6a8f60cf5df52802}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Start of the stream \\
+\hline
+{\em end} & Past-\/the-\/end of the stream. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+Rapid\+J\+S\+O\+N/include/rapidjson/pointer.\+h\end{DoxyCompactItemize}

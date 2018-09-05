@@ -1,0 +1,68 @@
+\hypertarget{class_visiteur_verifier_deplacement_duplication}{}\section{Visiteur\+Verifier\+Deplacement\+Duplication Class Reference}
+\label{class_visiteur_verifier_deplacement_duplication}\index{Visiteur\+Verifier\+Deplacement\+Duplication@{Visiteur\+Verifier\+Deplacement\+Duplication}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de la duplication d\textquotesingle{}un objet.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Verifier\+Deplacement\+Duplication.\+h$>$}
+
+Inheritance diagram for Visiteur\+Verifier\+Deplacement\+Duplication\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_verifier_deplacement_duplication}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Visiteur\+Verifier\+Deplacement\+Duplication} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&deplacement)
+\item 
+virtual void \hyperlink{group__inf2990_gae9e0bf8b06fd301c3bcbf63ac22c86c4}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\item 
+virtual void \hyperlink{group__inf2990_ga6ed8bb05d98585fa2e5bb38e72a03def}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\item 
+virtual void \hyperlink{group__inf2990_gade166afb00fa6102056b24086f4c3d3d}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\item 
+virtual void \hyperlink{group__inf2990_ga8a9691738b8edb23e4f6cd1f53a3b5b6}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\item 
+virtual void \hyperlink{group__inf2990_ga6ab5829ba7e98a254304495974525a96}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\item 
+virtual void \hyperlink{group__inf2990_ga283d0c8f460170650ab807249d9d42a2}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\item 
+bool {\bfseries est\+Valide} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__inf2990_ga471750ae252e450da2d6681463882c14}{verifier\+Point} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} {\bfseries deplacement\+\_\+}
+\item 
+bool {\bfseries duplication\+Valide\+\_\+} \{ true \}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de la duplication d\textquotesingle{}un objet. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_verifier_deplacement_duplication_8h}{Visiteur\+Verifier\+Deplacement\+Duplication.\+h}\item 
+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_verifier_deplacement_duplication_8cpp}{Visiteur\+Verifier\+Deplacement\+Duplication.\+cpp}\end{DoxyCompactItemize}

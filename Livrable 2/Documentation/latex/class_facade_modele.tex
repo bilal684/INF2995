@@ -1,0 +1,195 @@
+\hypertarget{class_facade_modele}{}\section{Facade\+Modele Class Reference}
+\label{class_facade_modele}\index{Facade\+Modele@{Facade\+Modele}}
+
+
+Classe qui constitue une interface (une façade) sur l\textquotesingle{}ensemble du modèle et des classes qui le composent.  
+
+
+
+
+{\ttfamily \#include $<$Facade\+Modele.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__inf2990_gabf12ccafbabf1049cb8327cf78699a1b}{initialiser\+Open\+GL} (H\+W\+ND h\+Wnd)
+\begin{DoxyCompactList}\small\item\em Crée un contexte Open\+GL et initialise celui-\/ci. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga4967547e0683bfdca700118df1c18bca}{charger\+Configuration} () const 
+\begin{DoxyCompactList}\small\item\em Charge la configuration à partir d\textquotesingle{}un fichier X\+ML. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga277d8d9cea21e20fb366a0d48525f2c9}{enregistrer\+Configuration} () const 
+\begin{DoxyCompactList}\small\item\em Enregistre la configuration courante dans un fichier X\+ML. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa1cc5ce89df90616137219c1f7b93a73}{enregistrer\+Zone\+De\+Simulation} (char $\ast$nom\+Fichier)
+\begin{DoxyCompactList}\small\item\em sauvgarder les noeuds de l\textquotesingle{}arbre dans un fichier X\+ML. \end{DoxyCompactList}\item 
+void \hyperlink{class_facade_modele_aa993014d7e666f0436f6ce08a6e71a5a}{ajouter\+Noeud\+Arbre} (const \hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+X\+M\+L\+Element} $\ast$element\+X\+ML)\hypertarget{class_facade_modele_aa993014d7e666f0436f6ce08a6e71a5a}{}\label{class_facade_modele_aa993014d7e666f0436f6ce08a6e71a5a}
+
+\begin{DoxyCompactList}\small\item\em cree un noeud et l\textquotesingle{}ajoute a l\textquotesingle{}arbre \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga1daf37f276461b21aa30ffc9729f9ac3}{charger\+Zone\+De\+Simulation} (char $\ast$nom\+Fichier)
+\begin{DoxyCompactList}\small\item\em charger les noeuds d\textquotesingle{}un fichier X\+ML dans l\textquotesingle{}arbre de rendu. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gac7b831ce13626514e9637c4533d7c15d}{liberer\+Open\+GL} ()
+\begin{DoxyCompactList}\small\item\em Libère le contexte Open\+GL. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gac884e818dab5fe049a37b3f6f1c5d8c6}{afficher} () const 
+\begin{DoxyCompactList}\small\item\em Affiche le contenu du modèle. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga23bed5e3b226e446cfee30084150f7f7}{afficher\+Base} () const 
+\begin{DoxyCompactList}\small\item\em Affiche la base du contenu du modèle. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaeaf5010f6bf4164021c7a5b3f6267737}{deplacer\+Gauche} ()
+\begin{DoxyCompactList}\small\item\em Permet l\textquotesingle{}appel de la fonction permettant le deplacement de la fenetre vers la gauche. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga29eb5e17adf88fe3b95313675b1407e9}{deplacer\+Droite} ()
+\begin{DoxyCompactList}\small\item\em Permet l\textquotesingle{}appel de la fonction permettant le deplacement de la fenetre vers la droite. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa7dde1ea7e34463a65a15086470cee29}{deplacer\+Haut} ()
+\begin{DoxyCompactList}\small\item\em Permet l\textquotesingle{}appel de la fonction permettant le deplacement de la fenetre vers le haut. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gad856d36e070b82c8f074024963b05379}{deplacer\+Bas} ()
+\begin{DoxyCompactList}\small\item\em Permet l\textquotesingle{}appel de la fonction permettant le deplacement de la fenetre vers la bas. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga5abc2bce783ebfec118f8241b0aadbc0}{deplacer\+Fenetre\+Virtuelle\+Souris} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Permet le deplacement de la fenetre virtuelle avec la souris. \end{DoxyCompactList}\item 
+\hyperlink{classvue_1_1_vue}{vue\+::\+Vue} $\ast$ \hyperlink{group__inf2990_gaa56cf96b7e381e0f14e2c9a55be913bf}{obtenir\+Vue} ()
+\begin{DoxyCompactList}\small\item\em Retourne la vue courante. \end{DoxyCompactList}\item 
+const \hyperlink{class_arbre_rendu_i_n_f2990}{Arbre\+Rendu\+I\+N\+F2990} $\ast$ \hyperlink{group__inf2990_gaf578161d03b2157cdaa3182900ff61cc}{obtenir\+Arbre\+Rendu\+I\+N\+F2990} () const 
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}arbre de rendu. \end{DoxyCompactList}\item 
+\hyperlink{class_arbre_rendu_i_n_f2990}{Arbre\+Rendu\+I\+N\+F2990} $\ast$ \hyperlink{group__inf2990_ga12d5594db6a9507b24c7e1ffcd6751af}{obtenir\+Arbre\+Rendu\+I\+N\+F2990} ()
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}arbre de rendu. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga4c2a991fe2297e44eeee0de111fb08d2}{reinitialiser} ()
+\begin{DoxyCompactList}\small\item\em Réinitialise la scène. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga24dcb4e32cf104797158b398bafbfbb7}{animer} (float temps)
+\begin{DoxyCompactList}\small\item\em Anime la scène. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga48662526164d5eab9ea575413ec17c10}{ajouter\+Noeud\+Simple} (char $\ast$nom, int x, int y)
+\begin{DoxyCompactList}\small\item\em Ajout de noeud. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga86ca1a26e09e1c488fbc5b05024e1e5f}{ajouter\+Noeud\+Avec\+Scale} (char $\ast$nom, int x1, int y1, int x2, int y2, bool est\+Concret)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un noeud a l\textquotesingle{}arbre de rendu avec un certain redimensionnement. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga306bef3b17e6100bcb009a1fbfd5b49e}{supprimer\+Dernier\+Noeud} ()
+\begin{DoxyCompactList}\small\item\em Suppression du dernier noeud ajouté \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaedba812971ccd2805ce2c12bfab55487}{supprimer\+Derniere\+Ligne} ()
+\begin{DoxyCompactList}\small\item\em Suppression de la dernière ligne ajoutée \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{group__inf2990_gabad5593b70ee17507538e8065cfc3249}{calculer\+Dimensions} (double \&longueur, double \&angle, const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point1, const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point2)
+\begin{DoxyCompactList}\small\item\em Permet de calculer les dimensions d\textquotesingle{}une ligne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga707de002c356bb34498de9e961fe8280}{calculer\+Points\+Segment} (const double \&longueur, const double \&angle, const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&centre, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point1, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point2)
+\begin{DoxyCompactList}\small\item\em Permet le calcul des quatres points d\textquotesingle{}un segment. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga02acb65fdc33ea22e27195790b65b40c}{verifier\+Cursor} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Vérification de la position du curseur si dans la zone de simulation. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga745d6ba8d60bccecfb6e38358fee4c16}{sauver\+Position\+Souris} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Sauvegarde la position de la souris lors d\textquotesingle{}un clic. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga640dd1db7b94b1c64d112ed183920e11}{tracer\+Rectangle\+Elastique} (int x, int y)
+\begin{DoxyCompactList}\small\item\em intialise et met a jour le rectangle elastique \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga5d20d67b531d75d9dd02b3db04093c59}{terminer\+Rectangle\+Elastique} (int x, int y)
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}effacer le rectangle elastique \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga633ceadc86976957029acbce328e95ff}{zoom\+In\+Rectangle} (int x\+Min\+Cloture, int x\+Max\+Cloture, int y\+Min\+Cloture, int y\+Max\+Cloture)
+\begin{DoxyCompactList}\small\item\em Permet le zoom in avec le rectangle elastique. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga2c03bee8138ba1066d383d0426062595}{zoom\+Out\+Rectangle} (int x\+Min\+Cloture, int x\+Max\+Cloture, int y\+Min\+Cloture, int y\+Max\+Cloture)
+\begin{DoxyCompactList}\small\item\em Permet le zoom out avec le rectangle elastique. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga34184ad6244fc5a7f970dcd4acd98b77}{deplacer\+Selection} (int x\+Debut, int y\+Debut, int x\+Fin, int y\+Fin)
+\begin{DoxyCompactList}\small\item\em permet de deplacer les objets selectionnes \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gad19cbcbb60c2420d6639f5ad13f1afa9}{scale\+Selection} (double facteur\+Scale)
+\begin{DoxyCompactList}\small\item\em permet un redimensionnement sur les objets selectionnes \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga44bb2e40cdc87d4785d67e5a2dfabf77}{supprimer\+Selection} ()
+\begin{DoxyCompactList}\small\item\em permet de supprimer tous les noeuds selectionnes \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga0e603fde8a1ee980035ac516be9f8a0f}{selectionner\+Objet} (int mouseX, int mouseY, bool selection\+Unique)
+\item 
+bool \hyperlink{group__inf2990_ga3c3538b8fcbe834abfa907df005ecd58}{dupliquer\+Selection} (int mouseX, int mouseY, bool est\+Fantome)
+\begin{DoxyCompactList}\small\item\em dupliquer les objets selectionnes selon la position du click de la souris \end{DoxyCompactList}\item 
+\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_ga8299438aedbb49e2cc6367deca1b57b9}{ajouter\+Noeud\+Duplique} (char $\ast$nom, \hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$parent, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} position, double scale, double angle\+Rotation, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point\+Depart, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point\+Fin, bool est\+Fantome)
+\begin{DoxyCompactList}\small\item\em ajouter noeud suite a la duplication d\textquotesingle{}objets selectionne \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga61c100a73c5480e1b4c0c5a5ab0e1465}{supprimer\+Noeuds\+Dupliques} ()
+\begin{DoxyCompactList}\small\item\em suppression de noeuds dupliques \end{DoxyCompactList}\item 
+void {\bfseries select\+Rect\+Elastique} (int X\+\_\+debut, int Y\+\_\+debut, int X\+\_\+fin, int Y\+\_\+fin, bool est\+Enfonce)
+\item 
+bool \hyperlink{group__inf2990_gac04552ee01e643b0acee811988d8827a}{assigner\+Position\+Pour\+Objet\+Selectionne} (double x, double y, double z)
+\item 
+void \hyperlink{group__inf2990_gae90a011bdd8260769bb3c2a33790737e}{assigner\+Rotation\+Pour\+Objet\+Selectionne} (double rotation)
+\begin{DoxyCompactList}\small\item\em Assigne la nouvelle rotation d\textquotesingle{}un objet selectionné \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga3adbdfb59e4b4be083bc8dfed80be9f6}{changer\+Scale\+Pour\+Objet\+Selectionne} (double scale)
+\begin{DoxyCompactList}\small\item\em Assigne une nouvelle dimension à un objet selectionné \end{DoxyCompactList}\item 
+\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$ \hyperlink{group__inf2990_gadb3b11a8e2887bc11a6cc7fc49cf3c43}{chercher\+Noued\+Selectionne} (int \&nombre)
+\begin{DoxyCompactList}\small\item\em Permet la recherche d\textquotesingle{}un noeud sur lequel un clic a été fait. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gae1c46399d8f48a3b69afbdb0159515cd}{initialiser\+En\+Traitement} ()
+\begin{DoxyCompactList}\small\item\em permet de sauvgarder la poisiton courante avant une modification \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaebe2482f3d963138bbc048ad1dd1c966}{initialiser\+Scale\+En\+Traitement} ()
+\begin{DoxyCompactList}\small\item\em permet le sauvgarder le rediemensionnement courant avant une modification \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga800cc703fbbad4d09f91620d4a6a5fec}{Pivoter\+Objet\+Selectionne} (double deltaY)
+\begin{DoxyCompactList}\small\item\em Permet la rotation d\textquotesingle{}un objet selectionné \end{DoxyCompactList}\item 
+int \hyperlink{group__inf2990_ga624e93bbb04a3af8c0de6c419e5dc80c}{obtenir\+Nombre\+Noeuds\+Selectionnes} ()
+\begin{DoxyCompactList}\small\item\em Méthode permettant le retour du nombre de noeud selectionné \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga11fecc3969774e95076bc377cfd8967f}{Pivoter\+Objets\+Multiples} (double rotation)
+\begin{DoxyCompactList}\small\item\em Methode permettant de faire pivoter plusieurs objets a la fois. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gae972179d270eeace7457c041d962c18c}{rotater\+Point\+Autour\+Decentre} (double centreX, double centreY, double angle, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point)
+\begin{DoxyCompactList}\small\item\em Methode permettant de faire pivoter des objets autour de leurs centre. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga4b5f434003c9f06e5ae1378002385c98}{objets\+Sur\+La\+Table} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de verifier un objet est sur la table ou non. \end{DoxyCompactList}\item 
+bool \hyperlink{group__inf2990_ga9232a81f767840e7143dcb7755419e4f}{tourner\+Objet\+Selectionne} (double angle)
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}effectuer une rotation a un certain objet avec un certain angle. \end{DoxyCompactList}\item 
+double \hyperlink{class_facade_modele_adc4aadfce6a5c5358cbb31aecdf1b1bc}{obtenir\+Angle\+Avant\+Rotation} (\hyperlink{class_noeud_abstrait}{Noeud\+Abstrait} $\ast$noeud)\hypertarget{class_facade_modele_adc4aadfce6a5c5358cbb31aecdf1b1bc}{}\label{class_facade_modele_adc4aadfce6a5c5358cbb31aecdf1b1bc}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}obtenir l\textquotesingle{}angle initiale de rotation relatif a son objet parent. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga1e3d4beae8fb78780728e4afbccfbffe}{annuler\+Rotation\+Selection} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}annuler la rotation d\textquotesingle{}un objet selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gacbf0d4f8e12038ab48c2960f3f3cf938}{retourner\+Au\+Scale\+Initiale} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}annuler un redimensionnement. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga1ecf4d4a3f84abaf1ef87bdd46d46e46}{initialiser\+Robot} ()
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}ajouter le robot et le positionner au point de départ \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa5d1316902fca74fde2bdff9bd60041a}{liberer\+Robot} ()
+\begin{DoxyCompactList}\small\item\em permet de détruire le noeud robot et les noeuds roue droite et gauche \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gada4e7314c0a8e9eab5bae8ba7854e050}{arreter\+Robot} ()
+\begin{DoxyCompactList}\small\item\em permet d\textquotesingle{}arreter le robot \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gac8ebdd5475270112873d18814a6903ee}{actionner\+Robot} (double rapport\+Vitesse\+Gauche, double rapport\+Vitesse\+Droit, bool sens\+Direct)
+\begin{DoxyCompactList}\small\item\em permet de controller le mouvement du robot \end{DoxyCompactList}\item 
+\hyperlink{class_noeud_robot}{Noeud\+Robot} $\ast$ \hyperlink{class_facade_modele_a7ba0d3af8143bf4b8c018c4f641a1160}{obtenir\+Robot} ()\hypertarget{class_facade_modele_a7ba0d3af8143bf4b8c018c4f641a1160}{}\label{class_facade_modele_a7ba0d3af8143bf4b8c018c4f641a1160}
+
+\begin{DoxyCompactList}\small\item\em permet de retourner le pointeur vers l\textquotesingle{}objet Robot \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gab2a2a945cb51257e94e9359a4fdb7c91}{debuter\+Simulation} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de lancer la simulation en initilalisant le robot. \end{DoxyCompactList}\item 
+void \hyperlink{class_facade_modele_a1beaec220ba8e46f692978ba8b0097b9}{calculer\+Coin\+Mur} (\hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} point\+Initial, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} point\+Final, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \&p1, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \&p2, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \&p3, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} \&p4, const double \&theta)\hypertarget{class_facade_modele_a1beaec220ba8e46f692978ba8b0097b9}{}\label{class_facade_modele_a1beaec220ba8e46f692978ba8b0097b9}
+
+\begin{DoxyCompactList}\small\item\em Cette methode permet de calculer les coins d\textquotesingle{}un noeud mur. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa15e88c269f8135e50ec242ed081b3ba}{actionner\+Mode\+Automatique} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}actionner le mode automatique. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga90c18a32bd14154ce76a39fe7d33948d}{stopper\+Mode\+Automatique} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant d\textquotesingle{}arreter le mode automatique. \end{DoxyCompactList}\item 
+void \hyperlink{class_facade_modele_a0b35fe9df50d0c823f6b44e2f31ec6f1}{set\+Arbre\+Facade\+Modele\+Test} (\hyperlink{class_arbre_rendu_i_n_f2990}{Arbre\+Rendu\+I\+N\+F2990} $\ast$arbre)\hypertarget{class_facade_modele_a0b35fe9df50d0c823f6b44e2f31ec6f1}{}\label{class_facade_modele_a0b35fe9df50d0c823f6b44e2f31ec6f1}
+
+\begin{DoxyCompactList}\small\item\em Setter de l\textquotesingle{}attribut arbre pour les test. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga6232e3438bedddc335eb7d2ea3490e8e}{charger\+Profil\+Robot} (char $\ast$nom\+Profil)
+\begin{DoxyCompactList}\small\item\em Methode permettant le chargement du profil present dans un fichier xml. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{group__inf2990_ga6ca07c660362328522d83c058b2bc955}{timestamps} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}affichage des timestamps pour le deboguage console. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga4fb40feb23bfad13052e8ee37cb5be6c}{basculer\+Activation\+Lumiere\+Ambiante} ()
+\begin{DoxyCompactList}\small\item\em basculer les divers mode d\textquotesingle{}affichage. \end{DoxyCompactList}\item 
+void {\bfseries basculer\+Activation\+Lumiere\+Directionnelle} ()
+\item 
+void {\bfseries basculer\+Activation\+Spots} ()
+\item 
+void \hyperlink{group__inf2990_gafbc38b3806b7941eb138822f4dd370bf}{basculer\+Activation\+Debougage} ()
+\begin{DoxyCompactList}\small\item\em Methode permettant de faire basculer l\textquotesingle{}activation de debougage. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{group__inf2990_gac5c6f80f5ed887f4bae43d648440d36c}{etat\+To\+String} (const E\+T\+A\+TS \&etat)
+\begin{DoxyCompactList}\small\item\em Permet l\textquotesingle{}affichage de l\textquotesingle{}etat de comportement du robot dans la console. \end{DoxyCompactList}\item 
+bool \hyperlink{class_facade_modele_a97a6b3a9e986b31e71a23a27e2dffb52}{obtenir\+Affichage\+Debougage} ()\hypertarget{class_facade_modele_a97a6b3a9e986b31e71a23a27e2dffb52}{}\label{class_facade_modele_a97a6b3a9e986b31e71a23a27e2dffb52}
+
+\begin{DoxyCompactList}\small\item\em Methode permettant l\textquotesingle{}obtention de l\textquotesingle{}affichage de debugage console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_facade_modele}{Facade\+Modele} $\ast$ \hyperlink{group__inf2990_ga9d148f8472316f87cdd79baccc000de8}{obtenir\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}instance unique de la classe. \end{DoxyCompactList}\item 
+static void \hyperlink{group__inf2990_gacbf0495fda26f5be37089470dc5f4372}{liberer\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Libère l\textquotesingle{}instance unique de la classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_visiteur_abstrait}{Visiteur\+Abstrait} $\ast$ \hyperlink{class_facade_modele_a465060855c05736315deb28f05a36521}{visiteur\+Detection\+Noeud} \{nullptr\}\hypertarget{class_facade_modele_a465060855c05736315deb28f05a36521}{}\label{class_facade_modele_a465060855c05736315deb28f05a36521}
+
+\begin{DoxyCompactList}\small\item\em Visiteur public permettant la detection des noeud poteau et mur par les capteurs de distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe qui constitue une interface (une façade) sur l\textquotesingle{}ensemble du modèle et des classes qui le composent. 
+
+\begin{DoxyAuthor}{Author}
+Martin Bisson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2007-\/02-\/20 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Application/\hyperlink{_facade_modele_8h}{Facade\+Modele.\+h}\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Application/\hyperlink{_facade_modele_8cpp}{Facade\+Modele.\+cpp}\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Sources/\+D\+L\+L/\+Interface/\hyperlink{_facade_interface_native_8cpp}{Facade\+Interface\+Native.\+cpp}\end{DoxyCompactItemize}

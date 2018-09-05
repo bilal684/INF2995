@@ -1,0 +1,693 @@
+\hypertarget{_utilitaire_8h}{}\section{Cadriciel/\+Commun/\+Utilitaire/\+Utilitaire.h File Reference}
+\label{_utilitaire_8h}\index{Cadriciel/\+Commun/\+Utilitaire/\+Utilitaire.\+h@{Cadriciel/\+Commun/\+Utilitaire/\+Utilitaire.\+h}}
+{\ttfamily \#include \char`\"{}glm\textbackslash{}glm.\+hpp\char`\"{}}\\*
+{\ttfamily \#include $<$sstream$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classai_matrix4x4t}{ai\+Matrix4x4t$<$ T $>$}
+\item 
+struct \hyperlink{structutilitaire_1_1_sphere_englobante}{utilitaire\+::\+Sphere\+Englobante}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données pour une sphère englobante. \end{DoxyCompactList}\item 
+struct \hyperlink{structutilitaire_1_1_cylindre_englobant}{utilitaire\+::\+Cylindre\+Englobant}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données pour un cylindre englobant. \end{DoxyCompactList}\item 
+struct \hyperlink{structutilitaire_1_1_boite_englobante}{utilitaire\+::\+Boite\+Englobante}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données pour une boite englobante. \end{DoxyCompactList}\item 
+struct \hyperlink{structutilitaire_1_1_segment}{utilitaire\+::\+Segment}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données pour un segment. \end{DoxyCompactList}\item 
+struct \hyperlink{structutilitaire_1_1_bte_englobante_robot}{utilitaire\+::\+Bte\+Englobante\+Robot}
+\begin{DoxyCompactList}\small\item\em Structure contenant les données pour une boite englobante du robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacemodele}{modele}
+\begin{DoxyCompactList}\small\item\em Déclaration avancée de \hyperlink{namespace_assimp}{Assimp}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{group__utilitaire_ga53988236a3db0c0faa5eb1d8aa6a0742}{ai\+Matrix4x4} = \hyperlink{classai_matrix4x4t}{ai\+Matrix4x4t}$<$ float $>$
+\begin{DoxyCompactList}\small\item\em Déclaration avancée d\textquotesingle{}une classe. \end{DoxyCompactList}\item 
+using \hyperlink{_utilitaire_8h_a09b52a80e7bcabddc484aad2e75d60f9}{utilitaire\+::uint} = unsigned int\hypertarget{_utilitaire_8h_a09b52a80e7bcabddc484aad2e75d60f9}{}\label{_utilitaire_8h_a09b52a80e7bcabddc484aad2e75d60f9}
+
+\begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un type d\textquotesingle{}entier non signé. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_utilitaire_8h_ac19191810a37239cb33bd0aae0fc6b95}{utilitaire\+::\+Position\+Segment} \{ \\*
+{\bfseries A\+V\+A\+NT} = 0, 
+{\bfseries D\+R\+O\+I\+T1}, 
+{\bfseries D\+R\+O\+I\+T2}, 
+{\bfseries D\+R\+O\+I\+T3}, 
+\\*
+{\bfseries D\+R\+O\+I\+T4}, 
+{\bfseries D\+R\+O\+I\+T5}, 
+{\bfseries D\+R\+O\+I\+T6}, 
+{\bfseries D\+R\+O\+I\+T7}, 
+\\*
+{\bfseries A\+R\+R\+I\+E\+RE}, 
+{\bfseries G\+A\+U\+C\+H\+E7}, 
+{\bfseries G\+A\+U\+C\+H\+E6}, 
+{\bfseries G\+A\+U\+C\+H\+E5}, 
+\\*
+{\bfseries G\+A\+U\+C\+H\+E4}, 
+{\bfseries G\+A\+U\+C\+H\+E3}, 
+{\bfseries G\+A\+U\+C\+H\+E2}, 
+{\bfseries G\+A\+U\+C\+H\+E1}
+ \}\hypertarget{_utilitaire_8h_ac19191810a37239cb33bd0aae0fc6b95}{}\label{_utilitaire_8h_ac19191810a37239cb33bd0aae0fc6b95}
+\begin{DoxyCompactList}\small\item\em Type de position de segment de la boite englobante du robot. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_utilitaire_8cpp_ac61bdab36cf1cbaa0d06fa8b1f35ab64}{utilitaire\+::afficher\+Erreur} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Fonction globale pour l\textquotesingle{}affichage d\textquotesingle{}erreur. \end{DoxyCompactList}\item 
+double \hyperlink{_utilitaire_8cpp_ac0b9abffd6b11555c19cfe983b009da1}{utilitaire\+::\+R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG} (double Angle\+Rad)
+\begin{DoxyCompactList}\small\item\em Pour convertir les angles de radians en degrés. \end{DoxyCompactList}\item 
+double \hyperlink{_utilitaire_8cpp_a1f30dfa98d6f9e8ac19954cc826da43c}{utilitaire\+::\+D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD} (double Angle\+Deg)
+\begin{DoxyCompactList}\small\item\em Pour convertir les angles de degrés en radians. \end{DoxyCompactList}\item 
+float \hyperlink{_utilitaire_8cpp_aa674381e39a6c11af2be2c56b2066f31}{utilitaire\+::\+K\+M\+H\+\_\+\+T\+O\+\_\+\+MS} (float kmh)
+\begin{DoxyCompactList}\small\item\em Pour convertir les km/h en m/s. \end{DoxyCompactList}\item 
+float \hyperlink{_utilitaire_8cpp_a1e2e4af028a761832c3fd1e8d6fdd962}{utilitaire\+::\+M\+S\+\_\+\+T\+O\+\_\+\+K\+MH} (float ms)
+\begin{DoxyCompactList}\small\item\em Pour convertir les m/s en km/h. \end{DoxyCompactList}\item 
+float \hyperlink{_utilitaire_8cpp_a9cf01523c94548e10a05fd18f24d5fb4}{utilitaire\+::\+S\+I\+GN} (float nombre)
+\begin{DoxyCompactList}\small\item\em Fonction pour connaître le signe d\textquotesingle{}un nombre. \end{DoxyCompactList}\item 
+bool \hyperlink{_utilitaire_8cpp_a382f9680f8726afe04a0938230ebbcc1}{utilitaire\+::\+E\+G\+A\+L\+\_\+\+Z\+E\+RO} (double Nombre)
+\begin{DoxyCompactList}\small\item\em Fonction pour savoir si un double est égal à zéro. \end{DoxyCompactList}\item 
+bool \hyperlink{_utilitaire_8cpp_a460d2fa5ea7de4383f64efde66456212}{utilitaire\+::\+D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+LE} (double Valeur, double Borne\+Min, double Borne\+Max)
+\begin{DoxyCompactList}\small\item\em Pour savoir si un nombre est dans l\textquotesingle{}intervalle\+: \mbox{[}Borne\+Min, Borne\+Max\mbox{]}. \end{DoxyCompactList}\item 
+bool \hyperlink{_utilitaire_8cpp_a1087261a532fc52d3e97a4d12948f130}{utilitaire\+::\+D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+XY} (double x, double x\+Min, double x\+Max, double y, double y\+Min, double y\+Max)
+\begin{DoxyCompactList}\small\item\em Fonction pour vérifier si un Point 2d est dans un carré. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{_utilitaire_8cpp_aa069ef5f226471dcc0bfb75b9ea007bf}{utilitaire\+::vecteur\+Unitaire} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3})\hypertarget{_utilitaire_8cpp_aa069ef5f226471dcc0bfb75b9ea007bf}{}\label{_utilitaire_8cpp_aa069ef5f226471dcc0bfb75b9ea007bf}
+
+\begin{DoxyCompactList}\small\item\em calcule le vecteur unitaire a partir d\textquotesingle{}un point \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \end{DoxyCompactList}\item 
+double \hyperlink{_utilitaire_8cpp_aea936080e582625da9629157ddcd578a}{utilitaire\+::ecrasement} (double a, double b)
+\begin{DoxyCompactList}\small\item\em Calcule le rapport d\textquotesingle{}écrasement. \end{DoxyCompactList}\item 
+bool \hyperlink{_utilitaire_8cpp_a38e618f6c8fa5c888afdcb23ac7e38b4}{utilitaire\+::fichier\+Existe} (const std\+::string \&nom\+Du\+Fichier)
+\begin{DoxyCompactList}\small\item\em Vérification de l\textquotesingle{}existance d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \hyperlink{_utilitaire_8cpp_ab1dba7dd2ee3acbf0310384af08393a9}{utilitaire\+::appliquer\+Matrice} (const \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point, const double mat\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Applique une matrice de transformation à un point. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga63e3ee9447ed593484140a9368e738ec}{glm\+::mat4x4} \hyperlink{_utilitaire_8cpp_a9d4186ee05e7f08cb1d45d3066877841}{utilitaire\+::ai\+\_\+\+To\+\_\+glm} (\hyperlink{structai_matrix4x4}{ai\+Matrix4x4} const \&m)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}une matrice \hyperlink{namespace_assimp}{Assimp} vers glm. \end{DoxyCompactList}\item 
+\hyperlink{group__core__types_ga1c47e8b3386109bc992b6c48e91b0be7}{glm\+::vec3} \hyperlink{_utilitaire_8cpp_af6ff41dbdb8975365de5b4df2419f141}{utilitaire\+::ai\+\_\+\+To\+\_\+glm} (\hyperlink{structai_color3_d}{ai\+Color3D} const \&c)
+\begin{DoxyCompactList}\small\item\em Conversion d\textquotesingle{}une couleur \hyperlink{namespace_assimp}{Assimp} vers glm. \end{DoxyCompactList}\item 
+Sphere\+Englobante \hyperlink{_utilitaire_8cpp_a82b71e90b8a22e3d04556bd863aa198d}{utilitaire\+::calculer\+Sphere\+Englobante} (\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const \&modele)
+\begin{DoxyCompactList}\small\item\em Calcule la sphère englobante. \end{DoxyCompactList}\item 
+Cylindre\+Englobant \hyperlink{_utilitaire_8cpp_a2ad8732aa8faa90d8813cc3e3da75f2b}{utilitaire\+::calculer\+Cylindre\+Englobant} (\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const \&modele)
+\begin{DoxyCompactList}\small\item\em Calcule le cylindre englobant. \end{DoxyCompactList}\item 
+Boite\+Englobante \hyperlink{_utilitaire_8cpp_a5841a97dc96a2e7061ab02cb8faa2d0e}{utilitaire\+::calculer\+Boite\+Englobante} (\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const \&modele)
+\begin{DoxyCompactList}\small\item\em Calcule la boite englobante. \end{DoxyCompactList}\item 
+void \hyperlink{_utilitaire_8cpp_adfe71523cc99df162d610ad9f875e2d0}{utilitaire\+::obtenir\+Points\+Extremes} (\hyperlink{classmodele_1_1_noeud}{modele\+::\+Noeud} const \&noeud, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&x\+Min, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&x\+Max, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&y\+Min, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&y\+Max, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&z\+Min, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&z\+Max)
+\begin{DoxyCompactList}\small\item\em Permet de récupérer les points extrêmes d\textquotesingle{}un noeud (récursivement) \end{DoxyCompactList}\item 
+void \hyperlink{_utilitaire_8cpp_acffeb0b31682f8fa853e4ed8d5667878}{utilitaire\+::tourner\+Point\+Autour\+Du\+Centre} (double centreX, double centreY, double angle, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} \&point)
+\item 
+{\footnotesize template$<$class T $>$ }\\T \hyperlink{_utilitaire_8h_a858cc5cfce83d91fd6dce1d9cc82c7a0}{utilitaire\+::borne\+Superieure} (T const \&valeur, T const \&borne)
+\item 
+{\footnotesize template$<$class T $>$ }\\T \hyperlink{_utilitaire_8h_aaf4d28653116819e14ea3e71bebfe591}{utilitaire\+::borne\+Inferieure} (T const \&valeur, T const \&borne)
+\item 
+{\footnotesize template$<$class T $>$ }\\T \hyperlink{_utilitaire_8h_a068778eb30221d35e94a3adef123c9e2}{utilitaire\+::borne} (T const \&valeur, T const \&min, T const \&max)
+\item 
+bool \hyperlink{_utilitaire_8cpp_a5058dbe5789d9d26ee0f6bcab29daa37}{utilitaire\+::rectangle\+Dans\+Une\+Zone} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point\+Debut, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} point\+Fin, double largeur, double longuer\+Zone, double largeur\+Zone)
+\begin{DoxyCompactList}\small\item\em Cette fonction verifie si un rectangle est dans la une zone centree a (0, 0) \end{DoxyCompactList}\item 
+bool \hyperlink{_utilitaire_8cpp_acc54fed238381f3a148fa55cda511c1e}{utilitaire\+::cercle\+Dans\+Une\+Zone} (double x\+Min, double x\+Max, double y\+Min, double y\+Max, double centreX, double centreY, double rayon)\hypertarget{_utilitaire_8cpp_acc54fed238381f3a148fa55cda511c1e}{}\label{_utilitaire_8cpp_acc54fed238381f3a148fa55cda511c1e}
+
+\begin{DoxyCompactList}\small\item\em Cette fonction verifie si un cercle est dans une zone rectangulaire. \end{DoxyCompactList}\item 
+bool \hyperlink{_utilitaire_8cpp_ad68359475d0d27383442af73409dd5bd}{utilitaire\+::point\+Dans\+Un\+Rectangle} (\hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} position, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} coin1, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} coin2, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} coin3, \hyperlink{group__core__types_ga7f3287f952e6ccb481231368091702ac}{glm\+::dvec3} coin4)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Martin Bisson 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2007-\/03-\/11 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!afficher\+Erreur@{afficher\+Erreur}}
+\index{afficher\+Erreur@{afficher\+Erreur}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{afficher\+Erreur(const std\+::string \&message)}{afficherErreur(const std::string &message)}}]{\setlength{\rightskip}{0pt plus 5cm}void utilitaire\+::afficher\+Erreur (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_ac61bdab36cf1cbaa0d06fa8b1f35ab64}{}\label{_utilitaire_8cpp_file_ac61bdab36cf1cbaa0d06fa8b1f35ab64}
+
+
+Fonction globale pour l\textquotesingle{}affichage d\textquotesingle{}erreur. 
+
+Cette fonction affiche une message d\textquotesingle{}erreur.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & \+: La chaîne décrivant l\textquotesingle{}erreur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!ai\+\_\+\+To\+\_\+glm@{ai\+\_\+\+To\+\_\+glm}}
+\index{ai\+\_\+\+To\+\_\+glm@{ai\+\_\+\+To\+\_\+glm}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{ai\+\_\+\+To\+\_\+glm(ai\+Matrix4x4 const \&m)}{ai_To_glm(aiMatrix4x4 const &m)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::mat4x4} utilitaire\+::ai\+\_\+\+To\+\_\+glm (
+\begin{DoxyParamCaption}
+\item[{{\bf ai\+Matrix4x4} const \&}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a9d4186ee05e7f08cb1d45d3066877841}{}\label{_utilitaire_8cpp_file_a9d4186ee05e7f08cb1d45d3066877841}
+
+
+Conversion d\textquotesingle{}une matrice \hyperlink{namespace_assimp}{Assimp} vers glm. 
+
+Cette fonction convertit une matrice 4x4 assimp vers une matrice 4x4 de glm
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em m} & \+: La matrice assimp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la matrice glm 
+\end{DoxyReturn}
+On passe d\textquotesingle{}un ordre par rangée vers un ordre par colonne \index{Utilitaire.\+h@{Utilitaire.\+h}!ai\+\_\+\+To\+\_\+glm@{ai\+\_\+\+To\+\_\+glm}}
+\index{ai\+\_\+\+To\+\_\+glm@{ai\+\_\+\+To\+\_\+glm}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{ai\+\_\+\+To\+\_\+glm(ai\+Color3\+D const \&c)}{ai_To_glm(aiColor3D const &c)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::vec3} utilitaire\+::ai\+\_\+\+To\+\_\+glm (
+\begin{DoxyParamCaption}
+\item[{{\bf ai\+Color3D} const \&}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_af6ff41dbdb8975365de5b4df2419f141}{}\label{_utilitaire_8cpp_file_af6ff41dbdb8975365de5b4df2419f141}
+
+
+Conversion d\textquotesingle{}une couleur \hyperlink{namespace_assimp}{Assimp} vers glm. 
+
+Cette fonction convertit une couleur 3D assimp vers un vecteur 3D de glm
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em m} & \+: La couleur assimp\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le vecteur glm 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!appliquer\+Matrice@{appliquer\+Matrice}}
+\index{appliquer\+Matrice@{appliquer\+Matrice}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{appliquer\+Matrice(const glm\+::dvec3 \&point, const double mat[])}{appliquerMatrice(const glm::dvec3 &point, const double mat[])}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf glm\+::dvec3} utilitaire\+::appliquer\+Matrice (
+\begin{DoxyParamCaption}
+\item[{const {\bf glm\+::dvec3} \&}]{point, }
+\item[{const double}]{mat\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_ab1dba7dd2ee3acbf0310384af08393a9}{}\label{_utilitaire_8cpp_file_ab1dba7dd2ee3acbf0310384af08393a9}
+
+
+Applique une matrice de transformation à un point. 
+
+Cette fonction multiplie le point par une matrice de transformation donnée et retourne le résultat.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em point} & \+: Le point à transformer. \\
+\hline
+\mbox{\tt in}  & {\em mat} & \+: La matrice de transformation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le point transformé. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!borne@{borne}}
+\index{borne@{borne}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{borne(\+T const \&valeur, T const \&min, T const \&max)}{borne(T const &valeur, T const &min, T const &max)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T utilitaire\+::borne (
+\begin{DoxyParamCaption}
+\item[{T const \&}]{valeur, }
+\item[{T const \&}]{min, }
+\item[{T const \&}]{max}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8h_file_a068778eb30221d35e94a3adef123c9e2}{}\label{_utilitaire_8h_file_a068778eb30221d35e94a3adef123c9e2}
+Cette fonction s\textquotesingle{}assure que la valeur ne dépasse pas les bornes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em valeur} & \+: La valeur de l\textquotesingle{}expression à borner. \\
+\hline
+\mbox{\tt in}  & {\em min} & \+: La borne inférieure. \\
+\hline
+\mbox{\tt in}  & {\em max} & \+: La borne supérieure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la valeur bornée. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!borne\+Inferieure@{borne\+Inferieure}}
+\index{borne\+Inferieure@{borne\+Inferieure}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{borne\+Inferieure(\+T const \&valeur, T const \&borne)}{borneInferieure(T const &valeur, T const &borne)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T utilitaire\+::borne\+Inferieure (
+\begin{DoxyParamCaption}
+\item[{T const \&}]{valeur, }
+\item[{T const \&}]{borne}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8h_file_aaf4d28653116819e14ea3e71bebfe591}{}\label{_utilitaire_8h_file_aaf4d28653116819e14ea3e71bebfe591}
+Cette fonction s\textquotesingle{}assure que la valeur dépasse la borne.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em valeur} & \+: La valeur de l\textquotesingle{}expression à borner. \\
+\hline
+\mbox{\tt in}  & {\em borne} & \+: La borne inférieure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!borne\+Superieure@{borne\+Superieure}}
+\index{borne\+Superieure@{borne\+Superieure}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{borne\+Superieure(\+T const \&valeur, T const \&borne)}{borneSuperieure(T const &valeur, T const &borne)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T utilitaire\+::borne\+Superieure (
+\begin{DoxyParamCaption}
+\item[{T const \&}]{valeur, }
+\item[{T const \&}]{borne}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8h_file_a858cc5cfce83d91fd6dce1d9cc82c7a0}{}\label{_utilitaire_8h_file_a858cc5cfce83d91fd6dce1d9cc82c7a0}
+Cette fonction s\textquotesingle{}assure que la valeur ne dépasse pas la borne.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em valeur} & \+: La valeur de l\textquotesingle{}expression à borner. \\
+\hline
+\mbox{\tt in}  & {\em borne} & \+: La borne supérieure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La valeur bornée. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!calculer\+Boite\+Englobante@{calculer\+Boite\+Englobante}}
+\index{calculer\+Boite\+Englobante@{calculer\+Boite\+Englobante}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{calculer\+Boite\+Englobante(modele\+::\+Modele3\+D const \&modele)}{calculerBoiteEnglobante(modele::Modele3D const &modele)}}]{\setlength{\rightskip}{0pt plus 5cm}Boite\+Englobante utilitaire\+::calculer\+Boite\+Englobante (
+\begin{DoxyParamCaption}
+\item[{{\bf modele\+::\+Modele3D} const \&}]{modele}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a5841a97dc96a2e7061ab02cb8faa2d0e}{}\label{_utilitaire_8cpp_file_a5841a97dc96a2e7061ab02cb8faa2d0e}
+
+
+Calcule la boite englobante. 
+
+Cette fonction calcule la boite englobante d\textquotesingle{}un modèle 3D en espace local.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em modele} & \+: le modèle 3D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La boite englobante. 
+\end{DoxyReturn}
+Récupérer les points extrêmes du modèle 3D \index{Utilitaire.\+h@{Utilitaire.\+h}!calculer\+Cylindre\+Englobant@{calculer\+Cylindre\+Englobant}}
+\index{calculer\+Cylindre\+Englobant@{calculer\+Cylindre\+Englobant}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{calculer\+Cylindre\+Englobant(modele\+::\+Modele3\+D const \&modele)}{calculerCylindreEnglobant(modele::Modele3D const &modele)}}]{\setlength{\rightskip}{0pt plus 5cm}Cylindre\+Englobant utilitaire\+::calculer\+Cylindre\+Englobant (
+\begin{DoxyParamCaption}
+\item[{{\bf modele\+::\+Modele3D} const \&}]{modele}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a2ad8732aa8faa90d8813cc3e3da75f2b}{}\label{_utilitaire_8cpp_file_a2ad8732aa8faa90d8813cc3e3da75f2b}
+
+
+Calcule le cylindre englobant. 
+
+Cette fonction calcule le cylindre englobant d\textquotesingle{}u nmodèle 3D en espace local.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em modele} & \+: le modèle 3D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le cylindre englobant. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!calculer\+Sphere\+Englobante@{calculer\+Sphere\+Englobante}}
+\index{calculer\+Sphere\+Englobante@{calculer\+Sphere\+Englobante}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{calculer\+Sphere\+Englobante(modele\+::\+Modele3\+D const \&modele)}{calculerSphereEnglobante(modele::Modele3D const &modele)}}]{\setlength{\rightskip}{0pt plus 5cm}Sphere\+Englobante utilitaire\+::calculer\+Sphere\+Englobante (
+\begin{DoxyParamCaption}
+\item[{{\bf modele\+::\+Modele3D} const \&}]{modele}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a82b71e90b8a22e3d04556bd863aa198d}{}\label{_utilitaire_8cpp_file_a82b71e90b8a22e3d04556bd863aa198d}
+
+
+Calcule la sphère englobante. 
+
+Cette fonction calcule la sphère englobante d\textquotesingle{}un modèle 3D en espace local.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em modele} & \+: le modèle 3D\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La sphere\+Englobante. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+LE@{D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+LE}}
+\index{D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+LE@{D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+LE}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+L\+E(double Valeur, double Borne\+Min, double Borne\+Max)}{DANS_INTERVALLE(double Valeur, double BorneMin, double BorneMax)}}]{\setlength{\rightskip}{0pt plus 5cm}bool utilitaire\+::\+D\+A\+N\+S\+\_\+\+I\+N\+T\+E\+R\+V\+A\+L\+LE (
+\begin{DoxyParamCaption}
+\item[{double}]{valeur, }
+\item[{double}]{borne\+Min, }
+\item[{double}]{borne\+Max}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a460d2fa5ea7de4383f64efde66456212}{}\label{_utilitaire_8cpp_file_a460d2fa5ea7de4383f64efde66456212}
+
+
+Pour savoir si un nombre est dans l\textquotesingle{}intervalle\+: \mbox{[}Borne\+Min, Borne\+Max\mbox{]}. 
+
+Cette fonction vérifie si une valeur est dans un intervalle.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em valeur} & \+: La valeur à vérifier. \\
+\hline
+\mbox{\tt in}  & {\em borne\+Min} & \+: La borne inférieure de l\textquotesingle{}intervalle. \\
+\hline
+\mbox{\tt in}  & {\em borne\+Max} & \+: La borne supérieure de l\textquotesingle{}intervalle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si la valeur est dans l\textquotesingle{}intervalle, faux autrement. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+XY@{D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+XY}}
+\index{D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+XY@{D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+XY}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+X\+Y(double x, double x\+Min, double x\+Max, double y, double y\+Min, double y\+Max)}{DANS_LIMITESXY(double x, double xMin, double xMax, double y, double yMin, double yMax)}}]{\setlength{\rightskip}{0pt plus 5cm}bool utilitaire\+::\+D\+A\+N\+S\+\_\+\+L\+I\+M\+I\+T\+E\+S\+XY (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{x\+Min, }
+\item[{double}]{x\+Max, }
+\item[{double}]{y, }
+\item[{double}]{y\+Min, }
+\item[{double}]{y\+Max}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a1087261a532fc52d3e97a4d12948f130}{}\label{_utilitaire_8cpp_file_a1087261a532fc52d3e97a4d12948f130}
+
+
+Fonction pour vérifier si un Point 2d est dans un carré. 
+
+Cette fonction vérifie si un point 2d est dans un carré.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x} & \+: Coordonnée x du point. \\
+\hline
+\mbox{\tt in}  & {\em x\+Min} & \+: La borne inférieure en x. \\
+\hline
+\mbox{\tt in}  & {\em x\+Max} & \+: La borne supérieure en x. \\
+\hline
+\mbox{\tt in}  & {\em y} & \+: Coordonnée y du point. \\
+\hline
+\mbox{\tt in}  & {\em y\+Min} & \+: La borne inférieure en y. \\
+\hline
+\mbox{\tt in}  & {\em y\+Max} & \+: La borne supérieure en y.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si le point (x,y) est dans le carré, faux autrement. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD@{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}}
+\index{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD@{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+A\+D(double Angle\+Deg)}{DEG_TO_RAD(double AngleDeg)}}]{\setlength{\rightskip}{0pt plus 5cm}double utilitaire\+::\+D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD (
+\begin{DoxyParamCaption}
+\item[{double}]{angle\+Deg}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a1f30dfa98d6f9e8ac19954cc826da43c}{}\label{_utilitaire_8cpp_file_a1f30dfa98d6f9e8ac19954cc826da43c}
+
+
+Pour convertir les angles de degrés en radians. 
+
+Cette fonction convertit les angles de degrés en radians.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em angle\+Deg} & \+: L\textquotesingle{}angle en degrés à convertir.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}angle converti en radians. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!ecrasement@{ecrasement}}
+\index{ecrasement@{ecrasement}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{ecrasement(double a, double b)}{ecrasement(double a, double b)}}]{\setlength{\rightskip}{0pt plus 5cm}double utilitaire\+::ecrasement (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_aea936080e582625da9629157ddcd578a}{}\label{_utilitaire_8cpp_file_aea936080e582625da9629157ddcd578a}
+
+
+Calcule le rapport d\textquotesingle{}écrasement. 
+
+Cette fonction calcule le rapport d\textquotesingle{}écrasement pour un rectangle de longueur {\itshape a} et largeur {\itshape b}.
+\begin{DoxyItemize}
+\item si a = b, le rapport est 1
+\item le rapport est toujours positif et plus grand que 1.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \+: Valeur à rapprocher. \\
+\hline
+\mbox{\tt in}  & {\em b} & \+: Point limite du rapprochement.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le rapport {\itshape r} de {\itshape a} / {\itshape b} 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!E\+G\+A\+L\+\_\+\+Z\+E\+RO@{E\+G\+A\+L\+\_\+\+Z\+E\+RO}}
+\index{E\+G\+A\+L\+\_\+\+Z\+E\+RO@{E\+G\+A\+L\+\_\+\+Z\+E\+RO}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{E\+G\+A\+L\+\_\+\+Z\+E\+R\+O(double Nombre)}{EGAL_ZERO(double Nombre)}}]{\setlength{\rightskip}{0pt plus 5cm}bool utilitaire\+::\+E\+G\+A\+L\+\_\+\+Z\+E\+RO (
+\begin{DoxyParamCaption}
+\item[{double}]{nombre}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a382f9680f8726afe04a0938230ebbcc1}{}\label{_utilitaire_8cpp_file_a382f9680f8726afe04a0938230ebbcc1}
+
+
+Fonction pour savoir si un double est égal à zéro. 
+
+Fonction pour savoir si un double est égal à zéro.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nombre} & \+: Valeur à vérifier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si nombre est égal a 0, false autrement. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!fichier\+Existe@{fichier\+Existe}}
+\index{fichier\+Existe@{fichier\+Existe}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{fichier\+Existe(const std\+::string \&nom\+Du\+Fichier)}{fichierExiste(const std::string &nomDuFichier)}}]{\setlength{\rightskip}{0pt plus 5cm}bool utilitaire\+::fichier\+Existe (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{nom\+Du\+Fichier}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a38e618f6c8fa5c888afdcb23ac7e38b4}{}\label{_utilitaire_8cpp_file_a38e618f6c8fa5c888afdcb23ac7e38b4}
+
+
+Vérification de l\textquotesingle{}existance d\textquotesingle{}un fichier. 
+
+Cette fonction vérifie si un fichier d\textquotesingle{}un certain nom donné existe.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nom\+Du\+Fichier} & \+: Le nom du fichier dont on veut vérifier l\textquotesingle{}existence.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si le fichier existe, faux autrement. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!K\+M\+H\+\_\+\+T\+O\+\_\+\+MS@{K\+M\+H\+\_\+\+T\+O\+\_\+\+MS}}
+\index{K\+M\+H\+\_\+\+T\+O\+\_\+\+MS@{K\+M\+H\+\_\+\+T\+O\+\_\+\+MS}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{K\+M\+H\+\_\+\+T\+O\+\_\+\+M\+S(float kmh)}{KMH_TO_MS(float kmh)}}]{\setlength{\rightskip}{0pt plus 5cm}float utilitaire\+::\+K\+M\+H\+\_\+\+T\+O\+\_\+\+MS (
+\begin{DoxyParamCaption}
+\item[{float}]{kmh}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_aa674381e39a6c11af2be2c56b2066f31}{}\label{_utilitaire_8cpp_file_aa674381e39a6c11af2be2c56b2066f31}
+
+
+Pour convertir les km/h en m/s. 
+
+Fonction de conversion des km/h en m/s.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em kmh} & \+: Valeur en kilomètres / heure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float =$>$ vitesse en mètres par seconde. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!M\+S\+\_\+\+T\+O\+\_\+\+K\+MH@{M\+S\+\_\+\+T\+O\+\_\+\+K\+MH}}
+\index{M\+S\+\_\+\+T\+O\+\_\+\+K\+MH@{M\+S\+\_\+\+T\+O\+\_\+\+K\+MH}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{M\+S\+\_\+\+T\+O\+\_\+\+K\+M\+H(float ms)}{MS_TO_KMH(float ms)}}]{\setlength{\rightskip}{0pt plus 5cm}float utilitaire\+::\+M\+S\+\_\+\+T\+O\+\_\+\+K\+MH (
+\begin{DoxyParamCaption}
+\item[{float}]{ms}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a1e2e4af028a761832c3fd1e8d6fdd962}{}\label{_utilitaire_8cpp_file_a1e2e4af028a761832c3fd1e8d6fdd962}
+
+
+Pour convertir les m/s en km/h. 
+
+Fonction de conversion des m/s en km/h.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ms} & \+: Valeur en mètres / seconde.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float =$>$ vitesse en kilomètres / heure. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!obtenir\+Points\+Extremes@{obtenir\+Points\+Extremes}}
+\index{obtenir\+Points\+Extremes@{obtenir\+Points\+Extremes}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{obtenir\+Points\+Extremes(modele\+::\+Noeud const \&noeud, glm\+::dvec3 \&x\+Min, glm\+::dvec3 \&x\+Max, glm\+::dvec3 \&y\+Min, glm\+::dvec3 \&y\+Max, glm\+::dvec3 \&z\+Min, glm\+::dvec3 \&z\+Max)}{obtenirPointsExtremes(modele::Noeud const &noeud, glm::dvec3 &xMin, glm::dvec3 &xMax, glm::dvec3 &yMin, glm::dvec3 &yMax, glm::dvec3 &zMin, glm::dvec3 &zMax)}}]{\setlength{\rightskip}{0pt plus 5cm}void utilitaire\+::obtenir\+Points\+Extremes (
+\begin{DoxyParamCaption}
+\item[{{\bf modele\+::\+Noeud} const \&}]{noeud, }
+\item[{{\bf glm\+::dvec3} \&}]{x\+Min, }
+\item[{{\bf glm\+::dvec3} \&}]{x\+Max, }
+\item[{{\bf glm\+::dvec3} \&}]{y\+Min, }
+\item[{{\bf glm\+::dvec3} \&}]{y\+Max, }
+\item[{{\bf glm\+::dvec3} \&}]{z\+Min, }
+\item[{{\bf glm\+::dvec3} \&}]{z\+Max}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_adfe71523cc99df162d610ad9f875e2d0}{}\label{_utilitaire_8cpp_file_adfe71523cc99df162d610ad9f875e2d0}
+
+
+Permet de récupérer les points extrêmes d\textquotesingle{}un noeud (récursivement) 
+
+Cette fonction calcule les points extrêmes d\textquotesingle{}un noeud, récursivement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em noeud} & \+: un noeud d\textquotesingle{}un modèle 3D \\
+\hline
+\mbox{\tt in,out}  & {\em x\+Min} & \+: point contenant la valeur minimale de x \\
+\hline
+\mbox{\tt in,out}  & {\em x\+Max} & \+: point contenant la valeur maximale de x \\
+\hline
+\mbox{\tt in,out}  & {\em y\+Min} & \+: point contenant la valeur minimale de y \\
+\hline
+\mbox{\tt in,out}  & {\em y\+Max} & \+: point contenant la valeur maximale de y \\
+\hline
+\mbox{\tt in,out}  & {\em z\+Min} & \+: point contenant la valeur minimale de z \\
+\hline
+\mbox{\tt in,out}  & {\em z\+Max} & \+: point contenant la valeur maximale de z\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!point\+Dans\+Un\+Rectangle@{point\+Dans\+Un\+Rectangle}}
+\index{point\+Dans\+Un\+Rectangle@{point\+Dans\+Un\+Rectangle}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{point\+Dans\+Un\+Rectangle(glm\+::dvec3 position, glm\+::dvec3 coin1, glm\+::dvec3 coin2, glm\+::dvec3 coin3, glm\+::dvec3 coin4)}{pointDansUnRectangle(glm::dvec3 position, glm::dvec3 coin1, glm::dvec3 coin2, glm::dvec3 coin3, glm::dvec3 coin4)}}]{\setlength{\rightskip}{0pt plus 5cm}bool utilitaire\+::point\+Dans\+Un\+Rectangle (
+\begin{DoxyParamCaption}
+\item[{{\bf glm\+::dvec3}}]{position, }
+\item[{{\bf glm\+::dvec3}}]{coin1, }
+\item[{{\bf glm\+::dvec3}}]{coin2, }
+\item[{{\bf glm\+::dvec3}}]{coin3, }
+\item[{{\bf glm\+::dvec3}}]{coin4}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_ad68359475d0d27383442af73409dd5bd}{}\label{_utilitaire_8cpp_file_ad68359475d0d27383442af73409dd5bd}
+Cette fonction verifie si un point est dans un rectangle incline
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em position} & \+: la position du point \\
+\hline
+\mbox{\tt in}  & {\em coin1} & \+: le premier coin du rectangle \\
+\hline
+\mbox{\tt in}  & {\em coin2} & \+: le deuxieme coin du rectangle \\
+\hline
+\mbox{\tt in}  & {\em coin3} & \+: le troisieme coin du rectangle \\
+\hline
+\mbox{\tt in}  & {\em coin4} & \+: le quatrieme coin du rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vrai si le point est dans le rectangle faux sinon 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG@{R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG}}
+\index{R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG@{R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+E\+G(double Angle\+Rad)}{RAD_TO_DEG(double AngleRad)}}]{\setlength{\rightskip}{0pt plus 5cm}double utilitaire\+::\+R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG (
+\begin{DoxyParamCaption}
+\item[{double}]{angle\+Rad}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_ac0b9abffd6b11555c19cfe983b009da1}{}\label{_utilitaire_8cpp_file_ac0b9abffd6b11555c19cfe983b009da1}
+
+
+Pour convertir les angles de radians en degrés. 
+
+Cette fonction convertit les angles de radians en degrés.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em angle\+Rad} & \+: L\textquotesingle{}angle en radians à convertir.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}angle converti en degrés 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!rectangle\+Dans\+Une\+Zone@{rectangle\+Dans\+Une\+Zone}}
+\index{rectangle\+Dans\+Une\+Zone@{rectangle\+Dans\+Une\+Zone}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{rectangle\+Dans\+Une\+Zone(glm\+::dvec3 point\+Debut, glm\+::dvec3 point\+Fin, double largeur, double longuer\+Zone, double largeur\+Zone)}{rectangleDansUneZone(glm::dvec3 pointDebut, glm::dvec3 pointFin, double largeur, double longuerZone, double largeurZone)}}]{\setlength{\rightskip}{0pt plus 5cm}bool utilitaire\+::rectangle\+Dans\+Une\+Zone (
+\begin{DoxyParamCaption}
+\item[{{\bf glm\+::dvec3}}]{point\+Debut, }
+\item[{{\bf glm\+::dvec3}}]{point\+Fin, }
+\item[{double}]{largeur, }
+\item[{double}]{longuer\+Zone, }
+\item[{double}]{largeur\+Zone}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a5058dbe5789d9d26ee0f6bcab29daa37}{}\label{_utilitaire_8cpp_file_a5058dbe5789d9d26ee0f6bcab29daa37}
+
+
+Cette fonction verifie si un rectangle est dans la une zone centree a (0, 0) 
+
+\begin{DoxyReturn}{Returns}
+Vrai si la rectangle est dans la table faux sinon 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!S\+I\+GN@{S\+I\+GN}}
+\index{S\+I\+GN@{S\+I\+GN}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{S\+I\+G\+N(float nombre)}{SIGN(float nombre)}}]{\setlength{\rightskip}{0pt plus 5cm}float utilitaire\+::\+S\+I\+GN (
+\begin{DoxyParamCaption}
+\item[{float}]{nombre}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_a9cf01523c94548e10a05fd18f24d5fb4}{}\label{_utilitaire_8cpp_file_a9cf01523c94548e10a05fd18f24d5fb4}
+
+
+Fonction pour connaître le signe d\textquotesingle{}un nombre. 
+
+Fonction pour connaître le signe d\textquotesingle{}un nombre.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nombre} & \+: Valeur dont on veut trouver le signe.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int =$>$ 1 si positif, -\/1 si négatif, 0 si = 0. 
+\end{DoxyReturn}
+\index{Utilitaire.\+h@{Utilitaire.\+h}!tourner\+Point\+Autour\+Du\+Centre@{tourner\+Point\+Autour\+Du\+Centre}}
+\index{tourner\+Point\+Autour\+Du\+Centre@{tourner\+Point\+Autour\+Du\+Centre}!Utilitaire.\+h@{Utilitaire.\+h}}
+\subsubsection[{\texorpdfstring{tourner\+Point\+Autour\+Du\+Centre(double centre\+X, double centre\+Y, double angle, glm\+::dvec3 \&point)}{tournerPointAutourDuCentre(double centreX, double centreY, double angle, glm::dvec3 &point)}}]{\setlength{\rightskip}{0pt plus 5cm}void utilitaire\+::tourner\+Point\+Autour\+Du\+Centre (
+\begin{DoxyParamCaption}
+\item[{double}]{centreX, }
+\item[{double}]{centreY, }
+\item[{double}]{angle, }
+\item[{{\bf glm\+::dvec3} \&}]{point}
+\end{DoxyParamCaption}
+)}\hypertarget{_utilitaire_8cpp_file_acffeb0b31682f8fa853e4ed8d5667878}{}\label{_utilitaire_8cpp_file_acffeb0b31682f8fa853e4ed8d5667878}
+Cette fonction permet d\textquotesingle{}effectuer une rotation d\textquotesingle{}un point autour du centre.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em centreX} & \+: Position x du centre.\\
+\hline
+\mbox{\tt in}  & {\em centreY} & \+: Position y du centre.\\
+\hline
+\mbox{\tt in}  & {\em angle} & \+: Angle de rotation\\
+\hline
+\mbox{\tt in,out}  & {\em point} & \+: Nouveau point rotater.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}

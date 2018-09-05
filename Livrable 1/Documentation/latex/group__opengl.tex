@@ -1,0 +1,95 @@
+\hypertarget{group__opengl}{}\section{Open\+GL}
+\label{group__opengl}\index{Open\+GL@{Open\+GL}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacemodele}{modele}
+\begin{DoxyCompactList}\small\item\em Déclaration avancée de \hyperlink{namespace_assimp}{Assimp}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classopengl_1_1_v_b_o}{opengl\+::\+V\+BO}
+\begin{DoxyCompactList}\small\item\em Classe permettant le dessin d\textquotesingle{}un modèle 3D par \hyperlink{classopengl_1_1_v_b_o}{V\+BO}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{group__opengl_ga94f8a89ef5eab6cd5c344116553c1539}{opengl\+::\+V\+B\+O\+::dessiner} (bool est\+Selectionne) const \hypertarget{group__opengl_ga94f8a89ef5eab6cd5c344116553c1539}{}\label{group__opengl_ga94f8a89ef5eab6cd5c344116553c1539}
+
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}effectuer le dessin du modèle 3D. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{group__opengl_ga638a74f6b24e7203d92e34c8ff1637a5}{opengl\+::\+V\+B\+O\+::enregistrer\+Tampon} (T const \&data)
+\begin{DoxyCompactList}\small\item\em Méthode \char`\"{}helper\char`\"{} pour passer les données du mesh vers la carte graphique. \end{DoxyCompactList}\item 
+void \hyperlink{group__opengl_gad2837a087d81cd98efe2e6b66f17095c}{opengl\+::\+V\+B\+O\+::dessiner} (\hyperlink{classmodele_1_1_noeud}{modele\+::\+Noeud} const \&noeud, unsigned int \&buffer\+Index, bool est\+Selectionne) const 
+\begin{DoxyCompactList}\small\item\em Dessin récursif. \end{DoxyCompactList}\item 
+bool \hyperlink{group__opengl_ga0b85837c3902f9dd9562616debae290d}{opengl\+::\+V\+B\+O\+::identifiant\+Est\+Valide} () const \hypertarget{group__opengl_ga0b85837c3902f9dd9562616debae290d}{}\label{group__opengl_ga0b85837c3902f9dd9562616debae290d}
+
+\begin{DoxyCompactList}\small\item\em Permet de vérifier si l\textquotesingle{}identifiant est valide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmodele_1_1_modele3_d}{modele\+::\+Modele3D} const $\ast$ \hyperlink{group__opengl_gabf3d791a572f7cb45133a110de4046df}{opengl\+::\+V\+B\+O\+::modele\+\_\+} \{ nullptr \}\hypertarget{group__opengl_gabf3d791a572f7cb45133a110de4046df}{}\label{group__opengl_gabf3d791a572f7cb45133a110de4046df}
+
+\begin{DoxyCompactList}\small\item\em Modèle à dessiner. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ \hyperlink{group__opengl_gad7402d0b9951f4e77d552eb6a99b7557}{opengl\+::\+V\+B\+O\+::handles\+\_\+}\hypertarget{group__opengl_gad7402d0b9951f4e77d552eb6a99b7557}{}\label{group__opengl_gad7402d0b9951f4e77d552eb6a99b7557}
+
+\begin{DoxyCompactList}\small\item\em Les identifiants Open\+GL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Open\+GL@{Open\+GL}!dessiner@{dessiner}}
+\index{dessiner@{dessiner}!Open\+GL@{Open\+GL}}
+\subsubsection[{\texorpdfstring{dessiner(modele\+::\+Noeud const \&noeud, unsigned int \&buffer\+Index, bool est\+Selectionne) const }{dessiner(modele::Noeud const &noeud, unsigned int &bufferIndex, bool estSelectionne) const }}]{\setlength{\rightskip}{0pt plus 5cm}void opengl\+::\+V\+B\+O\+::dessiner (
+\begin{DoxyParamCaption}
+\item[{{\bf modele\+::\+Noeud} const \&}]{noeud, }
+\item[{unsigned int \&}]{buffer\+Index, }
+\item[{bool}]{est\+Selectionne}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{group__opengl_gad2837a087d81cd98efe2e6b66f17095c}{}\label{group__opengl_gad2837a087d81cd98efe2e6b66f17095c}
+
+
+Dessin récursif. 
+
+Empiler la transformation courante
+
+Pour une raison ou une autre, il faut la désactiver après le dessin si le modèle possède des couleurs de vertex.
+
+Dessin récursif.
+
+Pop de la transformation du noeud courant \index{Open\+GL@{Open\+GL}!enregistrer\+Tampon@{enregistrer\+Tampon}}
+\index{enregistrer\+Tampon@{enregistrer\+Tampon}!Open\+GL@{Open\+GL}}
+\subsubsection[{\texorpdfstring{enregistrer\+Tampon(\+T const \&data)}{enregistrerTampon(T const &data)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void opengl\+::\+V\+B\+O\+::enregistrer\+Tampon (
+\begin{DoxyParamCaption}
+\item[{T const \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{group__opengl_ga638a74f6b24e7203d92e34c8ff1637a5}{}\label{group__opengl_ga638a74f6b24e7203d92e34c8ff1637a5}
+
+
+Méthode \char`\"{}helper\char`\"{} pour passer les données du mesh vers la carte graphique. 
+
+Permet de charger les données d\textquotesingle{}un modèle (vertex, normales, tex\+Coord, etc.) en mémoire de la carte graphique et de conserver un handle vers les données.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em data} & \+: le vecteur contenant les données.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Aucune. 
+\end{DoxyReturn}
+Le type contenu dans le std\+::vecteur (\hyperlink{group__core__types_ga1c47e8b3386109bc992b6c48e91b0be7}{glm\+::vec3}, \hyperlink{group__core__types_ga6e12a4ca00d696f07da1df4eb73e0fe8}{glm\+::ivec3}, etc.)
+
+Le type contenu dans le glm\+::vec (float, int, etc.)
+
+Le tampon à envoyer à la carte graphique
+
+Récupérer la dimension du glm\+::vec
+
+Créer un tampon séquentiel.
+
+On assume que les entiers sont utilisés pour les indices.
+
+Transférer le tampon créé.
+
+Conserver le handle. 

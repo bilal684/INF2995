@@ -1,0 +1,66 @@
+\hypertarget{class_interface_graphique_1_1_etat_edition}{}\section{Interface\+Graphique.\+Etat\+Edition Class Reference}
+\label{class_interface_graphique_1_1_etat_edition}\index{Interface\+Graphique.\+Etat\+Edition@{Interface\+Graphique.\+Etat\+Edition}}
+
+
+Classe abstraite decrivant les differents etats des objets pouvant etre present dans la zone de dessin.  
+
+
+Inheritance diagram for Interface\+Graphique.\+Etat\+Edition\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{class_interface_graphique_1_1_etat_edition}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{group__inf2990_ga1e28e8b6a0c43384138f39e937061013}{initialiser\+Debut} (int x, int y)
+\item 
+virtual void \hyperlink{group__inf2990_gae1cbaf5203e0844d9d565b5b63c7eea0}{interpreter\+Clic} (int x, int y, Keys k)
+\item 
+virtual bool {\bfseries verifier\+Curseur} (int x, int y)
+\item 
+virtual void {\bfseries interpreter\+Depot} (int x, int y, Keys k)
+\item 
+virtual bool \hyperlink{group__inf2990_gaf4315e7507c9a54e90d76279169b7c5c}{interpreter\+Echap} ()
+\item 
+virtual void \hyperlink{group__inf2990_gab480f0834ca49119adc0c3fd92723348}{interpreter\+Glissement} (int x, int y)
+\item 
+virtual void \hyperlink{group__inf2990_gaf10b0c6cd858373e7ecc8a8a66a50320}{interpreter\+Deplacement} (int x, int y)
+\item 
+void \hyperlink{group__inf2990_gabcc47ac07b57fc7f58737ba9b88bcfa2}{update\+Pos} (int x, int y)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries curseur\+Valide\+\_\+} = false
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static string {\bfseries N\+O\+M\+\_\+\+L\+I\+G\+NE} = \char`\"{}ligne\char`\"{}
+\item 
+static string {\bfseries N\+O\+M\+\_\+\+S\+E\+G\+M\+E\+NT} = \char`\"{}segment\char`\"{}
+\item 
+static string {\bfseries N\+O\+M\+\_\+\+M\+UR} = \char`\"{}mur\char`\"{}
+\item 
+static string {\bfseries N\+O\+M\+\_\+\+P\+O\+T\+E\+AU} = \char`\"{}poteau\char`\"{}
+\item 
+static string {\bfseries N\+O\+M\+\_\+\+F\+L\+E\+C\+HE} = \char`\"{}fleche\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe abstraite decrivant les differents etats des objets pouvant etre present dans la zone de dessin. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+Interface\+Graphique/\hyperlink{_etat_edition_8cs}{Etat\+Edition.\+cs}\end{DoxyCompactItemize}

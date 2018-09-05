@@ -1,0 +1,84 @@
+\hypertarget{classtinyxml2_1_1_mem_pool_t}{}\section{tinyxml2\+:\+:Mem\+PoolT$<$ S\+I\+ZE $>$ Class Template Reference}
+\label{classtinyxml2_1_1_mem_pool_t}\index{tinyxml2\+::\+Mem\+Pool\+T$<$ S\+I\+Z\+E $>$@{tinyxml2\+::\+Mem\+Pool\+T$<$ S\+I\+Z\+E $>$}}
+Inheritance diagram for tinyxml2\+:\+:Mem\+PoolT$<$ S\+I\+ZE $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtinyxml2_1_1_mem_pool_t}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtinyxml2_1_1_mem_pool_t_1_1_block}{Block}
+\item 
+union \hyperlink{uniontinyxml2_1_1_mem_pool_t_1_1_chunk}{Chunk}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ {\bfseries C\+O\+U\+NT} = (4$\ast$1024)/\+S\+I\+ZE
+ \}\hypertarget{classtinyxml2_1_1_mem_pool_t_ac4e51b480c5ce4f88e862f394efb930b}{}\label{classtinyxml2_1_1_mem_pool_t_ac4e51b480c5ce4f88e862f394efb930b}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Clear} ()\hypertarget{classtinyxml2_1_1_mem_pool_t_a469d55e82be97d5ffeff82dd001a7029}{}\label{classtinyxml2_1_1_mem_pool_t_a469d55e82be97d5ffeff82dd001a7029}
+
+\item 
+virtual int {\bfseries Item\+Size} () const \hypertarget{classtinyxml2_1_1_mem_pool_t_a7ec8778fe99f6e332615a703be0b48bc}{}\label{classtinyxml2_1_1_mem_pool_t_a7ec8778fe99f6e332615a703be0b48bc}
+
+\item 
+int {\bfseries Current\+Allocs} () const \hypertarget{classtinyxml2_1_1_mem_pool_t_a56be11b7db6a7ef00db17088a7769aab}{}\label{classtinyxml2_1_1_mem_pool_t_a56be11b7db6a7ef00db17088a7769aab}
+
+\item 
+virtual void $\ast$ {\bfseries Alloc} ()\hypertarget{classtinyxml2_1_1_mem_pool_t_aa9d785a48ffe6ea1be679bab13464486}{}\label{classtinyxml2_1_1_mem_pool_t_aa9d785a48ffe6ea1be679bab13464486}
+
+\item 
+virtual void {\bfseries Free} (void $\ast$mem)\hypertarget{classtinyxml2_1_1_mem_pool_t_a4f1a0c434e9e3d7391e5c16ed4ee8c70}{}\label{classtinyxml2_1_1_mem_pool_t_a4f1a0c434e9e3d7391e5c16ed4ee8c70}
+
+\item 
+void {\bfseries Trace} (const char $\ast$name)\hypertarget{classtinyxml2_1_1_mem_pool_t_a0bc596f271e0f139822c534238b3f244}{}\label{classtinyxml2_1_1_mem_pool_t_a0bc596f271e0f139822c534238b3f244}
+
+\item 
+void {\bfseries Set\+Tracked} ()\hypertarget{classtinyxml2_1_1_mem_pool_t_a7798932414916199a1bc0f9c3f368521}{}\label{classtinyxml2_1_1_mem_pool_t_a7798932414916199a1bc0f9c3f368521}
+
+\item 
+int {\bfseries Untracked} () const \hypertarget{classtinyxml2_1_1_mem_pool_t_a524b90d0edeac41964c06510757dce0f}{}\label{classtinyxml2_1_1_mem_pool_t_a524b90d0edeac41964c06510757dce0f}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Mem\+PoolT} (const \hyperlink{classtinyxml2_1_1_mem_pool_t}{Mem\+PoolT} \&)\hypertarget{classtinyxml2_1_1_mem_pool_t_af29791e12c82dacd385dde3695119ee2}{}\label{classtinyxml2_1_1_mem_pool_t_af29791e12c82dacd385dde3695119ee2}
+
+\item 
+void {\bfseries operator=} (const \hyperlink{classtinyxml2_1_1_mem_pool_t}{Mem\+PoolT} \&)\hypertarget{classtinyxml2_1_1_mem_pool_t_a5e01b67e42601516f2e6c72b3781d8de}{}\label{classtinyxml2_1_1_mem_pool_t_a5e01b67e42601516f2e6c72b3781d8de}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtinyxml2_1_1_dyn_array}{Dyn\+Array}$<$ \hyperlink{structtinyxml2_1_1_mem_pool_t_1_1_block}{Block} $\ast$, 10 $>$ {\bfseries \+\_\+block\+Ptrs}\hypertarget{classtinyxml2_1_1_mem_pool_t_af8eeecccb8c484c34ba04e3757e081be}{}\label{classtinyxml2_1_1_mem_pool_t_af8eeecccb8c484c34ba04e3757e081be}
+
+\item 
+\hyperlink{uniontinyxml2_1_1_mem_pool_t_1_1_chunk}{Chunk} $\ast$ {\bfseries \+\_\+root}\hypertarget{classtinyxml2_1_1_mem_pool_t_af203dc16256d7631fcbedd87864390bb}{}\label{classtinyxml2_1_1_mem_pool_t_af203dc16256d7631fcbedd87864390bb}
+
+\item 
+int {\bfseries \+\_\+current\+Allocs}\hypertarget{classtinyxml2_1_1_mem_pool_t_ae80f238a4c1fb0b2c037fd62b7bdd0c2}{}\label{classtinyxml2_1_1_mem_pool_t_ae80f238a4c1fb0b2c037fd62b7bdd0c2}
+
+\item 
+int {\bfseries \+\_\+n\+Allocs}\hypertarget{classtinyxml2_1_1_mem_pool_t_a1afde0bfad90d20643da123781664d7a}{}\label{classtinyxml2_1_1_mem_pool_t_a1afde0bfad90d20643da123781664d7a}
+
+\item 
+int {\bfseries \+\_\+max\+Allocs}\hypertarget{classtinyxml2_1_1_mem_pool_t_ac757df646660b4e8eefaca0d385f97dd}{}\label{classtinyxml2_1_1_mem_pool_t_ac757df646660b4e8eefaca0d385f97dd}
+
+\item 
+int {\bfseries \+\_\+n\+Untracked}\hypertarget{classtinyxml2_1_1_mem_pool_t_aca9adac3f7ce44a132dc00c285566b1e}{}\label{classtinyxml2_1_1_mem_pool_t_aca9adac3f7ce44a132dc00c285566b1e}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/tinyxml2/include/tinyxml2.\+h\end{DoxyCompactItemize}

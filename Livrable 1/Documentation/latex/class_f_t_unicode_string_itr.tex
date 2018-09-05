@@ -1,0 +1,183 @@
+\hypertarget{class_f_t_unicode_string_itr}{}\section{F\+T\+Unicode\+String\+Itr$<$ T $>$ Class Template Reference}
+\label{class_f_t_unicode_string_itr}\index{F\+T\+Unicode\+String\+Itr$<$ T $>$@{F\+T\+Unicode\+String\+Itr$<$ T $>$}}
+
+
+{\ttfamily \#include $<$F\+T\+Unicode.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_f_t_unicode_string_itr_ab640405eaa904f1609f1b659e5657989}{F\+T\+Unicode\+String\+Itr} (const T $\ast$string)
+\item 
+\hyperlink{class_f_t_unicode_string_itr}{F\+T\+Unicode\+String\+Itr} \& \hyperlink{class_f_t_unicode_string_itr_a476aa8e48d5ea56de9ee979af1cd4007}{operator++} ()
+\item 
+\hyperlink{class_f_t_unicode_string_itr}{F\+T\+Unicode\+String\+Itr} \hyperlink{class_f_t_unicode_string_itr_a84c9354998144c4f221cde699e3f8455}{operator++} (int)
+\item 
+bool \hyperlink{class_f_t_unicode_string_itr_ae27e7162e014fbcbf731a50bd34b2946}{operator==} (const \hyperlink{class_f_t_unicode_string_itr}{F\+T\+Unicode\+String\+Itr} \&right) const 
+\item 
+unsigned int \hyperlink{class_f_t_unicode_string_itr_a90300d6888d77e7a349b0d476a7c0bb4}{operator$\ast$} () const 
+\item 
+const T $\ast$ \hyperlink{class_f_t_unicode_string_itr_a8ced99f40fd1af46e0a76b844187efe1}{get\+Buffer\+From\+Here} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_f_t_unicode_string_itr_a1d09b0a44b48e4b4b7dd30553534af73}{read\+U\+T\+F8} ()
+\item 
+void \hyperlink{class_f_t_unicode_string_itr_ac28b26f1bd06a0e1b56881f1ddf79f67}{read\+U\+T\+F16} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const T $\ast$ \hyperlink{class_f_t_unicode_string_itr_a95fd553f6a2620484dbc20fd21d0ae4f}{cur\+Pos}
+\item 
+unsigned int \hyperlink{class_f_t_unicode_string_itr_af44cf52a933cb0b6b144f05687c521b2}{cur\+Char}
+\item 
+const T $\ast$ \hyperlink{class_f_t_unicode_string_itr_a1de6b890c630933db1e550b5a44a2458}{next\+Pos}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char {\bfseries utf8bytes} \mbox{[}256\mbox{]}
+\item 
+static const unsigned long {\bfseries offsets\+From\+U\+T\+F8} \mbox{[}6\mbox{]}
+\item 
+static const unsigned long {\bfseries high\+Surrogate\+Start} = 0x\+D800\hypertarget{class_f_t_unicode_string_itr_a80d22c3b3b2e9e9da682584c3bccc387}{}\label{class_f_t_unicode_string_itr_a80d22c3b3b2e9e9da682584c3bccc387}
+
+\item 
+static const unsigned long {\bfseries high\+Surrogate\+End} = 0x\+D\+B\+FF\hypertarget{class_f_t_unicode_string_itr_a2a2ddba598f93b5c034f3d0b6ece6e30}{}\label{class_f_t_unicode_string_itr_a2a2ddba598f93b5c034f3d0b6ece6e30}
+
+\item 
+static const unsigned long {\bfseries low\+Surrogate\+Start} = 0x\+D\+C00\hypertarget{class_f_t_unicode_string_itr_abeb665aaf677ef135f53b5ba19ca28fa}{}\label{class_f_t_unicode_string_itr_abeb665aaf677ef135f53b5ba19ca28fa}
+
+\item 
+static const unsigned long {\bfseries low\+Surrogate\+End} = 0x\+D\+F\+FF\hypertarget{class_f_t_unicode_string_itr_a02744f537c7cda9991531c4679f7f3e6}{}\label{class_f_t_unicode_string_itr_a02744f537c7cda9991531c4679f7f3e6}
+
+\item 
+static const unsigned long {\bfseries high\+Surrogate\+Shift} = 10\hypertarget{class_f_t_unicode_string_itr_a4315f39d0945f10c9bc05f1d0f069c6b}{}\label{class_f_t_unicode_string_itr_a4315f39d0945f10c9bc05f1d0f069c6b}
+
+\item 
+static const unsigned long {\bfseries low\+Surrogate\+Base} = 0x0010000\+UL\hypertarget{class_f_t_unicode_string_itr_ad023928f4a11c4c3eb145f4c18421118}{}\label{class_f_t_unicode_string_itr_ad023928f4a11c4c3eb145f4c18421118}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class F\+T\+Unicode\+String\+Itr$<$ T $>$}
+
+Provides a way to easily walk multibyte unicode strings in the various Unicode encodings (U\+T\+F-\/8, U\+T\+F-\/16, U\+T\+F-\/32, U\+C\+S-\/2, and U\+C\+S-\/4). Encodings with elements larger than one byte must already be in the correct endian order for the current architecture. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{F\+T\+Unicode\+String\+Itr(const T $\ast$string)}{FTUnicodeStringItr(const T *string)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::{\bf F\+T\+Unicode\+String\+Itr} (
+\begin{DoxyParamCaption}
+\item[{const T $\ast$}]{string}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_unicode_string_itr_ab640405eaa904f1609f1b659e5657989}{}\label{class_f_t_unicode_string_itr_ab640405eaa904f1609f1b659e5657989}
+Constructor. Also reads the first character and stores it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The buffer to iterate. No copy is made. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!get\+Buffer\+From\+Here@{get\+Buffer\+From\+Here}}
+\index{get\+Buffer\+From\+Here@{get\+Buffer\+From\+Here}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{get\+Buffer\+From\+Here() const }{getBufferFromHere() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T$\ast$ {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::get\+Buffer\+From\+Here (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_unicode_string_itr_a8ced99f40fd1af46e0a76b844187efe1}{}\label{class_f_t_unicode_string_itr_a8ced99f40fd1af46e0a76b844187efe1}
+Buffer-\/fetching getter. You can use this to retreive the buffer starting at the currently-\/iterated character for functions which require a Unicode string as input. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ unsigned int {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_unicode_string_itr_a90300d6888d77e7a349b0d476a7c0bb4}{}\label{class_f_t_unicode_string_itr_a90300d6888d77e7a349b0d476a7c0bb4}
+Dereference operator.
+
+\begin{DoxyReturn}{Returns}
+The unicode codepoint of the character currently pointed to by the \hyperlink{class_f_t_unicode_string_itr}{F\+T\+Unicode\+String\+Itr}. 
+\end{DoxyReturn}
+\index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!operator++@{operator++}}
+\index{operator++@{operator++}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf F\+T\+Unicode\+String\+Itr}\& {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_unicode_string_itr_a476aa8e48d5ea56de9ee979af1cd4007}{}\label{class_f_t_unicode_string_itr_a476aa8e48d5ea56de9ee979af1cd4007}
+Pre-\/increment operator. Reads the next unicode character and sets the state appropriately. Note -\/ not protected against overruns. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!operator++@{operator++}}
+\index{operator++@{operator++}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{operator++(int)}{operator++(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf F\+T\+Unicode\+String\+Itr} {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_unicode_string_itr_a84c9354998144c4f221cde699e3f8455}{}\label{class_f_t_unicode_string_itr_a84c9354998144c4f221cde699e3f8455}
+Post-\/increment operator. Reads the next character and sets the state appropriately. Note -\/ not protected against overruns. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!operator==@{operator==}}
+\index{operator==@{operator==}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{operator==(const F\+T\+Unicode\+String\+Itr \&right) const }{operator==(const FTUnicodeStringItr &right) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$ \&}]{right}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_unicode_string_itr_ae27e7162e014fbcbf731a50bd34b2946}{}\label{class_f_t_unicode_string_itr_ae27e7162e014fbcbf731a50bd34b2946}
+Equality operator. Two F\+T\+Unicode\+String\+Itrs are considered equal if they have the same current buffer and buffer position. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!read\+U\+T\+F16@{read\+U\+T\+F16}}
+\index{read\+U\+T\+F16@{read\+U\+T\+F16}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{read\+U\+T\+F16()}{readUTF16()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::read\+U\+T\+F16 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_ac28b26f1bd06a0e1b56881f1ddf79f67}{}\label{class_f_t_unicode_string_itr_ac28b26f1bd06a0e1b56881f1ddf79f67}
+Helper function for reading a single \hyperlink{struct_u_t_f16}{U\+T\+F16} character from the string. Updates internal state appropriately. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!read\+U\+T\+F8@{read\+U\+T\+F8}}
+\index{read\+U\+T\+F8@{read\+U\+T\+F8}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{read\+U\+T\+F8()}{readUTF8()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::read\+U\+T\+F8 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_a1d09b0a44b48e4b4b7dd30553534af73}{}\label{class_f_t_unicode_string_itr_a1d09b0a44b48e4b4b7dd30553534af73}
+Helper function for reading a single \hyperlink{struct_u_t_f8}{U\+T\+F8} character from the string. Updates internal state appropriately. 
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!cur\+Char@{cur\+Char}}
+\index{cur\+Char@{cur\+Char}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{cur\+Char}{curChar}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ unsigned int {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::cur\+Char\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_af44cf52a933cb0b6b144f05687c521b2}{}\label{class_f_t_unicode_string_itr_af44cf52a933cb0b6b144f05687c521b2}
+The character stored at the current buffer position (prefetched on increment, so there\textquotesingle{}s no penalty for dereferencing more than once). \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!cur\+Pos@{cur\+Pos}}
+\index{cur\+Pos@{cur\+Pos}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{cur\+Pos}{curPos}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T$\ast$ {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::cur\+Pos\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_a95fd553f6a2620484dbc20fd21d0ae4f}{}\label{class_f_t_unicode_string_itr_a95fd553f6a2620484dbc20fd21d0ae4f}
+The buffer position of the first element in the current character. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!next\+Pos@{next\+Pos}}
+\index{next\+Pos@{next\+Pos}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{next\+Pos}{nextPos}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T$\ast$ {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::next\+Pos\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_a1de6b890c630933db1e550b5a44a2458}{}\label{class_f_t_unicode_string_itr_a1de6b890c630933db1e550b5a44a2458}
+The buffer position of the first element in the next character. \index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!offsets\+From\+U\+T\+F8@{offsets\+From\+U\+T\+F8}}
+\index{offsets\+From\+U\+T\+F8@{offsets\+From\+U\+T\+F8}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{offsets\+From\+U\+T\+F8}{offsetsFromUTF8}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const unsigned long {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::offsets\+From\+U\+T\+F8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_a126c464a11581e184708210aa9d2752f}{}\label{class_f_t_unicode_string_itr_a126c464a11581e184708210aa9d2752f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{ 0x00000000UL, 0x00003080UL, 0x000E2080UL,
+  0x03C82080UL, 0xFA082080UL, 0x82082080UL \}
+\end{DoxyCode}
+\index{F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}!utf8bytes@{utf8bytes}}
+\index{utf8bytes@{utf8bytes}!F\+T\+Unicode\+String\+Itr@{F\+T\+Unicode\+String\+Itr}}
+\subsubsection[{\texorpdfstring{utf8bytes}{utf8bytes}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const char {\bf F\+T\+Unicode\+String\+Itr}$<$ T $>$\+::utf8bytes\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_f_t_unicode_string_itr_a44cf6cec1fedb64eaaebbe88fa87de2c}{}\label{class_f_t_unicode_string_itr_a44cf6cec1fedb64eaaebbe88fa87de2c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2, 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+  3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3, 4,4,4,4,4,4,4,4,5,5,5,5,6,6,6,6
+\}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Unicode.\+h\end{DoxyCompactItemize}

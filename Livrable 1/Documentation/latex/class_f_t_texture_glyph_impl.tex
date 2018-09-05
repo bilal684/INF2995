@@ -1,0 +1,89 @@
+\hypertarget{class_f_t_texture_glyph_impl}{}\section{F\+T\+Texture\+Glyph\+Impl Class Reference}
+\label{class_f_t_texture_glyph_impl}\index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+Inheritance diagram for F\+T\+Texture\+Glyph\+Impl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_t_texture_glyph_impl}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries F\+T\+Texture\+Glyph\+Impl} (\hyperlink{struct_f_t___glyph_slot_rec__}{F\+T\+\_\+\+Glyph\+Slot} glyph, int id, int x\+Offset, int y\+Offset, int width, int height)\hypertarget{class_f_t_texture_glyph_impl_a63893590c3c3c45da5f3925ae9a97abd}{}\label{class_f_t_texture_glyph_impl_a63893590c3c3c45da5f3925ae9a97abd}
+
+\item 
+virtual const F\+T\+Point \& {\bfseries Render\+Impl} (const F\+T\+Point \&pen, int render\+Mode)\hypertarget{class_f_t_texture_glyph_impl_a3fce2bf9435946ae0f8ee5eacbe7f702}{}\label{class_f_t_texture_glyph_impl_a3fce2bf9435946ae0f8ee5eacbe7f702}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_f_t_texture_glyph_impl_ae533cf9f5111e79f7c9423b996173467}{Reset\+Active\+Texture} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_f_t_texture_glyph_impl_a374ab973a59c0d2615bfa77a2756499e}{dest\+Width}
+\item 
+int \hyperlink{class_f_t_texture_glyph_impl_ae8112e653f244706c95112d52ea1ce17}{dest\+Height}
+\item 
+F\+T\+Point \hyperlink{class_f_t_texture_glyph_impl_a583e049f6d1714438419e7971d4f9250}{corner}
+\item 
+F\+T\+Point \hyperlink{class_f_t_texture_glyph_impl_ad408b56e50fb32f4e0d83434271a1543}{uv} \mbox{[}2\mbox{]}
+\item 
+int \hyperlink{class_f_t_texture_glyph_impl_a9e7c90deafd55bb19afc9027080c0b29}{gl\+Texture\+ID}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static G\+Lint \hyperlink{class_f_t_texture_glyph_impl_a3e5516cf1f53a14eb706bb3c7488f681}{active\+Texture\+ID} = 0
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries F\+T\+Texture\+Glyph}\hypertarget{class_f_t_texture_glyph_impl_a01c2ee1e01ccd33e4f1f26f2478a74a0}{}\label{class_f_t_texture_glyph_impl_a01c2ee1e01ccd33e4f1f26f2478a74a0}
+
+\item 
+class {\bfseries F\+T\+Texture\+Font\+Impl}\hypertarget{class_f_t_texture_glyph_impl_a566181ddfc0f1c50d2ff9fd4160a0ff5}{}\label{class_f_t_texture_glyph_impl_a566181ddfc0f1c50d2ff9fd4160a0ff5}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!Reset\+Active\+Texture@{Reset\+Active\+Texture}}
+\index{Reset\+Active\+Texture@{Reset\+Active\+Texture}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{Reset\+Active\+Texture()}{ResetActiveTexture()}}]{\setlength{\rightskip}{0pt plus 5cm}static void F\+T\+Texture\+Glyph\+Impl\+::\+Reset\+Active\+Texture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_ae533cf9f5111e79f7c9423b996173467}{}\label{class_f_t_texture_glyph_impl_ae533cf9f5111e79f7c9423b996173467}
+Reset the currently active texture to zero to get into a known state before drawing a string. This is to get round possible threading issues. 
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!active\+Texture\+ID@{active\+Texture\+ID}}
+\index{active\+Texture\+ID@{active\+Texture\+ID}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{active\+Texture\+ID}{activeTextureID}}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lint F\+T\+Texture\+Glyph\+Impl\+::active\+Texture\+ID = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_a3e5516cf1f53a14eb706bb3c7488f681}{}\label{class_f_t_texture_glyph_impl_a3e5516cf1f53a14eb706bb3c7488f681}
+The texture index of the currently active texture
+
+We keep track of the currently active texture to try to reduce the number of texture bind operations. \index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!corner@{corner}}
+\index{corner@{corner}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{corner}{corner}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Point F\+T\+Texture\+Glyph\+Impl\+::corner\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_a583e049f6d1714438419e7971d4f9250}{}\label{class_f_t_texture_glyph_impl_a583e049f6d1714438419e7971d4f9250}
+Vector from the pen position to the topleft corner of the pixmap \index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!dest\+Height@{dest\+Height}}
+\index{dest\+Height@{dest\+Height}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{dest\+Height}{destHeight}}]{\setlength{\rightskip}{0pt plus 5cm}int F\+T\+Texture\+Glyph\+Impl\+::dest\+Height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_ae8112e653f244706c95112d52ea1ce17}{}\label{class_f_t_texture_glyph_impl_ae8112e653f244706c95112d52ea1ce17}
+The height of the glyph \textquotesingle{}image\textquotesingle{} \index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!dest\+Width@{dest\+Width}}
+\index{dest\+Width@{dest\+Width}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{dest\+Width}{destWidth}}]{\setlength{\rightskip}{0pt plus 5cm}int F\+T\+Texture\+Glyph\+Impl\+::dest\+Width\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_a374ab973a59c0d2615bfa77a2756499e}{}\label{class_f_t_texture_glyph_impl_a374ab973a59c0d2615bfa77a2756499e}
+The width of the glyph \textquotesingle{}image\textquotesingle{} \index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!gl\+Texture\+ID@{gl\+Texture\+ID}}
+\index{gl\+Texture\+ID@{gl\+Texture\+ID}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{gl\+Texture\+ID}{glTextureID}}]{\setlength{\rightskip}{0pt plus 5cm}int F\+T\+Texture\+Glyph\+Impl\+::gl\+Texture\+ID\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_a9e7c90deafd55bb19afc9027080c0b29}{}\label{class_f_t_texture_glyph_impl_a9e7c90deafd55bb19afc9027080c0b29}
+The texture index that this glyph is contained in. \index{F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}!uv@{uv}}
+\index{uv@{uv}!F\+T\+Texture\+Glyph\+Impl@{F\+T\+Texture\+Glyph\+Impl}}
+\subsubsection[{\texorpdfstring{uv}{uv}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Point F\+T\+Texture\+Glyph\+Impl\+::uv\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_glyph_impl_ad408b56e50fb32f4e0d83434271a1543}{}\label{class_f_t_texture_glyph_impl_ad408b56e50fb32f4e0d83434271a1543}
+The texture co-\/ords of this glyph within the texture. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Glyph/F\+T\+Texture\+Glyph\+Impl.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Glyph/F\+T\+Texture\+Glyph.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,88 @@
+\hypertarget{classb2_island}{}\section{b2\+Island Class Reference}
+\label{classb2_island}\index{b2\+Island@{b2\+Island}}
+
+
+This is an internal class.  
+
+
+
+
+{\ttfamily \#include $<$b2\+Island.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries b2\+Island} (int32 body\+Capacity, int32 contact\+Capacity, int32 joint\+Capacity, \hyperlink{classb2_stack_allocator}{b2\+Stack\+Allocator} $\ast$allocator, \hyperlink{classb2_contact_listener}{b2\+Contact\+Listener} $\ast$listener)\hypertarget{classb2_island_a2f2258f09d2663dcb35a1d69d16896cb}{}\label{classb2_island_a2f2258f09d2663dcb35a1d69d16896cb}
+
+\item 
+void {\bfseries Clear} ()\hypertarget{classb2_island_a26566f7388fcaf7523446e5e76d99c4d}{}\label{classb2_island_a26566f7388fcaf7523446e5e76d99c4d}
+
+\item 
+void {\bfseries Solve} (\hyperlink{structb2_profile}{b2\+Profile} $\ast$profile, const \hyperlink{structb2_time_step}{b2\+Time\+Step} \&step, const \hyperlink{structb2_vec2}{b2\+Vec2} \&gravity, bool allow\+Sleep)\hypertarget{classb2_island_a28a6f74174cde3a6e93663c740f418fa}{}\label{classb2_island_a28a6f74174cde3a6e93663c740f418fa}
+
+\item 
+void {\bfseries Solve\+T\+OI} (const \hyperlink{structb2_time_step}{b2\+Time\+Step} \&sub\+Step, int32 toi\+IndexA, int32 toi\+IndexB)\hypertarget{classb2_island_a61f577b473962bb0d8add1f55eeef7ee}{}\label{classb2_island_a61f577b473962bb0d8add1f55eeef7ee}
+
+\item 
+void {\bfseries Add} (\hyperlink{classb2_body}{b2\+Body} $\ast$body)\hypertarget{classb2_island_af2d54861bd063051c0a6dc5f73b27c3e}{}\label{classb2_island_af2d54861bd063051c0a6dc5f73b27c3e}
+
+\item 
+void {\bfseries Add} (\hyperlink{classb2_contact}{b2\+Contact} $\ast$contact)\hypertarget{classb2_island_abc0ea9208e818b551404fd507f197a51}{}\label{classb2_island_abc0ea9208e818b551404fd507f197a51}
+
+\item 
+void {\bfseries Add} (\hyperlink{classb2_joint}{b2\+Joint} $\ast$joint)\hypertarget{classb2_island_a04e6ccd0c11f6ef5a7ed0a926d081445}{}\label{classb2_island_a04e6ccd0c11f6ef5a7ed0a926d081445}
+
+\item 
+void {\bfseries Report} (const \hyperlink{structb2_contact_velocity_constraint}{b2\+Contact\+Velocity\+Constraint} $\ast$constraints)\hypertarget{classb2_island_a57620f76faf000f61c76e925e40e6129}{}\label{classb2_island_a57620f76faf000f61c76e925e40e6129}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classb2_stack_allocator}{b2\+Stack\+Allocator} $\ast$ {\bfseries m\+\_\+allocator}\hypertarget{classb2_island_a5e28f216c0a12548c04491ab1d73c958}{}\label{classb2_island_a5e28f216c0a12548c04491ab1d73c958}
+
+\item 
+\hyperlink{classb2_contact_listener}{b2\+Contact\+Listener} $\ast$ {\bfseries m\+\_\+listener}\hypertarget{classb2_island_aeba73fe42839d0361524d98e330e8e66}{}\label{classb2_island_aeba73fe42839d0361524d98e330e8e66}
+
+\item 
+\hyperlink{classb2_body}{b2\+Body} $\ast$$\ast$ {\bfseries m\+\_\+bodies}\hypertarget{classb2_island_ac9c65abf14c88e8a52fdd2c5cb56c5f4}{}\label{classb2_island_ac9c65abf14c88e8a52fdd2c5cb56c5f4}
+
+\item 
+\hyperlink{classb2_contact}{b2\+Contact} $\ast$$\ast$ {\bfseries m\+\_\+contacts}\hypertarget{classb2_island_a49499a350859768a0c3f7b29fb091422}{}\label{classb2_island_a49499a350859768a0c3f7b29fb091422}
+
+\item 
+\hyperlink{classb2_joint}{b2\+Joint} $\ast$$\ast$ {\bfseries m\+\_\+joints}\hypertarget{classb2_island_a6653da11b66de22d8ba5db531c11b373}{}\label{classb2_island_a6653da11b66de22d8ba5db531c11b373}
+
+\item 
+\hyperlink{structb2_position}{b2\+Position} $\ast$ {\bfseries m\+\_\+positions}\hypertarget{classb2_island_a0f05bd177cf942ddfb494b17ec09b874}{}\label{classb2_island_a0f05bd177cf942ddfb494b17ec09b874}
+
+\item 
+\hyperlink{structb2_velocity}{b2\+Velocity} $\ast$ {\bfseries m\+\_\+velocities}\hypertarget{classb2_island_ae6a42be7ce4c03724a6da17d96cacb9f}{}\label{classb2_island_ae6a42be7ce4c03724a6da17d96cacb9f}
+
+\item 
+int32 {\bfseries m\+\_\+body\+Count}\hypertarget{classb2_island_af78d066321e18cd8a4e409c4539ccb81}{}\label{classb2_island_af78d066321e18cd8a4e409c4539ccb81}
+
+\item 
+int32 {\bfseries m\+\_\+joint\+Count}\hypertarget{classb2_island_a913c91afb35ff717c7dd5b0aa1559e5b}{}\label{classb2_island_a913c91afb35ff717c7dd5b0aa1559e5b}
+
+\item 
+int32 {\bfseries m\+\_\+contact\+Count}\hypertarget{classb2_island_ab5bad98e18356b15a68733be07b98abf}{}\label{classb2_island_ab5bad98e18356b15a68733be07b98abf}
+
+\item 
+int32 {\bfseries m\+\_\+body\+Capacity}\hypertarget{classb2_island_a5ea371889bb93fb6387ff2ab427191ed}{}\label{classb2_island_a5ea371889bb93fb6387ff2ab427191ed}
+
+\item 
+int32 {\bfseries m\+\_\+contact\+Capacity}\hypertarget{classb2_island_a1a65b8fc8256ca443f85e6ae6f2d841a}{}\label{classb2_island_a1a65b8fc8256ca443f85e6ae6f2d841a}
+
+\item 
+int32 {\bfseries m\+\_\+joint\+Capacity}\hypertarget{classb2_island_a9b6e63c89307d469e1075585d65a9bbb}{}\label{classb2_island_a9b6e63c89307d469e1075585d65a9bbb}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is an internal class. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Commun/\+Externe/\+Box2\+D/include/\+Box2\+D/\+Dynamics/b2\+Island.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\hypertarget{class_visiteur_verifier_collision}{}\section{Visiteur\+Verifier\+Collision Class Reference}
+\label{class_visiteur_verifier_collision}\index{Visiteur\+Verifier\+Collision@{Visiteur\+Verifier\+Collision}}
+
+
+Classe qui implémentante le visiteur concrêt permettant de de vérifier la collision entre le robot et les objets poteaux et murs.  
+
+
+
+
+{\ttfamily \#include $<$Visiteur\+Verifier\+Collision.\+h$>$}
+
+Inheritance diagram for Visiteur\+Verifier\+Collision\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_visiteur_verifier_collision}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_gaee1418cd11bb60cd0a9f5d17dd9a678a}{Visiteur\+Verifier\+Collision} ()
+\begin{DoxyCompactList}\small\item\em Constucteur. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_gaef1394f0ab96bbfb5751b524f94e6f16}{$\sim$\+Visiteur\+Verifier\+Collision} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga29fcf0f9e7481c6f54d6aff8e3f2b2a6}{visiter} (\hyperlink{class_noeud_poteau}{Noeud\+Poteau} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_poteau}{Noeud\+Poteau}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gaae7f3d792307b04de559814e276e9ff2}{visiter} (\hyperlink{class_noeud_mur}{Noeud\+Mur} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_mur}{Noeud\+Mur}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga4698fdda1729644833a2588a5eac2883}{visiter} (\hyperlink{class_noeud_table}{Noeud\+Table} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_table}{Noeud\+Table}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_gae77a92a55a17b69aed1746615800d3b8}{visiter} (\hyperlink{class_noeud_fleche}{Noeud\+Fleche} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_fleche}{Noeud\+Fleche}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga09a0e2254b821b96e419edc649378f84}{visiter} (\hyperlink{class_noeud_segment}{Noeud\+Segment} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_segment}{Noeud\+Segment}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__inf2990_ga5db57a5dbb8bfdb31710ffa41625c2d5}{visiter} (\hyperlink{class_noeud_ligne}{Noeud\+Ligne} \&noeud)
+\begin{DoxyCompactList}\small\item\em Algorithme de visite pour \hyperlink{class_noeud_ligne}{Noeud\+Ligne}. \end{DoxyCompactList}\item 
+double \hyperlink{group__inf2990_ga24b200dc9e016c3b905684b7e5372f4d}{calculer\+Distance\+Point\+Droite} (\hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} point\+Droite1, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} point\+Droite2, \hyperlink{group__core__types_gae6727259898288cae197724d5f172b3b}{glm\+::dvec2} point)
+\begin{DoxyCompactList}\small\item\em Calcule la distance entre un point et une droite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_noeud_robot}{Noeud\+Robot} $\ast$ \hyperlink{group__inf2990_ga67d534b64156cf0a2724aa038aa23854}{ptr\+Le\+Robot\+\_\+} \{ nullptr \}
+\begin{DoxyCompactList}\small\item\em Pointeur vers le robot. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga8f54284842b699d5f4247ed06fa85814}{Type\+Collision} \hyperlink{group__inf2990_ga206f083c48c3c7ea39a43c44b7e2ea44}{type\+\_\+} \{ A\+U\+C\+U\+NE \}
+\begin{DoxyCompactList}\small\item\em Type de collision. \end{DoxyCompactList}\item 
+\hyperlink{group__inf2990_ga221eba0d5a164abc7519084fa785b663}{Objet\+Collision} \hyperlink{group__inf2990_ga5e63ff399de2d707d7a4c723f0a91aff}{objet\+\_\+} \{ A\+U\+C\+UN \}
+\begin{DoxyCompactList}\small\item\em Objet en collision. \end{DoxyCompactList}\item 
+\hyperlink{classaidecollision_1_1_details_collision}{aidecollision\+::\+Details\+Collision} \hyperlink{group__inf2990_gafdebff6182417746ebc2aeb05beff0f7}{detail\+Collision\+\_\+}
+\begin{DoxyCompactList}\small\item\em Detail d\textquotesingle{}une collision. \end{DoxyCompactList}\item 
+double \hyperlink{group__inf2990_ga2c8491285ab38292a22b40baff1530bf}{angle\+Reflexion\+\_\+} \{ 0.\+0 \}
+\begin{DoxyCompactList}\small\item\em Angle de reflexion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe qui implémentante le visiteur concrêt permettant de de vérifier la collision entre le robot et les objets poteaux et murs. 
+
+Les visiteurs concrêts pourront faire différents traîtements en fonction du type de noeud visité, car ils possedent des attributs differents.
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/03-\/15 
+\end{DoxyDate}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_verifier_collision_8h}{Visiteur\+Verifier\+Collision.\+h}\item 
+Cadriciel/\+Sources/\+D\+L\+L/\+Visiteur/\hyperlink{_visiteur_verifier_collision_8cpp}{Visiteur\+Verifier\+Collision.\+cpp}\end{DoxyCompactItemize}

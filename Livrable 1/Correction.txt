@@ -1,0 +1,12 @@
+Bonjour, 
+
+Nous désirons que notre livrable soit évalué au local L-4818.
+
+Nous avons crée aussi un fichier qui s'appelle defautl.xml qui 
+contient certains objets de base tel qu'énoncé dans les requis.
+Ce fichier ne peut être modifié et enregistré, il est donc en 
+lecture simple. 
+
+merci !
+
+ 

@@ -1,0 +1,64 @@
+\hypertarget{class_encoded_output_stream}{}\section{Encoded\+Output\+Stream$<$ Encoding, Output\+Byte\+Stream $>$ Class Template Reference}
+\label{class_encoded_output_stream}\index{Encoded\+Output\+Stream$<$ Encoding, Output\+Byte\+Stream $>$@{Encoded\+Output\+Stream$<$ Encoding, Output\+Byte\+Stream $>$}}
+
+
+Output byte stream wrapper with statically bound encoding.  
+
+
+
+
+{\ttfamily \#include $<$encodedstream.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Encoding\+::\+Ch {\bfseries Ch}\hypertarget{class_encoded_output_stream_aa8f494d7ee2808307fbc9cd658c0f760}{}\label{class_encoded_output_stream_aa8f494d7ee2808307fbc9cd658c0f760}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Encoded\+Output\+Stream} (Output\+Byte\+Stream \&os, bool put\+B\+OM=true)\hypertarget{class_encoded_output_stream_ad3360c613a30a6a15526ae9ad63bd004}{}\label{class_encoded_output_stream_ad3360c613a30a6a15526ae9ad63bd004}
+
+\item 
+void {\bfseries Put} (Ch c)\hypertarget{class_encoded_output_stream_a0f3c00f94c195a38d78c05ecda497481}{}\label{class_encoded_output_stream_a0f3c00f94c195a38d78c05ecda497481}
+
+\item 
+void {\bfseries Flush} ()\hypertarget{class_encoded_output_stream_a657188f6a9f0fae01a4012c288d3fd46}{}\label{class_encoded_output_stream_a657188f6a9f0fae01a4012c288d3fd46}
+
+\item 
+Ch {\bfseries Peek} () const \hypertarget{class_encoded_output_stream_aa1dbe6b921fe788f3229024fb5598647}{}\label{class_encoded_output_stream_aa1dbe6b921fe788f3229024fb5598647}
+
+\item 
+Ch {\bfseries Take} ()\hypertarget{class_encoded_output_stream_a90f5a5e1598316a417ef5b6ad3d49f36}{}\label{class_encoded_output_stream_a90f5a5e1598316a417ef5b6ad3d49f36}
+
+\item 
+size\+\_\+t {\bfseries Tell} () const \hypertarget{class_encoded_output_stream_ab580ac97f1a22c2a6abc4a31bb5c8272}{}\label{class_encoded_output_stream_ab580ac97f1a22c2a6abc4a31bb5c8272}
+
+\item 
+Ch $\ast$ {\bfseries Put\+Begin} ()\hypertarget{class_encoded_output_stream_a78934de4f76c9fa65238e65d3630cbc5}{}\label{class_encoded_output_stream_a78934de4f76c9fa65238e65d3630cbc5}
+
+\item 
+size\+\_\+t {\bfseries Put\+End} (Ch $\ast$)\hypertarget{class_encoded_output_stream_a818695f6d3fa8896e9d7d0fbdc7d4514}{}\label{class_encoded_output_stream_a818695f6d3fa8896e9d7d0fbdc7d4514}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Encoding, typename Output\+Byte\+Stream$>$\\*
+class Encoded\+Output\+Stream$<$ Encoding, Output\+Byte\+Stream $>$}
+
+Output byte stream wrapper with statically bound encoding. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Encoding} & The interpretation of encoding of the stream. Either \hyperlink{struct_u_t_f8}{U\+T\+F8}, \hyperlink{struct_u_t_f16_l_e}{U\+T\+F16\+LE}, \hyperlink{struct_u_t_f16_b_e}{U\+T\+F16\+BE}, \hyperlink{struct_u_t_f32_l_e}{U\+T\+F32\+LE}, \hyperlink{struct_u_t_f32_b_e}{U\+T\+F32\+BE}. \\
+\hline
+{\em Input\+Byte\+Stream} & Type of input byte stream. For example, \hyperlink{class_file_write_stream}{File\+Write\+Stream}. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Cadriciel/\+Commun/\+Externe/\+Rapid\+J\+S\+O\+N/include/rapidjson/encodedstream.\+h\end{DoxyCompactItemize}

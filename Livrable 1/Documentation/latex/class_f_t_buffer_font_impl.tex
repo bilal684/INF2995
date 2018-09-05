@@ -1,0 +1,84 @@
+\hypertarget{class_f_t_buffer_font_impl}{}\section{F\+T\+Buffer\+Font\+Impl Class Reference}
+\label{class_f_t_buffer_font_impl}\index{F\+T\+Buffer\+Font\+Impl@{F\+T\+Buffer\+Font\+Impl}}
+Inheritance diagram for F\+T\+Buffer\+Font\+Impl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_t_buffer_font_impl}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries F\+T\+Buffer\+Font\+Impl} (F\+T\+Font $\ast$ft\+Font, const char $\ast$font\+File\+Path)\hypertarget{class_f_t_buffer_font_impl_a968353f8f7e3fb37c0b1facd70599568}{}\label{class_f_t_buffer_font_impl_a968353f8f7e3fb37c0b1facd70599568}
+
+\item 
+{\bfseries F\+T\+Buffer\+Font\+Impl} (F\+T\+Font $\ast$ft\+Font, const unsigned char $\ast$p\+Buffer\+Bytes, size\+\_\+t buffer\+Size\+In\+Bytes)\hypertarget{class_f_t_buffer_font_impl_a789d9507754a9e179d200fcf93690081}{}\label{class_f_t_buffer_font_impl_a789d9507754a9e179d200fcf93690081}
+
+\item 
+virtual F\+T\+Point {\bfseries Render} (const char $\ast$s, const int len, F\+T\+Point position, F\+T\+Point spacing, int render\+Mode)\hypertarget{class_f_t_buffer_font_impl_a82fccb46df5d5b17f654d23773faa8ae}{}\label{class_f_t_buffer_font_impl_a82fccb46df5d5b17f654d23773faa8ae}
+
+\item 
+virtual F\+T\+Point {\bfseries Render} (const wchar\+\_\+t $\ast$s, const int len, F\+T\+Point position, F\+T\+Point spacing, int render\+Mode)\hypertarget{class_f_t_buffer_font_impl_ad56722bcd6030ee1cae56c307b254ec1}{}\label{class_f_t_buffer_font_impl_ad56722bcd6030ee1cae56c307b254ec1}
+
+\item 
+virtual bool {\bfseries Face\+Size} (const unsigned int size, const unsigned int res)\hypertarget{class_f_t_buffer_font_impl_a4bd13aeb53fc5585d91546095c389868}{}\label{class_f_t_buffer_font_impl_a4bd13aeb53fc5585d91546095c389868}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\+T\+Glyph $\ast$ \hyperlink{class_f_t_buffer_font_impl_afeea306987cfae334dd6b9d4aff50fac}{Make\+Glyph\+Impl} (\hyperlink{struct_f_t___glyph_slot_rec__}{F\+T\+\_\+\+Glyph\+Slot} ft\+Glyph)
+\item 
+{\footnotesize template$<$typename T $>$ }\\F\+T\+Point {\bfseries RenderI} (const T $\ast$s, const int len, F\+T\+Point position, F\+T\+Point spacing, int mode)\hypertarget{class_f_t_buffer_font_impl_af46e2fbe45a51e23ccbdfe6b43e086c5}{}\label{class_f_t_buffer_font_impl_af46e2fbe45a51e23ccbdfe6b43e086c5}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+F\+T\+Buffer $\ast$ {\bfseries buffer}\hypertarget{class_f_t_buffer_font_impl_a74e12422492ddf3762ac2a268656ec5f}{}\label{class_f_t_buffer_font_impl_a74e12422492ddf3762ac2a268656ec5f}
+
+\item 
+G\+Luint {\bfseries id\+Cache} \mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+C\+H\+E\+\_\+\+S\+I\+ZE\mbox{]}\hypertarget{class_f_t_buffer_font_impl_aff4ad26d8c8bb826b9076949de09c9cd}{}\label{class_f_t_buffer_font_impl_aff4ad26d8c8bb826b9076949de09c9cd}
+
+\item 
+void $\ast$ {\bfseries string\+Cache} \mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+C\+H\+E\+\_\+\+S\+I\+ZE\mbox{]}\hypertarget{class_f_t_buffer_font_impl_aaf682f9b04cb4e3c901cbe93abd7995a}{}\label{class_f_t_buffer_font_impl_aaf682f9b04cb4e3c901cbe93abd7995a}
+
+\item 
+F\+T\+B\+Box {\bfseries bbox\+Cache} \mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+C\+H\+E\+\_\+\+S\+I\+ZE\mbox{]}\hypertarget{class_f_t_buffer_font_impl_a9f93ddce892f2b2d1cb4757ee3aa5458}{}\label{class_f_t_buffer_font_impl_a9f93ddce892f2b2d1cb4757ee3aa5458}
+
+\item 
+F\+T\+Point {\bfseries advance\+Cache} \mbox{[}B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+C\+H\+E\+\_\+\+S\+I\+ZE\mbox{]}\hypertarget{class_f_t_buffer_font_impl_a091bdc32b64fe3427b8fabefa9d5ba4d}{}\label{class_f_t_buffer_font_impl_a091bdc32b64fe3427b8fabefa9d5ba4d}
+
+\item 
+int {\bfseries last\+String}\hypertarget{class_f_t_buffer_font_impl_a1bb58c51f010816d9f6c0f7319078fb7}{}\label{class_f_t_buffer_font_impl_a1bb58c51f010816d9f6c0f7319078fb7}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int {\bfseries B\+U\+F\+F\+E\+R\+\_\+\+C\+A\+C\+H\+E\+\_\+\+S\+I\+ZE} = 16\hypertarget{class_f_t_buffer_font_impl_a8ef11aba795bd094abb3cb344a76f98e}{}\label{class_f_t_buffer_font_impl_a8ef11aba795bd094abb3cb344a76f98e}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries F\+T\+Buffer\+Font}\hypertarget{class_f_t_buffer_font_impl_ab7dc21f40be33fee50c41b3ba3d49c73}{}\label{class_f_t_buffer_font_impl_ab7dc21f40be33fee50c41b3ba3d49c73}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Buffer\+Font\+Impl@{F\+T\+Buffer\+Font\+Impl}!Make\+Glyph\+Impl@{Make\+Glyph\+Impl}}
+\index{Make\+Glyph\+Impl@{Make\+Glyph\+Impl}!F\+T\+Buffer\+Font\+Impl@{F\+T\+Buffer\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Make\+Glyph\+Impl(\+F\+T\+\_\+\+Glyph\+Slot ft\+Glyph)}{MakeGlyphImpl(FT_GlyphSlot ftGlyph)}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Glyph $\ast$ F\+T\+Buffer\+Font\+Impl\+::\+Make\+Glyph\+Impl (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+T\+\_\+\+Glyph\+Slot}}]{ft\+Glyph}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_buffer_font_impl_afeea306987cfae334dd6b9d4aff50fac}{}\label{class_f_t_buffer_font_impl_afeea306987cfae334dd6b9d4aff50fac}
+Create an F\+T\+Buffer\+Glyph object for the base class. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Font/F\+T\+Buffer\+Font\+Impl.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Font/F\+T\+Buffer\+Font.\+cpp\end{DoxyCompactItemize}

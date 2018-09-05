@@ -1,0 +1,118 @@
+\hypertarget{class_assimp_1_1_i_o_stream}{}\section{Assimp\+:\+:I\+O\+Stream Class Reference}
+\label{class_assimp_1_1_i_o_stream}\index{Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}}
+
+
+C\+P\+P-\/\+A\+PI\+: Class to handle file I/O for C++.  
+
+
+
+
+{\ttfamily \#include $<$I\+O\+Stream.\+hpp$>$}
+
+Inheritance diagram for Assimp\+:\+:I\+O\+Stream\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_assimp_1_1_i_o_stream}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_assimp_1_1_i_o_stream_a6cedc5033bf531bf14b97d1c9b788de8}{$\sim$\+I\+O\+Stream} ()\hypertarget{class_assimp_1_1_i_o_stream_a6cedc5033bf531bf14b97d1c9b788de8}{}\label{class_assimp_1_1_i_o_stream_a6cedc5033bf531bf14b97d1c9b788de8}
+
+\begin{DoxyCompactList}\small\item\em Destructor. Deleting the object closes the underlying file, alternatively you may use \hyperlink{class_assimp_1_1_i_o_system_a8c334d60f04bceeb6bd0157d21723f3e}{I\+O\+System\+::\+Close()} to release the file. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{class_assimp_1_1_i_o_stream_ae376f641020989d61863b9c6f55c7abf}{Read} (void $\ast$pv\+Buffer, size\+\_\+t p\+Size, size\+\_\+t p\+Count)=0
+\begin{DoxyCompactList}\small\item\em Read from the file. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{class_assimp_1_1_i_o_stream_ad0ca4aae1b8c4d00db391ac3a4171f7b}{Write} (const void $\ast$pv\+Buffer, size\+\_\+t p\+Size, size\+\_\+t p\+Count)=0
+\begin{DoxyCompactList}\small\item\em Write to the file. \end{DoxyCompactList}\item 
+virtual ai\+Return \hyperlink{class_assimp_1_1_i_o_stream_a5ed0dddf418ab08cf3fc21f3f3032220}{Seek} (size\+\_\+t p\+Offset, ai\+Origin p\+Origin)=0
+\begin{DoxyCompactList}\small\item\em Set the read/write cursor of the file. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{class_assimp_1_1_i_o_stream_ae67d60cc590d4c1eeff13f98e07ddb7e}{Tell} () const  =0
+\begin{DoxyCompactList}\small\item\em Get the current position of the read/write cursor. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \hyperlink{class_assimp_1_1_i_o_stream_afe24267cfc75b3366029d8f712b72e43}{File\+Size} () const  =0\hypertarget{class_assimp_1_1_i_o_stream_afe24267cfc75b3366029d8f712b72e43}{}\label{class_assimp_1_1_i_o_stream_afe24267cfc75b3366029d8f712b72e43}
+
+\begin{DoxyCompactList}\small\item\em Returns filesize Returns the filesize. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_assimp_1_1_i_o_stream_a7c19952446ece90924b246f087417899}{Flush} ()=0\hypertarget{class_assimp_1_1_i_o_stream_a7c19952446ece90924b246f087417899}{}\label{class_assimp_1_1_i_o_stream_a7c19952446ece90924b246f087417899}
+
+\begin{DoxyCompactList}\small\item\em Flush the contents of the file buffer (for writers) See fflush() for more details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_assimp_1_1_i_o_stream_af5ae78123b6c6f7afc31b2a52dc9192e}{I\+O\+Stream} (void)
+\begin{DoxyCompactList}\small\item\em class \hyperlink{class_assimp_1_1_i_o_stream}{I\+O\+Stream} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+P\+P-\/\+A\+PI\+: Class to handle file I/O for C++. 
+
+Derive an own implementation from this interface to provide custom IO handling to the \hyperlink{class_assimp_1_1_importer}{Importer}. If you implement this interface, be sure to also provide an implementation for \hyperlink{class_assimp_1_1_i_o_system}{I\+O\+System} that creates instances of your custom IO class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}!I\+O\+Stream@{I\+O\+Stream}}
+\index{I\+O\+Stream@{I\+O\+Stream}!Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}}
+\subsubsection[{\texorpdfstring{I\+O\+Stream(void)}{IOStream(void)}}]{\setlength{\rightskip}{0pt plus 5cm}Assimp\+::\+I\+O\+Stream\+::\+I\+O\+Stream (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{class_assimp_1_1_i_o_stream_af5ae78123b6c6f7afc31b2a52dc9192e}{}\label{class_assimp_1_1_i_o_stream_af5ae78123b6c6f7afc31b2a52dc9192e}
+
+
+class \hyperlink{class_assimp_1_1_i_o_stream}{I\+O\+Stream} 
+
+Constructor protected, use \hyperlink{class_assimp_1_1_i_o_system_ac512ece3b0701de5682553007a4c0816}{I\+O\+System\+::\+Open()} to create an instance. 
+
+\subsection{Member Function Documentation}
+\index{Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}!Read@{Read}}
+\index{Read@{Read}!Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}}
+\subsubsection[{\texorpdfstring{Read(void $\ast$pv\+Buffer, size\+\_\+t p\+Size, size\+\_\+t p\+Count)=0}{Read(void *pvBuffer, size_t pSize, size_t pCount)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Assimp\+::\+I\+O\+Stream\+::\+Read (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{pv\+Buffer, }
+\item[{size\+\_\+t}]{p\+Size, }
+\item[{size\+\_\+t}]{p\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_assimp_1_1_i_o_stream_ae376f641020989d61863b9c6f55c7abf}{}\label{class_assimp_1_1_i_o_stream_ae376f641020989d61863b9c6f55c7abf}
+
+
+Read from the file. 
+
+See fread() for more details This fails for write-\/only files \index{Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}!Seek@{Seek}}
+\index{Seek@{Seek}!Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}}
+\subsubsection[{\texorpdfstring{Seek(size\+\_\+t p\+Offset, ai\+Origin p\+Origin)=0}{Seek(size_t pOffset, aiOrigin pOrigin)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual ai\+Return Assimp\+::\+I\+O\+Stream\+::\+Seek (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{p\+Offset, }
+\item[{ai\+Origin}]{p\+Origin}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_assimp_1_1_i_o_stream_a5ed0dddf418ab08cf3fc21f3f3032220}{}\label{class_assimp_1_1_i_o_stream_a5ed0dddf418ab08cf3fc21f3f3032220}
+
+
+Set the read/write cursor of the file. 
+
+Note that the offset is {\itshape negative} for ai\+Origin\+\_\+\+E\+ND. See fseek() for more details \index{Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}!Tell@{Tell}}
+\index{Tell@{Tell}!Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}}
+\subsubsection[{\texorpdfstring{Tell() const  =0}{Tell() const  =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Assimp\+::\+I\+O\+Stream\+::\+Tell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_assimp_1_1_i_o_stream_ae67d60cc590d4c1eeff13f98e07ddb7e}{}\label{class_assimp_1_1_i_o_stream_ae67d60cc590d4c1eeff13f98e07ddb7e}
+
+
+Get the current position of the read/write cursor. 
+
+See ftell() for more details \index{Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}!Write@{Write}}
+\index{Write@{Write}!Assimp\+::\+I\+O\+Stream@{Assimp\+::\+I\+O\+Stream}}
+\subsubsection[{\texorpdfstring{Write(const void $\ast$pv\+Buffer, size\+\_\+t p\+Size, size\+\_\+t p\+Count)=0}{Write(const void *pvBuffer, size_t pSize, size_t pCount)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual size\+\_\+t Assimp\+::\+I\+O\+Stream\+::\+Write (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{pv\+Buffer, }
+\item[{size\+\_\+t}]{p\+Size, }
+\item[{size\+\_\+t}]{p\+Count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_assimp_1_1_i_o_stream_ad0ca4aae1b8c4d00db391ac3a4171f7b}{}\label{class_assimp_1_1_i_o_stream_ad0ca4aae1b8c4d00db391ac3a4171f7b}
+
+
+Write to the file. 
+
+See fwrite() for more details This fails for read-\/only files 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/assimp/include/I\+O\+Stream.\+hpp\end{DoxyCompactItemize}

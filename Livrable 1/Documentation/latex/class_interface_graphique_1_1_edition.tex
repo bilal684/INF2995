@@ -1,0 +1,430 @@
+\hypertarget{class_interface_graphique_1_1_edition}{}\section{Interface\+Graphique.\+Edition Class Reference}
+\label{class_interface_graphique_1_1_edition}\index{Interface\+Graphique.\+Edition@{Interface\+Graphique.\+Edition}}
+
+
+Classe correspondant au formulaire principale du mode edition.  
+
+
+Inheritance diagram for Interface\+Graphique.\+Edition\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_interface_graphique_1_1_edition}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_gaf27d4a0baf5a55d5383c734caaca0627}{Edition} ()
+\item 
+void \hyperlink{group__inf2990_ga127e6281d56016e29c2d728a5269895f}{marquer\+Modification\+Dans\+La\+Scene} ()
+\item 
+void \hyperlink{group__inf2990_gacaa441d461a6dafd8c2c8931b00cf689}{retourner\+Etat\+Initial} ()
+\item 
+void \hyperlink{group__inf2990_ga5be11fa503e06bd8a549594dab9858b3}{lancer\+Edition} ()
+\item 
+void \hyperlink{group__inf2990_ga36fccefad6bf9be3fb751979799de906}{Initialiser\+Animation} ()
+\item 
+void \hyperlink{group__inf2990_ga9c082e311bc8dd83bdef34a670fecfe0}{Mettre\+A\+Jour} (double temps\+Inter\+Affichage)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{group__inf2990_ga0c985271a0f6bdf6375d3aac95f67f70}{obtenir\+Hauteur} ()
+\item 
+static int \hyperlink{group__inf2990_ga4cf2fe15ce71cea18daf36cf365402c8}{obtenir\+Largeur} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries bouton\+Droite\+Presse} = false
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bfseries aide\+En\+Premier\+Plan} = false
+\item 
+static bool {\bfseries en\+Trace\+\_\+} = false
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \hyperlink{class_interface_graphique_1_1_edition_ad3404dbef381fe04da6db94114d6bcc0}{Dispose} (bool disposing)
+\begin{DoxyCompactList}\small\item\em Nettoyage des ressources utilisées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__inf2990_ga9d36af595cb96766209449c998fe42cd}{$\sim$\+Edition} ()
+\item 
+void \hyperlink{group__inf2990_ga994e6deaa6412757da4e495fb54c34bf}{zone\+De\+Dessin\+\_\+\+Preview\+Key\+Down} (object sender, Preview\+Key\+Down\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture d\textquotesingle{}evenement et l\textquotesingle{}execution d\textquotesingle{}algorithme associee aux dit evenements. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaf28702ba0b8ace91adc0b787d679b482}{zone\+De\+Dessin\+\_\+\+Mouse\+Down} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement d\textquotesingle{}appui d\textquotesingle{}un bouton de la souris. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga316904eb2e935ef2a5258e3a6bcfa572}{zone\+De\+Dessin\+\_\+\+Mouse\+Up} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de relachement d\textquotesingle{}un bouton de la souris. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga3a6b0beb5f842f149d46c6e85854d0b8}{zone\+De\+Dessin\+\_\+\+Mouse\+Wheel} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement provenant de roulette de la souris. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga5934a8cc2a311d8d3323f9583e19963f}{zone\+De\+Dessin\+\_\+\+Mouse\+Move} (object sender, Mouse\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement provenant du deplacement de la souris. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaf26e9a1228f2564ca282c82784afc0f2}{quitter\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton quitter. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gac7569ece4c54805bc43c117ec0983fd0}{Edition\+\_\+\+Form\+Closing} (object sender, Form\+Closing\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic le bouton de fermeture de la fenetre. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga54bd0e88a0a4b8efb44809f8237f4e7c}{nouveau\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant la generation d\textquotesingle{}une nouvelle zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga59ab92f2af65a634b45c9edad6ddf3d3}{nouveau\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant la generation d\textquotesingle{}une nouvelle zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga6ac9caedab0ad5ad68d6118ea10e2f75}{ouvrir\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant l\textquotesingle{}ouverture d\textquotesingle{}un nouveau fichier xml. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gadfd90b070545e720a233498ac0926b73}{ouvrirtool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant l\textquotesingle{}ouverture d\textquotesingle{}un nouveau fichier xml. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga228c87284edab5ff942fdc2b70dc2d90}{enregistrer\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant la sauvegarde de la zone de dessin dans un fichier xml. \end{DoxyCompactList}\item 
+void {\bfseries enregistrer\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void {\bfseries enregistrer\+Sous\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_gac510e527874bc51454ea58492a1b6f0a}{selection\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant d\textquotesingle{}initialiser le mode selection d\textquotesingle{}objet. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga06f622bf946e30e1ab41832c26b15553}{selection\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant d\textquotesingle{}initialiser le mode selection d\textquotesingle{}objet. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gae8e6dce2e6a67419f700a044816a53a7}{deplacement\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant d\textquotesingle{}initialiser le mode deplacement des objets dans la zone de dessin. \end{DoxyCompactList}\item 
+void {\bfseries deplacement\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_ga124d0509624e75bd31e0d5ab27d1aae5}{zoom\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton de zoom avec rectangle elastique afin d\textquotesingle{}effectuer un zoom in ou zoom out avec ce dernier. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga775c1d6f6fa75521851d7ecd97c6d39b}{zoom\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton de zoom avec rectangle elastique afin d\textquotesingle{}effectuer un zoom in ou zoom out avec ce dernier. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga8b125799e50f3f79b91b5d9c066e935f}{zoom\+In\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton de zoom in. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga12977b1ecb58e8aeb8928ca6727acb84}{zoom\+Out\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton de zoom out. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa483758f8baaa72c1fdc33f544911e6e}{poteau\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant le placement de poteau dans la zone de dessin. \end{DoxyCompactList}\item 
+void {\bfseries mur\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_ga5f0cff308c59923d68564b1a18ce578e}{ligne\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant le placement de ligne dans la zone de dessin. \end{DoxyCompactList}\item 
+void {\bfseries supprimer\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void {\bfseries supprimer\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_gab63ce0aebcd8c675cdb765cb2da8d5bb}{menu\+Principal\+Ctrl\+Q\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de C\+T\+R\+L-\/Q afin de quitter l\textquotesingle{}application. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaa21ab6759eb89bf87c720ee325d2f7e6}{poteau\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur l\textquotesingle{}option poteau pour l\textquotesingle{}ajouter a la zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gae70988c8693c5aebd5641b2de6114ea6}{mur\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur l\textquotesingle{}option mur pour l\textquotesingle{}ajouter a la zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga433854650d3a79068797a8d5659a7f59}{ligne\+Noire\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur l\textquotesingle{}option ligne pour l\textquotesingle{}ajouter a la zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga0921f3f414eaefc96da4a6e82eb4fd22}{basculer\+Bouton} (Tool\+Strip\+Button bouton)
+\begin{DoxyCompactList}\small\item\em Methode permettant la bascule de la selection d\textquotesingle{}un bouton et le changement de la variable bouton\+Selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga4ae54cc42b72d53d3c7b463ab15cf8cc}{basculer\+Item} (Tool\+Strip\+Menu\+Item item)
+\begin{DoxyCompactList}\small\item\em Methode permettant la bascule de la selection d\textquotesingle{}un item du menu et le changement de la variable item\+Selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gad093807a11597718f52b940dbf3d631d}{rotation\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant la rotation de l\textquotesingle{}objet selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga6600767024c2449b9f36a08e4b90093f}{mise\+A\+Echelle\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant la mise a l\textquotesingle{}echelle de l\textquotesingle{}objet selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaaa06b23bcef9040e4a68cea2ef29df48}{duplication\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant la duplication de l\textquotesingle{}objet selectionne. \end{DoxyCompactList}\item 
+void {\bfseries orthographique\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_gaedf3030098782d80e859d3ecd3d54632}{orbite\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de clic sur le bouton permettant l\textquotesingle{}activation de la vue en orbite. \end{DoxyCompactList}\item 
+void {\bfseries aide\+Tool\+Strip\+Menu\+Item\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void {\bfseries Edition\+\_\+\+Resize} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_ga933c5814b41ed563306990ccda747643}{zone\+De\+Dessin\+\_\+\+Mouse\+Leave} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement de deplacement hors de la zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gadaef9c263cc52eda0a5af9f0a1eb424c}{zone\+De\+Dessin\+\_\+\+Mouse\+Enter} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la capture de l\textquotesingle{}evenement d\textquotesingle{}entrer de la souris dans la zone de dessin. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_ga6e13bc0fa6c65f4dbca05458f89b0a99}{configuration\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic de souris sur le bouton permettant la configuration d\textquotesingle{}un et un unique objet selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{group__inf2990_gaee07eba375bbbe8902cea6281f08cc53}{rotation\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic de souris sur le bouton permettant la rotation d\textquotesingle{}objet selectionne. \end{DoxyCompactList}\item 
+void {\bfseries mise\+A\+Echelle\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_ga29d7e098c3c84b9a395c10e3d7d1531f}{duplication\+Tool\+Strip\+Button\+\_\+\+Click} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic de souris sur le bouton permettant la duplication d\textquotesingle{}objet selectionne. \end{DoxyCompactList}\item 
+void {\bfseries aide\+Tool\+Strip\+Menu\+Item1\+\_\+\+Click} (object sender, Event\+Args e)
+\item 
+void \hyperlink{group__inf2990_ga26565a479fb2e1f927d835acae324821}{fermeture\+Aide} (object sender, Form\+Closed\+Event\+Args args)
+\begin{DoxyCompactList}\small\item\em Methode permettant la detection d\textquotesingle{}un clic de souris sur le bouton permettant la fermeture de la fenetre d\textquotesingle{}aide. \end{DoxyCompactList}\item 
+void \hyperlink{class_interface_graphique_1_1_edition_ade7bd8d972c69494b7cb99cb4d4be5d0}{Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Méthode requise pour la prise en charge du concepteur -\/ ne modifiez pas le contenu de cette méthode avec l\textquotesingle{}éditeur de code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries N\+B\+\_\+\+I\+M\+A\+G\+E\+S\+\_\+\+P\+A\+R\+\_\+\+S\+E\+C\+O\+N\+DE} = 60
+\item 
+bool {\bfseries curseur\+Dans\+La\+Zone\+De\+Dessin} = false
+\item 
+int {\bfseries compteur\+Deplacement\+\_\+} = 0
+\item 
+int {\bfseries x\+Mouse\+Down\+\_\+}
+\item 
+int {\bfseries y\+Mouse\+Down\+\_\+}
+\item 
+Keys {\bfseries modificateur\+\_\+} = Keys.\+None
+\item 
+bool {\bfseries bouton\+Gauche\+Presse} = false
+\item 
+bool {\bfseries souris\+Est\+En\+Zone\+De\+Clic\+\_\+} = false
+\item 
+bool {\bfseries initialisation\+Envoyee\+\_\+} = false
+\item 
+\hyperlink{class_interface_graphique_1_1_aide}{Aide} {\bfseries aide} = null
+\item 
+bool {\bfseries en\+Edition} = false
+\item 
+string {\bfseries nom\+Fichier\+Ouvert\+\_\+} = null
+\item 
+System.\+Component\+Model.\+I\+Container \hyperlink{class_interface_graphique_1_1_edition_a1d25578ac726e295a561fadce2a82540}{components} = null
+\begin{DoxyCompactList}\small\item\em Variable nécessaire au concepteur. \end{DoxyCompactList}\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries nouveau\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_abd44acf79604f433f545c434192a98d9}{}\label{class_interface_graphique_1_1_edition_abd44acf79604f433f545c434192a98d9}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries ouvrir\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a0ec91b8e3f2d5aca2ce08c89577f84e6}{}\label{class_interface_graphique_1_1_edition_a0ec91b8e3f2d5aca2ce08c89577f84e6}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries enregistrer\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a02fb7587be462f002f8287538a412089}{}\label{class_interface_graphique_1_1_edition_a02fb7587be462f002f8287538a412089}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries ligne\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_adc9aeb99481d33397e881e618adb8685}{}\label{class_interface_graphique_1_1_edition_adc9aeb99481d33397e881e618adb8685}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries mur\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a2f3e064ba0701e4fb9ce4772625b3aad}{}\label{class_interface_graphique_1_1_edition_a2f3e064ba0701e4fb9ce4772625b3aad}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries poteau\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a19a1625818b45c8d1f1a79566656f8a1}{}\label{class_interface_graphique_1_1_edition_a19a1625818b45c8d1f1a79566656f8a1}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator3}\hypertarget{class_interface_graphique_1_1_edition_a33690d034c1b4979ba90e1c922df0b3f}{}\label{class_interface_graphique_1_1_edition_a33690d034c1b4979ba90e1c922df0b3f}
+
+\item 
+System.\+Windows.\+Forms.\+Open\+File\+Dialog {\bfseries open\+File\+Dialog}\hypertarget{class_interface_graphique_1_1_edition_a5924618aa449acab2c9817a9520f908e}{}\label{class_interface_graphique_1_1_edition_a5924618aa449acab2c9817a9520f908e}
+
+\item 
+System.\+Windows.\+Forms.\+Save\+File\+Dialog {\bfseries save\+File\+Dialog}\hypertarget{class_interface_graphique_1_1_edition_a79658510db471ccbf5e837504bbd87bb}{}\label{class_interface_graphique_1_1_edition_a79658510db471ccbf5e837504bbd87bb}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator4}\hypertarget{class_interface_graphique_1_1_edition_a699e770cc2c3da4fad0fdc955941d883}{}\label{class_interface_graphique_1_1_edition_a699e770cc2c3da4fad0fdc955941d883}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries zoom\+In\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a9de8c72e8b528e3bfd8999f49ef9a511}{}\label{class_interface_graphique_1_1_edition_a9de8c72e8b528e3bfd8999f49ef9a511}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries zoom\+Out\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a2c7e988cd24fafc67367ccb667f5b7ff}{}\label{class_interface_graphique_1_1_edition_a2c7e988cd24fafc67367ccb667f5b7ff}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator5}\hypertarget{class_interface_graphique_1_1_edition_ae59db2fca3de88fcd25a675a6c0b131c}{}\label{class_interface_graphique_1_1_edition_ae59db2fca3de88fcd25a675a6c0b131c}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries selection\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_ac8f2e0a6f71ba716c7eb0af65b8c54af}{}\label{class_interface_graphique_1_1_edition_ac8f2e0a6f71ba716c7eb0af65b8c54af}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Container {\bfseries tool\+Strip\+Container}\hypertarget{class_interface_graphique_1_1_edition_abc3e20d69cd06050171b350c51142c02}{}\label{class_interface_graphique_1_1_edition_abc3e20d69cd06050171b350c51142c02}
+
+\item 
+System.\+Windows.\+Forms.\+Panel {\bfseries zone\+De\+Dessin}\hypertarget{class_interface_graphique_1_1_edition_a8174fa26717a9106b9ac36c702861d37}{}\label{class_interface_graphique_1_1_edition_a8174fa26717a9106b9ac36c702861d37}
+
+\item 
+System.\+Windows.\+Forms.\+Menu\+Strip {\bfseries menu\+Strip}\hypertarget{class_interface_graphique_1_1_edition_afefe6a1d3d92b1d934ae9ea836cf6e23}{}\label{class_interface_graphique_1_1_edition_afefe6a1d3d92b1d934ae9ea836cf6e23}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries fichier\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a3213c2692b6b4f1dbf8eee2d710517a2}{}\label{class_interface_graphique_1_1_edition_a3213c2692b6b4f1dbf8eee2d710517a2}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries nouveau\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a49b8d1482b974f1eb0cc9e22f04c78a5}{}\label{class_interface_graphique_1_1_edition_a49b8d1482b974f1eb0cc9e22f04c78a5}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries ouvrir\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_aa09d43952a5b72f85f14598d986d5599}{}\label{class_interface_graphique_1_1_edition_aa09d43952a5b72f85f14598d986d5599}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator1}\hypertarget{class_interface_graphique_1_1_edition_a82a29602d483fb854b9ad5da2eee5799}{}\label{class_interface_graphique_1_1_edition_a82a29602d483fb854b9ad5da2eee5799}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries enregistrer\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a1495085881b6800bac658dc9931a6df9}{}\label{class_interface_graphique_1_1_edition_a1495085881b6800bac658dc9931a6df9}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries enregistrer\+Sous\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_aaf9b8f8d30c4415185cf6d2050ab6e04}{}\label{class_interface_graphique_1_1_edition_aaf9b8f8d30c4415185cf6d2050ab6e04}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator2}\hypertarget{class_interface_graphique_1_1_edition_a353143463226d60ce355d372ffc6492a}{}\label{class_interface_graphique_1_1_edition_a353143463226d60ce355d372ffc6492a}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries mode\+Test\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_aeadd4740b317354a6b503bed6ea7a276}{}\label{class_interface_graphique_1_1_edition_aeadd4740b317354a6b503bed6ea7a276}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries menu\+Principal\+Ctrl\+Q\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_af2c0b47fb6627fd4aa4a937b8ac0c64e}{}\label{class_interface_graphique_1_1_edition_af2c0b47fb6627fd4aa4a937b8ac0c64e}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries quitter\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_ab330f8f09ba2b2687b8f7b229d5ab911}{}\label{class_interface_graphique_1_1_edition_ab330f8f09ba2b2687b8f7b229d5ab911}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries edition\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_ae71dbdd2888009b566e09f9697454fd4}{}\label{class_interface_graphique_1_1_edition_ae71dbdd2888009b566e09f9697454fd4}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries supprimer\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a29f89ae4fb03e56ae50964c0b9024dab}{}\label{class_interface_graphique_1_1_edition_a29f89ae4fb03e56ae50964c0b9024dab}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries outils\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a0f4938eefa049cc8203e2c36c4f44760}{}\label{class_interface_graphique_1_1_edition_a0f4938eefa049cc8203e2c36c4f44760}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries creation\+Dobjets\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a35be5647781f06f310f89b9c70a3fcba}{}\label{class_interface_graphique_1_1_edition_a35be5647781f06f310f89b9c70a3fcba}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries poteau\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a22118548a68230dd6b9577a9d38068ff}{}\label{class_interface_graphique_1_1_edition_a22118548a68230dd6b9577a9d38068ff}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries mur\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a13f6473693f3b798aa7c6ea5eb981267}{}\label{class_interface_graphique_1_1_edition_a13f6473693f3b798aa7c6ea5eb981267}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries ligne\+Noire\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a5599fd0835ac516997abf4c8c155fcf6}{}\label{class_interface_graphique_1_1_edition_a5599fd0835ac516997abf4c8c155fcf6}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries selection\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_ab667b4724b3f9b6a539acb9c5ed5e900}{}\label{class_interface_graphique_1_1_edition_ab667b4724b3f9b6a539acb9c5ed5e900}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries deplacement\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a08c8c320debaccb37f8d10fbcbd19048}{}\label{class_interface_graphique_1_1_edition_a08c8c320debaccb37f8d10fbcbd19048}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries rotation\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_aba02af11f2a7eebc320140c33d705fd0}{}\label{class_interface_graphique_1_1_edition_aba02af11f2a7eebc320140c33d705fd0}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries mise\+A\+Echelle\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a17a1ced0971cbd7c435ba2c460837471}{}\label{class_interface_graphique_1_1_edition_a17a1ced0971cbd7c435ba2c460837471}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries duplication\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_ac1ac117c18c587f3087fc3149a798ca8}{}\label{class_interface_graphique_1_1_edition_ac1ac117c18c587f3087fc3149a798ca8}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries zoom\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a10a05c594d0c5134203bfd245c980eb7}{}\label{class_interface_graphique_1_1_edition_a10a05c594d0c5134203bfd245c980eb7}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries vues\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a1a70c25712c9b56673d0229b1ea34ecd}{}\label{class_interface_graphique_1_1_edition_a1a70c25712c9b56673d0229b1ea34ecd}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries orthographique\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_aaccea1f223874b3327fa44194393a18e}{}\label{class_interface_graphique_1_1_edition_aaccea1f223874b3327fa44194393a18e}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries orbite\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a85f53c861ab79e474a321e252a1eb5a5}{}\label{class_interface_graphique_1_1_edition_a85f53c861ab79e474a321e252a1eb5a5}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries aide\+Tool\+Strip\+Menu\+Item}\hypertarget{class_interface_graphique_1_1_edition_a4541bbee90b1b9a4d2475da9694c414b}{}\label{class_interface_graphique_1_1_edition_a4541bbee90b1b9a4d2475da9694c414b}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries zoom\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a41e7b49ad7a98ca18c647b397c2a7eb7}{}\label{class_interface_graphique_1_1_edition_a41e7b49ad7a98ca18c647b397c2a7eb7}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries deplacement\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a48300b5b448a2fb30c53bdaf922ba2a7}{}\label{class_interface_graphique_1_1_edition_a48300b5b448a2fb30c53bdaf922ba2a7}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries rotation\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a38b20378828472a39663daf9afebcce4}{}\label{class_interface_graphique_1_1_edition_a38b20378828472a39663daf9afebcce4}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator7}\hypertarget{class_interface_graphique_1_1_edition_a4d745d05a17bcbbf70c875429471a982}{}\label{class_interface_graphique_1_1_edition_a4d745d05a17bcbbf70c875429471a982}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries aide\+Tool\+Strip\+Menu\+Item1}\hypertarget{class_interface_graphique_1_1_edition_a20ce2ef75e0681c527cb4c8a4d526911}{}\label{class_interface_graphique_1_1_edition_a20ce2ef75e0681c527cb4c8a4d526911}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries supprimer\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a886016e7efdcc99585b0dbd5120e5b00}{}\label{class_interface_graphique_1_1_edition_a886016e7efdcc99585b0dbd5120e5b00}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator8}\hypertarget{class_interface_graphique_1_1_edition_aee3fe216e2d5bd2e3fc0ef20b597328c}{}\label{class_interface_graphique_1_1_edition_aee3fe216e2d5bd2e3fc0ef20b597328c}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator9}\hypertarget{class_interface_graphique_1_1_edition_a95ace53be0c5a1539571d620155b1f9f}{}\label{class_interface_graphique_1_1_edition_a95ace53be0c5a1539571d620155b1f9f}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries mise\+A\+Echelle\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a34801c09577e0c71879bbbf65a967813}{}\label{class_interface_graphique_1_1_edition_a34801c09577e0c71879bbbf65a967813}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries duplication\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a20f95ac74412ecb1ab7c7352ac5d4dc0}{}\label{class_interface_graphique_1_1_edition_a20f95ac74412ecb1ab7c7352ac5d4dc0}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries configuration\+Tool\+Strip\+Button}\hypertarget{class_interface_graphique_1_1_edition_a922758386c39718fec140f2ae110d696}{}\label{class_interface_graphique_1_1_edition_a922758386c39718fec140f2ae110d696}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator10}\hypertarget{class_interface_graphique_1_1_edition_a8e8824f3e60ae9c3a30cd0d3c35246ab}{}\label{class_interface_graphique_1_1_edition_a8e8824f3e60ae9c3a30cd0d3c35246ab}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator11}\hypertarget{class_interface_graphique_1_1_edition_ad72e03bd3fef657998e630508cacc54f}{}\label{class_interface_graphique_1_1_edition_ad72e03bd3fef657998e630508cacc54f}
+
+\item 
+System.\+Windows.\+Forms.\+Tool\+Strip\+Separator {\bfseries tool\+Strip\+Separator12}\hypertarget{class_interface_graphique_1_1_edition_a171500a1f8608a1018184aade3d1a262}{}\label{class_interface_graphique_1_1_edition_a171500a1f8608a1018184aade3d1a262}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries hauteur\+Zone\+De\+Dessin\+\_\+} = 0
+\item 
+static int {\bfseries largeur\+Zone\+De\+Dessin\+\_\+} = 0
+\item 
+static \hyperlink{class_interface_graphique_1_1_etat_edition}{Etat\+Edition} {\bfseries etat} = null
+\item 
+static System.\+Windows.\+Forms.\+Tool\+Strip\+Button {\bfseries bouton\+Selectionne\+\_\+} = null
+\item 
+static System.\+Windows.\+Forms.\+Tool\+Strip\+Menu\+Item {\bfseries item\+Selectionne\+\_\+} = null
+\item 
+static bool {\bfseries scene\+Modifiee\+\_\+} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe correspondant au formulaire principale du mode edition. 
+
+\begin{DoxyAuthor}{Author}
+I\+N\+F2990 Eq.\+11 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016-\/02-\/15 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\index{Interface\+Graphique\+::\+Edition@{Interface\+Graphique\+::\+Edition}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Interface\+Graphique\+::\+Edition@{Interface\+Graphique\+::\+Edition}}
+\subsubsection[{\texorpdfstring{Dispose(bool disposing)}{Dispose(bool disposing)}}]{\setlength{\rightskip}{0pt plus 5cm}override void Interface\+Graphique.\+Edition.\+Dispose (
+\begin{DoxyParamCaption}
+\item[{bool}]{disposing}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{class_interface_graphique_1_1_edition_ad3404dbef381fe04da6db94114d6bcc0}{}\label{class_interface_graphique_1_1_edition_ad3404dbef381fe04da6db94114d6bcc0}
+
+
+Nettoyage des ressources utilisées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em disposing} & true si les ressources managées doivent être supprimées ; sinon, false.\\
+\hline
+\end{DoxyParams}
+\index{Interface\+Graphique\+::\+Edition@{Interface\+Graphique\+::\+Edition}!Initialize\+Component@{Initialize\+Component}}
+\index{Initialize\+Component@{Initialize\+Component}!Interface\+Graphique\+::\+Edition@{Interface\+Graphique\+::\+Edition}}
+\subsubsection[{\texorpdfstring{Initialize\+Component()}{InitializeComponent()}}]{\setlength{\rightskip}{0pt plus 5cm}void Interface\+Graphique.\+Edition.\+Initialize\+Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_interface_graphique_1_1_edition_ade7bd8d972c69494b7cb99cb4d4be5d0}{}\label{class_interface_graphique_1_1_edition_ade7bd8d972c69494b7cb99cb4d4be5d0}
+
+
+Méthode requise pour la prise en charge du concepteur -\/ ne modifiez pas le contenu de cette méthode avec l\textquotesingle{}éditeur de code. 
+
+
+
+\subsection{Member Data Documentation}
+\index{Interface\+Graphique\+::\+Edition@{Interface\+Graphique\+::\+Edition}!components@{components}}
+\index{components@{components}!Interface\+Graphique\+::\+Edition@{Interface\+Graphique\+::\+Edition}}
+\subsubsection[{\texorpdfstring{components}{components}}]{\setlength{\rightskip}{0pt plus 5cm}System.\+Component\+Model.\+I\+Container Interface\+Graphique.\+Edition.\+components = null\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_interface_graphique_1_1_edition_a1d25578ac726e295a561fadce2a82540}{}\label{class_interface_graphique_1_1_edition_a1d25578ac726e295a561fadce2a82540}
+
+
+Variable nécessaire au concepteur. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sources/\+Interface\+Graphique/\hyperlink{_edition_8cs}{Edition.\+cs}\item 
+Sources/\+Interface\+Graphique/Edition.\+Designer.\+cs\end{DoxyCompactItemize}

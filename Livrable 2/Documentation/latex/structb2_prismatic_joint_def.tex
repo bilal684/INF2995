@@ -1,0 +1,71 @@
+\hypertarget{structb2_prismatic_joint_def}{}\section{b2\+Prismatic\+Joint\+Def Struct Reference}
+\label{structb2_prismatic_joint_def}\index{b2\+Prismatic\+Joint\+Def@{b2\+Prismatic\+Joint\+Def}}
+
+
+{\ttfamily \#include $<$b2\+Prismatic\+Joint.\+h$>$}
+
+Inheritance diagram for b2\+Prismatic\+Joint\+Def\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structb2_prismatic_joint_def}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structb2_prismatic_joint_def_ae60043bc22b077e8c59ab248dc34652f}{Initialize} (\hyperlink{classb2_body}{b2\+Body} $\ast$\hyperlink{structb2_joint_def_a8cd54c93da396be75a9788f2c6897f05}{bodyA}, \hyperlink{classb2_body}{b2\+Body} $\ast$\hyperlink{structb2_joint_def_aa4f4dee2fbcd12187b19506b60e68e3d}{bodyB}, const \hyperlink{structb2_vec2}{b2\+Vec2} \&anchor, const \hyperlink{structb2_vec2}{b2\+Vec2} \&axis)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{structb2_prismatic_joint_def_abb51df8daff7a55f47adc83e4f7fa5b9}{local\+AnchorA}\hypertarget{structb2_prismatic_joint_def_abb51df8daff7a55f47adc83e4f7fa5b9}{}\label{structb2_prismatic_joint_def_abb51df8daff7a55f47adc83e4f7fa5b9}
+
+\begin{DoxyCompactList}\small\item\em The local anchor point relative to bodyA\textquotesingle{}s origin. \end{DoxyCompactList}\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{structb2_prismatic_joint_def_a5acc1f2f14d1b659fc9d804ab1baf4a3}{local\+AnchorB}\hypertarget{structb2_prismatic_joint_def_a5acc1f2f14d1b659fc9d804ab1baf4a3}{}\label{structb2_prismatic_joint_def_a5acc1f2f14d1b659fc9d804ab1baf4a3}
+
+\begin{DoxyCompactList}\small\item\em The local anchor point relative to bodyB\textquotesingle{}s origin. \end{DoxyCompactList}\item 
+\hyperlink{structb2_vec2}{b2\+Vec2} \hyperlink{structb2_prismatic_joint_def_af36fdbcedca5a392a2649cd235c42676}{local\+AxisA}\hypertarget{structb2_prismatic_joint_def_af36fdbcedca5a392a2649cd235c42676}{}\label{structb2_prismatic_joint_def_af36fdbcedca5a392a2649cd235c42676}
+
+\begin{DoxyCompactList}\small\item\em The local translation unit axis in bodyA. \end{DoxyCompactList}\item 
+float32 \hyperlink{structb2_prismatic_joint_def_aa84b43d08e6e11b4daa0c86f46094463}{reference\+Angle}\hypertarget{structb2_prismatic_joint_def_aa84b43d08e6e11b4daa0c86f46094463}{}\label{structb2_prismatic_joint_def_aa84b43d08e6e11b4daa0c86f46094463}
+
+\begin{DoxyCompactList}\small\item\em The constrained angle between the bodies\+: body\+B\+\_\+angle -\/ body\+A\+\_\+angle. \end{DoxyCompactList}\item 
+bool \hyperlink{structb2_prismatic_joint_def_aa61a03b68caac62a5cf66354f6756eae}{enable\+Limit}\hypertarget{structb2_prismatic_joint_def_aa61a03b68caac62a5cf66354f6756eae}{}\label{structb2_prismatic_joint_def_aa61a03b68caac62a5cf66354f6756eae}
+
+\begin{DoxyCompactList}\small\item\em Enable/disable the joint limit. \end{DoxyCompactList}\item 
+float32 \hyperlink{structb2_prismatic_joint_def_ac0a0e2a669d640ebea354895fe6a9fb6}{lower\+Translation}\hypertarget{structb2_prismatic_joint_def_ac0a0e2a669d640ebea354895fe6a9fb6}{}\label{structb2_prismatic_joint_def_ac0a0e2a669d640ebea354895fe6a9fb6}
+
+\begin{DoxyCompactList}\small\item\em The lower translation limit, usually in meters. \end{DoxyCompactList}\item 
+float32 \hyperlink{structb2_prismatic_joint_def_ae3eac123c7fe543071bdfcd1a6942350}{upper\+Translation}\hypertarget{structb2_prismatic_joint_def_ae3eac123c7fe543071bdfcd1a6942350}{}\label{structb2_prismatic_joint_def_ae3eac123c7fe543071bdfcd1a6942350}
+
+\begin{DoxyCompactList}\small\item\em The upper translation limit, usually in meters. \end{DoxyCompactList}\item 
+bool \hyperlink{structb2_prismatic_joint_def_a58ac79a54a8110d3a745e1d6d36990dc}{enable\+Motor}\hypertarget{structb2_prismatic_joint_def_a58ac79a54a8110d3a745e1d6d36990dc}{}\label{structb2_prismatic_joint_def_a58ac79a54a8110d3a745e1d6d36990dc}
+
+\begin{DoxyCompactList}\small\item\em Enable/disable the joint motor. \end{DoxyCompactList}\item 
+float32 \hyperlink{structb2_prismatic_joint_def_aabeec48af1e49c7f9fed5e0bc8270a1b}{max\+Motor\+Force}\hypertarget{structb2_prismatic_joint_def_aabeec48af1e49c7f9fed5e0bc8270a1b}{}\label{structb2_prismatic_joint_def_aabeec48af1e49c7f9fed5e0bc8270a1b}
+
+\begin{DoxyCompactList}\small\item\em The maximum motor torque, usually in N-\/m. \end{DoxyCompactList}\item 
+float32 \hyperlink{structb2_prismatic_joint_def_ac4bdaea15653657e724a04fc60f3f235}{motor\+Speed}\hypertarget{structb2_prismatic_joint_def_ac4bdaea15653657e724a04fc60f3f235}{}\label{structb2_prismatic_joint_def_ac4bdaea15653657e724a04fc60f3f235}
+
+\begin{DoxyCompactList}\small\item\em The desired motor speed in radians per second. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Prismatic joint definition. This requires defining a line of motion using an axis and an anchor point. The definition uses local anchor points and a local axis so that the initial configuration can violate the constraint slightly. The joint translation is zero when the local anchor points coincide in world space. Using local anchors and a local axis helps when saving and loading a game. 
+
+\subsection{Member Function Documentation}
+\index{b2\+Prismatic\+Joint\+Def@{b2\+Prismatic\+Joint\+Def}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!b2\+Prismatic\+Joint\+Def@{b2\+Prismatic\+Joint\+Def}}
+\subsubsection[{\texorpdfstring{Initialize(b2\+Body $\ast$body\+A, b2\+Body $\ast$body\+B, const b2\+Vec2 \&anchor, const b2\+Vec2 \&axis)}{Initialize(b2Body *bodyA, b2Body *bodyB, const b2Vec2 &anchor, const b2Vec2 &axis)}}]{\setlength{\rightskip}{0pt plus 5cm}void b2\+Prismatic\+Joint\+Def\+::\+Initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf b2\+Body} $\ast$}]{bodyA, }
+\item[{{\bf b2\+Body} $\ast$}]{bodyB, }
+\item[{const {\bf b2\+Vec2} \&}]{anchor, }
+\item[{const {\bf b2\+Vec2} \&}]{axis}
+\end{DoxyParamCaption}
+)}\hypertarget{structb2_prismatic_joint_def_ae60043bc22b077e8c59ab248dc34652f}{}\label{structb2_prismatic_joint_def_ae60043bc22b077e8c59ab248dc34652f}
+Initialize the bodies, anchors, axis, and reference angle using the world anchor and unit world axis. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Commun/\+Externe/\+Box2\+D/include/\+Box2\+D/\+Dynamics/\+Joints/b2\+Prismatic\+Joint.\+h\end{DoxyCompactItemize}

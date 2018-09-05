@@ -1,0 +1,162 @@
+\hypertarget{class_f_t_mesh}{}\section{F\+T\+Mesh Class Reference}
+\label{class_f_t_mesh}\index{F\+T\+Mesh@{F\+T\+Mesh}}
+
+
+{\ttfamily \#include $<$F\+T\+Vectoriser.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_f_t_mesh_aa78f98bec8f9cd15d0255c326b7cf62d}{F\+T\+Mesh} ()
+\item 
+\hyperlink{class_f_t_mesh_a7282fec857e649bf91c91b2957f292ac}{$\sim$\+F\+T\+Mesh} ()
+\item 
+void \hyperlink{class_f_t_mesh_a4a503faa60d78f67cd487611b0f44b68}{Add\+Point} (const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE x, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE y, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE z)
+\item 
+const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$ \hyperlink{class_f_t_mesh_a41c229d00a0edd342fff2577c7024dae}{Combine} (const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE x, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE y, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE z)
+\item 
+void \hyperlink{class_f_t_mesh_a03ddbeb4313ce4353c477d0afcdc4a1e}{Begin} (G\+Lenum mesh\+Type)
+\item 
+void \hyperlink{class_f_t_mesh_a1ead56fbe963c5976ea3c268b8b0544d}{End} ()
+\item 
+void \hyperlink{class_f_t_mesh_a2e07adc55441296e88b6886c153c50fd}{Error} (G\+Lenum e)
+\item 
+size\+\_\+t \hyperlink{class_f_t_mesh_a21075ff9bd0534574aede7f72fd33281}{Tesselation\+Count} () const 
+\item 
+const \hyperlink{class_f_t_tesselation}{F\+T\+Tesselation} $\ast$const \hyperlink{class_f_t_mesh_a5d8f540f3f6497209b91b53a3daa4190}{Tesselation} (size\+\_\+t index) const 
+\item 
+const \hyperlink{class_f_t_list}{Point\+List} \& \hyperlink{class_f_t_mesh_ac75f054b4e430c12d1f098070713acbb}{Temp\+Point\+List} () const 
+\item 
+G\+Lenum \hyperlink{class_f_t_mesh_ac706276fad2215121ffb1fdf1acffa8f}{Error} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{class_f_t_vector}{F\+T\+Vector}$<$ \hyperlink{class_f_t_tesselation}{F\+T\+Tesselation} $\ast$ $>$ {\bfseries Tesselation\+Vector}\hypertarget{class_f_t_mesh_a3248d8f80b6de427e04e70bd8bb47f14}{}\label{class_f_t_mesh_a3248d8f80b6de427e04e70bd8bb47f14}
+
+\item 
+typedef \hyperlink{class_f_t_list}{F\+T\+List}$<$ F\+T\+Point $>$ {\bfseries Point\+List}\hypertarget{class_f_t_mesh_a47ae011d4169cbfc5be27e9764dec0f9}{}\label{class_f_t_mesh_a47ae011d4169cbfc5be27e9764dec0f9}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_f_t_tesselation}{F\+T\+Tesselation} $\ast$ \hyperlink{class_f_t_mesh_a1352fa66154a24590b6ed4f27c65f1ec}{current\+Tesselation}
+\item 
+\hyperlink{class_f_t_vector}{Tesselation\+Vector} \hyperlink{class_f_t_mesh_a1b32e89cf5def0c7b54e07d7034ae6ae}{tesselation\+List}
+\item 
+\hyperlink{class_f_t_list}{Point\+List} \hyperlink{class_f_t_mesh_a2d33ccfb8c6be7f7b1df735881322dc9}{temp\+Point\+List}
+\item 
+G\+Lenum \hyperlink{class_f_t_mesh_a5a25a6603f00ce812e43b0362d2882a5}{err}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_f_t_mesh}{F\+T\+Mesh} is a container of \hyperlink{class_f_t_tesselation}{F\+T\+Tesselation}\textquotesingle{}s that make up a polygon glyph 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{F\+T\+Mesh@{F\+T\+Mesh}!F\+T\+Mesh@{F\+T\+Mesh}}
+\index{F\+T\+Mesh@{F\+T\+Mesh}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{F\+T\+Mesh()}{FTMesh()}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Mesh\+::\+F\+T\+Mesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_mesh_aa78f98bec8f9cd15d0255c326b7cf62d}{}\label{class_f_t_mesh_aa78f98bec8f9cd15d0255c326b7cf62d}
+Default constructor \index{F\+T\+Mesh@{F\+T\+Mesh}!````~F\+T\+Mesh@{$\sim$\+F\+T\+Mesh}}
+\index{````~F\+T\+Mesh@{$\sim$\+F\+T\+Mesh}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{$\sim$\+F\+T\+Mesh()}{~FTMesh()}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Mesh\+::$\sim$\+F\+T\+Mesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_mesh_a7282fec857e649bf91c91b2957f292ac}{}\label{class_f_t_mesh_a7282fec857e649bf91c91b2957f292ac}
+Destructor 
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Mesh@{F\+T\+Mesh}!Add\+Point@{Add\+Point}}
+\index{Add\+Point@{Add\+Point}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Add\+Point(const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E x, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E y, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E z)}{AddPoint(const FTGL_DOUBLE x, const FTGL_DOUBLE y, const FTGL_DOUBLE z)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Mesh\+::\+Add\+Point (
+\begin{DoxyParamCaption}
+\item[{const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE}]{x, }
+\item[{const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE}]{y, }
+\item[{const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_mesh_a4a503faa60d78f67cd487611b0f44b68}{}\label{class_f_t_mesh_a4a503faa60d78f67cd487611b0f44b68}
+Add a point to the mesh \index{F\+T\+Mesh@{F\+T\+Mesh}!Begin@{Begin}}
+\index{Begin@{Begin}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Begin(\+G\+Lenum mesh\+Type)}{Begin(GLenum meshType)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Mesh\+::\+Begin (
+\begin{DoxyParamCaption}
+\item[{G\+Lenum}]{mesh\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_mesh_a03ddbeb4313ce4353c477d0afcdc4a1e}{}\label{class_f_t_mesh_a03ddbeb4313ce4353c477d0afcdc4a1e}
+Begin a new polygon \index{F\+T\+Mesh@{F\+T\+Mesh}!Combine@{Combine}}
+\index{Combine@{Combine}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Combine(const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E x, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E y, const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+L\+E z)}{Combine(const FTGL_DOUBLE x, const FTGL_DOUBLE y, const FTGL_DOUBLE z)}}]{\setlength{\rightskip}{0pt plus 5cm}const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE $\ast$ F\+T\+Mesh\+::\+Combine (
+\begin{DoxyParamCaption}
+\item[{const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE}]{x, }
+\item[{const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE}]{y, }
+\item[{const F\+T\+G\+L\+\_\+\+D\+O\+U\+B\+LE}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_mesh_a41c229d00a0edd342fff2577c7024dae}{}\label{class_f_t_mesh_a41c229d00a0edd342fff2577c7024dae}
+Create a combine point for the glu\+Tesselator \index{F\+T\+Mesh@{F\+T\+Mesh}!End@{End}}
+\index{End@{End}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{End()}{End()}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Mesh\+::\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_f_t_mesh_a1ead56fbe963c5976ea3c268b8b0544d}{}\label{class_f_t_mesh_a1ead56fbe963c5976ea3c268b8b0544d}
+End a polygon \index{F\+T\+Mesh@{F\+T\+Mesh}!Error@{Error}}
+\index{Error@{Error}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Error(\+G\+Lenum e)}{Error(GLenum e)}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Mesh\+::\+Error (
+\begin{DoxyParamCaption}
+\item[{G\+Lenum}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_mesh_a2e07adc55441296e88b6886c153c50fd}{}\label{class_f_t_mesh_a2e07adc55441296e88b6886c153c50fd}
+Record a glu\+Tesselation error \index{F\+T\+Mesh@{F\+T\+Mesh}!Error@{Error}}
+\index{Error@{Error}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Error() const }{Error() const }}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lenum F\+T\+Mesh\+::\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_mesh_ac706276fad2215121ffb1fdf1acffa8f}{}\label{class_f_t_mesh_ac706276fad2215121ffb1fdf1acffa8f}
+Get the GL E\+R\+R\+OR returned by the glu tesselator \index{F\+T\+Mesh@{F\+T\+Mesh}!Temp\+Point\+List@{Temp\+Point\+List}}
+\index{Temp\+Point\+List@{Temp\+Point\+List}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Temp\+Point\+List() const }{TempPointList() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Point\+List}\& F\+T\+Mesh\+::\+Temp\+Point\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_mesh_ac75f054b4e430c12d1f098070713acbb}{}\label{class_f_t_mesh_ac75f054b4e430c12d1f098070713acbb}
+Return the temporary point list. For testing only. \index{F\+T\+Mesh@{F\+T\+Mesh}!Tesselation@{Tesselation}}
+\index{Tesselation@{Tesselation}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Tesselation(size\+\_\+t index) const }{Tesselation(size_t index) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf F\+T\+Tesselation} $\ast$const F\+T\+Mesh\+::\+Tesselation (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{index}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_f_t_mesh_a5d8f540f3f6497209b91b53a3daa4190}{}\label{class_f_t_mesh_a5d8f540f3f6497209b91b53a3daa4190}
+Get a tesselation by index \index{F\+T\+Mesh@{F\+T\+Mesh}!Tesselation\+Count@{Tesselation\+Count}}
+\index{Tesselation\+Count@{Tesselation\+Count}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{Tesselation\+Count() const }{TesselationCount() const }}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t F\+T\+Mesh\+::\+Tesselation\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_f_t_mesh_a21075ff9bd0534574aede7f72fd33281}{}\label{class_f_t_mesh_a21075ff9bd0534574aede7f72fd33281}
+The number of tesselations in the mesh 
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Mesh@{F\+T\+Mesh}!current\+Tesselation@{current\+Tesselation}}
+\index{current\+Tesselation@{current\+Tesselation}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{current\+Tesselation}{currentTesselation}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+T\+Tesselation}$\ast$ F\+T\+Mesh\+::current\+Tesselation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_mesh_a1352fa66154a24590b6ed4f27c65f1ec}{}\label{class_f_t_mesh_a1352fa66154a24590b6ed4f27c65f1ec}
+The current sub mesh that we are constructing. \index{F\+T\+Mesh@{F\+T\+Mesh}!err@{err}}
+\index{err@{err}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{err}{err}}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lenum F\+T\+Mesh\+::err\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_mesh_a5a25a6603f00ce812e43b0362d2882a5}{}\label{class_f_t_mesh_a5a25a6603f00ce812e43b0362d2882a5}
+GL E\+R\+R\+OR returned by the glu tesselator \index{F\+T\+Mesh@{F\+T\+Mesh}!temp\+Point\+List@{temp\+Point\+List}}
+\index{temp\+Point\+List@{temp\+Point\+List}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{temp\+Point\+List}{tempPointList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point\+List} F\+T\+Mesh\+::temp\+Point\+List\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_mesh_a2d33ccfb8c6be7f7b1df735881322dc9}{}\label{class_f_t_mesh_a2d33ccfb8c6be7f7b1df735881322dc9}
+Holds extra points created by glu\+Tesselator. See ftgl\+Combine. \index{F\+T\+Mesh@{F\+T\+Mesh}!tesselation\+List@{tesselation\+List}}
+\index{tesselation\+List@{tesselation\+List}!F\+T\+Mesh@{F\+T\+Mesh}}
+\subsubsection[{\texorpdfstring{tesselation\+List}{tesselationList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tesselation\+Vector} F\+T\+Mesh\+::tesselation\+List\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_mesh_a1b32e89cf5def0c7b54e07d7034ae6ae}{}\label{class_f_t_mesh_a1b32e89cf5def0c7b54e07d7034ae6ae}
+Holds each sub mesh that comprises this glyph. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Vectoriser.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/F\+T\+Vectoriser.\+cpp\end{DoxyCompactItemize}

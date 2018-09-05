@@ -1,0 +1,155 @@
+\hypertarget{class_f_t_texture_font_impl}{}\section{F\+T\+Texture\+Font\+Impl Class Reference}
+\label{class_f_t_texture_font_impl}\index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+Inheritance diagram for F\+T\+Texture\+Font\+Impl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_t_texture_font_impl}
+\end{center}
+\end{figure}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries F\+T\+Texture\+Font\+Impl} (F\+T\+Font $\ast$ft\+Font, const char $\ast$font\+File\+Path)\hypertarget{class_f_t_texture_font_impl_a6e5537e5ce6f58e8f8244c9d0cd44d9f}{}\label{class_f_t_texture_font_impl_a6e5537e5ce6f58e8f8244c9d0cd44d9f}
+
+\item 
+{\bfseries F\+T\+Texture\+Font\+Impl} (F\+T\+Font $\ast$ft\+Font, const unsigned char $\ast$p\+Buffer\+Bytes, size\+\_\+t buffer\+Size\+In\+Bytes)\hypertarget{class_f_t_texture_font_impl_a4554181466170efa12b9a12e4936b61d}{}\label{class_f_t_texture_font_impl_a4554181466170efa12b9a12e4936b61d}
+
+\item 
+virtual bool \hyperlink{class_f_t_texture_font_impl_ac5ccaca6cc8a53292b5028a629e49244}{Face\+Size} (const unsigned int size, const unsigned int res=72)
+\item 
+virtual F\+T\+Point {\bfseries Render} (const char $\ast$s, const int len, F\+T\+Point position, F\+T\+Point spacing, int render\+Mode)\hypertarget{class_f_t_texture_font_impl_a8b53cbe2b70ad38af59a7d79945122d9}{}\label{class_f_t_texture_font_impl_a8b53cbe2b70ad38af59a7d79945122d9}
+
+\item 
+virtual F\+T\+Point {\bfseries Render} (const wchar\+\_\+t $\ast$s, const int len, F\+T\+Point position, F\+T\+Point spacing, int render\+Mode)\hypertarget{class_f_t_texture_font_impl_aba852ac4cc9b759073b6370e059e6c11}{}\label{class_f_t_texture_font_impl_aba852ac4cc9b759073b6370e059e6c11}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\+T\+Glyph $\ast$ \hyperlink{class_f_t_texture_font_impl_a1e81ae574487dcccc9526e49d2caf670}{Make\+Glyph\+Impl} (\hyperlink{struct_f_t___glyph_slot_rec__}{F\+T\+\_\+\+Glyph\+Slot} ft\+Glyph)
+\item 
+void \hyperlink{class_f_t_texture_font_impl_a136617722df1c22fa86e82c7eac081c0}{Calculate\+Texture\+Size} ()
+\item 
+G\+Luint \hyperlink{class_f_t_texture_font_impl_a91dd7315701b3280d93257c270c3f304}{Create\+Texture} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\F\+T\+Point {\bfseries RenderI} (const T $\ast$s, const int len, F\+T\+Point position, F\+T\+Point spacing, int mode)\hypertarget{class_f_t_texture_font_impl_a159161fb10e952314bf3558e96ba8366}{}\label{class_f_t_texture_font_impl_a159161fb10e952314bf3558e96ba8366}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Lsizei \hyperlink{class_f_t_texture_font_impl_a4c7ad20df5b4a840d8f0276ac0935544}{maximum\+G\+L\+Texture\+Size}
+\item 
+G\+Lsizei \hyperlink{class_f_t_texture_font_impl_a997a027dbc2b7f96b2dd0bac9b38a3c5}{texture\+Width}
+\item 
+G\+Lsizei \hyperlink{class_f_t_texture_font_impl_a05a16bd4c554cfc6623d9129a7bfe70e}{texture\+Height}
+\item 
+\hyperlink{class_f_t_vector}{F\+T\+Vector}$<$ G\+Luint $>$ \hyperlink{class_f_t_texture_font_impl_a79903b5dd7fefd31ba092f3d32bdffc1}{texture\+I\+D\+List}
+\item 
+int \hyperlink{class_f_t_texture_font_impl_a037c4ba87483331316b234d4396401f8}{glyph\+Height}
+\item 
+int \hyperlink{class_f_t_texture_font_impl_a3defaf55764984ae344e0ff7d467fe27}{glyph\+Width}
+\item 
+unsigned int \hyperlink{class_f_t_texture_font_impl_ab8b4d2241f395e2abe0c287b40ab5726}{padding}
+\item 
+unsigned int {\bfseries num\+Glyphs}\hypertarget{class_f_t_texture_font_impl_a568b1f209b75fc4d6d270dbc8f648f81}{}\label{class_f_t_texture_font_impl_a568b1f209b75fc4d6d270dbc8f648f81}
+
+\item 
+unsigned int {\bfseries rem\+Glyphs}\hypertarget{class_f_t_texture_font_impl_a7a249763c1042cafa4ec6f071dfb6b39}{}\label{class_f_t_texture_font_impl_a7a249763c1042cafa4ec6f071dfb6b39}
+
+\item 
+int {\bfseries x\+Offset}\hypertarget{class_f_t_texture_font_impl_a9a895eee54ed82ae35850676b6abe5d2}{}\label{class_f_t_texture_font_impl_a9a895eee54ed82ae35850676b6abe5d2}
+
+\item 
+int {\bfseries y\+Offset}\hypertarget{class_f_t_texture_font_impl_a196d6dd20b1aa070a5da9d2dd31b5262}{}\label{class_f_t_texture_font_impl_a196d6dd20b1aa070a5da9d2dd31b5262}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries F\+T\+Texture\+Font}\hypertarget{class_f_t_texture_font_impl_a7870c341f7269dfae257e93406c17c92}{}\label{class_f_t_texture_font_impl_a7870c341f7269dfae257e93406c17c92}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!Calculate\+Texture\+Size@{Calculate\+Texture\+Size}}
+\index{Calculate\+Texture\+Size@{Calculate\+Texture\+Size}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Calculate\+Texture\+Size()}{CalculateTextureSize()}}]{\setlength{\rightskip}{0pt plus 5cm}void F\+T\+Texture\+Font\+Impl\+::\+Calculate\+Texture\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a136617722df1c22fa86e82c7eac081c0}{}\label{class_f_t_texture_font_impl_a136617722df1c22fa86e82c7eac081c0}
+Get the size of a block of memory required to layout the glyphs
+
+Calculates a width and height based on the glyph sizes and the number of glyphs. It over estimates. \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!Create\+Texture@{Create\+Texture}}
+\index{Create\+Texture@{Create\+Texture}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Create\+Texture()}{CreateTexture()}}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint F\+T\+Texture\+Font\+Impl\+::\+Create\+Texture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a91dd7315701b3280d93257c270c3f304}{}\label{class_f_t_texture_font_impl_a91dd7315701b3280d93257c270c3f304}
+Creates a \textquotesingle{}blank\textquotesingle{} Open\+GL texture object.
+
+The format is G\+L\+\_\+\+A\+L\+P\+HA and the params are G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+W\+R\+A\+P\+\_\+S = G\+L\+\_\+\+C\+L\+A\+MP G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+W\+R\+A\+P\+\_\+T = G\+L\+\_\+\+C\+L\+A\+MP G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+M\+A\+G\+\_\+\+F\+I\+L\+T\+ER = G\+L\+\_\+\+L\+I\+N\+E\+AR G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+\+M\+I\+N\+\_\+\+F\+I\+L\+T\+ER = G\+L\+\_\+\+L\+I\+N\+E\+AR Note that mipmapping is N\+OT used \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!Face\+Size@{Face\+Size}}
+\index{Face\+Size@{Face\+Size}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Face\+Size(const unsigned int size, const unsigned int res=72)}{FaceSize(const unsigned int size, const unsigned int res=72)}}]{\setlength{\rightskip}{0pt plus 5cm}bool F\+T\+Texture\+Font\+Impl\+::\+Face\+Size (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{size, }
+\item[{const unsigned int}]{res = {\ttfamily 72}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_f_t_texture_font_impl_ac5ccaca6cc8a53292b5028a629e49244}{}\label{class_f_t_texture_font_impl_ac5ccaca6cc8a53292b5028a629e49244}
+Set the char size for the current face.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the face size in points (1/72 inch) \\
+\hline
+{\em res} & the resolution of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if size was set correctly 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_f_t_font_impl}{F\+T\+Font\+Impl}.
+
+\index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!Make\+Glyph\+Impl@{Make\+Glyph\+Impl}}
+\index{Make\+Glyph\+Impl@{Make\+Glyph\+Impl}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{Make\+Glyph\+Impl(\+F\+T\+\_\+\+Glyph\+Slot ft\+Glyph)}{MakeGlyphImpl(FT_GlyphSlot ftGlyph)}}]{\setlength{\rightskip}{0pt plus 5cm}F\+T\+Glyph $\ast$ F\+T\+Texture\+Font\+Impl\+::\+Make\+Glyph\+Impl (
+\begin{DoxyParamCaption}
+\item[{{\bf F\+T\+\_\+\+Glyph\+Slot}}]{ft\+Glyph}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a1e81ae574487dcccc9526e49d2caf670}{}\label{class_f_t_texture_font_impl_a1e81ae574487dcccc9526e49d2caf670}
+Create an F\+T\+Texture\+Glyph object for the base class. 
+
+\subsection{Member Data Documentation}
+\index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!glyph\+Height@{glyph\+Height}}
+\index{glyph\+Height@{glyph\+Height}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{glyph\+Height}{glyphHeight}}]{\setlength{\rightskip}{0pt plus 5cm}int F\+T\+Texture\+Font\+Impl\+::glyph\+Height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a037c4ba87483331316b234d4396401f8}{}\label{class_f_t_texture_font_impl_a037c4ba87483331316b234d4396401f8}
+The max height for glyphs in the current font \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!glyph\+Width@{glyph\+Width}}
+\index{glyph\+Width@{glyph\+Width}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{glyph\+Width}{glyphWidth}}]{\setlength{\rightskip}{0pt plus 5cm}int F\+T\+Texture\+Font\+Impl\+::glyph\+Width\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a3defaf55764984ae344e0ff7d467fe27}{}\label{class_f_t_texture_font_impl_a3defaf55764984ae344e0ff7d467fe27}
+The max width for glyphs in the current font \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!maximum\+G\+L\+Texture\+Size@{maximum\+G\+L\+Texture\+Size}}
+\index{maximum\+G\+L\+Texture\+Size@{maximum\+G\+L\+Texture\+Size}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{maximum\+G\+L\+Texture\+Size}{maximumGLTextureSize}}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lsizei F\+T\+Texture\+Font\+Impl\+::maximum\+G\+L\+Texture\+Size\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a4c7ad20df5b4a840d8f0276ac0935544}{}\label{class_f_t_texture_font_impl_a4c7ad20df5b4a840d8f0276ac0935544}
+The maximum texture dimension on this Open\+GL implemetation \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!padding@{padding}}
+\index{padding@{padding}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{padding}{padding}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int F\+T\+Texture\+Font\+Impl\+::padding\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_ab8b4d2241f395e2abe0c287b40ab5726}{}\label{class_f_t_texture_font_impl_ab8b4d2241f395e2abe0c287b40ab5726}
+A value to be added to the height and width to ensure that glyphs don\textquotesingle{}t overlap in the texture \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!texture\+Height@{texture\+Height}}
+\index{texture\+Height@{texture\+Height}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{texture\+Height}{textureHeight}}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lsizei F\+T\+Texture\+Font\+Impl\+::texture\+Height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a05a16bd4c554cfc6623d9129a7bfe70e}{}\label{class_f_t_texture_font_impl_a05a16bd4c554cfc6623d9129a7bfe70e}
+The minimum texture height required to hold the glyphs \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!texture\+I\+D\+List@{texture\+I\+D\+List}}
+\index{texture\+I\+D\+List@{texture\+I\+D\+List}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{texture\+I\+D\+List}{textureIDList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\+T\+Vector}$<$G\+Luint$>$ F\+T\+Texture\+Font\+Impl\+::texture\+I\+D\+List\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a79903b5dd7fefd31ba092f3d32bdffc1}{}\label{class_f_t_texture_font_impl_a79903b5dd7fefd31ba092f3d32bdffc1}
+An array of texture ids \index{F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}!texture\+Width@{texture\+Width}}
+\index{texture\+Width@{texture\+Width}!F\+T\+Texture\+Font\+Impl@{F\+T\+Texture\+Font\+Impl}}
+\subsubsection[{\texorpdfstring{texture\+Width}{textureWidth}}]{\setlength{\rightskip}{0pt plus 5cm}G\+Lsizei F\+T\+Texture\+Font\+Impl\+::texture\+Width\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_f_t_texture_font_impl_a997a027dbc2b7f96b2dd0bac9b38a3c5}{}\label{class_f_t_texture_font_impl_a997a027dbc2b7f96b2dd0bac9b38a3c5}
+The minimum texture width required to hold the glyphs 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Font/F\+T\+Texture\+Font\+Impl.\+h\item 
+Commun/\+Externe/\+F\+T\+G\+L/include/\+F\+T\+Font/F\+T\+Texture\+Font.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,40 @@
+\hypertarget{struct_generic_pointer_1_1_token}{}\section{Generic\+Pointer$<$ Value\+Type, Allocator $>$\+:\+:Token Struct Reference}
+\label{struct_generic_pointer_1_1_token}\index{Generic\+Pointer$<$ Value\+Type, Allocator $>$\+::\+Token@{Generic\+Pointer$<$ Value\+Type, Allocator $>$\+::\+Token}}
+
+
+A token is the basic units of internal representation.  
+
+
+
+
+{\ttfamily \#include $<$pointer.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{class_generic_pointer_a38b73c84d37428340066d907f9d4f37f}{Ch} $\ast$ \hyperlink{struct_generic_pointer_1_1_token_a8aa9b13bd66addb0c0512cfcae72174c}{name}\hypertarget{struct_generic_pointer_1_1_token_a8aa9b13bd66addb0c0512cfcae72174c}{}\label{struct_generic_pointer_1_1_token_a8aa9b13bd66addb0c0512cfcae72174c}
+
+\begin{DoxyCompactList}\small\item\em Name of the token. It has null character at the end but it can contain null character. \end{DoxyCompactList}\item 
+\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} \hyperlink{struct_generic_pointer_1_1_token_a67383574032a3289d34002bb2d95df6d}{length}\hypertarget{struct_generic_pointer_1_1_token_a67383574032a3289d34002bb2d95df6d}{}\label{struct_generic_pointer_1_1_token_a67383574032a3289d34002bb2d95df6d}
+
+\begin{DoxyCompactList}\small\item\em Length of the name. \end{DoxyCompactList}\item 
+\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} \hyperlink{struct_generic_pointer_1_1_token_a0ce571cfe3f3da942a5912bb2cd24dcf}{index}\hypertarget{struct_generic_pointer_1_1_token_a0ce571cfe3f3da942a5912bb2cd24dcf}{}\label{struct_generic_pointer_1_1_token_a0ce571cfe3f3da942a5912bb2cd24dcf}
+
+\begin{DoxyCompactList}\small\item\em A valid array index, if it is not equal to k\+Pointer\+Invalid\+Index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\+Type, typename Allocator = Crt\+Allocator$>$\\*
+struct Generic\+Pointer$<$ Value\+Type, Allocator $>$\+::\+Token}
+
+A token is the basic units of internal representation. 
+
+A J\+S\+ON pointer string representation \char`\"{}/foo/123\char`\"{} is parsed to two tokens\+: \char`\"{}foo\char`\"{} and 123. 123 will be represented in both numeric form and string form. They are resolved according to the actual value type (object or array).
+
+For token that are not numbers, or the numeric value is out of bound (greater than limits of Size\+Type), they are only treated as string form (i.\+e. the token\textquotesingle{}s index will be equal to k\+Pointer\+Invalid\+Index).
+
+This struct is public so that user can create a Pointer without parsing and allocation, using a special constructor. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bilal Itani/\+Desktop/inf2990-\/11/\+Cadriciel/\+Commun/\+Externe/\+Rapid\+J\+S\+O\+N/include/rapidjson/pointer.\+h\end{DoxyCompactItemize}

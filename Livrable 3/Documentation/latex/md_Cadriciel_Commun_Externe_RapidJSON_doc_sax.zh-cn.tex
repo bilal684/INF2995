@@ -1,0 +1,477 @@
+\char`\"{}\+S\+A\+X\char`\"{}此术语源于\href{http://en.wikipedia.org/wiki/Simple_API_for_XML}{\tt Simple A\+PI for X\+ML}。我们借了此术语去套用在\+J\+S\+O\+N的解析及生成。
+
+在\+Rapid\+J\+S\+O\+N中，{\ttfamily Reader}（{\ttfamily \hyperlink{class_generic_reader}{Generic\+Reader}$<$...$>$}的typedef）是\+J\+S\+O\+N的\+S\+A\+X风格解析器，而{\ttfamily \hyperlink{class_writer}{Writer}}（{\ttfamily Generic\+Writer$<$...$>$}的typedef）则是\+J\+S\+O\+N的\+S\+A\+X风格生成器。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Reader}{}\section{Reader}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Reader}
+{\ttfamily Reader}从输入流解析一个\+J\+S\+O\+N。当它从流中读取字符时，它会基于\+J\+S\+O\+N的语法去分析字符，并向处理器发送事件。
+
+例如，以下是一个\+J\+S\+O\+N。
+
+
+\begin{DoxyCode}
+\{
+    \textcolor{stringliteral}{"hello"}: \textcolor{stringliteral}{"world"},
+    \textcolor{stringliteral}{"t"}: true ,
+    \textcolor{stringliteral}{"f"}: \textcolor{keyword}{false},
+    \textcolor{stringliteral}{"n"}: null,
+    \textcolor{stringliteral}{"i"}: 123,
+    \textcolor{stringliteral}{"pi"}: 3.1416,
+    \textcolor{stringliteral}{"a"}: [1, 2, 3, 4]
+\}
+\end{DoxyCode}
+
+
+当一个{\ttfamily Reader}解析此\+J\+S\+O\+N时，它会顺序地向处理器发送以下的事件：
+
+
+\begin{DoxyCode}
+1 StartObject()
+2 Key("hello", 5, true)
+3 String("world", 5, true)
+4 Key("t", 1, true)
+5 Bool(true)
+6 Key("f", 1, true)
+7 Bool(false)
+8 Key("n", 1, true)
+9 Null()
+10 Key("i")
+11 UInt(123)
+12 Key("pi")
+13 Double(3.1416)
+14 Key("a")
+15 StartArray()
+16 Uint(1)
+17 Uint(2)
+18 Uint(3)
+19 Uint(4)
+20 EndArray(4)
+21 EndObject(7)
+\end{DoxyCode}
+
+
+除了一些事件参数需要再作解释，这些事件可以轻松地与\+J\+S\+O\+N对上。我们可以看看{\ttfamily simplereader}例子怎样产生和以上完全相同的结果：
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{reader_8h}{rapidjson/reader.h}"}
+\textcolor{preprocessor}{#include <iostream>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keyword}{struct }MyHandler \{
+    \textcolor{keywordtype}{bool} Null() \{ cout << \textcolor{stringliteral}{"Null()"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Bool(\textcolor{keywordtype}{bool} b) \{ cout << \textcolor{stringliteral}{"Bool("} << boolalpha << b << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Int(\textcolor{keywordtype}{int} i) \{ cout << \textcolor{stringliteral}{"Int("} << i << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Uint(\textcolor{keywordtype}{unsigned} u) \{ cout << \textcolor{stringliteral}{"Uint("} << u << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Int64(int64\_t i) \{ cout << \textcolor{stringliteral}{"Int64("} << i << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Uint64(uint64\_t u) \{ cout << \textcolor{stringliteral}{"Uint64("} << u << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Double(\textcolor{keywordtype}{double} d) \{ cout << \textcolor{stringliteral}{"Double("} << d << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} String(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool} copy) \{ 
+        cout << \textcolor{stringliteral}{"String("} << str << \textcolor{stringliteral}{", "} << length << \textcolor{stringliteral}{", "} << boolalpha << copy << \textcolor{stringliteral}{")"} << endl;
+        \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+    \}
+    \textcolor{keywordtype}{bool} StartObject() \{ cout << \textcolor{stringliteral}{"StartObject()"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} Key(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool} copy) \{ 
+        cout << \textcolor{stringliteral}{"Key("} << str << \textcolor{stringliteral}{", "} << length << \textcolor{stringliteral}{", "} << boolalpha << copy << \textcolor{stringliteral}{")"} << endl;
+        \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+    \}
+    \textcolor{keywordtype}{bool} EndObject(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} memberCount) \{ cout << \textcolor{stringliteral}{"EndObject("} << memberCount << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{
+      return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} StartArray() \{ cout << \textcolor{stringliteral}{"StartArray()"} << endl; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+    \textcolor{keywordtype}{bool} EndArray(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} elementCount) \{ cout << \textcolor{stringliteral}{"EndArray("} << elementCount << \textcolor{stringliteral}{")"} << endl; \textcolor{keywordflow}{
+      return} \textcolor{keyword}{true}; \}
+\};
+
+\textcolor{keywordtype}{void} main() \{
+    \textcolor{keyword}{const} \textcolor{keywordtype}{char} json[] = \textcolor{stringliteral}{" \{ \(\backslash\)"hello\(\backslash\)" : \(\backslash\)"world\(\backslash\)", \(\backslash\)"t\(\backslash\)" : true , \(\backslash\)"f\(\backslash\)" : false, \(\backslash\)"n\(\backslash\)": null, \(\backslash\)"i\(\backslash\)":123, \(\backslash\)"
+      pi\(\backslash\)": 3.1416, \(\backslash\)"a\(\backslash\)":[1, 2, 3, 4] \} "};
+
+    MyHandler handler;
+    \hyperlink{class_generic_reader}{Reader} reader;
+    \hyperlink{struct_generic_string_stream}{StringStream} ss(json);
+    reader.\hyperlink{class_generic_reader_a0c450620d14ff1824e58bb7bd9b42099}{Parse}(ss, handler);
+\}
+\end{DoxyCode}
+
+
+注意\+Rapid\+J\+S\+O\+N使用模板去静态挷定{\ttfamily Reader}类型及处理器的类形，而不是使用含虚函数的类。这个范式可以通过把函数内联而改善性能。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Handler}{}\subsection{Handler}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Handler}
+如前例所示，使用者需要实现一个处理器（handler），用于处理来自{\ttfamily Reader}的事件（函数调用）。处理器必须包含以下的成员函数。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }Handler \{
+    \textcolor{keywordtype}{bool} Null();
+    \textcolor{keywordtype}{bool} Bool(\textcolor{keywordtype}{bool} b);
+    \textcolor{keywordtype}{bool} Int(\textcolor{keywordtype}{int} i);
+    \textcolor{keywordtype}{bool} Uint(\textcolor{keywordtype}{unsigned} i);
+    \textcolor{keywordtype}{bool} Int64(int64\_t i);
+    \textcolor{keywordtype}{bool} Uint64(uint64\_t i);
+    \textcolor{keywordtype}{bool} Double(\textcolor{keywordtype}{double} d);
+    \textcolor{keywordtype}{bool} String(\textcolor{keyword}{const} Ch* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool} copy);
+    \textcolor{keywordtype}{bool} StartObject();
+    \textcolor{keywordtype}{bool} Key(\textcolor{keyword}{const} Ch* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool} copy);
+    \textcolor{keywordtype}{bool} EndObject(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} memberCount);
+    \textcolor{keywordtype}{bool} StartArray();
+    \textcolor{keywordtype}{bool} EndArray(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} elementCount);
+\};
+\end{DoxyCode}
+
+
+当{\ttfamily Reader}遇到\+J\+S\+ON null值时会调用{\ttfamily Null()}。
+
+当{\ttfamily Reader}遇到\+J\+S\+ON true或false值时会调用{\ttfamily Bool(bool)}。
+
+当{\ttfamily Reader}遇到\+J\+S\+ON number，它会选择一个合适的\+C++类型映射，然后调用{\ttfamily Int(int)}、{\ttfamily Uint(unsigned)}、{\ttfamily Int64(int64\+\_\+t)}、{\ttfamily Uint64(uint64\+\_\+t)}及{\ttfamily Double(double)}的$\ast$其中之一个$\ast$。
+
+当{\ttfamily Reader}遇到\+J\+S\+ON string，它会调用{\ttfamily String(const char$\ast$ str, Size\+Type length, bool copy)}。第一个参数是字符串的指针。第二个参数是字符串的长度（不包含空终止符号）。注意\+Rapid\+J\+S\+O\+N支持字串中含有空字符`\textquotesingle{}\textbackslash{}0\textquotesingle{}{\ttfamily 。若出现这种情况，便会有}strlen(str) $<$ length{\ttfamily 。最后的}copy{\ttfamily 参数表示处理器是否需要复制该字符串。在正常解析时，}copy = true{\ttfamily 。仅当使用原位解析时，}copy = false`。此外，还要注意字符的类型与目标编码相关，我们稍后会再谈这一点。
+
+当{\ttfamily Reader}遇到\+J\+S\+ON object的开始之时，它会调用{\ttfamily Start\+Object()}。\+J\+S\+O\+N的object是一个键值对（成员）的集合。若object包含成员，它会先为成员的名字调用{\ttfamily Key()}，然后再按值的类型调用函数。它不断调用这些键值对，直至最终调用{\ttfamily End\+Object(\+Size\+Type member\+Count)}。注意{\ttfamily member\+Count}参数对处理器来说只是协助性质，使用者可能不需要此参数。
+
+J\+S\+ON array与object相似，但更简单。在array开始时，{\ttfamily Reader}会调用{\ttfamily Begin\+Arary()}。若array含有元素，它会按元素的类型来读用函数。相似地，最后它会调用{\ttfamily End\+Array(\+Size\+Type element\+Count)}，其中{\ttfamily element\+Count}参数对处理器来说只是协助性质。
+
+每个处理器函数都返回一个{\ttfamily bool}。正常它们应返回{\ttfamily true}。若处理器遇到错误，它可以返回{\ttfamily false}去通知事件发送方停止继续处理。
+
+例如，当我们用{\ttfamily Reader}解析一个\+J\+S\+O\+N时，处理器检测到该\+J\+S\+O\+N并不符合所需的schema，那么处理器可以返回{\ttfamily false}，令{\ttfamily Reader}停止之后的解析工作。而{\ttfamily Reader}会进入一个错误状态，并以{\ttfamily k\+Parse\+Error\+Termination}错误码标识。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_GenericReader}{}\subsection{Generic\+Reader}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_GenericReader}
+前面提及，{\ttfamily Reader}是{\ttfamily \hyperlink{class_generic_reader}{Generic\+Reader}}模板类的typedef：
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{namespace }\hyperlink{namespacerapidjson}{rapidjson} \{
+
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} SourceEncoding, \textcolor{keyword}{typename} TargetEncoding, \textcolor{keyword}{typename} Allocator = MemoryPoolAllocator<> >
+\textcolor{keyword}{class }\hyperlink{class_generic_reader}{GenericReader} \{
+    \textcolor{comment}{// ...}
+\};
+
+\textcolor{keyword}{typedef} \hyperlink{class_generic_reader}{GenericReader<UTF8<>}, \hyperlink{struct_u_t_f8}{UTF8<>} > \hyperlink{reader_8h_a84f3b66a66647f4ac4267078359188ba}{Reader};
+
+\} \textcolor{comment}{// namespace rapidjson}
+\end{DoxyCode}
+
+
+{\ttfamily Reader}使用\+U\+T\+F-\/8作为来源及目标编码。来源编码是指\+J\+S\+O\+N流的编码。目标编码是指{\ttfamily String()}的{\ttfamily str}参数所用的编码。例如，要解析一个\+U\+T\+F-\/8流并输出至\+U\+T\+F-\/16 string事件，你需要这么定义一个reader：
+
+
+\begin{DoxyCode}
+\hyperlink{class_generic_reader}{GenericReader<UTF8<>}, \hyperlink{struct_u_t_f16}{UTF16<>} > reader;
+\end{DoxyCode}
+
+
+注意到{\ttfamily \hyperlink{struct_u_t_f16}{U\+T\+F16}}的缺省类型是{\ttfamily wchar\+\_\+t}。因此这个{\ttfamily reader}需要调用处理器的{\ttfamily String(const wchar\+\_\+t$\ast$, Size\+Type, bool)}。
+
+第三个模板参数{\ttfamily Allocator}是内部数据结构（实际上是一个堆栈）的分配器类型。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Parsing}{}\subsection{Parsing}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Parsing}
+{\ttfamily Reader}的唯一功能就是解析\+J\+S\+O\+N。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keywordtype}{unsigned} parseFlags, \textcolor{keyword}{typename} InputStream, \textcolor{keyword}{typename} Handler>
+\textcolor{keywordtype}{bool} Parse(InputStream& is, Handler& handler);
+
+\textcolor{comment}{// 使用 parseFlags = kDefaultParseFlags}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} InputStream, \textcolor{keyword}{typename} Handler>
+\textcolor{keywordtype}{bool} Parse(InputStream& is, Handler& handler);
+\end{DoxyCode}
+
+
+若在解析中出现错误，它会返回{\ttfamily false}。使用者可调用{\ttfamily bool Has\+Parse\+Eror()}, {\ttfamily Parse\+Error\+Code Get\+Parse\+Error\+Code()}及{\ttfamily size\+\_\+t Get\+Error\+Offset()}获取错误状态。实际上{\ttfamily Document}使用这些{\ttfamily Reader}函数去获取解析错误。请参考D\+OM去了解有关解析错误的细节。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Writer}{}\section{Writer}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Writer}
+{\ttfamily Reader}把\+J\+S\+O\+N转换（解析）成为事件。{\ttfamily \hyperlink{class_writer}{Writer}}完全做相反的事情。它把事件转换成\+J\+S\+O\+N。
+
+{\ttfamily \hyperlink{class_writer}{Writer}}是非常容易使用的。若你的应用程序只需把一些数据转换成\+J\+S\+O\+N，可能直接使用{\ttfamily \hyperlink{class_writer}{Writer}}，会比建立一个{\ttfamily Document}然后用{\ttfamily \hyperlink{class_writer}{Writer}}把它转换成\+J\+S\+O\+N更加方便。
+
+在{\ttfamily simplewriter}例子里，我们做{\ttfamily simplereader}完全相反的事情。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "rapidjson/writer.h"}
+\textcolor{preprocessor}{#include "rapidjson/stringbuffer.h"}
+\textcolor{preprocessor}{#include <iostream>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+\textcolor{keyword}{using namespace }std;
+
+\textcolor{keywordtype}{void} main() \{
+    \hyperlink{class_generic_string_buffer}{StringBuffer} s;
+    \hyperlink{class_writer}{Writer<StringBuffer>} writer(s);
+
+    writer.StartObject();
+    writer.Key(\textcolor{stringliteral}{"hello"});
+    writer.String(\textcolor{stringliteral}{"world"});
+    writer.Key(\textcolor{stringliteral}{"t"});
+    writer.Bool(\textcolor{keyword}{true});
+    writer.Key(\textcolor{stringliteral}{"f"});
+    writer.Bool(\textcolor{keyword}{false});
+    writer.Key(\textcolor{stringliteral}{"n"});
+    writer.Null();
+    writer.Key(\textcolor{stringliteral}{"i"});
+    writer.Uint(123);
+    writer.Key(\textcolor{stringliteral}{"pi"});
+    writer.Double(3.1416);
+    writer.Key(\textcolor{stringliteral}{"a"});
+    writer.StartArray();
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < 4; i++)
+        writer.Uint(i);
+    writer.EndArray();
+    writer.EndObject();
+
+    cout << s.GetString() << endl;
+\}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{"hello":"world","t":true,"f":false,"n":null,"i":123,"pi":3.1416,"a":[0,1,2,3]\}
+\end{DoxyCode}
+
+
+{\ttfamily String()}及{\ttfamily Key()}各有两个重载。一个是如处理器concept般，有3个参数。它能处理含空字符的字符串。另一个是如上中使用的较简单版本。
+
+注意到，例子代码中的{\ttfamily End\+Array()}及{\ttfamily End\+Object()}并没有参数。可以传递一个{\ttfamily Size\+Type}的参数，但它会被{\ttfamily \hyperlink{class_writer}{Writer}}忽略。
+
+你可能会怀疑，为什么不使用{\ttfamily sprintf()}或{\ttfamily std\+::stringstream}去建立一个\+J\+S\+O\+N？
+
+这有几个原因：
+\begin{DoxyEnumerate}
+\item {\ttfamily \hyperlink{class_writer}{Writer}}必然会输出一个结构良好（well-\/formed）的\+J\+S\+O\+N。若然有错误的事件次序（如{\ttfamily Int()}紧随{\ttfamily Start\+Object()}出现），它会在调试模式中产生断言失败。
+\item {\ttfamily Writer\+::\+String()}可处理字符串转义（如把码点{\ttfamily U+000A}转换成{\ttfamily \textbackslash{}n}）及进行\+Unicode转码。
+\item {\ttfamily \hyperlink{class_writer}{Writer}}一致地处理number的输出。
+\item {\ttfamily \hyperlink{class_writer}{Writer}}实现了事件处理器concept。可用于处理来自{\ttfamily Reader}、{\ttfamily Document}或其他事件发生器。
+\item {\ttfamily \hyperlink{class_writer}{Writer}}可对不同平台进行优化。
+\end{DoxyEnumerate}
+
+无论如何，使用{\ttfamily \hyperlink{class_writer}{Writer}} A\+P\+I去生成\+J\+S\+O\+N甚至乎比这些临时方法更简单。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_WriterTemplate}{}\subsection{Template}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_WriterTemplate}
+{\ttfamily \hyperlink{class_writer}{Writer}}与{\ttfamily Reader}有少许设计区别。{\ttfamily \hyperlink{class_writer}{Writer}}是一个模板类，而不是一个typedef。 并没有{\ttfamily Generic\+Writer}。以下是{\ttfamily \hyperlink{class_writer}{Writer}}的声明。
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{namespace }\hyperlink{namespacerapidjson}{rapidjson} \{
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} OutputStream, \textcolor{keyword}{typename} SourceEncoding = UTF8<>, \textcolor{keyword}{typename} TargetEncoding = UTF8<>, \textcolor{keyword}{
+      typename} Allocator = CrtAllocator<> >
+\textcolor{keyword}{class }\hyperlink{class_writer}{Writer} \{
+\textcolor{keyword}{public}:
+    \hyperlink{class_writer}{Writer}(OutputStream& os, Allocator* allocator = 0, \textcolor{keywordtype}{size\_t} levelDepth = kDefaultLevelDepth)
+\textcolor{comment}{// ...}
+\};
+
+\} \textcolor{comment}{// namespace rapidjson}
+\end{DoxyCode}
+
+
+{\ttfamily Output\+Stream}模板参数是输出流的类型。它的类型不可以被自动推断，必须由使用者提供。
+
+{\ttfamily Source\+Encoding}模板参数指定了{\ttfamily String(const Ch$\ast$, ...)}的编码。
+
+{\ttfamily Target\+Encoding}模板参数指定输出流的编码。
+
+最后一个{\ttfamily Allocator}是分配器的类型，用于分配内部数据结构（一个堆栈）。
+
+此外，{\ttfamily \hyperlink{class_writer}{Writer}}的构造函数有一{\ttfamily level\+Depth}参数。存储每层阶信息的初始内存分配量受此参数影响。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_PrettyWriter}{}\subsection{Pretty\+Writer}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_PrettyWriter}
+{\ttfamily \hyperlink{class_writer}{Writer}}所输出的是没有空格字符的最紧凑\+J\+S\+O\+N，适合网络传输或储存，但就适合人类阅读。
+
+因此，\+Rapid\+J\+S\+O\+N提供了一个{\ttfamily \hyperlink{class_pretty_writer}{Pretty\+Writer}}，它在输出中加入缩进及换行。
+
+{\ttfamily \hyperlink{class_pretty_writer}{Pretty\+Writer}}的用法与{\ttfamily \hyperlink{class_writer}{Writer}}几乎一样，不同之处是{\ttfamily \hyperlink{class_pretty_writer}{Pretty\+Writer}}提供了一个{\ttfamily Set\+Indent(\+Ch indent\+Char, unsigned indent\+Char\+Count)}函数。缺省的缩进是4个空格。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_CompletenessReset}{}\subsection{Completeness and Reset}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_CompletenessReset}
+一个{\ttfamily \hyperlink{class_writer}{Writer}}只可输出单个\+J\+S\+O\+N，其根节点可以是任何\+J\+S\+O\+N类型。当处理完单个根节点事件（如{\ttfamily String()}），或匹配的最后{\ttfamily End\+Object()}或{\ttfamily End\+Array()}事件，输出的\+J\+S\+O\+N是结构完整（well-\/formed）及完整的。使用者可调用{\ttfamily \hyperlink{class_writer_aced42429d1b31a565c5ca0310bf4e276}{Writer\+::\+Is\+Complete()}}去检测完整性。
+
+当\+J\+S\+O\+N完整时，{\ttfamily \hyperlink{class_writer}{Writer}}不能再接受新的事件。不然其输出便会是不合法的（例如有超过一个根节点）。为了重新利用{\ttfamily \hyperlink{class_writer}{Writer}}对象，使用者可调用{\ttfamily \hyperlink{class_writer_a4e5bd5e6364edca476125b511b3dca9c}{Writer\+::\+Reset(\+Output\+Stream\& os)}}去重置其所有内部状态及设置新的输出流。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Techniques}{}\section{Techniques}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Techniques}
+\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_CustomDataStructure}{}\subsection{Parsing J\+S\+O\+N to Custom Data Structure}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_CustomDataStructure}
+{\ttfamily Document}的解析功能完全依靠{\ttfamily Reader}。实际上{\ttfamily Document}是一个处理器，在解析\+J\+S\+O\+N时接收事件去建立一个\+D\+O\+M。
+
+使用者可以直接使用{\ttfamily Reader}去建立其他数据结构。这消除了建立\+D\+O\+M的步骤，从而减少了内存开销并改善性能。
+
+在以下的{\ttfamily messagereader}例子中，{\ttfamily Parse\+Messages()}解析一个\+J\+S\+O\+N，该\+J\+S\+O\+N应该是一个含键值对的object。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{reader_8h}{rapidjson/reader.h}"}
+\textcolor{preprocessor}{#include "rapidjson/error/en.h"}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <string>}
+\textcolor{preprocessor}{#include <map>}
+
+\textcolor{keyword}{using namespace }std;
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keyword}{typedef} map<string, string> MessageMap;
+
+\textcolor{keyword}{struct }MessageHandler
+    : \textcolor{keyword}{public} \hyperlink{struct_base_reader_handler}{BaseReaderHandler}<UTF8<>, MessageHandler> \{
+    MessageHandler() : state\_(kExpectObjectStart) \{
+    \}
+
+    \textcolor{keywordtype}{bool} StartObject() \{
+        \textcolor{keywordflow}{switch} (state\_) \{
+        \textcolor{keywordflow}{case} kExpectObjectStart:
+            state\_ = kExpectNameOrObjectEnd;
+            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+        \textcolor{keywordflow}{default}:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+    \}
+
+    \textcolor{keywordtype}{bool} String(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool}) \{
+        \textcolor{keywordflow}{switch} (state\_) \{
+        \textcolor{keywordflow}{case} kExpectNameOrObjectEnd:
+            name\_ = string(str, length);
+            state\_ = kExpectValue;
+            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+        \textcolor{keywordflow}{case} kExpectValue:
+            messages\_.insert(MessageMap::value\_type(name\_, \textcolor{keywordtype}{string}(str, length)));
+            state\_ = kExpectNameOrObjectEnd;
+            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+        \textcolor{keywordflow}{default}:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+    \}
+
+    \textcolor{keywordtype}{bool} EndObject(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType}) \{ \textcolor{keywordflow}{return} state\_ == kExpectNameOrObjectEnd; \}
+
+    \textcolor{keywordtype}{bool} Default() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \} \textcolor{comment}{// All other events are invalid.}
+
+    MessageMap messages\_;
+    \textcolor{keyword}{enum} State \{
+        kExpectObjectStart,
+        kExpectNameOrObjectEnd,
+        kExpectValue,
+    \}state\_;
+    std::string name\_;
+\};
+
+\textcolor{keywordtype}{void} ParseMessages(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* json, MessageMap& messages) \{
+    \hyperlink{class_generic_reader}{Reader} reader;
+    MessageHandler handler;
+    \hyperlink{struct_generic_string_stream}{StringStream} ss(json);
+    \textcolor{keywordflow}{if} (reader.\hyperlink{class_generic_reader_a0c450620d14ff1824e58bb7bd9b42099}{Parse}(ss, handler))
+        messages.swap(handler.messages\_);   \textcolor{comment}{// Only change it if success.}
+    \textcolor{keywordflow}{else} \{
+        \hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga8d4b32dfc45840bca189ade2bbcb6ba7}{ParseErrorCode} e = reader.\hyperlink{class_generic_reader_ac45a26246877c4daa85021ae67caa017}{GetParseErrorCode}();
+        \textcolor{keywordtype}{size\_t} o = reader.\hyperlink{class_generic_reader_a77399ac40cca1fb113a2d507f476b4e7}{GetErrorOffset}();
+        cout << \textcolor{stringliteral}{"Error: "} << \hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga755b523205f46c980c80d12e230a3abd}{GetParseError\_En}(e) << endl;;
+        cout << \textcolor{stringliteral}{" at offset "} << o << \textcolor{stringliteral}{" near '"} << string(json).substr(o, 10) << \textcolor{stringliteral}{"...'"} << endl;
+    \}
+\}
+
+\textcolor{keywordtype}{int} main() \{
+    MessageMap messages;
+
+    \textcolor{keyword}{const} \textcolor{keywordtype}{char}* json1 = \textcolor{stringliteral}{"\{ \(\backslash\)"greeting\(\backslash\)" : \(\backslash\)"Hello!\(\backslash\)", \(\backslash\)"farewell\(\backslash\)" : \(\backslash\)"bye-bye!\(\backslash\)" \}"};
+    cout << json1 << endl;
+    ParseMessages(json1, messages);
+
+    \textcolor{keywordflow}{for} (MessageMap::const\_iterator itr = messages.begin(); itr != messages.end(); ++itr)
+        cout << itr->first << \textcolor{stringliteral}{": "} << itr->second << endl;
+
+    cout << endl << \textcolor{stringliteral}{"Parse a JSON with invalid schema."} << endl;
+    \textcolor{keyword}{const} \textcolor{keywordtype}{char}* json2 = \textcolor{stringliteral}{"\{ \(\backslash\)"greeting\(\backslash\)" : \(\backslash\)"Hello!\(\backslash\)", \(\backslash\)"farewell\(\backslash\)" : \(\backslash\)"bye-bye!\(\backslash\)", \(\backslash\)"foo\(\backslash\)" : \{\} \}"};
+    cout << json2 << endl;
+    ParseMessages(json2, messages);
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+1 \{ "greeting" : "Hello!", "farewell" : "bye-bye!" \}
+2 farewell: bye-bye!
+3 greeting: Hello!
+4 
+5 Parse a JSON with invalid schema.
+6 \{ "greeting" : "Hello!", "farewell" : "bye-bye!", "foo" : \{\} \}
+7 Error: Terminate parsing due to Handler error.
+8  at offset 59 near '\} \}...'
+\end{DoxyCode}
+
+
+第一个\+J\+S\+O\+N（{\ttfamily json1}）被成功地解析至{\ttfamily Message\+Map}。由于{\ttfamily Message\+Map}是一个{\ttfamily std\+::map}，列印次序按键值排序。此次序与\+J\+S\+O\+N中的次序不同。
+
+在第二个\+J\+S\+O\+N（{\ttfamily json2}）中，{\ttfamily foo}的值是一个空object。由于它是一个object，{\ttfamily Message\+Handler\+::\+Start\+Object()}会被调用。然而，在{\ttfamily state\+\_\+ = k\+Expect\+Value}的情况下，该函数会返回{\ttfamily false}，并令到解析过程终止。错误代码是{\ttfamily k\+Parse\+Error\+Termination}。\hypertarget{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Filtering}{}\subsection{Filtering of J\+S\+ON}\label{md_Cadriciel_Commun_Externe_RapidJSON_doc_sax.zh-cn_Filtering}
+如前面提及过，{\ttfamily \hyperlink{class_writer}{Writer}}可处理{\ttfamily Reader}发出的事件。{\ttfamily condense}例子简单地设置{\ttfamily \hyperlink{class_writer}{Writer}}作为一个{\ttfamily Reader}的处理器，因此它能移除\+J\+S\+O\+N中的所有空白字符。{\ttfamily pretty}例子使用同样的关系，只是以{\ttfamily \hyperlink{class_pretty_writer}{Pretty\+Writer}}取代{\ttfamily \hyperlink{class_writer}{Writer}}。因此{\ttfamily pretty}能够重新格式化\+J\+S\+O\+N，加入缩进及换行。
+
+实际上，我们可以使用\+S\+A\+X风格\+A\+P\+I去加入（多个）中间层去过滤\+J\+S\+O\+N的内容。例如{\ttfamily capitalize}例子可以把所有\+J\+S\+ON string改为大写。
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{reader_8h}{rapidjson/reader.h}"}
+\textcolor{preprocessor}{#include "rapidjson/writer.h"}
+\textcolor{preprocessor}{#include "rapidjson/filereadstream.h"}
+\textcolor{preprocessor}{#include "rapidjson/filewritestream.h"}
+\textcolor{preprocessor}{#include "rapidjson/error/en.h"}
+\textcolor{preprocessor}{#include <vector>}
+\textcolor{preprocessor}{#include <cctype>}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacerapidjson}{rapidjson};
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} OutputHandler>
+\textcolor{keyword}{struct }CapitalizeFilter \{
+    CapitalizeFilter(OutputHandler& out) : out\_(out), buffer\_() \{
+    \}
+
+    \textcolor{keywordtype}{bool} Null() \{ \textcolor{keywordflow}{return} out\_.Null(); \}
+    \textcolor{keywordtype}{bool} Bool(\textcolor{keywordtype}{bool} b) \{ \textcolor{keywordflow}{return} out\_.Bool(b); \}
+    \textcolor{keywordtype}{bool} Int(\textcolor{keywordtype}{int} i) \{ \textcolor{keywordflow}{return} out\_.Int(i); \}
+    \textcolor{keywordtype}{bool} Uint(\textcolor{keywordtype}{unsigned} u) \{ \textcolor{keywordflow}{return} out\_.Uint(u); \}
+    \textcolor{keywordtype}{bool} Int64(int64\_t i) \{ \textcolor{keywordflow}{return} out\_.Int64(i); \}
+    \textcolor{keywordtype}{bool} Uint64(uint64\_t u) \{ \textcolor{keywordflow}{return} out\_.Uint64(u); \}
+    \textcolor{keywordtype}{bool} Double(\textcolor{keywordtype}{double} d) \{ \textcolor{keywordflow}{return} out\_.Double(d); \}
+    \textcolor{keywordtype}{bool} String(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool}) \{ 
+        buffer\_.clear();
+        \textcolor{keywordflow}{for} (\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} i = 0; i < \hyperlink{group__core__func__geometric_ga03b2831439defb8922832b540b91b8a7}{length}; i++)
+            buffer\_.push\_back(std::toupper(str[i]));
+        \textcolor{keywordflow}{return} out\_.String(&buffer\_.front(), \hyperlink{group__core__func__geometric_ga03b2831439defb8922832b540b91b8a7}{length}, \textcolor{keyword}{true}); \textcolor{comment}{// true = output handler need to copy the
+       string}
+    \}
+    \textcolor{keywordtype}{bool} StartObject() \{ \textcolor{keywordflow}{return} out\_.StartObject(); \}
+    \textcolor{keywordtype}{bool} Key(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} length, \textcolor{keywordtype}{bool} copy) \{ \textcolor{keywordflow}{return} String(str, length, copy); \}
+    \textcolor{keywordtype}{bool} EndObject(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} memberCount) \{ \textcolor{keywordflow}{return} out\_.EndObject(memberCount); \}
+    \textcolor{keywordtype}{bool} StartArray() \{ \textcolor{keywordflow}{return} out\_.StartArray(); \}
+    \textcolor{keywordtype}{bool} EndArray(\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{SizeType} elementCount) \{ \textcolor{keywordflow}{return} out\_.EndArray(elementCount); \}
+
+    OutputHandler& out\_;
+    std::vector<char> buffer\_;
+\};
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{char}*[]) \{
+    \textcolor{comment}{// Prepare JSON reader and input stream.}
+    \hyperlink{class_generic_reader}{Reader} reader;
+    \textcolor{keywordtype}{char} readBuffer[65536];
+    \hyperlink{class_file_read_stream}{FileReadStream} is(stdin, readBuffer, \textcolor{keyword}{sizeof}(readBuffer));
+
+    \textcolor{comment}{// Prepare JSON writer and output stream.}
+    \textcolor{keywordtype}{char} writeBuffer[65536];
+    \hyperlink{class_file_write_stream}{FileWriteStream} os(stdout, writeBuffer, \textcolor{keyword}{sizeof}(writeBuffer));
+    \hyperlink{class_writer}{Writer<FileWriteStream>} writer(os);
+
+    \textcolor{comment}{// JSON reader parse from the input stream and let writer generate the output.}
+    CapitalizeFilter<Writer<FileWriteStream> > filter(writer);
+    \textcolor{keywordflow}{if} (!reader.\hyperlink{class_generic_reader_a0c450620d14ff1824e58bb7bd9b42099}{Parse}(is, filter)) \{
+        fprintf(stderr, \textcolor{stringliteral}{"\(\backslash\)nError(%u): %s\(\backslash\)n"}, (\textcolor{keywordtype}{unsigned})reader.\hyperlink{class_generic_reader_a77399ac40cca1fb113a2d507f476b4e7}{GetErrorOffset}(), 
+      \hyperlink{group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s_ga755b523205f46c980c80d12e230a3abd}{GetParseError\_En}(reader.\hyperlink{class_generic_reader_ac45a26246877c4daa85021ae67caa017}{GetParseErrorCode}()));
+        \textcolor{keywordflow}{return} 1;
+    \}
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+
+
+注意到，不可简单地把\+J\+S\+O\+N当作字符串去改为大写。例如： 
+\begin{DoxyCode}
+1 ["Hello\(\backslash\)nWorld"]
+\end{DoxyCode}
+
+
+简单地把整个\+J\+S\+O\+N转为大写的话会产生错误的转义符： 
+\begin{DoxyCode}
+1 ["HELLO\(\backslash\)NWORLD"]
+\end{DoxyCode}
+
+
+而{\ttfamily capitalize}就会产生正确的结果： 
+\begin{DoxyCode}
+1 ["HELLO\(\backslash\)nWORLD"]
+\end{DoxyCode}
+
+
+我们还可以开发更复杂的过滤器。然而，由于\+S\+A\+X风格\+A\+P\+I在某一时间点只能提供单一事件的信息，使用者需要自行记录一些上下文信息（例如从根节点起的路径、储存其他相关值）。对些一些处理情况，用\+D\+O\+M会比\+S\+A\+X更容易实现。 
